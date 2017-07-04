@@ -13,6 +13,7 @@ toc_footers:
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
+  - listing
   - errors
 
 search: true
@@ -32,10 +33,9 @@ We use [Client Credentials Grant](https://tools.ietf.org/html/rfc6749#page-40) o
 
 ```shell
 curl -X POST \
-  http://api.hostaway.local/v1/accessTokens \
+  http://api.hostaway.com/v1/accessTokens \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/x-www-form-urlencoded' \
-  -H 'postman-token: 7d6d594b-54be-167c-6af9-b4cdcae3ac5c' \
   -d 'grant_type=client_credentials&client_id=10450&client_secret=yourclientsecret&scope=general'
 ```
 
@@ -45,7 +45,7 @@ curl -X POST \
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://api.hostaway.local/v1/accessTokens",
+  CURLOPT_URL => "http://api.hostaway.com/v1/accessTokens",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -55,8 +55,7 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => "grant_type=client_credentials&client_id=10450&client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&scope=general",
   CURLOPT_HTTPHEADER => array(
     "cache-control: no-cache",
-    "content-type: application/x-www-form-urlencoded",
-    "postman-token: 807dfb7d-759a-2dc1-042e-7f959ec84024"
+    "content-type: application/x-www-form-urlencoded"
   ),
 ));
 
@@ -84,10 +83,9 @@ xhr.addEventListener("readystatechange", function () {
   }
 });
 
-xhr.open("POST", "http://api.hostaway.local/v1/accessTokens");
+xhr.open("POST", "http://api.hostaway.com/v1/accessTokens");
 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
 xhr.setRequestHeader("cache-control", "no-cache");
-xhr.setRequestHeader("postman-token", "b58d7d72-fb35-fb47-61e0-7647e850df49");
 
 xhr.send(data);
 ```
@@ -98,11 +96,10 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
 RequestBody body = RequestBody.create(mediaType, "grant_type=client_credentials&client_id=10450&client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&scope=general");
 Request request = new Request.Builder()
-  .url("http://api.hostaway.local/v1/accessTokens")
+  .url("http://api.hostaway.com/v1/accessTokens")
   .post(body)
   .addHeader("content-type", "application/x-www-form-urlencoded")
   .addHeader("cache-control", "no-cache")
-  .addHeader("postman-token", "75f1d83b-4455-7660-5f0c-47f9d910063f")
   .build();
 
 Response response = client.newCall(request).execute();
@@ -111,14 +108,13 @@ Response response = client.newCall(request).execute();
 ```python
 import http.client
 
-conn = http.client.HTTPConnection("api.hostaway.local")
+conn = http.client.HTTPConnection("api.hostaway.com")
 
 payload = "grant_type=client_credentials&client_id=10450&client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&scope=general"
 
 headers = {
     'content-type': "application/x-www-form-urlencoded",
-    'cache-control': "no-cache",
-    'postman-token': "f017c0a5-a3bf-5e27-ce43-cc1f8f8bdd8b"
+    'cache-control': "no-cache"
     }
 
 conn.request("POST", "/v1/accessTokens", payload, headers)
@@ -130,7 +126,7 @@ print(data.decode("utf-8"))
 ```
 
 - Method: `POST`
-- Endpoint: `http://api.hostaway.local/v1/accessTokens`
+- Endpoint: `http://api.hostaway.com/v1/accessTokens`
 
 To issue a new access token the client sends a `POST` request with following request body parameters to the 
 authorization server endpoint:
