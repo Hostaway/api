@@ -242,17 +242,16 @@ Hostaway Public API is RESTful, JSON data format is used in both requests and re
 
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-  http://api.hostaway.local/v1/accessTokens <span class="se">\</span>
+  http://api.hostaway.com/v1/accessTokens <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
-  -H <span class="s1">'postman-token: 7d6d594b-54be-167c-6af9-b4cdcae3ac5c'</span> <span class="se">\</span>
   -d <span class="s1">'grant_type=client_credentials&amp;client_id=10450&amp;client_secret=yourclientsecret&amp;scope=general'</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"http://api.hostaway.local/v1/accessTokens"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"http://api.hostaway.com/v1/accessTokens"</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
   <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
@@ -262,8 +261,7 @@ Hostaway Public API is RESTful, JSON data format is used in both requests and re
   <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"grant_type=client_credentials&amp;client_id=10450&amp;client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&amp;scope=general"</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s2">"cache-control: no-cache"</span><span class="p">,</span>
-    <span class="s2">"content-type: application/x-www-form-urlencoded"</span><span class="p">,</span>
-    <span class="s2">"postman-token: 807dfb7d-759a-2dc1-042e-7f959ec84024"</span>
+    <span class="s2">"content-type: application/x-www-form-urlencoded"</span>
   <span class="p">),</span>
 <span class="p">));</span>
 
@@ -288,10 +286,9 @@ Hostaway Public API is RESTful, JSON data format is used in both requests and re
   <span class="p">}</span>
 <span class="p">});</span>
 
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"POST"</span><span class="p">,</span> <span class="s2">"http://api.hostaway.local/v1/accessTokens"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"POST"</span><span class="p">,</span> <span class="s2">"http://api.hostaway.com/v1/accessTokens"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"content-type"</span><span class="p">,</span> <span class="s2">"application/x-www-form-urlencoded"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"cache-control"</span><span class="p">,</span> <span class="s2">"no-cache"</span><span class="p">);</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"postman-token"</span><span class="p">,</span> <span class="s2">"b58d7d72-fb35-fb47-61e0-7647e850df49"</span><span class="p">);</span>
 
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
@@ -299,24 +296,22 @@ Hostaway Public API is RESTful, JSON data format is used in both requests and re
 <span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/x-www-form-urlencoded"</span><span class="o">);</span>
 <span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"grant_type=client_credentials&amp;client_id=10450&amp;client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&amp;scope=general"</span><span class="o">);</span>
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"http://api.hostaway.local/v1/accessTokens"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"http://api.hostaway.com/v1/accessTokens"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="n">body</span><span class="o">)</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"content-type"</span><span class="o">,</span> <span class="s">"application/x-www-form-urlencoded"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"cache-control"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"postman-token"</span><span class="o">,</span> <span class="s">"75f1d83b-4455-7660-5f0c-47f9d910063f"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
 <span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">http.client</span>
 
-<span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPConnection</span><span class="p">(</span><span class="s">"api.hostaway.local"</span><span class="p">)</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPConnection</span><span class="p">(</span><span class="s">"api.hostaway.com"</span><span class="p">)</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="s">"grant_type=client_credentials&amp;client_id=10450&amp;client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&amp;scope=general"</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'content-type'</span><span class="p">:</span> <span class="s">"application/x-www-form-urlencoded"</span><span class="p">,</span>
-    <span class="s">'cache-control'</span><span class="p">:</span> <span class="s">"no-cache"</span><span class="p">,</span>
-    <span class="s">'postman-token'</span><span class="p">:</span> <span class="s">"f017c0a5-a3bf-5e27-ce43-cc1f8f8bdd8b"</span>
+    <span class="s">'cache-control'</span><span class="p">:</span> <span class="s">"no-cache"</span>
     <span class="p">}</span>
 
 <span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="s">"/v1/accessTokens"</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
@@ -328,7 +323,7 @@ Hostaway Public API is RESTful, JSON data format is used in both requests and re
 </code></pre>
 <ul>
 <li>Method: <code class="prettyprint">POST</code></li>
-<li>Endpoint: <code class="prettyprint">http://api.hostaway.local/v1/accessTokens</code></li>
+<li>Endpoint: <code class="prettyprint">http://api.hostaway.com/v1/accessTokens</code></li>
 </ul>
 
 <p>To issue a new access token the client sends a <code class="prettyprint">POST</code> request with following request body parameters to the 
@@ -482,6 +477,10 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The ID of the kitten to retrieve</td>
 </tr>
 </tbody></table>
+
+          <h1 id="listings">Listings</h1>
+
+<p>The Kittn API uses the following error codes:</p>
 
           <h1 id="errors">Errors</h1>
 
