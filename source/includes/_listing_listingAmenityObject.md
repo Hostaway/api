@@ -10,4 +10,4 @@
 Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
 `id` | no | int | 
-`name` | yes | string | 
+`amenityId` | yes | int | 

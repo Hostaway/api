@@ -22,6 +22,10 @@ includes:
   - listing_createListing
   - listing_updateListing
   - listing_deleteListing
+  - reservation
+  - reservation_reservationObject
+  - reservation_retrieveReservationsList
+  - reservation_retrieveReservation
   - propertyType
   - errors
 

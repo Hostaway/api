@@ -155,7 +155,7 @@ Property | Required | Type | Description
 `guestsIncluded` | yes* | int | 
 `cleaningFee` | no | float | 
 `priceForExtraPerson` | yes* | float | 
-`instantBookable` | no | int | 
+`instantBookable` | no | bool | 
 `instantBookableLeadTime` | no | int | 
 `allowSameDayBooking` | no | int | 
 `sameDayBookingLeadTime` | no | int | 

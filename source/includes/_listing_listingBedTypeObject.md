@@ -11,5 +11,5 @@
 Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
 `id` | no | int | 
-`name` | yes | string | 
+`bedTypeId` | yes | int | 
 `quantity` | yes | int | 
