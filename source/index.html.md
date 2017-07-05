@@ -26,6 +26,13 @@ includes:
   - reservation_reservationObject
   - reservation_retrieveReservationsList
   - reservation_retrieveReservation
+  - reservation_createReservation
+  - reservation_updateReservation
+  - reservation_cancelReservation
+  - reservation_deleteReservation
+  - calendar
+  - calendar_calendarDayObject
+  - calendar_retrieveCalendar
   - propertyType
   - errors
 

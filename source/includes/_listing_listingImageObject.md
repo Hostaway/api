@@ -11,7 +11,7 @@
 
 Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
-`id` | no | int | 
+`id` | yes | int | 
 `caption` | no | string | 
 `url` | yes | string | 
 `sortOrder` | no | int | 

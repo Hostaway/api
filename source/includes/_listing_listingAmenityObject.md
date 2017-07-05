@@ -9,5 +9,5 @@
 
 Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
-`id` | no | int | 
+`id` | yes | int | 
 `amenityId` | yes | int | 

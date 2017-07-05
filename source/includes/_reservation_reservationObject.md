@@ -39,7 +39,7 @@
     "checkInTime": null,
     "checkOutTime": null,
     "nights": 1,
-    "phone": " 5125551212",
+    "phone": "+75125551212",
     "totalPrice": 267,
     "taxAmount": null,
     "channelCommissionAmount": null,
@@ -65,7 +65,7 @@
 
 Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
-`id` | no | int | 
+`id` | yes | int | 
 `listingMapId` | yes | int | Identifier of listing object.
 `channelId` | yes | int | 
 `channelName` | yes | string | 

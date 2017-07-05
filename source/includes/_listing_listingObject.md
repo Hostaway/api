@@ -113,7 +113,7 @@ Only `complete` listing can be activated for synchronization.
 
 Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
-`id` | no | int | 
+`id` | yes | int | 
 `propertyTypeId` | no | int | Identifier of propertyType object.
 `name` | yes | string | 
 `description` | no | string | 
@@ -179,6 +179,6 @@ Property | Required | Type | Description
 `homeawayReservationPaymentDueDays` | no | int | 
 `bookingcomPropertyName` | no | string | 
 `bookingcomPropertyDescription` | no | string | 
-`listingAmenities` | no | string | Array of listingAmenity objects.
-`listingBedTypes` | no | string | Array of listingBedType objects.
-`listingImages` | no | string | Array of listingImage objects.
+`listingAmenities` | no | array | Array of listingAmenity objects.
+`listingBedTypes` | no | array | Array of listingBedType objects.
+`listingImages` | no | array | Array of listingImage objects.

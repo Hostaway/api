@@ -129,4 +129,4 @@ Query Parameter | Required | Type | Description
 
 ### Response
 
-Array of listing objects.
+An array of listing objects.

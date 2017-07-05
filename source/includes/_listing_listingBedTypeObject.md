@@ -10,6 +10,6 @@
 
 Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
-`id` | no | int | 
+`id` | yes | int | 
 `bedTypeId` | yes | int | 
 `quantity` | yes | int | 

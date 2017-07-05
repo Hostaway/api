@@ -11,5 +11,5 @@
 
 Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
-`id` | no | int | 
+`id` | yes | int | 
 `name` | yes | string | 
