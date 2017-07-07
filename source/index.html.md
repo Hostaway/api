@@ -62,3 +62,19 @@ Current API version is v1
 </aside>
 
 Please notice that boolean type should be considered as integer 0 or 1 value. 
+
+## Standard Response
+
+We have the following data structure of response for the most of the endpoints:
+
+```json
+{
+    "status": "success",
+    "result": "Endpoint result goes here"
+}
+```
+
+* `satus` can be one of: 
+    * `success` if case of no errors occurred or 
+    * `fail` in case of any error.
+* `result` contains endpoint result if no errors or an error message string if `status` is `fail`. 
