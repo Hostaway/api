@@ -104,4 +104,4 @@ print(data.decode("utf-8"))
 
 ### Response
 
-An empty success or error response.
+An empty success response or error response.

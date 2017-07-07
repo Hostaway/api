@@ -1,4 +1,4 @@
-## Listing Amenity Object
+## Listing amenity object
 
 ```json
 {

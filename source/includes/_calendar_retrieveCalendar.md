@@ -1,5 +1,7 @@
 ## Retrieve a calendar
 
+Calendar is just an array of calendar day objects for dates selected.
+
 ### Request
 
 ```shell

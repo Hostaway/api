@@ -1,4 +1,4 @@
-## Listing Object
+## Listing object
 
 ```json
 {

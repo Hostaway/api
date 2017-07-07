@@ -1,4 +1,4 @@
-## Listing Image Object
+## Listing image object
 
 ```json
 {

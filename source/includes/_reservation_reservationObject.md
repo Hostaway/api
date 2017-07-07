@@ -1,4 +1,4 @@
-## Reservation Object
+## Reservation object
 
 ```json
 {
