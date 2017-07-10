@@ -79,7 +79,7 @@ Response response = client.newCall(request).execute();
 ```python
 import http.client
 
-conn = http.client.HTTPConnection("api.hostaway.local")
+conn = http.client.HTTPConnection("api.hostaway.com")
 
 payload = "grant_type=client_credentials&client_id=10450&client_secret=14add8b71a3494a946823c7729741c8b&scope=general"
 

@@ -109,7 +109,7 @@ Response response = client.newCall(request).execute();
 ```python
 import http.client
 
-conn = http.client.HTTPConnection("api.hostaway.local")
+conn = http.client.HTTPConnection("api.hostaway.com")
 
 payload = "{\n    \"startDate\": \"2017-09-01\",\n    \"endDate\": \"2017-09-05\",\n    \"isAvailable\": 1,\n    \"isProcessed\": 1,\n    \"price\": 20,\n    \"currency\": \"EUR\",\n    \"minimumStay\": 1,\n    \"maximumStay\": 1125,\n    \"closedOnArrival\": null,\n    \"closedOnDeparture\": null,\n    \"roomsToSell\": null,\n    \"note\": \"test\"\n}"
 
