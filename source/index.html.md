@@ -74,7 +74,7 @@ We have the following data structure of response for the most of the endpoints:
 }
 ```
 
-* `satus` can be one of: 
+* `status` can be one of: 
     * `success` if case of no errors occurred or 
     * `fail` in case of any error.
 * `result` contains endpoint result if no errors or an error message string if `status` is `fail`. 
