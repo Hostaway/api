@@ -130,6 +130,7 @@ print(data.decode("utf-8"))
 `PUT https://api.hostaway.com/v1/listings/{listingId}/calendar`
 
 A calendar day object should be provided in the request body.
+Additionally `starDate` and `endDate` parameters should be specified to define dates interval to update.
 
 ### Response
 

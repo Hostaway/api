@@ -37,6 +37,7 @@ includes:
   - calendar_calendarDayObject
   - calendar_retrieveCalendar
   - calendar_updateCalendar
+  - calendar_batchCalendarUpdate
   - amenity
   - amenity_amenityObject
   - amenity_retrieveAmenitiesList
