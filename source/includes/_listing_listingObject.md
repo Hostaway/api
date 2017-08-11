@@ -23,6 +23,10 @@
     "starRating": 5,
     "weeklyDiscount": 0.71,
     "monthlyDiscount": 0.82,
+    "propertyRentTax": 12,
+    "guestPerPersonPerNightTax": 10,
+    "guestStayTax": 12,
+    "guestNightlyTax": 13,
     "personCapacity": 6,
     "maxChildrenAllowed": null,
     "maxInfantsAllowed": null,
@@ -134,6 +138,10 @@ Property | Required | Type | Description
 `starRating` | no | int | 
 `weeklyDiscount` | no | float | 
 `monthlyDiscount` | no | float | 
+`propertyRentTax` | no | float | 
+`guestPerPersonPerNightTax` | no | float | 
+`guestStayTax` | no | float | 
+`guestNightlyTax` | no | float | 
 `personCapacity` | no | int | 
 `maxChildrenAllowed` | no | int | 
 `maxInfantsAllowed` | no | int | 
