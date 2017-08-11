@@ -8,12 +8,10 @@
     "isProcessed": 1,
     "status": "reserved",
     "price": 225,
-    "currency": "USD",
     "minimumStay": 1,
     "maximumStay": 1125,
     "closedOnArrival": null,
     "closedOnDeparture": null,
-    "roomsToSell": null,
     "note": null,
     "reservations": [
         {
@@ -88,11 +86,9 @@ Property | Required | Type | Description
 `isProcessed` | no | bool | 
 `status` | no | string | 
 `price` | no | float | 
-`currency` | no | string | 
 `minimumStay` | no | int | 
 `maximumStay` | no | int | 
 `closedOnArrival` | no | bool | 
 `closedOnDeparture` | no | bool | 
-`roomsToSell` | no | int | 
 `note` | no | string | 
 `reservations` | no | array | 
