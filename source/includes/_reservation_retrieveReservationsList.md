@@ -105,6 +105,7 @@ Query Parameter | Required | Type | Description
 `sortOrder` | no | string | One of: arrivalDate, arrivalDateDesc, lastConversationMessageSent, lastConversationMessageSentDesc, lastConversationMessageReceived, lastConversationMessageReceivedDesc.
 `channelId` | no | int | 
 `litingId` | no | int |
+`match` | no | string |
 `arrivalStartDate` | no | date |
 `arrivalEndDate` | no | date |
 `departureStartDate` | no | date |

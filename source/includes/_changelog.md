@@ -1,5 +1,9 @@
 ## Changelog
 
+**2017-08-29** 
+
+- `match` parameter added for list of reservations and listings
+
 **2017-08-11** 
 
 - Batch calendar update
