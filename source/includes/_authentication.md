@@ -9,7 +9,7 @@ curl -X POST \
   https://api.hostaway.com/v1/accessTokens \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/x-www-form-urlencoded' \
-  -d 'grant_type=client_credentials&client_id=10450&client_secret=yourclientsecret&scope=general'
+  -d 'grant_type=client_credentials&client_id={your Hostaway account ID}&client_secret=yourclientsecret&scope=general'
 ```
 
 ```php
@@ -25,7 +25,7 @@ curl_setopt_array($curl, array(
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS => "grant_type=client_credentials&client_id=10450&client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&scope=general",
+  CURLOPT_POSTFIELDS => "grant_type=client_credentials&client_id={your Hostaway account ID}&client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&scope=general",
   CURLOPT_HTTPHEADER => array(
     "cache-control: no-cache",
     "content-type: application/x-www-form-urlencoded"
@@ -45,7 +45,7 @@ if ($err) {
 ```
 
 ```javascript
-var data = "grant_type=client_credentials&client_id=10450&client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&scope=general";
+var data = "grant_type=client_credentials&client_id={your Hostaway account ID}&client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&scope=general";
 
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
@@ -67,7 +67,7 @@ xhr.send(data);
 OkHttpClient client = new OkHttpClient();
 
 MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
-RequestBody body = RequestBody.create(mediaType, "grant_type=client_credentials&client_id=10450&client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&scope=general");
+RequestBody body = RequestBody.create(mediaType, "grant_type=client_credentials&client_id={your Hostaway account ID}&client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&scope=general");
 Request request = new Request.Builder()
   .url("https://api.hostaway.com/v1/accessTokens")
   .post(body)
@@ -83,7 +83,7 @@ import http.client
 
 conn = http.client.HTTPConnection("api.hostaway.com")
 
-payload = "grant_type=client_credentials&client_id=10450&client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&scope=general"
+payload = "grant_type=client_credentials&client_id={your Hostaway account ID}&client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&scope=general"
 
 headers = {
     'content-type': "application/x-www-form-urlencoded",
@@ -105,10 +105,10 @@ authorization server endpoint:
 
 Parameter | Required | Type | Description
 --------- | -------- | ---- | -----------
-`grant_type` | yes | string | With the value `client_credentials`
-`client_id` | yes | int | With the account ID
-`client_secret` | yes | string | With the client’s secret (can be obtained in your Hostaway dashboard)
-`scope` | yes | string | With the value `general`
+`grant_type` | yes | string | Should be `client_credentials`
+`client_id` | yes | int | Your Hostaway account ID
+`client_secret` | yes | string | Client’s secret (can be obtained in your Hostaway dashboard)
+`scope` | yes | string | Should be `general`
 
 ### Response
 
@@ -124,8 +124,8 @@ The authorization server will respond with a JSON object containing the followin
 
 Property | Type | Description
 -------- | ---- | ----------- 
-`token_type` | string | With the value `Bearer`
-`expires_in` | int | With an integer representing the TTL of the access token
+`token_type` | string | `Bearer` is always returned
+`expires_in` | int | An integer representing the TTL of the access token
 `access_token` | string | A JWT signed with the authorization server’s private key
 
 The access token should be included in all other API requests to the server in a header and should look like the following:
