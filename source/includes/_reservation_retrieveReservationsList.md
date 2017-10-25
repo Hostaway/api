@@ -105,12 +105,16 @@ Query Parameter | Required | Type | Description
 `sortOrder` | no | string | One of: arrivalDate, arrivalDateDesc, lastConversationMessageSent, lastConversationMessageSentDesc, lastConversationMessageReceived, lastConversationMessageReceivedDesc.
 `channelId` | no | int | 
 `litingId` | no | int |
+`assigneeUserId` | no | int |
 `match` | no | string |
 `arrivalStartDate` | no | date |
 `arrivalEndDate` | no | date |
 `departureStartDate` | no | date |
 `departureEndDate` | no | date |
 `hasUnreadConversationMessages` | no | bool
+`isStarred` | no | bool
+`isArchived` | no | bool
+`isPinned` | no | bool
 
 ### Response
 

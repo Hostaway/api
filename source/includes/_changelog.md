@@ -1,5 +1,10 @@
 ## Changelog
 
+**2017-10-25** 
+
+- Added the new reservation fields: `guestRecommendations`, `guestTrips`, `guestWork`, `isGuestIdentityVerified`, `isGuestVerifiedByEmail`, `isGuestVerifiedByWorkEmail`, 
+`isGuestVerifiedByFacebook`, `isGuestVerifiedByGovernmentId`, `isGuestVerifiedByPhone`, `isGuestVerifiedByReviews`, `isStarred`, `isArchived`, `isPinned`
+
 **2017-08-29** 
 
 - `match` parameter added for list of reservations and listings
