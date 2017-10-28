@@ -71,6 +71,9 @@
     "status": "new",
     "hostNote": null,
     "guestNote": null,
+    "doorCode": "12345",
+    "doorCodeVendor": "vendor",
+    "doorCodeInstruction": "instruction",
     "comment": null,
     "isStarred": 0,
     "isArchived": 0,
@@ -149,6 +152,9 @@ Property | Required | Type | Description
 `status` | no | string | 
 `hostNote` | no | string | 
 `guestNote` | no | string | 
+`doorCode` | no | string | 
+`doorCodeVendor` | no | string | 
+`doorCodeInstruction` | no | string | 
 `comment` | no | string | 
 `isStarred` | no | bool | 
 `isArchived` | no | bool | 

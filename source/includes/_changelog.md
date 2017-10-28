@@ -1,5 +1,9 @@
 ## Changelog
 
+**2017-10-28** 
+
+- `doorCode`, `doorCodeVendor`, `doorCodeInstruction` fields added to reservation object.
+
 **2017-10-25** 
 
 - Added the new reservation fields: `guestRecommendations`, `guestTrips`, `guestWork`, `isGuestIdentityVerified`, `isGuestVerifiedByEmail`, `isGuestVerifiedByWorkEmail`, 
