@@ -106,7 +106,7 @@ Query Parameter | Required | Type | Description
 `channelId` | no | int | 
 `litingId` | no | int |
 `assigneeUserId` | no | int |
-`match` | no | string |
+`match` | no | string | Used to search a reservation by guest name.
 `arrivalStartDate` | no | date |
 `arrivalEndDate` | no | date |
 `departureStartDate` | no | date |

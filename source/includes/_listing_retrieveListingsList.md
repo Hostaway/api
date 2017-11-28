@@ -116,7 +116,7 @@ Query Parameter | Required | Type | Description
 `offset` | no | int | Number of items to skip from beginning of the list.
 `sortOrder` | no | string | One of: name, nameReversed, order, orderReversed, contactName, contactNameReversed.
 `city` | no | string | 
-`match` | no | string |
+`match` | no | string | Used to search a listing by listing name.
 `country` | no | string |
 `isSyncing` | no | bool |
 `contactName` | no | string |

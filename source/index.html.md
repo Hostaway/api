@@ -62,7 +62,11 @@ Only HTTPS protocol is allowed.
 Current API version is v1
 </aside>
 
-Please notice that boolean type should be considered as integer 0 or 1 value. 
+Please notice that:
+
+- boolean type should be considered as integer 0 or 1 value
+- all time values should be specified in UTC timezone
+- all country code values are `ISO 3166-2` standard
 
 ## Standard Response
 

@@ -149,7 +149,7 @@ Property | Required | Type | Description
 `paymentMethodGuestId` | no | string | 
 `paymentMethodMessage` | no | string | 
 `currency` | no | string | 
-`status` | no | string | 
+`status` | no | string | Can be one of the following: `new`, `modified`, `confirmed`, `cancelled`, `pending`, `awaitingPayment`, `declined`, `expired`, `inquiry`, `inquiryPreapproved`, `inquiryDenied`, `inquiryTimedout`, `inquiryNotPossible`
 `hostNote` | no | string | 
 `guestNote` | no | string | 
 `doorCode` | no | string | 
@@ -159,3 +159,4 @@ Property | Required | Type | Description
 `isStarred` | no | bool | 
 `isArchived` | no | bool | 
 `isPinned` | no | bool | 
+

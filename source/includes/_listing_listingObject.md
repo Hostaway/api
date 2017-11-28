@@ -148,8 +148,8 @@ Property | Required | Type | Description
 `maxPetsAllowed` | no | int | 
 `lat` | no | float | Latitude.
 `lng` | no | float | Longitude.
-`checkInTimeStart` | no | int | 
-`checkInTimeEnd` | no | int | 
+`checkInTimeStart` | no | int | Accepted values are 0-23
+`checkInTimeEnd` | no | int | Accepted values are 0-23
 `checkOutTime` | no | int | 
 `cancellationPolicy` | no | string | One of: flexible, moderate, strict.
 `squareMeters` | no | int | 
