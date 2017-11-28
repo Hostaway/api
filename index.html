@@ -241,7 +241,13 @@ Only HTTPS protocol is allowed.</p>
 Current API version is v1
 </aside>
 
-<p>Please notice that boolean type should be considered as integer 0 or 1 value. </p>
+<p>Please notice that:</p>
+
+<ul>
+<li>boolean type should be considered as integer 0 or 1 value</li>
+<li>all time values should be specified in UTC timezone</li>
+<li>all country code values are <code class="prettyprint">ISO 3166-2</code> standard</li>
+</ul>
 
 <h2 id="standard-response">Standard Response</h2>
 
@@ -780,13 +786,13 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">checkInTimeStart</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Accepted values are 0-23</td>
 </tr>
 <tr>
 <td><code class="prettyprint">checkInTimeEnd</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Accepted values are 0-23</td>
 </tr>
 <tr>
 <td><code class="prettyprint">checkOutTime</code></td>
@@ -1268,7 +1274,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">match</code></td>
 <td>no</td>
 <td>string</td>
-<td></td>
+<td>Used to search a listing by listing name.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">country</code></td>
@@ -2555,7 +2561,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">status</code></td>
 <td>no</td>
 <td>string</td>
-<td></td>
+<td>Can be one of the following: <code class="prettyprint">new</code>, <code class="prettyprint">modified</code>, <code class="prettyprint">confirmed</code>, <code class="prettyprint">cancelled</code>, <code class="prettyprint">pending</code>, <code class="prettyprint">awaitingPayment</code>, <code class="prettyprint">declined</code>, <code class="prettyprint">expired</code>, <code class="prettyprint">inquiry</code>, <code class="prettyprint">inquiryPreapproved</code>, <code class="prettyprint">inquiryDenied</code>, <code class="prettyprint">inquiryTimedout</code>, <code class="prettyprint">inquiryNotPossible</code></td>
 </tr>
 <tr>
 <td><code class="prettyprint">hostNote</code></td>
@@ -2746,7 +2752,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">match</code></td>
 <td>no</td>
 <td>string</td>
-<td></td>
+<td>Used to search a reservation by guest name.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">arrivalStartDate</code></td>
