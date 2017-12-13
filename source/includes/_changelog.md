@@ -2,7 +2,7 @@
 
 **2017-12-13** 
 
-- `externalListingName`, `internalListingName` fields added to listing object.
+- `externalListingName`, `internalListingName`, `homeawayPropertyHeadline` fields added to listing object.
 
 **2017-10-28** 
 

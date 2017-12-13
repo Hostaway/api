@@ -71,6 +71,7 @@
     "cleaningInstruction": null,
     "cleannessStatusUpdatedOn": null,
     "homeawayPropertyName": "Beautiful and cozy apartment close to city center",
+    "homeawayPropertyHeadline": "Beautiful and cozy apartment close to city center with a living room and bed room",
     "homeawayPropertyDescription": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",
     "homeawayReservationPaymentDueDays": "2",
     "bookingcomPropertyName": "Beautiful and cozy apartment close to city center",
@@ -187,6 +188,7 @@ Property | Required | Type | Description
 `cleaningInstruction` | no | string | 
 `cleannessStatusUpdatedOn` | no | datetime | 
 `homeawayPropertyName` | no | string | 
+`homeawayPropertyHeadline` | no | string | 
 `homeawayPropertyDescription` | no | string | 
 `homeawayReservationPaymentDueDays` | no | int | 
 `bookingcomPropertyName` | no | string | 
