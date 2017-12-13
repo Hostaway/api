@@ -5,6 +5,8 @@
     "id": 40160,
     "propertyTypeId": 1,
     "name": "Beautiful and cozy apartment close to city center",
+    "externalListingName": "Beautiful and cozy apartment close to city center",
+    "internalListingName": "Property #3",
     "description": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",
     "thumbnailUrl": "https://a1.muscache.com/im/pictures/78885433/a151f1a8_original.jpg?aki_policy=small",
     "houseRules": "Additional rules",
