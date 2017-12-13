@@ -120,6 +120,8 @@ Property | Required | Type | Description
 `id` | yes | int | 
 `propertyTypeId` | no | int | Identifier of propertyType object.
 `name` | yes | string | 
+`externalListingName` | yes | string | The same as `name`. 
+`internalListingName` | no | string |
 `description` | no | string | 
 `thumbnailUrl` | no | string | 
 `houseRules` | no | string | 

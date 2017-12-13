@@ -1,5 +1,9 @@
 ## Changelog
 
+**2017-12-13** 
+
+- `externalListingName`, `internalListingName` fields added to listing object.
+
 **2017-10-28** 
 
 - `doorCode`, `doorCodeVendor`, `doorCodeInstruction` fields added to reservation object.
