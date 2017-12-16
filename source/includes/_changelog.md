@@ -1,5 +1,9 @@
 ## Changelog
 
+**2017-12-16** 
+
+- `confirmationCode` field of Airbnb reservations.
+
 **2017-12-13** 
 
 - `externalListingName`, `internalListingName`, `homeawayPropertyHeadline` fields added to listing object.

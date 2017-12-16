@@ -75,6 +75,7 @@
     "doorCodeVendor": "vendor",
     "doorCodeInstruction": "instruction",
     "comment": null,
+    "confirmationCode": "HMP2KQ4B44",
     "isStarred": 0,
     "isArchived": 0,
     "isPinned": 0    
@@ -156,6 +157,7 @@ Property | Required | Type | Description
 `doorCodeVendor` | no | string | 
 `doorCodeInstruction` | no | string | 
 `comment` | no | string | 
+`confirmationCode` | no | string | Airbnb confirmation code
 `isStarred` | no | bool | 
 `isArchived` | no | bool | 
 `isPinned` | no | bool | 
