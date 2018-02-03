@@ -1,5 +1,10 @@
 ## Changelog
 
+**2018-02-03** 
+
+- `source`, `cancellationDate`, `cancelledBy` fields of reservation object.
+- `homeawayReservationPaymentDueDays` of listing removed.
+
 **2017-12-16** 
 
 - `confirmationCode` field of Airbnb reservations.

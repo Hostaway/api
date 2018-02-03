@@ -5,6 +5,7 @@
     "id": 13,
     "listingMapId": 40160,
     "channelId": 2001,
+    "source": "homeawayApi",
     "channelName": "airbnb",
     "reservationId": "10450-40160-thread313906227-9586017324",
     "hostawayReservationId": 13,
@@ -69,6 +70,8 @@
     "paymentMethodMessage": null,
     "currency": "USD",
     "status": "new",
+    "cancellationDate": null,
+    "cancelledBy": null,
     "hostNote": null,
     "guestNote": null,
     "doorCode": "12345",
@@ -87,6 +90,7 @@ Property | Required | Type | Description
 `id` | yes | int | 
 `listingMapId` | yes | int | Identifier of listing object.
 `channelId` | yes | int | 
+`source` | no | string
 `channelName` | yes | string | 
 `reservationId` | yes | string | 
 `hostawayReservationId` | yes | int | 
@@ -151,6 +155,8 @@ Property | Required | Type | Description
 `paymentMethodMessage` | no | string | 
 `currency` | no | string | 
 `status` | no | string | Can be one of the following: `new`, `modified`, `confirmed`, `cancelled`, `pending`, `awaitingPayment`, `declined`, `expired`, `inquiry`, `inquiryPreapproved`, `inquiryDenied`, `inquiryTimedout`, `inquiryNotPossible`
+`cancellationDate` | no | date | 
+`cancelledBy` | no | string | Can be one of the following: `guest`, `host`
 `hostNote` | no | string | 
 `guestNote` | no | string | 
 `doorCode` | no | string | 

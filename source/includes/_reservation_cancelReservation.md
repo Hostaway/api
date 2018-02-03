@@ -3,11 +3,12 @@
 ### Request
 
 ```shell
-curl -X PUT \
-  https://api.hostaway.com/v1/reservations/29/statuses/cancelled \
-  -H 'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw' \
-  -H 'cache-control: no-cache' \
-  -H 'content-type: application/json'
+curl --request PUT \
+  --url https://api.hostaway.com/v1/reservations/117243/statuses/cancelled \
+  --header 'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRhODc4MWU0YjQ5ZjYxMDc4NzEzM2MxMDQ1ODQ1MTQ1ZDNjNTZkMjliODkyYjc1ZGQ3Yjg1ZGZiNmYxMTI4ZDA5NTM2MWYyZDQ2MDc5NmQwIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjRhODc4MWU0YjQ5ZjYxMDc4NzEzM2MxMDQ1ODQ1MTQ1ZDNjNTZkMjliODkyYjc1ZGQ3Yjg1ZGZiNmYxMTI4ZDA5NTM2MWYyZDQ2MDc5NmQwIiwiaWF0IjoxNTE3Mzg5NTM1LCJuYmYiOjE1MTczODk1MzUsImV4cCI6MTUzMjk0MTUzNSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.A_9lN7I-0qO663ELIVMMnI8u6gnfnFdJy7Fi5fpj5TGObPzwmCW1R2S_-H63ve65pId6T7gTaZK1HWc4w87lIyodAsKJotC8PDDZmhlcc3FyxuZ-0IwbmZic7ZR3aDmifEcE8ixh6LF60yb55ldYGTcxsMY-KmSz-Z3wfwpFtFs' \
+  --header 'cache-control: no-cache' \
+  --header 'content-type: application/json' \
+  --data '{\n	"cancelledBy": "guest"\n}'
 ```
 
 ```php
@@ -16,15 +17,16 @@ curl -X PUT \
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.hostaway.com/v1/reservations/29/statuses/cancelled",
+  CURLOPT_URL => "https://api.hostaway.com/v1/reservations/117243/statuses/cancelled",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "PUT",
+  CURLOPT_POSTFIELDS => "{\n\t\"cancelledBy\": \"guest\"\n}",
   CURLOPT_HTTPHEADER => array(
-    "authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw",
+    "authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRhODc4MWU0YjQ5ZjYxMDc4NzEzM2MxMDQ1ODQ1MTQ1ZDNjNTZkMjliODkyYjc1ZGQ3Yjg1ZGZiNmYxMTI4ZDA5NTM2MWYyZDQ2MDc5NmQwIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjRhODc4MWU0YjQ5ZjYxMDc4NzEzM2MxMDQ1ODQ1MTQ1ZDNjNTZkMjliODkyYjc1ZGQ3Yjg1ZGZiNmYxMTI4ZDA5NTM2MWYyZDQ2MDc5NmQwIiwiaWF0IjoxNTE3Mzg5NTM1LCJuYmYiOjE1MTczODk1MzUsImV4cCI6MTUzMjk0MTUzNSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.A_9lN7I-0qO663ELIVMMnI8u6gnfnFdJy7Fi5fpj5TGObPzwmCW1R2S_-H63ve65pId6T7gTaZK1HWc4w87lIyodAsKJotC8PDDZmhlcc3FyxuZ-0IwbmZic7ZR3aDmifEcE8ixh6LF60yb55ldYGTcxsMY-KmSz-Z3wfwpFtFs",
     "cache-control: no-cache",
     "content-type: application/json"
   ),
@@ -43,7 +45,9 @@ if ($err) {
 ```
 
 ```javascript
-var data = null;
+var data = JSON.stringify({
+  "cancelledBy": "guest"
+});
 
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
@@ -54,8 +58,8 @@ xhr.addEventListener("readystatechange", function () {
   }
 });
 
-xhr.open("PUT", "https://api.hostaway.com/v1/reservations/29/statuses/cancelled");
-xhr.setRequestHeader("authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw");
+xhr.open("PUT", "https://api.hostaway.com/v1/reservations/117243/statuses/cancelled");
+xhr.setRequestHeader("authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRhODc4MWU0YjQ5ZjYxMDc4NzEzM2MxMDQ1ODQ1MTQ1ZDNjNTZkMjliODkyYjc1ZGQ3Yjg1ZGZiNmYxMTI4ZDA5NTM2MWYyZDQ2MDc5NmQwIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjRhODc4MWU0YjQ5ZjYxMDc4NzEzM2MxMDQ1ODQ1MTQ1ZDNjNTZkMjliODkyYjc1ZGQ3Yjg1ZGZiNmYxMTI4ZDA5NTM2MWYyZDQ2MDc5NmQwIiwiaWF0IjoxNTE3Mzg5NTM1LCJuYmYiOjE1MTczODk1MzUsImV4cCI6MTUzMjk0MTUzNSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.A_9lN7I-0qO663ELIVMMnI8u6gnfnFdJy7Fi5fpj5TGObPzwmCW1R2S_-H63ve65pId6T7gTaZK1HWc4w87lIyodAsKJotC8PDDZmhlcc3FyxuZ-0IwbmZic7ZR3aDmifEcE8ixh6LF60yb55ldYGTcxsMY-KmSz-Z3wfwpFtFs");
 xhr.setRequestHeader("content-type", "application/json");
 xhr.setRequestHeader("cache-control", "no-cache");
 
@@ -65,10 +69,12 @@ xhr.send(data);
 ```java
 OkHttpClient client = new OkHttpClient();
 
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create(mediaType, "{\n\t\"cancelledBy\": \"guest\"\n}");
 Request request = new Request.Builder()
-  .url("https://api.hostaway.com/v1/reservations/29/statuses/cancelled")
-  .put(null)
-  .addHeader("authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw")
+  .url("https://api.hostaway.com/v1/reservations/117243/statuses/cancelled")
+  .put(body)
+  .addHeader("authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRhODc4MWU0YjQ5ZjYxMDc4NzEzM2MxMDQ1ODQ1MTQ1ZDNjNTZkMjliODkyYjc1ZGQ3Yjg1ZGZiNmYxMTI4ZDA5NTM2MWYyZDQ2MDc5NmQwIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjRhODc4MWU0YjQ5ZjYxMDc4NzEzM2MxMDQ1ODQ1MTQ1ZDNjNTZkMjliODkyYjc1ZGQ3Yjg1ZGZiNmYxMTI4ZDA5NTM2MWYyZDQ2MDc5NmQwIiwiaWF0IjoxNTE3Mzg5NTM1LCJuYmYiOjE1MTczODk1MzUsImV4cCI6MTUzMjk0MTUzNSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.A_9lN7I-0qO663ELIVMMnI8u6gnfnFdJy7Fi5fpj5TGObPzwmCW1R2S_-H63ve65pId6T7gTaZK1HWc4w87lIyodAsKJotC8PDDZmhlcc3FyxuZ-0IwbmZic7ZR3aDmifEcE8ixh6LF60yb55ldYGTcxsMY-KmSz-Z3wfwpFtFs")
   .addHeader("content-type", "application/json")
   .addHeader("cache-control", "no-cache")
   .build();
@@ -81,13 +87,15 @@ import http.client
 
 conn = http.client.HTTPConnection("api.hostaway.com")
 
+payload = "{\n\t\"cancelledBy\": \"guest\"\n}"
+
 headers = {
-    'authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw",
+    'authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjRhODc4MWU0YjQ5ZjYxMDc4NzEzM2MxMDQ1ODQ1MTQ1ZDNjNTZkMjliODkyYjc1ZGQ3Yjg1ZGZiNmYxMTI4ZDA5NTM2MWYyZDQ2MDc5NmQwIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjRhODc4MWU0YjQ5ZjYxMDc4NzEzM2MxMDQ1ODQ1MTQ1ZDNjNTZkMjliODkyYjc1ZGQ3Yjg1ZGZiNmYxMTI4ZDA5NTM2MWYyZDQ2MDc5NmQwIiwiaWF0IjoxNTE3Mzg5NTM1LCJuYmYiOjE1MTczODk1MzUsImV4cCI6MTUzMjk0MTUzNSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.A_9lN7I-0qO663ELIVMMnI8u6gnfnFdJy7Fi5fpj5TGObPzwmCW1R2S_-H63ve65pId6T7gTaZK1HWc4w87lIyodAsKJotC8PDDZmhlcc3FyxuZ-0IwbmZic7ZR3aDmifEcE8ixh6LF60yb55ldYGTcxsMY-KmSz-Z3wfwpFtFs",
     'content-type': "application/json",
     'cache-control': "no-cache"
     }
 
-conn.request("PUT", "/v1/reservations/29/statuses/cancelled", headers=headers)
+conn.request("PUT", "/v1/reservations/117243/statuses/cancelled", payload, headers)
 
 res = conn.getresponse()
 data = res.read()
@@ -96,6 +104,8 @@ print(data.decode("utf-8"))
 ```
 
 `PUT https://api.hostaway.com/v1/reservations/{reservationId}/statuses/cancelled`
+
+`cancelledBy` JSON body parameter should be specified with value `host` or `guest`.
 
 ### Response
 
