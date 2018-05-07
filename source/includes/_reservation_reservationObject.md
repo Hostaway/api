@@ -89,7 +89,7 @@ Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
 `id` | yes | int | 
 `listingMapId` | yes | int | Identifier of listing object.
-`channelId` | yes | int | 
+`channelId` | yes | int | Value can be set to one of the following: `2000` for a direct reservation, `2002` for a Homeaway reservation
 `source` | no | string
 `channelName` | yes | string | 
 `reservationId` | yes | string | 

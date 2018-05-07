@@ -1,5 +1,9 @@
 ## Changelog
 
+**2018-05-07** 
+
+- `channelId` field of reservation object should be specified on reservation creation.
+
 **2018-02-03** 
 
 - `source`, `cancellationDate`, `cancelledBy` fields of reservation object.
