@@ -7,10 +7,9 @@ Vagrant.configure(2) do |config|
     inline: <<-SHELL
       sudo apt-add-repository -y ppa:brightbox/ruby-ng
       sudo apt-get update
-      sudo apt-get -y dis-upgrade
-      sudo apt-get install -y ruby2.3 ruby2.3-dev pkg-config build-essential nodejs git libxml2-dev libxslt-dev
-      sudo apt-get autoremove -y
-      sudo gem2.3 install --no-ri --no-rdoc bundler
+      sudo apt-get -y dist-upgrade
+      sudo apt-get -y install ruby2.3 ruby2.3-dev pkg-config build-essential nodejs git libxml2-dev libxslt-dev
+      sudo gem2.3 install --no-document bundler
     SHELL
 
   # add the local user git config to the vm
@@ -24,7 +23,7 @@ Vagrant.configure(2) do |config|
       echo "Installing app dependencies"
       cd /vagrant
       bundle config build.nokogiri --use-system-libraries
-      bundle install
+      bundle install --path=ruby_dep
     SHELL
 
   config.vm.provision "run",
@@ -33,10 +32,9 @@ Vagrant.configure(2) do |config|
     run: "always",
     inline: <<-SHELL
       echo "=============================================="
-      echo "Starting up middleman at http://localhost:4567"
+      echo "Starting up middleman at http://127.0.0.1:4567"
       echo "If it does not come up, check the ~/middleman.log file for any error messages"
       cd /vagrant
-      #bundle exec middleman server --force-polling --latency=1 &> ~/middleman.log &
       bundle exec middleman server --watcher-force-polling --watcher-latency=2 &> ~/middleman.log &
     SHELL
 end
