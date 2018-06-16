@@ -26,6 +26,8 @@
     "guestFirstName": "Andrew",
     "guestLastName": "Peterson",
     "guestExternalAccountId": "84497323",
+    "guestZipCode": "TX 78705",
+    "guestAddress": "3411 Cedar St",
     "guestCity": "Austin",
     "guestCountry": "US",
     "guestEmail": "mail@test.com",
@@ -111,6 +113,8 @@ Property | Required | Type | Description
 `guestFirstName` | no | string | 
 `guestLastName` | no | string | 
 `guestExternalAccountId` | no | string | 
+`guestZipCode` | no | string | 
+`guestAddress` | no | string | 
 `guestCity` | no | string | 
 `guestCountry` | no | string | 
 `guestEmail` | no | string | 

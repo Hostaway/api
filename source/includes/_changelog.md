@@ -1,5 +1,9 @@
 ## Changelog
 
+**2018-06-16** 
+
+- `guestZipCode`, `guestAddress` fields of reservation object.
+
 **2018-05-07** 
 
 - `channelId` field of reservation object should be specified on reservation creation.
