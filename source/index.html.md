@@ -38,6 +38,9 @@ includes:
   - calendar_retrieveCalendar
   - calendar_updateCalendar
   - calendar_batchCalendarUpdate
+  - conversation
+  - conversation_conversationObject
+  - conversation_list
   - amenity
   - amenity_amenityObject
   - amenity_retrieveAmenitiesList
