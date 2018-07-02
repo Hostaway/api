@@ -1,25 +1,25 @@
 ## ConversationMessage object
 
 ```json
-        {
-            "accountId": 10450,
-            "listingMapId": 40160,
-            "reservationId": 2,
-            "conversationId": 1406,
-            "communicationId": null,
-            "airbnbThreadMessageId": null,
-            "body": "hello guest",
-            "isIncoming": 0,
-            "isSeen": 0,
-            "sentUsingHostaway": 0,
-            "hash": "299855b5f40bd4e65fd83e5382a571e2",
-            "listingTimeZoneName": null,
-            "communicationEvent": null,
-            "communicationTimeDelta": null,
-            "communicationApplyListingTimeZone": null,
-            "communicationAlwaysTrigger": null,
-            "id": 326
-        }
+{
+    "accountId": 10450,
+    "listingMapId": 40160,
+    "reservationId": 2,
+    "conversationId": 1406,
+    "communicationId": null,
+    "airbnbThreadMessageId": null,
+    "body": "hello guest",
+    "isIncoming": 0,
+    "isSeen": 0,
+    "sentUsingHostaway": 0,
+    "hash": "299855b5f40bd4e65fd83e5382a571e2",
+    "listingTimeZoneName": null,
+    "communicationEvent": null,
+    "communicationTimeDelta": null,
+    "communicationApplyListingTimeZone": null,
+    "communicationAlwaysTrigger": null,
+    "id": 326
+}
 ```
 
 Property | Required | Type | Description

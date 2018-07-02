@@ -1,17 +1,17 @@
 ## Message template object
 
 ```json
-    {
-        "id": 2,
-        "accountId": 10450,
-        "listingMapId": "40160",
-        "channelId": "1",
-        "messageTemplateGroupId": "1",
-        "name": "greeting",
-        "description": "greeting of guest",
-        "message": "Hello {{guest_name}}",
-        "color": "1"
-    }
+{
+    "id": 2,
+    "accountId": 10450,
+    "listingMapId": "40160",
+    "channelId": "1",
+    "messageTemplateGroupId": "1",
+    "name": "greeting",
+    "description": "greeting of guest",
+    "message": "Hello {{guest_name}}",
+    "color": "1"
+}
 ```
 
 Property | Required | Type | Description
