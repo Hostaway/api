@@ -8,7 +8,7 @@
             "conversationId": 1406,
             "communicationId": null,
             "airbnbThreadMessageId": null,
-            "body": "truth begins in lies",
+            "body": "hello guest",
             "isIncoming": 0,
             "isSeen": 0,
             "sentUsingHostaway": 0,
