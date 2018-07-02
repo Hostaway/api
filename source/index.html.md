@@ -33,14 +33,26 @@ includes:
   - reservation_updateReservation
   - reservation_cancelReservation
   - reservation_deleteReservation
+  - reservation_retrieveConversations
+  - reservation_retrieveMessageTemplates
+  - reservation_retrieveMessageTemplate
   - calendar
   - calendar_calendarDayObject
   - calendar_retrieveCalendar
   - calendar_updateCalendar
   - calendar_batchCalendarUpdate
   - conversation
+  - conversation_conversationMessageObject
   - conversation_conversationObject
-  - conversation_list
+  - conversation_retrieveConversationsList
+  - conversation_retrieveConversation
+  - conversation_retrieveConversationsMessagesList
+  - conversation_retrieveConversationMessage
+  - conversation_sendConversationMessage
+  - messageTemplate
+  - messageTemplate_messageTemplateObject
+  - messageTemplate_retrieveMessageTemplateList
+  - messageTemplate_retrieveMessageTemplate
   - amenity
   - amenity_amenityObject
   - amenity_retrieveAmenitiesList
@@ -78,11 +90,24 @@ We have the following data structure of response for the most of the endpoints:
 ```json
 {
     "status": "success",
-    "result": "Endpoint result goes here"
+    "result": "Endpoint result goes here",
+    "limit": null,
+    "offset": null,
+    "count": 1,
+    "page": 1,
+    "totalPages": 1    
 }
 ```
 
 * `status` can be one of: 
     * `success` if case of no errors occurred or 
     * `fail` in case of any error.
-* `result` contains endpoint result if no errors or an error message string if `status` is `fail`. 
+* `result` contains endpoint result if no errors or an error message string if `status` is `fail`.
+
+Pagination data - met in retrieve `list` responses.
+
+   * `limit` number from 0, max to receive records count or count on page,
+   * `offset` number from 0, the position "from" to get the records,
+   * `count`: count of all records with specified filters,
+   * `page`: page number,
+   * `totalPages`: total pages number

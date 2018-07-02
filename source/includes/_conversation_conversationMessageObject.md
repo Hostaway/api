@@ -18,8 +18,6 @@
             "communicationTimeDelta": null,
             "communicationApplyListingTimeZone": null,
             "communicationAlwaysTrigger": null,
-            "insertedOn": "2018-06-28 11:24:40",
-            "updatedOn": "2018-06-28 11:24:40",
             "id": 326
         }
 ```
@@ -29,19 +27,17 @@ Property | Required | Type | Description
 `id` | yes | int | Identifier of conversation object
 `accountId` | yes | int | Identifier of account
 `listingMapId` | yes | int | Identifier of listing object.
-`reservationId` | yes | int | Identifier of reservation object
+`reservationId` | no | int | Identifier of reservation object
 `conversationId` | yes | int | Identifier of conversation object
-`communicationId` | yes | int | Identifier of communication
+`communicationId` | no | int | Identifier of communication
 `airbnbThreadMessageId` | no | string | reference to channel conversation/thread
 `body` | yes | string | message contents
-`isIncoming` | yes | bool | is incoming message
-`isSeen` | yes | bool | is message seen
-`sentUsingHostaway` | yes | bool | is message sent from hostaway dashboard
-`hash`: | yes | string | message checksum
+`isIncoming` | no | bool | is incoming message
+`isSeen` | no | bool | is message seen
+`sentUsingHostaway` | no | bool | is message sent from hostaway dashboard
+`hash`: | no | string | message checksum
 `listingTimeZoneName` | no | string | name of Listing time zone  
 `communicationEvent` | no | date (YYYY-MM-DD HH:MM:SS) | last message sent moment
 `communicationTimeDelta` | no | date (YYYY-MM-DD HH:MM:SS) | last message received moment
 `communicationApplyListingTimeZone` | no | array of conversationMessages | the latest message in conversation  
 `communicationAlwaysTrigger` | no | Reservation Object | the reservation related to the conversation
-`insertedOn` | no | dateTime | is message seen
-`updatedOn` | no | dateTime | is message seen

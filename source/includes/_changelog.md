@@ -1,5 +1,12 @@
 ## Changelog
 
+**2018-07-02** 
+
+- conversation object
+- conversation message object
+- message template object
+- endpoints for messaging support
+
 **2018-06-16** 
 
 - `guestZipCode`, `guestAddress` fields of reservation object.

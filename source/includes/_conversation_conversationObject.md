@@ -23,7 +23,7 @@
                     "conversationId": 1406,
                     "communicationId": null,
                     "channelThreadMessageId": null,
-                    "body": "truth begins in lies",
+                    "body": "hello guest",
                     "isIncoming": 0,
                     "isSeen": 0,
                     "sentUsingHostaway": 1,
@@ -132,8 +132,8 @@ Property | Required | Type | Description
 `id` | yes | int | Identifier of conversation object
 `listingMapId` | yes | int | Identifier of listing object.
 `reservationId` | yes | string | Identifier of reservation object
-`type` | yes | string |
-`recipientEmail` | yes | string | recipient email
+`type` | yes | string | conversation type
+`recipientEmail` | no | string | recipient email
 `recipientPicture` | no | string | recipient picture Url
 `hostEmail` | yes | string | host email
 `guestEmail` | yes | string | guest email 
