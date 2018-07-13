@@ -1,5 +1,9 @@
 ## Changelog
 
+**2018-07-13** 
+
+- `isInitial` field of reservation object
+
 **2018-07-02** 
 
 - conversation object

@@ -17,6 +17,7 @@
     "manualIcalId": null,
     "manualIcalName": null,
     "isProcessed": 1,
+    "isInitial": 0,
     "isManuallyChecked": 0,
     "isInstantBooked": 0,
     "hasPullError": 0,
