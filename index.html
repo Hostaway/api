@@ -284,6 +284,13 @@ Current API version is v1
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2018-07-16</strong> </p>
+
+<ul>
+<li><code class="prettyprint">listingTimeZoneName</code>, <code class="prettyprint">communicationEvent</code>,  <code class="prettyprint">communicationTimeDelta</code>, <code class="prettyprint">communicationApplyListingTimeZone</code>, <code class="prettyprint">communicationAlwaysTrigger</code> fields of communication message object are removed</li>
+<li><code class="prettyprint">date</code>, <code class="prettyprint">insertedOn</code>, <code class="prettyprint">updatedOn</code> fields of communication message object are added</li>
+</ul>
+
 <p><strong>2018-07-13</strong> </p>
 
 <ul>
@@ -4182,11 +4189,9 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
     </span><span class="s2">"isSeen"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"sentUsingHostaway"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"299855b5f40bd4e65fd83e5382a571e2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"listingTimeZoneName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"communicationEvent"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"communicationTimeDelta"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"communicationApplyListingTimeZone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"communicationAlwaysTrigger"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-16 10:12:52"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-16 10:12:52"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-16 10:12:52"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">326</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4271,34 +4276,22 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 <td>message checksum</td>
 </tr>
 <tr>
-<td><code class="prettyprint">listingTimeZoneName</code></td>
-<td>no</td>
-<td>string</td>
-<td>name of Listing time zone</td>
-</tr>
-<tr>
-<td><code class="prettyprint">communicationEvent</code></td>
+<td><code class="prettyprint">date</code></td>
 <td>no</td>
 <td>date (YYYY-MM-DD HH:MM:SS)</td>
-<td>last message sent moment</td>
+<td>the message date</td>
 </tr>
 <tr>
-<td><code class="prettyprint">communicationTimeDelta</code></td>
+<td><code class="prettyprint">insertedOn</code></td>
 <td>no</td>
 <td>date (YYYY-MM-DD HH:MM:SS)</td>
-<td>last message received moment</td>
+<td>the message inserted on</td>
 </tr>
 <tr>
-<td><code class="prettyprint">communicationApplyListingTimeZone</code></td>
+<td><code class="prettyprint">updatedOn</code></td>
 <td>no</td>
-<td>array of conversationMessages</td>
-<td>the latest message in conversation</td>
-</tr>
-<tr>
-<td><code class="prettyprint">communicationAlwaysTrigger</code></td>
-<td>no</td>
-<td>Reservation Object</td>
-<td>the reservation related to the conversation</td>
+<td>date (YYYY-MM-DD HH:MM:SS)</td>
+<td>the message updated on</td>
 </tr>
 </tbody></table>
 
