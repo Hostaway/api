@@ -1,6 +1,10 @@
 ## Changelog
 **2018-07-16** 
 
+- `invoicingContactName`, `invoicingContactSurName`, `invoicingContactPhone1`, `invoicingContactPhone2`, `invoicingContactLanguage`, `invoicingContactEmail`, `invoicingContactAddress`, `invoicingContactCity`, `invoicingContactZipcode`, `invoicingContactCountry` fields of listing object are added
+
+**2018-07-16** 
+
 - `listingTimeZoneName`, `communicationEvent`,  `communicationTimeDelta`, `communicationApplyListingTimeZone`, `communicationAlwaysTrigger` fields of communication message object are removed
 - `date`, `insertedOn`, `updatedOn` fields of communication message object are added
 

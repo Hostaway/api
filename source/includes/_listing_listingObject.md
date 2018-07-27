@@ -75,6 +75,16 @@
     "homeawayPropertyDescription": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",
     "bookingcomPropertyName": "Beautiful and cozy apartment close to city center",
     "bookingcomPropertyDescription": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",
+    "invoicingContactName": "Name",
+    "invoicingContactSurName": "Surname",
+    "invoicingContactPhone1": "+11122334456",
+    "invoicingContactPhone2": "+11122334456",
+    "invoicingContactLanguage": "en",
+    "invoicingContactEmail": "invoice@company.com",
+    "invoicingContactAddress": "221B Baker Street",
+    "invoicingContactCity": "London",
+    "invoicingContactZipcode": "110011",
+    "invoicingContactCountry": "UK",
     "listingAmenities": [
         {
             "id": 3449,
@@ -191,6 +201,15 @@ Property | Required | Type | Description
 `homeawayPropertyDescription` | no | string | 
 `bookingcomPropertyName` | no | string | 
 `bookingcomPropertyDescription` | no | string | 
+`invoicingContactName` | no | string | 
+`invoicingContactSurName` | no | string | 
+`invoicingContactPhone1` | no | string | 
+`invoicingContactPhone2` | no | string | 
+`invoicingContactEmail` | no | string | 
+`invoicingContactAddress` | no | string | 
+`invoicingContactCity` | no | string | 
+`invoicingContactZipcode` | no | string | 
+`invoicingContactCountry` | no | string | 
 `listingAmenities` | no | array | Array of listingAmenity objects.
 `listingBedTypes` | no | array | Array of listingBedType objects.
 `listingImages` | no | array | Array of listingImage objects.
