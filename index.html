@@ -235,7 +235,7 @@
 <p>Welcome to the Hostaway Public API! This API allows Hostaway users to create, update and delete 
 listings and reservations, read listing calendars, block and unblock calendar days.
 Hostaway Public API is RESTful, JSON data format is used in both requests and responses bodies, 
-Only HTTPS protocol is allowed.</p>
+only HTTPS protocol is allowed.</p>
 
 <aside class="notice">
 Current API version is v1
@@ -259,7 +259,7 @@ Current API version is v1
     </span><span class="s2">"offset"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">    
+    </span><span class="s2">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <ul>
@@ -272,7 +272,7 @@ Current API version is v1
 <li><code class="prettyprint">result</code> contains endpoint result if no errors or an error message string if <code class="prettyprint">status</code> is <code class="prettyprint">fail</code>.</li>
 </ul>
 
-<p>Pagination data - met in retrieve <code class="prettyprint">list</code> responses.</p>
+<p>Pagination data — met in retrieve <code class="prettyprint">list</code> responses.</p>
 
 <ul>
 <li><code class="prettyprint">limit</code> number from 0, max to receive records count or count on page,</li>
@@ -281,6 +281,12 @@ Current API version is v1
 <li><code class="prettyprint">page</code>: page number,</li>
 <li><code class="prettyprint">totalPages</code>: total pages number</li>
 </ul>
+
+<h2 id="questions-and-bug-reporting">Questions and bug reporting</h2>
+
+<p>If you have any questions regarding API, feel free to send them by email to <a href="support@hostaway.com">support@hostaway.com</a>.</p>
+
+<p>If you ever notice a bug, please send a report to <a href="tech@hostaway.com">tech@hostaway.com</a>. Report should include <code class="prettyprint">cURL</code> request with endpoint URL, time of the request with timezone, header, payload, response and expected result.</p>
 
           <h2 id="changelog">Changelog</h2>
 
@@ -5433,113 +5439,36 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"cache-control"</span><span class="p">,</span> <span class="s2">"no-cache"</span><span class="p">);</span>
 
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-</code></pre><pre class="highlight java tab-java"><code><span class="n">var</span> <span class="n">settings</span> <span class="o">=</span> <span class="o">{</span>
-  <span class="s">"async"</span><span class="o">:</span> <span class="kc">true</span><span class="o">,</span>
-  <span class="s">"crossDomain"</span><span class="o">:</span> <span class="kc">true</span><span class="o">,</span>
-  <span class="s">"url"</span><span class="o">:</span> <span class="s">"https://api.hostaway.com/v1/listings?limit=&amp;offset=&amp;sortOrder=&amp;city=&amp;keyword=&amp;country=&amp;isSyncing=&amp;contactName=&amp;propertyTypeId="</span><span class="o">,</span>
-  <span class="s">"method"</span><span class="o">:</span> <span class="s">"GET"</span><span class="o">,</span>
-  <span class="s">"headers"</span><span class="o">:</span> <span class="o">{</span>
-    <span class="s">"authorization"</span><span class="o">:</span> <span class="s">"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw"</span><span class="o">,</span>
-    <span class="s">"cache-control"</span><span class="o">:</span> <span class="s">"no-cache"</span>
-  <span class="o">},</span>
-  <span class="s">"data"</span><span class="o">:</span> <span class="o">{</span>
-    <span class="s">"grant_type"</span><span class="o">:</span> <span class="s">"client_credentials"</span><span class="o">,</span>
-    <span class="s">"client_id"</span><span class="o">:</span> <span class="s">"10450"</span><span class="o">,</span>
-    <span class="s">"client_secret"</span><span class="o">:</span> <span class="s">"14add8b71a3494a946823c7729741c8b"</span><span class="o">,</span>
-    <span class="s">"scope"</span><span class="o">:</span> <span class="s">"general"</span>
-  <span class="o">}</span>
-<span class="o">}</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
 
-<span class="err">$</span><span class="o">.</span><span class="na">ajax</span><span class="o">(</span><span class="n">settings</span><span class="o">).</span><span class="na">done</span><span class="o">(</span><span class="n">function</span> <span class="o">(</span><span class="n">response</span><span class="o">)</span> <span class="o">{</span>
-  <span class="n">console</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
-<span class="o">});</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">http.client</span>
+<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/amenities"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">get</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"authorization"</span><span class="o">,</span> <span class="s">"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Cache-Control"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
-<span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPConnection</span><span class="p">(</span><span class="s">"api.hostaway.com"</span><span class="p">)</span>
+<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">payload</span> <span class="o">=</span> <span class="s">"grant_type=client_credentials&amp;client_id=10450&amp;client_secret=14add8b71a3494a946823c7729741c8b&amp;scope=general"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.hostaway.com/v1/amenities"</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'authorization'</span><span class="p">:</span> <span class="s">"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw"</span><span class="p">,</span>
-    <span class="s">'cache-control'</span><span class="p">:</span> <span class="s">"no-cache"</span>
+    <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">"application/json"</span><span class="p">,</span>
+    <span class="s">'Cache-Control'</span><span class="p">:</span> <span class="s">"no-cache"</span>
     <span class="p">}</span>
 
-<span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="s">"/v1/listings?limit=&amp;offset=&amp;sortOrder=&amp;city=&amp;keyword=&amp;country=&amp;isSyncing=&amp;contactName=&amp;propertyTypeId="</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre>
-<p><code class="prettyprint">GET https://api.hostaway.com/v1/listings</code></p>
-
-<table><thead>
-<tr>
-<th>Query Parameter</th>
-<th>Required</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">limit</code></td>
-<td>no</td>
-<td>int</td>
-<td>Maximum number of items in the list.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">offset</code></td>
-<td>no</td>
-<td>int</td>
-<td>Number of items to skip from beginning of the list.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">sortOrder</code></td>
-<td>no</td>
-<td>string</td>
-<td>One of: name, nameReversed, order, orderReversed, contactName, contactNameReversed.</td>
-</tr>
-<tr>
-<td><code class="prettyprint">city</code></td>
-<td>no</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">keyword</code></td>
-<td>no</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">country</code></td>
-<td>no</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">isSyncing</code></td>
-<td>no</td>
-<td>bool</td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">contactName</code></td>
-<td>no</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">propertyTypeId</code></td>
-<td>no</td>
-<td>int</td>
-<td></td>
-</tr>
-</tbody></table>
+<p><code class="prettyprint">GET https://api.hostaway.com/v1/amenities</code></p>
 
 <h3 id="response">Response</h3>
 
-<p>An array of listing objects.</p>
+<p>An array of amenity objects.</p>
 
           <h1 id="bed-types">Bed types</h1>
 
