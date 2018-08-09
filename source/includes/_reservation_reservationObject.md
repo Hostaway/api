@@ -138,7 +138,7 @@ Property | Required | Type | Description
 `pets` | no | int | 
 `arrivalDate` | yes | date | 
 `departureDate` | yes | date | 
-`isDatesUnspecified` | no | int | Set to `1` in case a channel doesn't provide dates. If it is `1` `arrivalDate` and `departureDate` are set to yesterday.
+`isDatesUnspecified` | no | int | Set to `1` in case a channel doesn't provide reservation dates. If it is `1` `arrivalDate` and `departureDate` are set to yesterday.
 `previousArrivalDate` | no | date | 
 `previousDepartureDate` | no | date | 
 `checkInTime` | no | int | 
