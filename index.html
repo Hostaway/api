@@ -290,6 +290,12 @@ Current API version is v1
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2018-08-09</strong></p>
+
+<ul>
+<li><code class="prettyprint">isDatesUnspecified</code> field of reservation added</li>
+</ul>
+
 <p><strong>2018-07-16</strong> </p>
 
 <ul>
@@ -2114,6 +2120,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
     </span><span class="s2">"pets"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"arrivalDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-15"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"departureDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-07-16"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"isDatesUnspecified"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"previousArrivalDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"previousDepartureDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"checkInTime"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -2440,6 +2447,12 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>yes</td>
 <td>date</td>
 <td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">isDatesUnspecified</code></td>
+<td>no</td>
+<td>int</td>
+<td>Set to <code class="prettyprint">1</code> in case a channel doesn&rsquo;t provide dates. If it is <code class="prettyprint">1</code> <code class="prettyprint">arrivalDate</code> and <code class="prettyprint">departureDate</code> are set to yesterday.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">previousArrivalDate</code></td>
