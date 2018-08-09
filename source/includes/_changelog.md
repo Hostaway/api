@@ -1,4 +1,9 @@
 ## Changelog
+
+**2018-08-09**
+
+- `isDatesUnspecified` field of reservation added
+
 **2018-07-16** 
 
 - `invoicingContactName`, `invoicingContactSurName`, `invoicingContactPhone1`, `invoicingContactPhone2`, `invoicingContactLanguage`, `invoicingContactEmail`, `invoicingContactAddress`, `invoicingContactCity`, `invoicingContactZipcode`, `invoicingContactCountry` fields of listing object are added
