@@ -36,6 +36,8 @@ includes:
   - reservation_retrieveConversations
   - reservation_retrieveMessageTemplates
   - reservation_retrieveMessageTemplate
+  - reservation_reservationCardObject
+  - reservation_retrieveCardInformation
   - calendar
   - calendar_calendarDayObject
   - calendar_retrieveCalendar
