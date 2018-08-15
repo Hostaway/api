@@ -13,11 +13,9 @@
     "isSeen": 0,
     "sentUsingHostaway": 0,
     "hash": "299855b5f40bd4e65fd83e5382a571e2",
-    "listingTimeZoneName": null,
-    "communicationEvent": null,
-    "communicationTimeDelta": null,
-    "communicationApplyListingTimeZone": null,
-    "communicationAlwaysTrigger": null,
+    "date": "2018-07-16 10:12:52",
+    "insertedOn": "2018-07-16 10:12:52",
+    "updatedOn": "2018-07-16 10:12:52",
     "id": 326
 }
 ```
@@ -36,8 +34,6 @@ Property | Required | Type | Description
 `isSeen` | no | bool | is message seen
 `sentUsingHostaway` | no | bool | is message sent from hostaway dashboard
 `hash`: | no | string | message checksum
-`listingTimeZoneName` | no | string | name of Listing time zone  
-`communicationEvent` | no | date (YYYY-MM-DD HH:MM:SS) | last message sent moment
-`communicationTimeDelta` | no | date (YYYY-MM-DD HH:MM:SS) | last message received moment
-`communicationApplyListingTimeZone` | no | array of conversationMessages | the latest message in conversation  
-`communicationAlwaysTrigger` | no | Reservation Object | the reservation related to the conversation
+`date` | no | date (YYYY-MM-DD HH:MM:SS) | the message date
+`insertedOn` | no | date (YYYY-MM-DD HH:MM:SS) | the message inserted on
+`updatedOn` | no | date (YYYY-MM-DD HH:MM:SS) | the message updated on

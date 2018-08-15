@@ -63,62 +63,37 @@ xhr.send(data);
 ```
 
 ```java
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://api.hostaway.com/v1/listings?limit=&offset=&sortOrder=&city=&keyword=&country=&isSyncing=&contactName=&propertyTypeId=",
-  "method": "GET",
-  "headers": {
-    "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw",
-    "cache-control": "no-cache"
-  },
-  "data": {
-    "grant_type": "client_credentials",
-    "client_id": "10450",
-    "client_secret": "14add8b71a3494a946823c7729741c8b",
-    "scope": "general"
-  }
-}
+OkHttpClient client = new OkHttpClient();
 
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
+Request request = new Request.Builder()
+  .url("https://api.hostaway.com/v1/amenities")
+  .get()
+  .addHeader("authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw")
+  .addHeader("Content-Type", "application/json")
+  .addHeader("Cache-Control", "no-cache")
+  .build();
+
+Response response = client.newCall(request).execute();
 ```
 
 ```python
-import http.client
+import requests
 
-conn = http.client.HTTPConnection("api.hostaway.com")
-
-payload = "grant_type=client_credentials&client_id=10450&client_secret=14add8b71a3494a946823c7729741c8b&scope=general"
+url = "https://api.hostaway.com/v1/amenities"
 
 headers = {
     'authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw",
-    'cache-control': "no-cache"
+    'Content-Type': "application/json",
+    'Cache-Control': "no-cache"
     }
 
-conn.request("GET", "/v1/listings?limit=&offset=&sortOrder=&city=&keyword=&country=&isSyncing=&contactName=&propertyTypeId=", payload, headers)
+response = requests.request("GET", url, headers=headers)
 
-res = conn.getresponse()
-data = res.read()
-
-print(data.decode("utf-8"))
+print(response.text)
 ```
 
-`GET https://api.hostaway.com/v1/listings`
-
-Query Parameter | Required | Type | Description
---------- | -------- | ---- | -----------
-`limit` | no | int | Maximum number of items in the list.
-`offset` | no | int | Number of items to skip from beginning of the list.
-`sortOrder` | no | string | One of: name, nameReversed, order, orderReversed, contactName, contactNameReversed.
-`city` | no | string | 
-`keyword` | no | string |
-`country` | no | string |
-`isSyncing` | no | bool |
-`contactName` | no | string |
-`propertyTypeId` | no | int |
+`GET https://api.hostaway.com/v1/amenities`
 
 ### Response
 
-An array of listing objects.
+An array of amenity objects.
