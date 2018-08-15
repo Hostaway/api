@@ -4,7 +4,7 @@
 
 ```shell
 curl -X GET \
-  'https://api.hostaway.com/v1/listings?limit=&offset=&sortOrder=&city=&keyword=&country=&isSyncing=&contactName=&propertyTypeId=' \
+  'https://api.hostaway.com/v1/listings?limit=&offset=&sortOrder=&city=&keyword=&country=&isSyncing=&contactName=&propertyTypeId=&includeResources=' \
   -H 'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw' \
   -H 'cache-control: no-cache' \
   -d 'grant_type=client_credentials&client_id=10450&client_secret=14add8b71a3494a946823c7729741c8b&scope=general'
@@ -16,7 +16,7 @@ curl -X GET \
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.hostaway.com/v1/listings?limit=&offset=&sortOrder=&city=&keyword=&country=&isSyncing=&contactName=&propertyTypeId=",
+  CURLOPT_URL => "https://api.hostaway.com/v1/listings?limit=&offset=&sortOrder=&city=&keyword=&country=&isSyncing=&contactName=&propertyTypeId=&includeResources=",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -46,7 +46,7 @@ if ($err) {
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://api.hostaway.com/v1/listings?limit=&offset=&sortOrder=&city=&keyword=&country=&isSyncing=&contactName=&propertyTypeId=",
+  "url": "https://api.hostaway.com/v1/listings?limit=&offset=&sortOrder=&city=&keyword=&country=&isSyncing=&contactName=&propertyTypeId=&includeResources=",
   "method": "GET",
   "headers": {
     "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw",
@@ -69,7 +69,7 @@ $.ajax(settings).done(function (response) {
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://api.hostaway.com/v1/listings?limit=&offset=&sortOrder=&city=&keyword=&country=&isSyncing=&contactName=&propertyTypeId=",
+  "url": "https://api.hostaway.com/v1/listings?limit=&offset=&sortOrder=&city=&keyword=&country=&isSyncing=&contactName=&propertyTypeId=&includeResources=",
   "method": "GET",
   "headers": {
     "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw",
@@ -100,7 +100,7 @@ headers = {
     'cache-control': "no-cache"
     }
 
-conn.request("GET", "/v1/listings?limit=&offset=&sortOrder=&city=&keyword=&country=&isSyncing=&contactName=&propertyTypeId=", payload, headers)
+conn.request("GET", "/v1/listings?limit=&offset=&sortOrder=&city=&keyword=&country=&isSyncing=&contactName=&propertyTypeId=&includeResources=", payload, headers)
 
 res = conn.getresponse()
 data = res.read()
@@ -121,6 +121,7 @@ Query Parameter | Required | Type | Description
 `isSyncing` | no | bool |
 `contactName` | no | string |
 `propertyTypeId` | no | int |
+`includeResources` | no | int | if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 0
 
 ### Response
 
