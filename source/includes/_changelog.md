@@ -1,5 +1,9 @@
 ## Changelog
 
+**2018-08-22**
+
+- `includeResources` query parameter added for : listings, conversations, calendar endpoints
+
 **2018-08-09**
 
 - `isDatesUnspecified` field of reservation added
