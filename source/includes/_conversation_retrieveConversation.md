@@ -92,7 +92,7 @@ print(response.text)
 
 Query Parameter | Required | Type | Description
 --------- | -------- | ---- | -----------
-`includeResources` | no | int | if includeResources flag is 1 then response object is supplied with supplementary resources, default is 0
+`includeResources` | no | int | if includeResources flag is 1 then response object is supplied with supplementary resources, default is 0. (It is a coming feature, it will be effective by end of September and will be off by default).
 
 
 ### Response

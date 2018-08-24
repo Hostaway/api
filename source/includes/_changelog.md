@@ -2,7 +2,7 @@
 
 **2018-08-24**
 
-- `includeResources` parameter added for listings, conversations, calendar endpoints (will be effective by end of September).
+- `includeResources` parameter added for listings, conversations, calendar endpoints (It is a coming feature, it will be effective by end of September and will be off by default).
 - `propertyLicenseNumber`, `propertyLicenseType`, `propertyLicenseIssueDate`, `propertyLicenseExpirationDate`  fields of listing object are added
 
 **2018-08-09**
