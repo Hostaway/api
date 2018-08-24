@@ -1,8 +1,8 @@
 ## Changelog
 
-**2018-08-22**
+**2018-08-24**
 
-- `includeResources` query parameter added for : listings, conversations, calendar endpoints
+- `propertyLicenseNumber`, `propertyLicenseType`, `propertyLicenseIssueDate`, `propertyLicenseExpirationDate`  fields of listing object are added
 
 **2018-08-09**
 

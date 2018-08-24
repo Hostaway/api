@@ -128,6 +128,10 @@ var data = JSON.stringify({
   "invoicingContactCity": "London",
   "invoicingContactZipcode": "110011",
   "invoicingContactCountry": "UK",
+  "propertyLicenseNumber": null,
+  "propertyLicenseType": null,
+  "propertyLicenseIssueDate": null,
+  "propertyLicenseExpirationDate": null,  
   "listingAmenities": [
     {
       "amenityId": 2

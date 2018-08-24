@@ -85,6 +85,10 @@
     "invoicingContactCity": "London",
     "invoicingContactZipcode": "110011",
     "invoicingContactCountry": "UK",
+    "propertyLicenseNumber": null,
+    "propertyLicenseType": null,
+    "propertyLicenseIssueDate": null,
+    "propertyLicenseExpirationDate": null,  
     "listingAmenities": [
         {
             "id": 3449,
@@ -210,6 +214,10 @@ Property | Required | Type | Description
 `invoicingContactCity` | no | string | 
 `invoicingContactZipcode` | no | string | 
 `invoicingContactCountry` | no | string | 
+`propertyLicenseNumber`  | no | string |
+`propertyLicenseType` | no | string |
+`propertyLicenseIssueDate` | no | date (YYYY-MM-DD) |
+`propertyLicenseExpirationDate` | no | date (YYYY-MM-DD) |
 `listingAmenities` | no | array | Array of listingAmenity objects.
 `listingBedTypes` | no | array | Array of listingBedType objects.
 `listingImages` | no | array | Array of listingImage objects.
