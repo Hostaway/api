@@ -1,5 +1,8 @@
 ## Changelog
 
+**2018-10-04**
+- `refundableDamageDeposit` listing field introduced
+
 **2018-08-24**
 
 - `includeResources` parameter added for listings, conversations, calendar endpoints (It is a coming feature, it will be effective by end of September and will be off by default).
