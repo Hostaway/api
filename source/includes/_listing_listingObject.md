@@ -159,7 +159,8 @@ Property | Required | Type | Description
 `propertyRentTax` | no | float | 
 `guestPerPersonPerNightTax` | no | float | 
 `guestStayTax` | no | float | 
-`guestNightlyTax` | no | float | 
+`guestNightlyTax` | no | float |
+`refundableDamageDeposit` | no | float |  
 `personCapacity` | no | int | 
 `maxChildrenAllowed` | no | int | 
 `maxInfantsAllowed` | no | int | 
