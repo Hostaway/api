@@ -29,6 +29,7 @@
     "guestPerPersonPerNightTax": 10,
     "guestStayTax": 12,
     "guestNightlyTax": 13,
+    "refundableDamageDeposit": 15,
     "personCapacity": 6,
     "maxChildrenAllowed": null,
     "maxInfantsAllowed": null,
