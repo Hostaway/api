@@ -83,6 +83,16 @@
     "doorCodeInstruction": "instruction",
     "comment": null,
     "confirmationCode": "HMP2KQ4B44",
+    "airbnbExpectedPayoutAmount": 111.12,
+    "airbnbListingCancellationHostFee": 12.02,
+    "airbnbListingCancellationPayout": 122,
+    "airbnbListingCleaningFee": 1,
+    "airbnbListingHostFee": 43,
+    "airbnbListingSecurityPrice": 12,
+    "airbnbOccupancyTaxAmountPaidToHost": 332,
+    "airbnbTotalPaidAmount": 12,
+    "airbnbTransientOccupancyTaxPaidAmount": 0,
+    "airbnbCancellationPolicy": "moderate",
     "isStarred": 0,
     "isArchived": 0,
     "isPinned": 0    
@@ -171,6 +181,16 @@ Property | Required | Type | Description
 `doorCodeInstruction` | no | string | 
 `comment` | no | string | 
 `confirmationCode` | no | string | Airbnb confirmation code
+`airbnbExpectedPayoutAmount` | no | float | 
+`airbnbListingCancellationHostFee` | no | float | 
+`airbnbListingCancellationPayout` | no | float | 
+`airbnbListingCleaningFee` | no | float | 
+`airbnbListingHostFee` | no | float | 
+`airbnbListingSecurityPrice` | no | float | 
+`airbnbOccupancyTaxAmountPaidToHost` | no | float | 
+`airbnbTotalPaidAmount` | no | float | 
+`airbnbTransientOccupancyTaxPaidAmount` | no | float | 
+`airbnbCancellationPolicy` | no | string | 
 `isStarred` | no | bool | 
 `isArchived` | no | bool | 
 `isPinned` | no | bool | 
