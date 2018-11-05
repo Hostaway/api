@@ -84,6 +84,7 @@
     "comment": null,
     "confirmationCode": "HMP2KQ4B44",
     "airbnbExpectedPayoutAmount": 111.12,
+    "airbnbListingBasePrice": 110,
     "airbnbListingCancellationHostFee": 12.02,
     "airbnbListingCancellationPayout": 122,
     "airbnbListingCleaningFee": 1,
