@@ -182,6 +182,7 @@ Property | Required | Type | Description
 `comment` | no | string | 
 `confirmationCode` | no | string | Airbnb confirmation code
 `airbnbExpectedPayoutAmount` | no | float | 
+`airbnbListingBasePrice` | no | float |
 `airbnbListingCancellationHostFee` | no | float | 
 `airbnbListingCancellationPayout` | no | float | 
 `airbnbListingCleaningFee` | no | float | 
