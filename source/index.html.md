@@ -116,6 +116,6 @@ Pagination data — met in retrieve `list` responses.
    
 ## Questions and bug reporting
 
-If you have any questions regarding API, feel free to send them by email to [support@hostaway.com](support@hostaway.com).
+If you have any questions regarding API, feel free to send them by email to [support@hostaway.com](mailto:support@hostaway.com).
 
-If you ever notice a bug, please send a report to [support@hostaway.com](support@hostaway.com). Report should include `cURL` request with endpoint URL, time of the request with timezone, header, payload, response and expected result.
+If you ever notice a bug, please send a report to [support@hostaway.com](mailto:support@hostaway.com). Report should include `cURL` request with endpoint URL, time of the request with timezone, header, payload, response and expected result.
