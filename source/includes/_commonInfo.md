@@ -1,0 +1,1 @@
+# Common information endpoints

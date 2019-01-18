@@ -64,6 +64,11 @@ includes:
   - propertyType
   - propertyType_propertyTypeObject
   - propertyType_retrievePropertyTypeList
+  - commonInfo
+  - commonInfo_countries
+  - commonInfo_currencies
+  - commonInfo_languages
+  - commonInfo_timezones
 
 search: true
 ---

@@ -1,5 +1,8 @@
 ## Changelog
 
+**2019-01-17**
+- Common information (countries, currencies, languages and timezones) endpoints introduced.
+
 **2018-10-04**
 - `refundableDamageDeposit` listing field introduced
 
