@@ -94,3 +94,17 @@ print(response.text)
 ### Response
 
 An associative array which keys are ISO 3166-1 alpha-2 country codes and values are full country names in English, sorted by values.
+
+Example:
+```
+{
+    "status": "success",
+    "result": {
+        "AF": "Afghanistan",
+        "AX": "Åland Islands",
+        ... ,
+        "ZM": "Zambia",
+        "ZW": "Zimbabwe"
+    }
+}
+```

@@ -94,3 +94,29 @@ print(response.text)
 ### Response
 
 An associative array which keys are timezone names and values contain extended timezone description under "value" key and UTC difference under "diff" key, sorted by UTC difference.
+
+Example:
+```
+{
+    "status": "success",
+    "result": {
+        "Pacific/Midway": {
+            "value": "(UTC -11:00) Pacific/Midway",
+            "diff": "-11:00"
+        },
+        "Pacific/Niue": {
+            "value": "(UTC -11:00) Pacific/Niue",
+            "diff": "-11:00"
+        },
+        ... ,
+        "Pacific/Apia": {
+            "value": "(UTC +14:00) Pacific/Apia",
+            "diff": "+14:00"
+        },
+        "Pacific/Kiritimati": {
+            "value": "(UTC +14:00) Pacific/Kiritimati",
+            "diff": "+14:00"
+        }
+    }
+}
+```

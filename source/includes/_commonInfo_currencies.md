@@ -94,3 +94,17 @@ print(response.text)
 ### Response
 
 An associative array which keys are ISO 4217 currency codes and values are full currency names in English, sorted by keys.
+
+Example:
+```
+{
+    "status": "success",
+    "result": {
+        "AUD": "AUD - Australian Dollar",
+        "BRL": "BRL - Brazilian Real",
+        ... ,
+        "USD": "USD - United States Dollar",
+        "ZAR": "ZAR - South African Rand"
+    }
+}
+```

@@ -94,3 +94,17 @@ print(response.text)
 ### Response
 
 An associative array which keys are ISO 639-1 language codes and values are full language names in English, sorted by values.
+
+Example:
+```
+{
+    "status": "success",
+    "result": {
+        "ab": "Abkhazian",
+        "aa": "Afar",
+        ... ,
+        "za": "Zhuang, Chuang",
+        "zu": "Zulu"
+    }
+}
+```
