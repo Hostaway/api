@@ -6179,6 +6179,20 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 
 <p>An associative array which keys are ISO 3166-1 alpha-2 country codes and values are full country names in English, sorted by values.</p>
 
+<p>Example:
+<code class="prettyprint">
+{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;result&quot;: {
+        &quot;AF&quot;: &quot;Afghanistan&quot;,
+        &quot;AX&quot;: &quot;Åland Islands&quot;,
+        ... ,
+        &quot;ZM&quot;: &quot;Zambia&quot;,
+        &quot;ZW&quot;: &quot;Zimbabwe&quot;
+    }
+}
+</code></p>
+
           <h2 id="currency-codes-and-currencies-list">Currency codes and currencies list</h2>
 
 <h3 id="request">Request</h3>
@@ -6260,6 +6274,20 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 <h3 id="response">Response</h3>
 
 <p>An associative array which keys are ISO 4217 currency codes and values are full currency names in English, sorted by keys.</p>
+
+<p>Example:
+<code class="prettyprint">
+{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;result&quot;: {
+        &quot;AUD&quot;: &quot;AUD - Australian Dollar&quot;,
+        &quot;BRL&quot;: &quot;BRL - Brazilian Real&quot;,
+        ... ,
+        &quot;USD&quot;: &quot;USD - United States Dollar&quot;,
+        &quot;ZAR&quot;: &quot;ZAR - South African Rand&quot;
+    }
+}
+</code></p>
 
           <h2 id="language-codes-and-languages-list">Language codes and languages list</h2>
 
@@ -6343,6 +6371,20 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 
 <p>An associative array which keys are ISO 639-1 language codes and values are full language names in English, sorted by values.</p>
 
+<p>Example:
+<code class="prettyprint">
+{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;result&quot;: {
+        &quot;ab&quot;: &quot;Abkhazian&quot;,
+        &quot;aa&quot;: &quot;Afar&quot;,
+        ... ,
+        &quot;za&quot;: &quot;Zhuang, Chuang&quot;,
+        &quot;zu&quot;: &quot;Zulu&quot;
+    }
+}
+</code></p>
+
           <h2 id="timezones-list">Timezones list</h2>
 
 <h3 id="request">Request</h3>
@@ -6424,6 +6466,32 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 <h3 id="response">Response</h3>
 
 <p>An associative array which keys are timezone names and values contain extended timezone description under &ldquo;value&rdquo; key and UTC difference under &ldquo;diff&rdquo; key, sorted by UTC difference.</p>
+
+<p>Example:
+<code class="prettyprint">
+{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;result&quot;: {
+        &quot;Pacific/Midway&quot;: {
+            &quot;value&quot;: &quot;(UTC -11:00) Pacific/Midway&quot;,
+            &quot;diff&quot;: &quot;-11:00&quot;
+        },
+        &quot;Pacific/Niue&quot;: {
+            &quot;value&quot;: &quot;(UTC -11:00) Pacific/Niue&quot;,
+            &quot;diff&quot;: &quot;-11:00&quot;
+        },
+        ... ,
+        &quot;Pacific/Apia&quot;: {
+            &quot;value&quot;: &quot;(UTC +14:00) Pacific/Apia&quot;,
+            &quot;diff&quot;: &quot;+14:00&quot;
+        },
+        &quot;Pacific/Kiritimati&quot;: {
+            &quot;value&quot;: &quot;(UTC +14:00) Pacific/Kiritimati&quot;,
+            &quot;diff&quot;: &quot;+14:00&quot;
+        }
+    }
+}
+</code></p>
 
       </div>
       <div class="dark-box">
