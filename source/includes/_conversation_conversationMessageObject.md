@@ -13,6 +13,11 @@
     "isSeen": 0,
     "sentUsingHostaway": 0,
     "hash": "299855b5f40bd4e65fd83e5382a571e2",
+    "listingTimeZoneName": "Europe/Moscow",
+    "communicationEvent": null,
+    "communicationTimeDelta": null,
+    "communicationApplyListingTimeZone": null,
+    "communicationAlwaysTrigger": null,
     "date": "2018-07-16 10:12:52",
     "insertedOn": "2018-07-16 10:12:52",
     "updatedOn": "2018-07-16 10:12:52",
@@ -34,6 +39,11 @@ Property | Required | Type | Description
 `isSeen` | no | bool | is message seen
 `sentUsingHostaway` | no | bool | is message sent from hostaway dashboard
 `hash`: | no | string | message checksum
+`listingTimeZoneName` | no | string | Listing time zone name
+`communicationEvent` | no | string | Event triggered communication if any
+`communicationTimeDelta` | no | int | Communication time delta
+`communicationApplyListingTimeZone` | no | int | 1 or 0
+`communicationAlwaysTrigger` | no | int | 1 or 0
 `date` | no | date (YYYY-MM-DD HH:MM:SS) | the message date
 `insertedOn` | no | date (YYYY-MM-DD HH:MM:SS) | the message inserted on
 `updatedOn` | no | date (YYYY-MM-DD HH:MM:SS) | the message updated on
