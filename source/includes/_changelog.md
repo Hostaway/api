@@ -1,5 +1,8 @@
 ## Changelog
 
+**2019-02-27**
+- ConversationMessage object updated, Booking.com messaging support
+
 **2019-01-17**
 - Common information (countries, currencies, languages and timezones) endpoints introduced.
 

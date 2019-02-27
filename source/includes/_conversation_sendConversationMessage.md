@@ -10,6 +10,18 @@ curl -X POST \
   -H 'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjljOGYzN2NjMzAzNWI5M2Q5MzJiMGZjZGYwOGYzNjc2NDA5MWNjMTI3MTY0ZWZhOGIzMTk1ZjRiOTU4YjNkZjYxZWNlZjVmOGJhMzkxZGYyIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjljOGYzN2NjMzAzNWI5M2Q5MzJiMGZjZGYwOGYzNjc2NDA5MWNjMTI3MTY0ZWZhOGIzMTk1ZjRiOTU4YjNkZjYxZWNlZjVmOGJhMzkxZGYyIiwiaWF0IjoxNTI2NjQ0MzE0LCJuYmYiOjE1MjY2NDQzMTQsImV4cCI6MTU0MjE5NjMxNCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.hVv1ybL5Ifl6VatEBXxJz4sNa7f2RPGlSGCK5YNiSDNBeW9FjgfzbKFW4GaKGXNBYk2b7TpxhwF_3RbBRE0Y817TIiwUNZEhMCz5do4Kp9ZX6nrHlvJiqdLYZXhaHUlU8vq-80a0xTmgVnjRH20JeA0q9t8gxcfYJUQfQMOb59Q' \
   -d '{
     "body": "hello guest"
+    "bookingcomSelectedOptions": [
+            {
+                "type": "PlainText",
+                "caption": "",
+                "input_value": "Sure",
+                "mandatory": 0,
+                "payload": "",
+                "name": "",
+                "options": []
+            }
+    ],
+    "inReplyTo": "f8653654-2e2b-11e9-8b13-33ea493562e6"
 }'
 ```
 
@@ -26,7 +38,7 @@ curl_setopt_array($curl, array(
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS => "{\n    \"body\": \"hello guest\"\n}",
+  CURLOPT_POSTFIELDS => "{\n    \"body\": \"truth begins in lies\",\n    \"bookingcomSelectedOptions\": [\n        {\n            \"type\": \"PlainText\",\n            \"caption\": \"\",\n            \"input_value\": \"Sure\",\n            \"mandatory\": 0,\n            \"payload\": \"\",\n            \"name\": \"\",\n            \"options\": []\n        }\n    ],\n    \"inReplyTo\": \"f8653654-2e2b-11e9-8b13-33ea493562e6\"\n}",
   CURLOPT_HTTPHEADER => array(
     "Cache-Control: no-cache",
     "Content-Type: application/json",
@@ -48,7 +60,19 @@ if ($err) {
 
 ```javascript
 var data = JSON.stringify({
-  "body": "hello guest"
+  "body": "hello guest",
+  "bookingcomSelectedOptions": [
+      {
+          "type": "PlainText",
+          "caption": "",
+          "input_value": "Sure",
+          "mandatory": 0,
+          "payload": "",
+          "name": "",
+          "options": []
+      }
+  ],
+  "inReplyTo": "f8653654-2e2b-11e9-8b13-33ea493562e6"
 });
 
 var xhr = new XMLHttpRequest();
@@ -72,7 +96,7 @@ xhr.send(data);
 OkHttpClient client = new OkHttpClient();
 
 MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create(mediaType, "{\n    \"body\": \"hello guest\"\n}");
+RequestBody body = RequestBody.create(mediaType, "{\n    \"body\": \"truth begins in lies\",\n    \"bookingcomSelectedOptions\": [\n        {\n            \"type\": \"PlainText\",\n            \"caption\": \"\",\n            \"input_value\": \"Sure\",\n            \"mandatory\": 0,\n            \"payload\": \"\",\n            \"name\": \"\",\n            \"options\": []\n        }\n    ],\n    \"inReplyTo\": \"f8653654-2e2b-11e9-8b13-33ea493562e6\"\n}");
 Request request = new Request.Builder()
   .url("https://api.hostaway.com/v1/conversations/1406/messages")
   .post(body)
@@ -89,7 +113,7 @@ import requests
 
 url = "https://api.hostaway.com/v1/conversations/1406/messages"
 
-payload = "{\n    \"body\": \"hello guest\"\n}"
+payload = "{\n    \"body\": \"truth begins in lies\",\n    \"bookingcomSelectedOptions\": [\n        {\n            \"type\": \"PlainText\",\n            \"caption\": \"\",\n            \"input_value\": \"Sure\",\n            \"mandatory\": 0,\n            \"payload\": \"\",\n            \"name\": \"\",\n            \"options\": []\n        }\n    ],\n    \"inReplyTo\": \"f8653654-2e2b-11e9-8b13-33ea493562e6\"\n}"
 headers = {
     'authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjljOGYzN2NjMzAzNWI5M2Q5MzJiMGZjZGYwOGYzNjc2NDA5MWNjMTI3MTY0ZWZhOGIzMTk1ZjRiOTU4YjNkZjYxZWNlZjVmOGJhMzkxZGYyIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjljOGYzN2NjMzAzNWI5M2Q5MzJiMGZjZGYwOGYzNjc2NDA5MWNjMTI3MTY0ZWZhOGIzMTk1ZjRiOTU4YjNkZjYxZWNlZjVmOGJhMzkxZGYyIiwiaWF0IjoxNTI2NjQ0MzE0LCJuYmYiOjE1MjY2NDQzMTQsImV4cCI6MTU0MjE5NjMxNCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.hVv1ybL5Ifl6VatEBXxJz4sNa7f2RPGlSGCK5YNiSDNBeW9FjgfzbKFW4GaKGXNBYk2b7TpxhwF_3RbBRE0Y817TIiwUNZEhMCz5do4Kp9ZX6nrHlvJiqdLYZXhaHUlU8vq-80a0xTmgVnjRH20JeA0q9t8gxcfYJUQfQMOb59Q",
     'Content-Type': "application/json",
