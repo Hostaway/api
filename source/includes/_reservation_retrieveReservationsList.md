@@ -104,7 +104,7 @@ Query Parameter | Required | Type | Description
 `offset` | no | int | Number of items to skip from beginning of the list.
 `sortOrder` | no | string | One of: arrivalDate, arrivalDateDesc, lastConversationMessageSent, lastConversationMessageSentDesc, lastConversationMessageReceived, lastConversationMessageReceivedDesc.
 `channelId` | no | int | 
-`litingId` | no | int |
+`listingId` | no | int |
 `assigneeUserId` | no | int |
 `match` | no | string | Used to search a reservation by guest name.
 `arrivalStartDate` | no | date |
