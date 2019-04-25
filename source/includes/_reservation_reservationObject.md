@@ -96,7 +96,17 @@
     "airbnbCancellationPolicy": "moderate",
     "isStarred": 0,
     "isArchived": 0,
-    "isPinned": 0    
+    "isPinned": 0,
+    "customFieldValues": [
+        {
+            "customFieldId": 167,
+            "value": "Custom field value one"
+        },
+        {
+            "customFieldId": 243,
+            "value": "Custom field value two"
+        }
+    ]
 }
 ```
 
@@ -196,4 +206,5 @@ Property | Required | Type | Description
 `isStarred` | no | bool | 
 `isArchived` | no | bool | 
 `isPinned` | no | bool | 
+`customFieldValues` | no | array | You should create Custom fields at the dashboard beforehand
 
