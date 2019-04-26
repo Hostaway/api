@@ -64,6 +64,9 @@ includes:
   - propertyType
   - propertyType_propertyTypeObject
   - propertyType_retrievePropertyTypeList
+  - reservationWebhookLog
+  - reservationWebhookLog_reservationWebhookLogObject
+  - reservationWebhookLog_retrieveReservationWebhookLogList
   - commonInfo
   - commonInfo_countries
   - commonInfo_currencies
