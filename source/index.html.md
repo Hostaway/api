@@ -67,6 +67,9 @@ includes:
   - reservationWebhookLog
   - reservationWebhookLog_reservationWebhookLogObject
   - reservationWebhookLog_retrieveReservationWebhookLogList
+  - customField
+  - customField_customFieldObject
+  - customField_customFieldList
   - commonInfo
   - commonInfo_countries
   - commonInfo_currencies
