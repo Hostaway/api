@@ -1,5 +1,10 @@
 ## Changelog
 
+**2019-05-24**
+
+- Custom reservation field object
+- Custom field value of reservation object
+
 **2019-01-17**
 - Common information (countries, currencies, languages and timezones) endpoints introduced.
 
