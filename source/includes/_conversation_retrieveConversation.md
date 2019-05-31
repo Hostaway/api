@@ -74,7 +74,7 @@ Response response = client.newCall(request).execute();
 ```python
 import requests
 
-url = "https://api.hostaway.local/v1/conversations/1406"
+url = "https://api.hostaway.com/v1/conversations/1406"
 
 querystring = {"includeResourses":"0"}
 
