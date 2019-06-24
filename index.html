@@ -290,6 +290,9 @@ Current API version is v1
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2019-06-24</strong>
+- Added <code class="prettyprint">isBookingEngineActive</code> field for listing filtering</p>
+
 <p><strong>2019-05-24</strong></p>
 
 <ul>
@@ -1364,7 +1367,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url <span class="s1">'http://api.hostaway.local/v1/listings?limit=&amp;offset=&amp;sortOrder=&amp;city=&amp;match=&amp;country=&amp;isSyncing=&amp;contactName=&amp;propertyTypeId=&amp;isWpActive='</span> <span class="se">\</span>
+  --url <span class="s1">'http://api.hostaway.local/v1/listings?limit=&amp;offset=&amp;sortOrder=&amp;city=&amp;match=&amp;country=&amp;contactName=&amp;propertyTypeId='</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -d <span class="s1">'grant_type=client_credentials&amp;client_id=10450&amp;client_secret=14add8b71a3494a946823c7729741c8b&amp;scope=general'</span>
@@ -1373,7 +1376,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/listings?limit=&amp;offset=&amp;sortOrder=&amp;city=&amp;match=&amp;country=&amp;isSyncing=&amp;contactName=&amp;propertyTypeId=&amp;isWpActive="</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/listings?limit=&amp;offset=&amp;sortOrder=&amp;city=&amp;match=&amp;country=&amp;contactName=&amp;propertyTypeId="</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
   <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
@@ -1400,7 +1403,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://api.hostaway.com/v1/listings?limit=&amp;offset=&amp;sortOrder=&amp;city=&amp;match=&amp;country=&amp;isSyncig=&amp;contactName=&amp;propertyTypeId=&amp;isWpActive="</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://api.hostaway.com/v1/listings?limit=&amp;offset=&amp;sortOrder=&amp;city=&amp;match=&amp;country=&amp;isSyncig=&amp;contactName=&amp;propertyTypeId="</span><span class="p">,</span>
   <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">"authorization"</span><span class="p">:</span> <span class="s2">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">,</span>
@@ -1420,7 +1423,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 </code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
 
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/listings?limit=&amp;offset=&amp;sortOrder=&amp;city=&amp;match=&amp;country=&amp;isSyncing=&amp;contactName=&amp;propertyTypeId=&amp;isWpActive="</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/listings?limit=&amp;offset=&amp;sortOrder=&amp;city=&amp;match=&amp;country=&amp;contactName=&amp;propertyTypeId="</span><span class="o">)</span>
   <span class="o">.</span><span class="na">get</span><span class="o">()</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"authorization"</span><span class="o">,</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"cache-control"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">)</span>
@@ -1431,7 +1434,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.hostaway.com/v1/listings"</span>
 
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"limit"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="s">"offset"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="s">"sortOrder"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="s">"city"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="s">"match"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="s">"country"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="s">"isSyncing"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="s">"contactName"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="s">"propertyTypeId"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="s">"isWpActive"</span><span class="p">:</span><span class="s">""</span><span class="p">}</span>
+<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"limit"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="s">"offset"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="s">"sortOrder"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="s">"city"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="s">"match"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="s">"country"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="s">"contactName"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="s">"propertyTypeId"</span><span class="p">:</span><span class="s">""</span><span class="p">}</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'authorization'</span><span class="p">:</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">,</span>
@@ -1489,12 +1492,6 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td></td>
 </tr>
 <tr>
-<td><code class="prettyprint">isSyncing</code></td>
-<td>no</td>
-<td>bool</td>
-<td></td>
-</tr>
-<tr>
 <td><code class="prettyprint">contactName</code></td>
 <td>no</td>
 <td>string</td>
@@ -1531,10 +1528,10 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>Listing person capacity</td>
 </tr>
 <tr>
-<td><code class="prettyprint">isWpActive</code></td>
+<td><code class="prettyprint">isBookingEngineActive</code></td>
 <td>no</td>
-<td>int</td>
-<td></td>
+<td>bool</td>
+<td>Listing is active on website (Booking Engine)</td>
 </tr>
 </tbody></table>
 
@@ -1546,7 +1543,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url <span class="s1">'https://api.hostaway.com/v1/listings/40160?isWpActive='</span> <span class="se">\</span>
+  --url <span class="s1">'https://api.hostaway.com/v1/listings/40160'</span> <span class="se">\</span>
   --header <span class="s1">'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'</span> <span class="se">\</span>
   --header <span class="s1">'cache-control: no-cache'</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
@@ -1554,7 +1551,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/listings/40160?isWpActive="</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/listings/40160"</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
   <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
@@ -1588,7 +1585,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
   <span class="p">}</span>
 <span class="p">});</span>
 
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/listings/40160?isWpActive="</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/listings/40160"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"authorization"</span><span class="p">,</span> <span class="s2">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"cache-control"</span><span class="p">,</span> <span class="s2">"no-cache"</span><span class="p">);</span>
 
@@ -1596,7 +1593,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 </code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
 
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/listings/40160?isWpActive="</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/listings/40160"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">get</span><span class="o">()</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"authorization"</span><span class="o">,</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"cache-control"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">)</span>
@@ -1607,14 +1604,12 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.hostaway.com/v1/listings/40160"</span>
 
-<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s">"isWpActive"</span><span class="p">:</span><span class="s">""</span><span class="p">}</span>
-
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'authorization'</span><span class="p">:</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">,</span>
     <span class="s">'cache-control'</span><span class="p">:</span> <span class="s">"no-cache"</span><span class="p">,</span>
     <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre>
