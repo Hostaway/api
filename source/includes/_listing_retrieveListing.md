@@ -4,7 +4,7 @@
 
 ```shell
 curl --request GET \
-  --url 'https://api.hostaway.com/v1/listings/40160?isWpActive=' \
+  --url 'https://api.hostaway.com/v1/listings/40160' \
   --header 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c' \
   --header 'cache-control: no-cache'
 ```
@@ -15,7 +15,7 @@ curl --request GET \
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.hostaway.com/v1/listings/40160?isWpActive=",
+  CURLOPT_URL => "https://api.hostaway.com/v1/listings/40160",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -52,7 +52,7 @@ xhr.addEventListener("readystatechange", function () {
   }
 });
 
-xhr.open("GET", "https://api.hostaway.com/v1/listings/40160?isWpActive=");
+xhr.open("GET", "https://api.hostaway.com/v1/listings/40160");
 xhr.setRequestHeader("authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c");
 xhr.setRequestHeader("cache-control", "no-cache");
 
@@ -63,7 +63,7 @@ xhr.send(data);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://api.hostaway.com/v1/listings/40160?isWpActive=")
+  .url("https://api.hostaway.com/v1/listings/40160")
   .get()
   .addHeader("authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c")
   .addHeader("cache-control", "no-cache")
@@ -77,14 +77,12 @@ import requests
 
 url = "https://api.hostaway.com/v1/listings/40160"
 
-querystring = {"isWpActive":""}
-
 headers = {
     'authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
     'cache-control': "no-cache",
     }
 
-response = requests.request("GET", url, headers=headers, params=querystring)
+response = requests.request("GET", url, headers=headers)
 
 print(response.text)
 ```

@@ -4,7 +4,7 @@
 
 ```shell
 curl --request GET \
-  --url 'http://api.hostaway.local/v1/listings?limit=&offset=&sortOrder=&city=&match=&country=&isSyncing=&contactName=&propertyTypeId=&isWpActive=' \
+  --url 'http://api.hostaway.local/v1/listings?limit=&offset=&sortOrder=&city=&match=&country=&contactName=&propertyTypeId=' \
   -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c' \
   -H 'cache-control: no-cache' \
   -d 'grant_type=client_credentials&client_id=10450&client_secret=14add8b71a3494a946823c7729741c8b&scope=general'
@@ -16,7 +16,7 @@ curl --request GET \
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.hostaway.com/v1/listings?limit=&offset=&sortOrder=&city=&match=&country=&isSyncing=&contactName=&propertyTypeId=&isWpActive=",
+  CURLOPT_URL => "https://api.hostaway.com/v1/listings?limit=&offset=&sortOrder=&city=&match=&country=&contactName=&propertyTypeId=",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -46,7 +46,7 @@ if ($err) {
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://api.hostaway.com/v1/listings?limit=&offset=&sortOrder=&city=&match=&country=&isSyncig=&contactName=&propertyTypeId=&isWpActive=",
+  "url": "https://api.hostaway.com/v1/listings?limit=&offset=&sortOrder=&city=&match=&country=&isSyncig=&contactName=&propertyTypeId=",
   "method": "GET",
   "headers": {
     "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
@@ -69,7 +69,7 @@ $.ajax(settings).done(function (response) {
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://api.hostaway.com/v1/listings?limit=&offset=&sortOrder=&city=&match=&country=&isSyncing=&contactName=&propertyTypeId=&isWpActive=")
+  .url("https://api.hostaway.com/v1/listings?limit=&offset=&sortOrder=&city=&match=&country=&contactName=&propertyTypeId=")
   .get()
   .addHeader("authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c")
   .addHeader("cache-control", "no-cache")
@@ -83,7 +83,7 @@ import requests
 
 url = "https://api.hostaway.com/v1/listings"
 
-querystring = {"limit":"","offset":"","sortOrder":"","city":"","match":"","country":"","isSyncing":"","contactName":"","propertyTypeId":"","isWpActive":""}
+querystring = {"limit":"","offset":"","sortOrder":"","city":"","match":"","country":"","contactName":"","propertyTypeId":""}
 
 headers = {
     'authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
@@ -105,14 +105,13 @@ Query Parameter | Required | Type | Description
 `city` | no | string | 
 `match` | no | string | Used to search a listing by listing name.
 `country` | no | string |
-`isSyncing` | no | bool |
 `contactName` | no | string |
 `propertyTypeId` | no | int |
 `includeResources` | no | int | if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 0. (It is a coming feature, it will be effective by end of September and will be off by default).
 `availabilityDateStart` | no | string | date in Y-m-d format
 `availabilityDateEnd` | no | string | date in Y-m-d format
 `availabilityGuestNumber` | no | int | Listing person capacity
-`isWpActive` | no | int |
+`isBookingEngineActive` | no | bool | Listing is active on website (Booking Engine)
 ### Response
 
 An array of listing objects.

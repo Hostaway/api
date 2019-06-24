@@ -1,5 +1,8 @@
 ## Changelog
 
+**2019-06-24**
+- Added `isBookingEngineActive` field for listing filtering
+
 **2019-05-24**
 
 - Custom reservation field object
