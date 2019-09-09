@@ -94,7 +94,7 @@ Current API version is v1
 Please notice that:
 
 - boolean type should be considered as integer 0 or 1 value
-- all time values should be specified in UTC timezone
+- all time values should be specified in UTC timezone (except for `checkInTimeStart`, `checkInTimeEnd` and `checkOutTime` fields of Listing object, which have to be specified in listing's local timezone)
 - all country code values are `ISO 3166-2` standard
 
 ## Standard Response

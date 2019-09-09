@@ -170,7 +170,7 @@ Property | Required | Type | Description
 `lng` | no | float | Longitude.
 `checkInTimeStart` | no | int | Accepted values are 0-23
 `checkInTimeEnd` | no | int | Accepted values are 0-23
-`checkOutTime` | no | int | 
+`checkOutTime` | no | int | Accepted values are 0-23
 `cancellationPolicy` | no | string | One of: flexible, moderate, strict.
 `squareMeters` | no | int | 
 `roomType` | no | string | One of: entire_home, private_room, shared_room.
