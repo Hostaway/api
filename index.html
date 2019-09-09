@@ -245,7 +245,7 @@ Current API version is v1
 
 <ul>
 <li>boolean type should be considered as integer 0 or 1 value</li>
-<li>all time values should be specified in UTC timezone</li>
+<li>all time values should be specified in UTC timezone (except for <code class="prettyprint">checkInTimeStart</code>, <code class="prettyprint">checkInTimeEnd</code> and <code class="prettyprint">checkOutTime</code> fields of Listing object, which have to be specified in listing&rsquo;s local timezone)</li>
 <li>all country code values are <code class="prettyprint">ISO 3166-2</code> standard</li>
 </ul>
 
@@ -942,7 +942,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">checkOutTime</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Accepted values are 0-23</td>
 </tr>
 <tr>
 <td><code class="prettyprint">cancellationPolicy</code></td>
