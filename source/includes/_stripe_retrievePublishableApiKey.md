@@ -87,4 +87,3 @@ print(response.text)
 
 ### Response
 
-An array of amenity objects.
