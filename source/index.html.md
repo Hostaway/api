@@ -76,6 +76,8 @@ includes:
   - commonInfo_currencies
   - commonInfo_languages
   - commonInfo_timezones
+  - stripe
+  - stripe_retrievePublishableApiKey
 
 search: true
 ---
