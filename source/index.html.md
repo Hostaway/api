@@ -78,6 +78,7 @@ includes:
   - commonInfo_timezones
   - stripe
   - stripe_retrievePublishableApiKey
+  - stripe_createSetupIntent
 
 search: true
 ---
