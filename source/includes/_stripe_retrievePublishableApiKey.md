@@ -86,4 +86,13 @@ print(response.text)
 `GET https://api.hostaway.com/v1/stripe/publishableKey`
 
 ### Response
+Example:
+```
+{
+    "status": "success",
+    "result": {
+        "stripePublishableApiKey": "key_value"
+    }
+}
+```
 
