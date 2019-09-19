@@ -38,6 +38,7 @@ includes:
   - reservation_retrieveMessageTemplate
   - reservation_reservationCardObject
   - reservation_updateReservationCreditCardDetails
+  - reservation_addPaymentMethod
   - reservation_retrieveCardInformation
   - calendar
   - calendar_calendarDayObject
