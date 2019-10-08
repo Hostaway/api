@@ -70,8 +70,8 @@
     "ccExpirationMonth": null,
     "cvc": null,
     "paymentMethod": null,
-    "paymentMethodGuestId": null,
-    "paymentMethodMessage": null,
+    "stripeGuestId": null,
+    "stripeMessage": null,
     "currency": "USD",
     "status": "new",
     "cancellationDate": null,
@@ -179,8 +179,8 @@ Property | Required | Type | Description
 `ccExpirationMonth` | no | int | 
 `cvc` | no | string | 
 `paymentMethod` | no | string | 
-`paymentMethodGuestId` | no | string | 
-`paymentMethodMessage` | no | string | 
+`stripeGuestId` | no | string | 
+`stripeMessage` | no | string | 
 `currency` | no | string | 
 `status` | no | string | Can be one of the following: `new`, `modified`, `confirmed`, `cancelled`, `pending`, `awaitingPayment`, `declined`, `expired`, `inquiry`, `inquiryPreapproved`, `inquiryDenied`, `inquiryTimedout`, `inquiryNotPossible`
 `cancellationDate` | no | date | 
