@@ -1,6 +1,6 @@
 ## Changelog
 
-**2019-08-10**
+**2019-10-08**
 - `paymentMethodGuestId` and `paymentMethodMessage` reservation fields were renamed to `stripeGuestId` and `stripeMessage`, respectively
 
 **2019-06-24**
