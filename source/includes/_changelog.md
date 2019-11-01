@@ -1,5 +1,8 @@
 ## Changelog
 
+**2019-11-01**
+- `includeResources` parameter us now fully supported for listings, reservations, conversations, calendar endpoints. It is on by default.
+
 **2019-10-08**
 - `paymentMethodGuestId` and `paymentMethodMessage` reservation fields were renamed to `stripeGuestId` and `stripeMessage`, respectively
 

@@ -107,7 +107,7 @@ Query Parameter | Required | Type | Description
 `country` | no | string |
 `contactName` | no | string |
 `propertyTypeId` | no | int |
-`includeResources` | no | int | if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 0. (It is a coming feature, it will be effective by end of September and will be off by default).
+`includeResources` | no | int | if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 1.
 `availabilityDateStart` | no | string | date in Y-m-d format
 `availabilityDateEnd` | no | string | date in Y-m-d format
 `availabilityGuestNumber` | no | int | Listing person capacity
