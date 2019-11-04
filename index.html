@@ -290,6 +290,9 @@ Current API version is v1
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2019-11-01</strong>
+- <code class="prettyprint">includeResources</code> parameter us now fully supported for listings, reservations, conversations, calendar endpoints. It is on by default.</p>
+
 <p><strong>2019-10-08</strong>
 - <code class="prettyprint">paymentMethodGuestId</code> and <code class="prettyprint">paymentMethodMessage</code> reservation fields were renamed to <code class="prettyprint">stripeGuestId</code> and <code class="prettyprint">stripeMessage</code>, respectively</p>
 
@@ -1510,7 +1513,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">includeResources</code></td>
 <td>no</td>
 <td>int</td>
-<td>if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 0. (It is a coming feature, it will be effective by end of September and will be off by default).</td>
+<td>if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 1.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">availabilityDateStart</code></td>
@@ -1630,7 +1633,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">includeResources</code></td>
 <td>no</td>
 <td>int</td>
-<td>if includeResources flag is 1 then response object is supplied with supplementary resources, default is 0. (It is a coming feature, it will be effective by end of September and will be off by default).</td>
+<td>if includeResources flag is 1 then response object is supplied with supplementary resources, default is 1.</td>
 </tr>
 </tbody></table>
 
@@ -3030,6 +3033,12 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>no</td>
 <td>bool</td>
 <td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">includeResources</code></td>
+<td>no</td>
+<td>int</td>
+<td>if includeResources flag is 1 then response object is supplied with supplementary resources, default is 1.</td>
 </tr>
 </tbody></table>
 
@@ -4598,7 +4607,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">includeResources</code></td>
 <td>no</td>
 <td>int</td>
-<td>if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 0. (It is a coming feature, it will be effective by end of September and will be off by default).</td>
+<td>if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 1.</td>
 </tr>
 </tbody></table>
 
@@ -5347,7 +5356,7 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 <td><code class="prettyprint">includeResources</code></td>
 <td>no</td>
 <td>int</td>
-<td>if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 0. (It is a coming feature, it will be effective by end of September and will be off by default).</td>
+<td>if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 1.</td>
 </tr>
 </tbody></table>
 
@@ -5444,7 +5453,7 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 <td><code class="prettyprint">includeResources</code></td>
 <td>no</td>
 <td>int</td>
-<td>if includeResources flag is 1 then response object is supplied with supplementary resources, default is 0. (It is a coming feature, it will be effective by end of September and will be off by default).</td>
+<td>if includeResources flag is 1 then response object is supplied with supplementary resources, default is 1.</td>
 </tr>
 </tbody></table>
 
