@@ -4502,7 +4502,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  <span class="s1">'https://api.hostaway.com/v1/listings/40160/calendar?startDate=2018-09-01&amp;endDate=2018-09-30&amp;includeResources='</span> <span class="se">\</span>
+  <span class="s1">'https://api.hostaway.com/v1/listings/40160/calendar?startDate=2018-09-01&amp;endDate=2018-09-30&amp;includeResources=1'</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -d <span class="s1">'grant_type=client_credentials&amp;client_id=10450&amp;client_secret=14add8b71a3494a946823c7729741c8b&amp;scope=general'</span>
@@ -5252,7 +5252,7 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
-  <span class="s1">'https://api.hostaway.com/v1/conversations?reservationId=&amp;limit=&amp;offset=&amp;includeResources='</span> <span class="se">\</span>
+  <span class="s1">'https://api.hostaway.com/v1/conversations?reservationId=&amp;limit=&amp;offset=&amp;includeResources=1'</span> <span class="se">\</span>
   -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjljOGYzN2NjMzAzNWI5M2Q5MzJiMGZjZGYwOGYzNjc2NDA5MWNjMTI3MTY0ZWZhOGIzMTk1ZjRiOTU4YjNkZjYxZWNlZjVmOGJhMzkxZGYyIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjljOGYzN2NjMzAzNWI5M2Q5MzJiMGZjZGYwOGYzNjc2NDA5MWNjMTI3MTY0ZWZhOGIzMTk1ZjRiOTU4YjNkZjYxZWNlZjVmOGJhMzkxZGYyIiwiaWF0IjoxNTI2NjQ0MzE0LCJuYmYiOjE1MjY2NDQzMTQsImV4cCI6MTU0MjE5NjMxNCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.hVv1ybL5Ifl6VatEBXxJz4sNa7f2RPGlSGCK5YNiSDNBeW9FjgfzbKFW4GaKGXNBYk2b7TpxhwF_3RbBRE0Y817TIiwUNZEhMCz5do4Kp9ZX6nrHlvJiqdLYZXhaHUlU8vq-80a0xTmgVnjRH20JeA0q9t8gxcfYJUQfQMOb59Q'</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
