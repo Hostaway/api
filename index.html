@@ -2849,6 +2849,12 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>array</td>
 <td>You should create Custom fields at the dashboard beforehand</td>
 </tr>
+<tr>
+<td><code class="prettyprint">reservationFees</code></td>
+<td>no</td>
+<td>array</td>
+<td>Array of <code class="prettyprint">reservationFee</code> objects (will be empty array if <code class="prettyprint">includeResources</code> parameter is set to 0).</td>
+</tr>
 </tbody></table>
 
           <h2 id="retrieve-a-reservations-list">Retrieve a reservations list</h2>
@@ -4068,6 +4074,112 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>yes</td>
 <td>int</td>
 <td></td>
+</tr>
+</tbody></table>
+
+          <h2 id="reservation-fee-object">Reservation fee object</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"listingMapId"</span><span class="p">:</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reservationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">222</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.12345</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"percentage"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"isIncluded"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"isPerNight"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"isPerPerson"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"isImported"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-02 17:16:28"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-02 17:16:28"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">accountId</code></td>
+<td>yes</td>
+<td>int</td>
+<td>ID of related <code class="prettyprint">Account</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">listingMapId</code></td>
+<td>yes</td>
+<td>int</td>
+<td>ID of related <code class="prettyprint">ListingMap</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">reservationId</code></td>
+<td>yes</td>
+<td>int</td>
+<td>ID of related <code class="prettyprint">Reservation</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">name</code></td>
+<td>yes</td>
+<td>string</td>
+<td>Fee name, different set of fee names is used for each channel</td>
+</tr>
+<tr>
+<td><code class="prettyprint">amount</code></td>
+<td>no</td>
+<td>decimal</td>
+<td>Fee amount</td>
+</tr>
+<tr>
+<td><code class="prettyprint">currency</code></td>
+<td>no</td>
+<td>string</td>
+<td>Currency code</td>
+</tr>
+<tr>
+<td><code class="prettyprint">percentage</code></td>
+<td>no</td>
+<td>int</td>
+<td>Fee percentage (0-100) from reservation total amount</td>
+</tr>
+<tr>
+<td><code class="prettyprint">isIncluded</code></td>
+<td>no</td>
+<td>int</td>
+<td>1 - amount already included to reservation total amount, 0 - not included</td>
+</tr>
+<tr>
+<td><code class="prettyprint">isPerNight</code></td>
+<td>no</td>
+<td>int</td>
+<td>1 - amount is applied per-night, 0 - per reservation</td>
+</tr>
+<tr>
+<td><code class="prettyprint">isPerPerson</code></td>
+<td>no</td>
+<td>int</td>
+<td>1 - amount is applied for each guests, 0 - for all guests</td>
+</tr>
+<tr>
+<td><code class="prettyprint">isImported</code></td>
+<td>no</td>
+<td>int</td>
+<td>1 - reservation fee was created during initial reservations import, 0 - was created by channel</td>
+</tr>
+<tr>
+<td><code class="prettyprint">insertedOn</code></td>
+<td>yes</td>
+<td>datetime</td>
+<td>Date and time when fee was inserted</td>
+</tr>
+<tr>
+<td><code class="prettyprint">updatedOn</code></td>
+<td>yes</td>
+<td>datetime</td>
+<td>Date and time when fee was updated</td>
 </tr>
 </tbody></table>
 
