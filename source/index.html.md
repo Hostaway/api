@@ -37,6 +37,7 @@ includes:
   - reservation_retrieveMessageTemplates
   - reservation_retrieveMessageTemplate
   - reservation_reservationCardObject
+  - reservation_reservationFeeObject
   - reservation_updateReservationCreditCardDetails
   - reservation_addPaymentMethod
   - reservation_retrieveCardInformation

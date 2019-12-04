@@ -207,4 +207,5 @@ Property | Required | Type | Description
 `isArchived` | no | bool | 
 `isPinned` | no | bool | 
 `customFieldValues` | no | array | You should create Custom fields at the dashboard beforehand
+`reservationFees` | no | array | Array of `reservationFee` objects (will be empty array if `includeResources` parameter is set to 0). 
 
