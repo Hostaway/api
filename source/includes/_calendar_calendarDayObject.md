@@ -84,7 +84,7 @@ Property | Required | Type | Description
 `date` | yes | date | 
 `isAvailable` | no | bool | 
 `isProcessed` | no | bool | 
-`status` | no | string | 
+`status` | no | string | List of acceptable statuses can be found here: https://api.hostaway.com/dictionary/calendarDay
 `price` | no | float | 
 `minimumStay` | no | int | 
 `maximumStay` | no | int | 
