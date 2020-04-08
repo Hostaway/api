@@ -140,3 +140,116 @@ Time to live for the generated access token is 24 months.
 <aside class="warning">
 Please keep your API secret and access tokens strictly private
 </aside>
+
+## Revoke Authentication Token
+
+### Request
+
+```shell
+curl --location --request DELETE 'https://api.hostaway.com/v1/accessTokens?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxMjQ3MSIsImp0aSI6IjA4ODkwMzgwYzU0NzA4MWM1MmEwYWU5Y2I1NmIwNmZhMWZkMjgwNTY1YWRjNmQ0NTc2MjNjNTk1ZmUyYzlhYzM5NDE2NmFjZmJjY2IyZmIwIiwiaWF0IjoxNTg1ODUxNDI1LCJuYmYiOjE1ODU4NTE0MjUsImV4cCI6MTY0ODkyMzQyNSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.R5TPnSTMYs7rSXNFj_GLxjO2vag2tKbsGKcSgMCFDXq6K0gLp-z52nOuCbCY7UlZnvbAFXi2zIpV-qzwCrBDHKi-YsY-LJEY5xzj8VTnlKiC9zKfRqhIaL_G3EQAvyFW04Kp2VXP3d7d_GiAFhTo412pjmrJIm6gN-N2JX6B-xo' \
+--header 'Content-Type: application/x-www-form-urlencoded'
+```
+
+```php
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://api.hostaway.com/v1/accessTokens?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxMjQ3MSIsImp0aSI6IjA4ODkwMzgwYzU0NzA4MWM1MmEwYWU5Y2I1NmIwNmZhMWZkMjgwNTY1YWRjNmQ0NTc2MjNjNTk1ZmUyYzlhYzM5NDE2NmFjZmJjY2IyZmIwIiwiaWF0IjoxNTg1ODUxNDI1LCJuYmYiOjE1ODU4NTE0MjUsImV4cCI6MTY0ODkyMzQyNSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.R5TPnSTMYs7rSXNFj_GLxjO2vag2tKbsGKcSgMCFDXq6K0gLp-z52nOuCbCY7UlZnvbAFXi2zIpV-qzwCrBDHKi-YsY-LJEY5xzj8VTnlKiC9zKfRqhIaL_G3EQAvyFW04Kp2VXP3d7d_GiAFhTo412pjmrJIm6gN-N2JX6B-xo",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "DELETE",
+  CURLOPT_HTTPHEADER => array(
+    "cache-control: no-cache",
+    "content-type: application/x-www-form-urlencoded"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+```
+
+```javascript
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("DELETE", "https://api.hostaway.com/v1/accessTokens?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxMjQ3MSIsImp0aSI6IjA4ODkwMzgwYzU0NzA4MWM1MmEwYWU5Y2I1NmIwNmZhMWZkMjgwNTY1YWRjNmQ0NTc2MjNjNTk1ZmUyYzlhYzM5NDE2NmFjZmJjY2IyZmIwIiwiaWF0IjoxNTg1ODUxNDI1LCJuYmYiOjE1ODU4NTE0MjUsImV4cCI6MTY0ODkyMzQyNSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.R5TPnSTMYs7rSXNFj_GLxjO2vag2tKbsGKcSgMCFDXq6K0gLp-z52nOuCbCY7UlZnvbAFXi2zIpV-qzwCrBDHKi-YsY-LJEY5xzj8VTnlKiC9zKfRqhIaL_G3EQAvyFW04Kp2VXP3d7d_GiAFhTo412pjmrJIm6gN-N2JX6B-xo");
+xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+xhr.setRequestHeader("cache-control", "no-cache");
+
+xhr.send();
+```
+
+```java
+OkHttpClient client = new OkHttpClient();
+
+MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+
+Request request = new Request.Builder()
+  .url("https://api.hostaway.com/v1/accessTokens?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxMjQ3MSIsImp0aSI6IjA4ODkwMzgwYzU0NzA4MWM1MmEwYWU5Y2I1NmIwNmZhMWZkMjgwNTY1YWRjNmQ0NTc2MjNjNTk1ZmUyYzlhYzM5NDE2NmFjZmJjY2IyZmIwIiwiaWF0IjoxNTg1ODUxNDI1LCJuYmYiOjE1ODU4NTE0MjUsImV4cCI6MTY0ODkyMzQyNSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.R5TPnSTMYs7rSXNFj_GLxjO2vag2tKbsGKcSgMCFDXq6K0gLp-z52nOuCbCY7UlZnvbAFXi2zIpV-qzwCrBDHKi-YsY-LJEY5xzj8VTnlKiC9zKfRqhIaL_G3EQAvyFW04Kp2VXP3d7d_GiAFhTo412pjmrJIm6gN-N2JX6B-xo")
+  .delete()
+  .addHeader("content-type", "application/x-www-form-urlencoded")
+  .addHeader("cache-control", "no-cache")
+  .build();
+
+Response response = client.newCall(request).execute();
+```
+
+```python
+import http.client
+
+conn = http.client.HTTPConnection("api.hostaway.com")
+
+payload = ""
+
+headers = {
+    'content-type': "application/x-www-form-urlencoded",
+    'cache-control': "no-cache"
+    }
+
+conn.request("DELETE", "/v1/accessTokens?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxMjQ3MSIsImp0aSI6IjA4ODkwMzgwYzU0NzA4MWM1MmEwYWU5Y2I1NmIwNmZhMWZkMjgwNTY1YWRjNmQ0NTc2MjNjNTk1ZmUyYzlhYzM5NDE2NmFjZmJjY2IyZmIwIiwiaWF0IjoxNTg1ODUxNDI1LCJuYmYiOjE1ODU4NTE0MjUsImV4cCI6MTY0ODkyMzQyNSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.R5TPnSTMYs7rSXNFj_GLxjO2vag2tKbsGKcSgMCFDXq6K0gLp-z52nOuCbCY7UlZnvbAFXi2zIpV-qzwCrBDHKi-YsY-LJEY5xzj8VTnlKiC9zKfRqhIaL_G3EQAvyFW04Kp2VXP3d7d_GiAFhTo412pjmrJIm6gN-N2JX6B-xo", payload, headers)
+
+res = conn.getresponse()
+data = res.read()
+
+print(data.decode("utf-8"))
+```
+
+`DELETE https://api.hostaway.com/v1/accessTokens`
+
+To revoke existing access token the client sends a `DELETE` request with following request URL parameters to the 
+authorization server endpoint:
+
+Parameter | Required | Type | Description
+--------- | -------- | ---- | -----------
+`token` | yes | string | Should be token you generated using POST request
+
+### Response
+
+```json
+{
+    "status": "success",
+    "result": []
+}
+```
+
+Revoked access tokens can no longer be used to access Public API endpoints.
