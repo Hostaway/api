@@ -80,7 +80,9 @@ includes:
   - commonInfo_timezones
   - stripe
   - stripe_retrievePublishableApiKey
+  - stripe_retrievePublishableApiKeyForListing
   - stripe_createSetupIntent
+  - stripe_createSetupIntentForListing
 
 search: true
 ---

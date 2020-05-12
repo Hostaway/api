@@ -1,4 +1,4 @@
-## Create stripe setup intent
+## Create stripe setup intent (deprecated)
 
 ### Request
 
