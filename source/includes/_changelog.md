@@ -1,5 +1,9 @@
 ## Changelog
 
+**2020-07-07**
+- Added Financial Reporting section.
+- Added Tax Settings section.
+
 **2019-11-01**
 - `includeResources` parameter us now fully supported for listings, reservations, conversations, calendar endpoints. It is on by default.
 
