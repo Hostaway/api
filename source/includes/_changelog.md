@@ -1,5 +1,8 @@
 ## Changelog
 
+**2020-08-20**
+- Listings section update. 
+
 **2020-07-07**
 - Added Financial Reporting section.
 - Added Tax Settings section.
