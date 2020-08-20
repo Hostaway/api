@@ -290,6 +290,9 @@ Current API version is v1
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2020-08-20</strong>
+- Listings section update. </p>
+
 <p><strong>2020-07-07</strong>
 - Added Financial Reporting section.
 - Added Tax Settings section.</p>
@@ -2178,6 +2181,17 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <p><code class="prettyprint">PUT https://api.hostaway.com/v1/listings/{listingId}</code></p>
 
 <p>A listing object should be provided in the request body.</p>
+
+<p>The endpoint works in the following way:</p>
+
+<ol>
+<li>It creates a listing based on the payload </li>
+<li>It overrides the existing listing by the listing created from the payload.</li>
+</ol>
+
+<p>The best practice is to download a listing object by &ldquo;Retrieve a listing&rdquo; call, update the fields you need and then pass everything to this endpoint.</p>
+
+<p>If you don&rsquo;t pass a field the value will be set to <code class="prettyprint">null</code> or to a default for the field.</p>
 
 <h3 id="response">Response</h3>
 
