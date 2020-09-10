@@ -1,12 +1,11 @@
-## Retrieve Stripe publishable API key (deprecated)
+## Create stripe setup intent
 
 ### Request
 
 ```shell
-curl -X GET \
-  https://api.hostaway.com/v1/stripe/publishableKey \
+curl -X POST \
+  https://api.hostaway.com/v1/stripe/createSetupIntent/123 \
   -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c' \
-  -H 'content-type: application/json'
 ```
 
 ```php
@@ -15,16 +14,16 @@ curl -X GET \
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://api.hostaway.com/v1/stripe/publishableKey',
+  CURLOPT_URL => "https://api.hostaway.com/v1/stripe/createSetupIntent/123",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => '',
+  CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => 'GET',
-  CURLOPT_HTTPHEADER => [
-    'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
-  ],
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_HTTPHEADER => array(
+    "authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+  ),
 ));
 
 $response = curl_exec($curl);
@@ -33,7 +32,7 @@ $err = curl_error($curl);
 curl_close($curl);
 
 if ($err) {
-  echo 'cURL Error #:' . $err;
+  echo "cURL Error #:" . $err;
 } else {
   echo $response;
 }
@@ -51,7 +50,7 @@ xhr.addEventListener("readystatechange", function () {
   }
 });
 
-xhr.open("GET", "https://api.hostaway.com/v1/stripe/publishableKey");
+xhr.open("POST", "https://api.hostaway.com/v1/stripe/createSetupIntent/123");
 xhr.setRequestHeader("authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c");
 
 xhr.send(data);
@@ -61,8 +60,8 @@ xhr.send(data);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://api.hostaway.com/v1/stripe/publishableKey")
-  .get()
+  .url("https://api.hostaway.com/v1/stripe/createSetupIntent/123")
+  .post(null)
   .addHeader("authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c")
   .build();
 
@@ -72,18 +71,19 @@ Response response = client.newCall(request).execute();
 ```python
 import requests
 
-url = "https://api.hostaway.com/v1/stripe/publishableKey"
+url = "https://api.hostaway.com/v1/stripe/createSetupIntent/123"
 
 headers = {
     'authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
     }
 
-response = requests.request("GET", url, headers=headers)
+response = requests.request("POST", url, headers=headers)
 
 print(response.text)
 ```
 
-`GET https://api.hostaway.com/v1/stripe/publishableKey`
+`POST https://api.hostaway.com/v1/stripe/createSetupIntent/{listingMapId}`
+
 
 ### Response
 Example:
@@ -91,8 +91,10 @@ Example:
 {
     "status": "success",
     "result": {
-        "stripePublishableApiKey": "key_value"
+        "clientSecret": "seti_1FJaxuJjX5ptYS3JAMyMSkRQ_secret_FpFS6JXsMVAsiSbhjlF1RKcIHh4pEyz"
     }
 }
 ```
+
+
 

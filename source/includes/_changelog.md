@@ -2,6 +2,13 @@
 **2020-09-08**
 - Added multi unit support
 
+**2020-08-20**
+- Listings section update. 
+
+**2020-07-07**
+- Added Financial Reporting section.
+- Added Tax Settings section.
+
 **2019-11-01**
 - `includeResources` parameter us now fully supported for listings, reservations, conversations, calendar endpoints. It is on by default.
 

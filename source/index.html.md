@@ -84,7 +84,20 @@ includes:
   - commonInfo_timezones
   - stripe
   - stripe_retrievePublishableApiKey
+  - stripe_retrievePublishableApiKeyForListing
   - stripe_createSetupIntent
+  - stripe_createSetupIntentForListing
+  - financialReporting
+  - financialReporting_standardFields
+  - financialReporting_calculatedFields
+  - financialReporting_customFormulas
+  - financialReporting_reportStandard
+  - financialReporting_reportConsolidated
+  - financialReporting_reportCalculated
+  - financialReporting_reportListingFinancials
+  - taxSettings
+  - taxSettings_account
+  - taxSettings_listing
 
 search: true
 ---

@@ -1,10 +1,10 @@
-## Retrieve Stripe publishable API key (deprecated)
+## Retrieve Stripe publishable API key
 
 ### Request
 
 ```shell
 curl -X GET \
-  https://api.hostaway.com/v1/stripe/publishableKey \
+  https://api.hostaway.com/v1/stripe/publishableKey/123 \
   -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c' \
   -H 'content-type: application/json'
 ```
@@ -15,7 +15,7 @@ curl -X GET \
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://api.hostaway.com/v1/stripe/publishableKey',
+  CURLOPT_URL => 'https://api.hostaway.com/v1/stripe/publishableKey/123',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -51,7 +51,7 @@ xhr.addEventListener("readystatechange", function () {
   }
 });
 
-xhr.open("GET", "https://api.hostaway.com/v1/stripe/publishableKey");
+xhr.open("GET", "https://api.hostaway.com/v1/stripe/publishableKey/123");
 xhr.setRequestHeader("authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c");
 
 xhr.send(data);
@@ -61,7 +61,7 @@ xhr.send(data);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://api.hostaway.com/v1/stripe/publishableKey")
+  .url("https://api.hostaway.com/v1/stripe/publishableKey/123")
   .get()
   .addHeader("authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c")
   .build();
@@ -72,7 +72,7 @@ Response response = client.newCall(request).execute();
 ```python
 import requests
 
-url = "https://api.hostaway.com/v1/stripe/publishableKey"
+url = "https://api.hostaway.com/v1/stripe/publishableKey/123"
 
 headers = {
     'authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
@@ -83,7 +83,7 @@ response = requests.request("GET", url, headers=headers)
 print(response.text)
 ```
 
-`GET https://api.hostaway.com/v1/stripe/publishableKey`
+`GET https://api.hostaway.com/v1/stripe/publishableKey/{listingMapId}`
 
 ### Response
 Example:
