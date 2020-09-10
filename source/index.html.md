@@ -25,6 +25,9 @@ includes:
   - listing_createListing
   - listing_updateListing
   - listing_deleteListing
+  - listingUnit
+  - listingUnit_listingUnitObject
+  - listingUnit_retrievelistingUnits
   - reservation
   - reservation_reservationObject
   - reservation_retrieveReservationsList
@@ -38,6 +41,7 @@ includes:
   - reservation_retrieveMessageTemplate
   - reservation_reservationCardObject
   - reservation_reservationFeeObject
+  - reservation_reservationUnitObject
   - reservation_updateReservationCreditCardDetails
   - reservation_addPaymentMethod
   - reservation_retrieveCardInformation

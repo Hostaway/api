@@ -208,4 +208,5 @@ Property | Required | Type | Description
 `isPinned` | no | bool | 
 `customFieldValues` | no | array | You should create Custom fields at the dashboard beforehand
 `reservationFees` | no | array | Array of `reservationFee` objects (will be empty array if `includeResources` parameter is set to 0). 
+`reservationUnit` | no | array | Array of `reservationUnit` objects (will be empty array if `includeResources` parameter is set to 0 or reservation is not multi unit). 
 
