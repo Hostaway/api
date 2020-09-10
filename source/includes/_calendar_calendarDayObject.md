@@ -13,6 +13,12 @@
     "closedOnArrival": null,
     "closedOnDeparture": null,
     "note": null,
+    "countAvailableUnits": null,
+    "availableUnitsToSell": null,
+    "countPendingUnits": null,
+    "countBlockingReservations": null,
+    "countBlockedUnits": null,
+    "desiredUnitsToSell": null,
     "reservations": [
         {
             "id": 13,
@@ -90,5 +96,11 @@ Property | Required | Type | Description
 `maximumStay` | no | int | 
 `closedOnArrival` | no | bool | 
 `closedOnDeparture` | no | bool | 
-`note` | no | string | 
+`note` | no | string |
+`countAvailableUnits` | no | int | Number of total available units (only for multi unit listing)
+`availableUnitsToSell` | no | int | Number of available units to sell (only for multi unit listing)
+`countPendingUnits` | no | int | Number of pending reservations (only for multi unit listing)
+`countBlockingReservations` | no | int | Number of blocking reservations (only for multi unit listing)
+`countBlockedUnits` | no | int | Number of blocked units (only for multi unit listing)
+`desiredUnitsToSell` | no | int |    
 `reservations` | no | array | 

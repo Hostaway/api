@@ -49,6 +49,7 @@ includes:
   - calendar_calendarDayObject
   - calendar_retrieveCalendar
   - calendar_updateCalendar
+  - calendar_updateMultUnitCalendar
   - calendar_batchCalendarUpdate
   - conversation
   - conversation_conversationMessageObject
