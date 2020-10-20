@@ -17,9 +17,9 @@
 
 Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
-`id` | yes | int | Identifier of conversation object
+`id` | yes | int | Identifier of reservationWebhookLog object
 `accountId` | yes | int | Identifier of account object
-`listingMapId` | yes | int | Identifier of listing object.
+`listingMapId` | yes | int | Identifier of listing object
 `reservationId` | yes | int | Identifier of reservation object
 `reservationWebhookId` | yes | int | Identifier of Reservation Webhook
 `currentReservationStatus` | yes | string | Reservation status
