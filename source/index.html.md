@@ -75,6 +75,9 @@ includes:
   - reservationWebhookLog
   - reservationWebhookLog_reservationWebhookLogObject
   - reservationWebhookLog_retrieveReservationWebhookLogList
+  - conversationMessageWebhookLog
+  - conversationMessageWebhookLog_conversationMessageWebhookLogObject
+  - conversationMessageWebhookLog_retrieveConversationMessageWebhookLogList
   - customField
   - customField_customFieldObject
   - customField_customFieldList
