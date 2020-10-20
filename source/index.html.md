@@ -51,6 +51,8 @@ includes:
   - calendar_updateCalendar
   - calendar_updateMultUnitCalendar
   - calendar_batchCalendarUpdate
+  - calendar_reservationQuoteObject
+  - calendar_priceDetails
   - conversation
   - conversation_conversationMessageObject
   - conversation_conversationObject

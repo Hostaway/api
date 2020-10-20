@@ -1,4 +1,7 @@
 ## Changelog
+**2020-10-14**
+- Calculate reservation price endpoint introduced.
+
 **2020-09-08**
 - Added multi unit support
 
