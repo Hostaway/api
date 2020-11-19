@@ -93,7 +93,7 @@ print(response.text)
 
 ### Response
 
-```
+```json
 {
     "status": "success",
     "result": {

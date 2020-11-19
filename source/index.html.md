@@ -45,6 +45,7 @@ includes:
   - reservation_updateReservationCreditCardDetails
   - reservation_addPaymentMethod
   - reservation_retrieveCardInformation
+  - reservationPaymentMethod
   - reservationPaymentMethod_retrieveList
   - calendar
   - calendar_calendarDayObject
