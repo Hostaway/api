@@ -1,4 +1,7 @@
 ## Changelog
+**2020-11-19**
+- Added payment methods retrieve endpoint for reservations
+
 **2020-10-14**
 - Calculate reservation price endpoint introduced.
 
