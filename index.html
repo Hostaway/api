@@ -290,6 +290,10 @@ Current API version is v1
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2020-12-18</strong>
+- <code class="prettyprint">confirmed</code> reservation status is deprecated for creating/updating reservations.
+- listing update endpoint is improved. Now it&rsquo;s safe to pass only fields you want to update. No need to pass entire object. </p>
+
 <p><strong>2020-11-19</strong>
 - Added payment methods retrieve endpoint for reservations</p>
 
@@ -2191,17 +2195,6 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 
 <p>A listing object should be provided in the request body.</p>
 
-<p>The endpoint works in the following way:</p>
-
-<ol>
-<li>It creates a listing based on the payload </li>
-<li>It overrides the existing listing by the listing created from the payload.</li>
-</ol>
-
-<p>The best practice is to download a listing object by &ldquo;Retrieve a listing&rdquo; call, update the fields you need and then pass everything to this endpoint.</p>
-
-<p>If you don&rsquo;t pass a field the value will be set to <code class="prettyprint">null</code> or to a default for the field.</p>
-
 <h3 id="response">Response</h3>
 
 <p>The updated listing object or error response.</p>
@@ -2968,7 +2961,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">status</code></td>
 <td>no</td>
 <td>string</td>
-<td>Can be one of the following: <code class="prettyprint">new</code>, <code class="prettyprint">modified</code>, <code class="prettyprint">confirmed</code>, <code class="prettyprint">cancelled</code>, <code class="prettyprint">pending</code>, <code class="prettyprint">awaitingPayment</code>, <code class="prettyprint">declined</code>, <code class="prettyprint">expired</code>, <code class="prettyprint">inquiry</code>, <code class="prettyprint">inquiryPreapproved</code>, <code class="prettyprint">inquiryDenied</code>, <code class="prettyprint">inquiryTimedout</code>, <code class="prettyprint">inquiryNotPossible</code></td>
+<td>Can be one of the following: <code class="prettyprint">new</code>, <code class="prettyprint">modified</code>, <code class="prettyprint">cancelled</code>, <code class="prettyprint">pending</code>, <code class="prettyprint">awaitingPayment</code>, <code class="prettyprint">declined</code>, <code class="prettyprint">expired</code>, <code class="prettyprint">inquiry</code>, <code class="prettyprint">inquiryPreapproved</code>, <code class="prettyprint">inquiryDenied</code>, <code class="prettyprint">inquiryTimedout</code>, <code class="prettyprint">inquiryNotPossible</code></td>
 </tr>
 <tr>
 <td><code class="prettyprint">cancellationDate</code></td>
