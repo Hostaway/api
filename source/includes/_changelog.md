@@ -1,4 +1,8 @@
 ## Changelog
+**2020-12-18**
+- `confirmed` reservation status is deprecated for creating/updating reservations.
+- listing update endpoint is improved. Now it's safe to pass only fields you want to update. No need to pass entire object. 
+
 **2020-11-19**
 - Added payment methods retrieve endpoint for reservations
 

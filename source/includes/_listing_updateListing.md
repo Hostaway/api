@@ -218,16 +218,6 @@ print(data.decode("utf-8"))
 `PUT https://api.hostaway.com/v1/listings/{listingId}`
 
 A listing object should be provided in the request body.
-
-The endpoint works in the following way:
-
-1. It creates a listing based on the payload 
-2. It overrides the existing listing by the listing created from the payload.
-
-The best practice is to download a listing object by "Retrieve a listing" call, update the fields you need and then pass everything to this endpoint.
-
-If you don't pass a field the value will be set to `null` or to a default for the field.
-
 ### Response
 
 The updated listing object or error response.
