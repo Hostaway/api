@@ -25,6 +25,7 @@ includes:
   - listing_createListing
   - listing_updateListing
   - listing_deleteListing
+  - listing_exportAirbnb
   - listingUnit
   - listingUnit_listingUnitObject
   - listingUnit_retrievelistingUnits

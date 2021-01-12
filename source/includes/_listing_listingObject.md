@@ -185,6 +185,8 @@ Property | Required | Type | Description
 `priceForExtraPerson` | yes* | float | 
 `instantBookable` | no | bool | 
 `instantBookableLeadTime` | no | int | 
+`airbnbBookingLeadTime` | no | int | 
+`airbnbBookingLeadTimeAllowRequestToBook` | no | int | 
 `allowSameDayBooking` | no | int | 
 `sameDayBookingLeadTime` | no | int | 
 `contactName` | no | string | 
