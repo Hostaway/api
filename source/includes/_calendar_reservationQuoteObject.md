@@ -8,7 +8,7 @@
     "priceForExtraPerson": 0,
     "cleaningFee": 40.32,
     "refundableDamageDeposit": 12.34,
-    "couponDiscount": 0,
+    "couponDiscount": -230.4592,
     "checkinFee": 0,
     "additionalCleaningFee": 0,
     "parkingFee": 0,
@@ -33,35 +33,40 @@
     "totalPrice": 263.66
 }
 ```
+#### Important Notes
 
-Property | Required | Type | Description
--------- | -------- | ---- | ----------- 
-`price` | yes | float | 
-`weeklyDiscount` | yes | float | 
-`monthlyDiscount` | yes | float | 
-`priceForExtraPerson` | yes | float | 
-`cleaningFee` | yes | float | 
-`refundableDamageDeposit` | yes | float | 
-`couponDiscount` | yes | float | 
-`checkinFee` | yes | float | 
-`additionalCleaningFee` | yes | float | 
-`parkingFee` | yes | float | 
-`towelChangeFee` | yes | float |
-`midstayCleaningFee` | yes | float | 
-`roomRequestFee` | yes | float | 
-`reservationChangeFee` | yes | float |
-`lateCheckoutFee` | yes | float |
-`otherFees` | yes | float |
-`shareholderDiscount` | yes | float |    
-`lastMinuteDiscount` | yes | float | 
-`employeeDiscount` | yes | float | 
-`otherSpecialDiscount` | yes | float | 
-`salesTax` | yes | float | 
-`hotelTax` | yes | float | 
-`vat` | yes | float | 
-`lodgingTax` | yes | float | 
-`transientOccupancyTax` | yes | float | 
-`cityTax` | yes | float | 
-`roomTax` | yes | float | 
-`otherTaxes` | yes | float | 
-`totalPrice` | yes | float | 
+ - Some of the reservation quote components are not included in `totalPrice` sum (like optional fees and discounts) even if they are > 0. Please add them to the `totalPrice` if needed.
+ - Discount amounts returned with a minus sign (as negative values, e.g. `-145.9282`).
+ - Amounts format is float with up to 4 precision numbers.
+
+Property | Required | Type | Included in total price
+-------- | -------- | ---- | -----------------------
+`price` | yes | float | yes
+`weeklyDiscount` | yes | float | yes
+`monthlyDiscount` | yes | float | yes
+`priceForExtraPerson` | yes | float | yes
+`cleaningFee` | yes | float | yes
+`refundableDamageDeposit` | yes | float | yes
+`couponDiscount` | yes | float | yes
+`checkinFee` | yes | float | yes
+`additionalCleaningFee` | yes | float | no
+`parkingFee` | yes | float | no
+`towelChangeFee` | yes | float | no
+`midstayCleaningFee` | yes | float | no
+`roomRequestFee` | yes | float | no
+`reservationChangeFee` | yes | float | no
+`lateCheckoutFee` | yes | float | no
+`otherFees` | yes | float | no
+`shareholderDiscount` | yes | float | no
+`lastMinuteDiscount` | yes | float | no
+`employeeDiscount` | yes | float | no
+`otherSpecialDiscount` | yes | float | no
+`salesTax` | yes | float | yes
+`hotelTax` | yes | float | yes
+`vat` | yes | float | yes
+`lodgingTax` | yes | float | yes
+`transientOccupancyTax` | yes | float | yes
+`cityTax` | yes | float | yes
+`roomTax` | yes | float | yes
+`otherTaxes` | yes | float | yes
+`totalPrice` | yes | float |

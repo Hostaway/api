@@ -1,5 +1,9 @@
 ## Changelog
 **2021-03-31**
+- Reservation quote object updated
+- Owner statement endpoints added
+
+**2021-03-31**
 - A new reservation status `ownerStay` is available. The status is used to identify the dates reserved by the property owner.  
   A reservation of `ownerStay` status must not have financial information. The main use case is to have information about owner stays
   in the financial reporting module.

@@ -107,6 +107,9 @@ includes:
   - taxSettings
   - taxSettings_account
   - taxSettings_listing
+  - ownerStatement
+  - ownerStatement_retrieveList
+  - ownerStatement_retrieve
 
 search: true
 ---
