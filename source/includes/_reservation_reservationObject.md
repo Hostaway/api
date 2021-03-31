@@ -182,7 +182,7 @@ Property | Required | Type | Description
 `stripeGuestId` | no | string | 
 `stripeMessage` | no | string | 
 `currency` | no | string | 
-`status` | no | string | Can be one of the following: `new`, `modified`, `cancelled`, `pending`, `awaitingPayment`, `declined`, `expired`, `inquiry`, `inquiryPreapproved`, `inquiryDenied`, `inquiryTimedout`, `inquiryNotPossible`
+`status` | no | string | Can be one of the following: `new`, `modified`, `cancelled`, `ownerStay`, `pending`, `awaitingPayment`, `declined`, `expired`, `inquiry`, `inquiryPreapproved`, `inquiryDenied`, `inquiryTimedout`, `inquiryNotPossible`
 `cancellationDate` | no | date | 
 `cancelledBy` | no | string | Can be one of the following: `guest`, `host`
 `hostNote` | no | string | 
