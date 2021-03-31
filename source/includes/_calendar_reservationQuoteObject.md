@@ -57,6 +57,7 @@ Property | Required | Type | Included in total price
 `reservationChangeFee` | yes | float | no
 `lateCheckoutFee` | yes | float | no
 `otherFees` | yes | float | no
+`serviceFee` | yes | float | no
 `shareholderDiscount` | yes | float | no
 `lastMinuteDiscount` | yes | float | no
 `employeeDiscount` | yes | float | no
