@@ -291,6 +291,10 @@ Current API version is v1
           <h2 id="changelog">Changelog</h2>
 
 <p><strong>2021-03-31</strong>
+- Reservation quote object updated
+- Owner statement endpoints added</p>
+
+<p><strong>2021-03-31</strong>
 - A new reservation status <code class="prettyprint">ownerStay</code> is available. The status is used to identify the dates reserved by the property owner.<br>
   A reservation of <code class="prettyprint">ownerStay</code> status must not have financial information. The main use case is to have information about owner stays
   in the financial reporting module.</p>
@@ -5751,7 +5755,7 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
     </span><span class="s2">"priceForExtraPerson"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"cleaningFee"</span><span class="p">:</span><span class="w"> </span><span class="mf">40.32</span><span class="p">,</span><span class="w">
     </span><span class="s2">"refundableDamageDeposit"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.34</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"couponDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"couponDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mf">-230.4592</span><span class="p">,</span><span class="w">
     </span><span class="s2">"checkinFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"additionalCleaningFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"parkingFee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -5776,181 +5780,189 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
     </span><span class="s2">"totalPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">263.66</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<h4 id="important-notes">Important Notes</h4>
+
+<ul>
+<li>Some of the reservation quote components are not included in <code class="prettyprint">totalPrice</code> sum (like optional fees and discounts) even if they are &gt; 0. Please add them to the <code class="prettyprint">totalPrice</code> if needed.</li>
+<li>Discount amounts returned with a minus sign (as negative values, e.g. <code class="prettyprint">-145.9282</code>).</li>
+<li>Amounts format is float with up to 4 precision numbers.</li>
+</ul>
+
 <table><thead>
 <tr>
 <th>Property</th>
 <th>Required</th>
 <th>Type</th>
-<th>Description</th>
+<th>Included in total price</th>
 </tr>
 </thead><tbody>
 <tr>
 <td><code class="prettyprint">price</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code class="prettyprint">weeklyDiscount</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code class="prettyprint">monthlyDiscount</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code class="prettyprint">priceForExtraPerson</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code class="prettyprint">cleaningFee</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code class="prettyprint">refundableDamageDeposit</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code class="prettyprint">couponDiscount</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code class="prettyprint">checkinFee</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code class="prettyprint">additionalCleaningFee</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>no</td>
 </tr>
 <tr>
 <td><code class="prettyprint">parkingFee</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>no</td>
 </tr>
 <tr>
 <td><code class="prettyprint">towelChangeFee</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>no</td>
 </tr>
 <tr>
 <td><code class="prettyprint">midstayCleaningFee</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>no</td>
 </tr>
 <tr>
 <td><code class="prettyprint">roomRequestFee</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>no</td>
 </tr>
 <tr>
 <td><code class="prettyprint">reservationChangeFee</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>no</td>
 </tr>
 <tr>
 <td><code class="prettyprint">lateCheckoutFee</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>no</td>
 </tr>
 <tr>
 <td><code class="prettyprint">otherFees</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>no</td>
 </tr>
 <tr>
 <td><code class="prettyprint">shareholderDiscount</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>no</td>
 </tr>
 <tr>
 <td><code class="prettyprint">lastMinuteDiscount</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>no</td>
 </tr>
 <tr>
 <td><code class="prettyprint">employeeDiscount</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>no</td>
 </tr>
 <tr>
 <td><code class="prettyprint">otherSpecialDiscount</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>no</td>
 </tr>
 <tr>
 <td><code class="prettyprint">salesTax</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code class="prettyprint">hotelTax</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code class="prettyprint">vat</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code class="prettyprint">lodgingTax</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code class="prettyprint">transientOccupancyTax</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code class="prettyprint">cityTax</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code class="prettyprint">roomTax</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code class="prettyprint">otherTaxes</code></td>
 <td>yes</td>
 <td>float</td>
-<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code class="prettyprint">totalPrice</code></td>
@@ -11211,6 +11223,857 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
             </span><span class="s2">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-27 13:58:50"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+          <h1 id="owner-statement">Owner Statement</h1>
+
+<p>Owner statement reports represent financial values for property owners</p>
+
+          <h2 id="get-owner-statements-list">Get Owner Statements list</h2>
+
+<p>Get Owner Statements list</p>
+
+<h3 id="request">Request</h3>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url <span class="s1">'https://api.hostaway.com/v1/ownerStatements'</span> <span class="se">\</span>
+  --header <span class="s1">'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'</span> <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/ownerStatements"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
+  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s2">"authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">,</span>
+    <span class="s2">"cache-control: no-cache"</span>
+  <span class="p">),</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="nv">$err</span> <span class="o">=</span> <span class="nb">curl_error</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">"cURL Error #:"</span> <span class="o">.</span> <span class="nv">$err</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">withCredentials</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"readystatechange"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/ownerStatements"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"authorization"</span><span class="p">,</span> <span class="s2">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"cache-control"</span><span class="p">,</span> <span class="s2">"no-cache"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
+
+<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/ownerStatements"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">get</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"authorization"</span><span class="o">,</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"cache-control"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.hostaway.com/v1/ownerStatements"</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'authorization'</span><span class="p">:</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">,</span>
+    <span class="s">'cache-control'</span><span class="p">:</span> <span class="s">"no-cache"</span><span class="p">,</span>
+    <span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre>
+<p><code class="prettyprint">GET https://api.hostaway.com/v1/ownerStatements</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">id</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">statementName</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"statementName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"statement-test-1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"statementName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"statement-test-2"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+          <h2 id="get-owner-statement-by-id">Get Owner Statement by id</h2>
+
+<p>Get Owner Statement data by id</p>
+
+<h3 id="request">Request</h3>
+<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url <span class="s1">'https://api.hostaway.com/v1/ownerStatement/1'</span> <span class="se">\</span>
+  --header <span class="s1">'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'</span> <span class="se">\</span>
+  --header <span class="s1">'cache-control: no-cache'</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/ownerStatement/1"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
+  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s2">"authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">,</span>
+    <span class="s2">"cache-control: no-cache"</span>
+  <span class="p">),</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="nv">$err</span> <span class="o">=</span> <span class="nb">curl_error</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">"cURL Error #:"</span> <span class="o">.</span> <span class="nv">$err</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">withCredentials</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"readystatechange"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/ownerStatement/1"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"authorization"</span><span class="p">,</span> <span class="s2">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"cache-control"</span><span class="p">,</span> <span class="s2">"no-cache"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
+
+<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/ownerStatement/1"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">get</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"authorization"</span><span class="o">,</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"cache-control"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.hostaway.com/v1/ownerStatement/1"</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'authorization'</span><span class="p">:</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">,</span>
+    <span class="s">'cache-control'</span><span class="p">:</span> <span class="s">"no-cache"</span><span class="p">,</span>
+    <span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre>
+<p><code class="prettyprint">GET https://api.hostaway.com/v1/ownerStatement/{ownerStatementId}</code></p>
+
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">id</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">accountId</code></td>
+<td>yes</td>
+<td>string</td>
+<td>Account ID</td>
+</tr>
+<tr>
+<td><code class="prettyprint">statementName</code></td>
+<td>yes</td>
+<td>string</td>
+<td>Name of owner statement</td>
+</tr>
+<tr>
+<td><code class="prettyprint">invoiceName</code></td>
+<td>yes</td>
+<td>int</td>
+<td>Nam of invoice</td>
+</tr>
+<tr>
+<td><code class="prettyprint">filterParametersJson</code></td>
+<td>yes</td>
+<td>array</td>
+<td>Parameters of filter used to generate owner statement financial data</td>
+</tr>
+<tr>
+<td><code class="prettyprint">summaryDataJson</code></td>
+<td>yes</td>
+<td>array</td>
+<td>Financial summary data</td>
+</tr>
+<tr>
+<td><code class="prettyprint">financeDataJson</code></td>
+<td>yes</td>
+<td>object</td>
+<td>Financial data with reservations</td>
+</tr>
+<tr>
+<td><code class="prettyprint">propertyManagerName</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">propertyManagerEmail</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">propertyManagerAddress</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">propertyOwnerName</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">propertyOwnerEmail</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">propertyOwnerAddress</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">grandTotalFormulaName</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">grandTotalAmount</code></td>
+<td>yes</td>
+<td>float</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">notes</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">insertedOn</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">updatedOn</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">expenses</code></td>
+<td>yes</td>
+<td>array</td>
+<td>Array of expenses</td>
+</tr>
+<tr>
+<td><code class="prettyprint">accessByUsers</code></td>
+<td>yes</td>
+<td>array</td>
+<td>Array of user IDs that have access to the statement</td>
+</tr>
+</tbody></table>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"statementName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"owner-statement-test-1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"invoiceName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"filterParametersJson"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"listingMapIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mi">40269</span><span class="p">,</span><span class="w">
+        </span><span class="mi">40270</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"quickDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mtd"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fromDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-01"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"toDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-19"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"new"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"modified"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"dateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arrivalDate"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mi">123</span><span class="p">,</span><span class="w">
+        </span><span class="mi">456</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"channelIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mi">2005</span><span class="p">,</span><span class="w">
+        </span><span class="mi">2008</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"columns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"numberOfNights"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"listingName"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"channelName"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"OwnerReportTwo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"guestName"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"summaryDataFormulaNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"ownerPayout"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pmCommission"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"rentalRevenue"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"totalGuestFees"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"kamilTestFormula"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"summaryDataJson"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"formulaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ownerPayout"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"totalValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">37681.7531</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"formulaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pmCommission"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"totalValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"formulaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rentalRevenue"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"totalValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">27477.7531</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"formulaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"totalGuestFees"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"totalValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">1600</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"formulaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kamilTestFormula"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"totalValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">10244</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"financeDataJson"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"columns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"baseRate"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Base rate"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pmCommission"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PM Commission"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reservation ID"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"guestName"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guest name"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"channelName"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Channel name"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reservation status"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paymentMethod"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payment method"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"isPaid"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paid"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arrivalDate"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arrival date"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"departureDate"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Departure date"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"listingName"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listing name"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"totalGuestFees"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Total guest fees"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"totalTax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Total tax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rentalRevenue"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rental revenue"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ownerPayout"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Owner payout"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anotherformula"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anotherformula"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"someFormulaUpdate"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"someFormulaUpdate"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"someFormulaUpdateNew"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"someFormulaUpdateNew"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anotherFormulai"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anotherFormulai"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oneMoreFormula"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oneMoreFormula"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testListingFormula"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testListingFormula"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OwnerReportTwo"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OwnerReportTwo"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testFormulaToCheckIsOverride"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testFormulaToCheckIsOverride"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kamilTestFormula"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kamilTestFormula"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kamiltestformulatwo"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kamiltestformulatwo"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"priceForExtraPerson"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Price for extra person"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cleaningFeeValue"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cleaning fee value"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"additionalCleaningFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Additional cleaning fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"parkingFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parking fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"towelChangeFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Towel change fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"midstayCleaningFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Midstay cleaning fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"roomRequestFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Room request fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reservationChangeFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reservation change fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkinFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Checkin fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lateCheckoutFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Late checkout fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"otherFees"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other fees"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"creditCardFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Card fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kitchenLinenFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kitchen Linen fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linenPackageFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Linen Package fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transferFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transfer fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wristbandFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wristband fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extraBedsFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Extra Beds fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"serviceFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Service fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bedLinenFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bed Linen fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bookingFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Booking fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"petFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pet fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skiPassFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ski Pass fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tourismFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tourism fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"childrenExtraFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Children Extra fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"resortFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Resort fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cityTax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City / Tourism tax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hotelTax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hotel tax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lodgingTax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lodging tax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"roomTax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Room tax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"salesTax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales tax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transientOccupancyTax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transient occupancy tax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vat"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VAT / GST"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"otherTaxes"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other taxes"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"propertyRentTax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Property rent tax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"guestPerPersonPerNightTax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guest per person per night tax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"guestStayTax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guest stay tax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"guestNightlyTax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guest nightly tax"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"guestChannelFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guest channel fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hostChannelFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Host channel fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"monthlyDiscount"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly discount"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"weeklyDiscount"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Weekly discount"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shareholderDiscount"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shareholder discount"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lastMinuteDiscount"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Last minute discount"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"employeeDiscount"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Employee discount"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"otherSpecialDiscount"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other special discount"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"damageDeposit"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Damage deposit"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancellationPayout"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancellation payout"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancellationHostFee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancellation host fee"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"couponDiscount"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coupon discount"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"couponName"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coupon name"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paymentServiceProcessingFees"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payment service processing fees"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subTotalPrice"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sub total price"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reservationDate"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reservation date"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"resortFeeAirbnb"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Resort fee Airbnb"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"managementFeeAirbnb"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Management fee Airbnb"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"communityFeeAirbnb"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Community fee Airbnb"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linenFeeAirbnb"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Linen fee Airbnb"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"money"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nights"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Number of nights"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"numberOfGuests"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Number of guests"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"rows"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"totals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Totals"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"propertyManagerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Demo Hostaway22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"propertyManagerEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo22@hostaway.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"propertyManagerAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khreshchatyk street, 922"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"propertyOwnerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"propertyOwnerEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo33@hostaway.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"propertyOwnerAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"grandTotalFormulaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OwnerReportTwo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"grandTotalAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12343"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-16 20:28:47"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-31 12:40:38"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expenses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"listingMapId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reservationId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"expenseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"concept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"accessByUsers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">123</span><span class="p">,</span><span class="w">
+      </span><span class="mi">456</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
       </div>
