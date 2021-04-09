@@ -290,6 +290,9 @@ Current API version is v1
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2021-04-09</strong>
+- Fix owner statement retrieve endpoint doc</p>
+
 <p><strong>2021-03-31</strong>
 - Reservation quote object updated
 - Owner statement endpoints added</p>
@@ -11458,79 +11461,85 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 </tr>
 <tr>
 <td><code class="prettyprint">invoiceName</code></td>
-<td>yes</td>
+<td>no</td>
 <td>int</td>
 <td>Nam of invoice</td>
 </tr>
 <tr>
 <td><code class="prettyprint">filterParametersJson</code></td>
-<td>yes</td>
+<td>no</td>
 <td>array</td>
 <td>Parameters of filter used to generate owner statement financial data</td>
 </tr>
 <tr>
 <td><code class="prettyprint">summaryDataJson</code></td>
-<td>yes</td>
+<td>no</td>
 <td>array</td>
 <td>Financial summary data</td>
 </tr>
 <tr>
 <td><code class="prettyprint">financeDataJson</code></td>
-<td>yes</td>
+<td>no</td>
 <td>object</td>
 <td>Financial data with reservations</td>
 </tr>
 <tr>
 <td><code class="prettyprint">propertyManagerName</code></td>
-<td>yes</td>
+<td>no</td>
 <td>string</td>
 <td></td>
 </tr>
 <tr>
 <td><code class="prettyprint">propertyManagerEmail</code></td>
-<td>yes</td>
+<td>no</td>
 <td>string</td>
 <td></td>
 </tr>
 <tr>
 <td><code class="prettyprint">propertyManagerAddress</code></td>
-<td>yes</td>
+<td>no</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">propertyManagerPhone</code></td>
+<td>no</td>
 <td>string</td>
 <td></td>
 </tr>
 <tr>
 <td><code class="prettyprint">propertyOwnerName</code></td>
-<td>yes</td>
+<td>no</td>
 <td>string</td>
 <td></td>
 </tr>
 <tr>
 <td><code class="prettyprint">propertyOwnerEmail</code></td>
-<td>yes</td>
+<td>no</td>
 <td>string</td>
 <td></td>
 </tr>
 <tr>
 <td><code class="prettyprint">propertyOwnerAddress</code></td>
-<td>yes</td>
+<td>no</td>
 <td>string</td>
 <td></td>
 </tr>
 <tr>
-<td><code class="prettyprint">grandTotalFormulaName</code></td>
-<td>yes</td>
+<td><code class="prettyprint">propertyOwnerPhone</code></td>
+<td>no</td>
 <td>string</td>
 <td></td>
 </tr>
 <tr>
-<td><code class="prettyprint">grandTotalAmount</code></td>
-<td>yes</td>
-<td>float</td>
-<td></td>
+<td><code class="prettyprint">grandTotalJson</code></td>
+<td>no</td>
+<td>object</td>
+<td>Array of grand total amounts</td>
 </tr>
 <tr>
 <td><code class="prettyprint">notes</code></td>
-<td>yes</td>
+<td>no</td>
 <td>string</td>
 <td></td>
 </tr>
@@ -11548,13 +11557,13 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 </tr>
 <tr>
 <td><code class="prettyprint">expenses</code></td>
-<td>yes</td>
+<td>no</td>
 <td>array</td>
 <td>Array of expenses</td>
 </tr>
 <tr>
 <td><code class="prettyprint">accessByUsers</code></td>
-<td>yes</td>
+<td>no</td>
 <td>array</td>
 <td>Array of user IDs that have access to the statement</td>
 </tr>
@@ -12057,11 +12066,25 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
     </span><span class="s2">"propertyManagerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Demo Hostaway22"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"propertyManagerEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo22@hostaway.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"propertyManagerAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khreshchatyk street, 922"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"propertyManagerPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+123456789"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"propertyOwnerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"propertyOwnerEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo33@hostaway.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"propertyOwnerAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"grandTotalFormulaName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OwnerReportTwo"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"grandTotalAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"propertyOwnerPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+123456789"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"grandTotalJson"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"expensesTotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">126.7474</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"grandTotalAmount"</span><span class="p">:</span><span class="w"> </span><span class="mf">17643.5474</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"formulasTotal"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"baseRate"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pmCommission"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">17516.8</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12343"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-16 20:28:47"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-31 12:40:38"</span><span class="p">,</span><span class="w">
