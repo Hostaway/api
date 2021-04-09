@@ -98,23 +98,24 @@ Property | Required | Type | Description
 `id` | yes | int |
 `accountId` | yes | string | Account ID
 `statementName` | yes | string | Name of owner statement
-`invoiceName` | yes | int | Nam of invoice
-`filterParametersJson` | yes | array | Parameters of filter used to generate owner statement financial data
-`summaryDataJson` | yes | array | Financial summary data
-`financeDataJson` | yes | object | Financial data with reservations
-`propertyManagerName` | yes | string |
-`propertyManagerEmail` | yes | string |
-`propertyManagerAddress` | yes | string |
-`propertyOwnerName` | yes | string |
-`propertyOwnerEmail` | yes | string |
-`propertyOwnerAddress` | yes | string |
-`grandTotalFormulaName` | yes | string |
-`grandTotalAmount` | yes | float |
-`notes` | yes | string |
+`invoiceName` | no | int | Nam of invoice
+`filterParametersJson` | no | array | Parameters of filter used to generate owner statement financial data
+`summaryDataJson` | no | array | Financial summary data
+`financeDataJson` | no | object | Financial data with reservations
+`propertyManagerName` | no | string |
+`propertyManagerEmail` | no | string |
+`propertyManagerAddress` | no | string |
+`propertyManagerPhone` | no | string |
+`propertyOwnerName` | no | string |
+`propertyOwnerEmail` | no | string |
+`propertyOwnerAddress` | no | string |
+`propertyOwnerPhone` | no | string |
+`grandTotalJson` | no | object | Array of grand total amounts
+`notes` | no | string |
 `insertedOn` | yes | string |
 `updatedOn` | yes | string |
-`expenses` | yes | array | Array of expenses
-`accessByUsers` | yes | array | Array of user IDs that have access to the statement
+`expenses` | no | array | Array of expenses
+`accessByUsers` | no | array | Array of user IDs that have access to the statement
 
 ```json
 {
@@ -615,11 +616,25 @@ Property | Required | Type | Description
     "propertyManagerName": "Demo Hostaway22",
     "propertyManagerEmail": "demo22@hostaway.com",
     "propertyManagerAddress": "Khreshchatyk street, 922",
+    "propertyManagerPhone": "+123456789",
     "propertyOwnerName": "22",
     "propertyOwnerEmail": "demo33@hostaway.com",
     "propertyOwnerAddress": "22",
-    "grandTotalFormulaName": "OwnerReportTwo",
-    "grandTotalAmount": "3.0000",
+    "propertyOwnerPhone": "+123456789",
+    "grandTotalJson": {
+      "expensesTotal": 126.7474,
+      "grandTotalAmount": 17643.5474,
+      "formulasTotal": [
+        {
+          "name": "baseRate",
+          "amount": 0
+        },
+        {
+          "name": "pmCommission",
+          "amount": 17516.8
+        }
+      ]
+    },
     "notes": "12343",
     "insertedOn": "2021-03-16 20:28:47",
     "updatedOn": "2021-03-31 12:40:38",

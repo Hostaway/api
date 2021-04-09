@@ -1,4 +1,7 @@
 ## Changelog
+**2021-04-09**
+- Fix owner statement retrieve endpoint doc
+
 **2021-03-31**
 - Reservation quote object updated
 - Owner statement endpoints added
