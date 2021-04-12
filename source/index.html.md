@@ -110,6 +110,9 @@ includes:
   - ownerStatement
   - ownerStatement_retrieveList
   - ownerStatement_retrieve
+  - coupon
+  - coupon_couponObject
+  - coupon_retrieveCouponsList
 
 search: true
 ---

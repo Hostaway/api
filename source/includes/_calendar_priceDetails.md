@@ -80,10 +80,11 @@ print(data.decode("utf-8"))
 
 Query Parameter | Required | Type | Description
 --------- | -------- | ---- | -----------
-`startingDate` | yes | date | 
-`endingDate` | yes | date | 
-`numberOfGuests` | yes | int | 
-`reservationCouponId` | no | int | 
+`startingDate` | yes | date |
+`endingDate` | yes | date |
+`numberOfGuests` | yes | int |
+`markup` | no | float |
+`couponName` | no | string |
 
 ### Response
 
