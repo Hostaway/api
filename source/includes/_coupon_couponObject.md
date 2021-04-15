@@ -16,9 +16,7 @@
     "numberOfUsesInitial": 100,
     "numberOfUsesUsed": 20,
     "validityDateStart": "2020-01-01",
-    "validityDateEnd": null,
-    "insertedOn": "2020-06-26 22:55:53",
-    "updatedOn": "2020-12-01 23:41:36"
+    "validityDateEnd": null
 }
 ```
 
@@ -33,11 +31,9 @@ Property | Required | Type | Description
 `type` | yes | int | Can be `percentage` or `flatFee`
 `amount` | yes | float | Percentage or flat amount, depending on type
 `minimumNights` | yes | int |
-`checkInDateStart` | no | int |
-`checkInDateEnd` | no | int |
+`checkInDateStart` | no | string |
+`checkInDateEnd` | no | string |
 `numberOfUsesInitial` | yes | int | Can be -1 if number of uses is unlimited 
 `numberOfUsesUsed` | yes | int |
-`validityDateStart` | no | int |
-`validityDateEnd` | no | int |
-`insertedOn` | yes | int |
-`updatedOn` | yes | int |
+`validityDateStart` | no | string |
+`validityDateEnd` | no | string |
