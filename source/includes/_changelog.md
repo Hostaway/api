@@ -1,4 +1,9 @@
 ## Changelog
+
+**2021-07-08**
+- Add price details components
+- Add listing fee settings
+
 **2021-04-09**
 - Fix owner statement retrieve endpoint doc
 
