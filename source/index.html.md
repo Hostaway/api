@@ -110,6 +110,21 @@ includes:
   - ownerStatement
   - ownerStatement_retrieveList
   - ownerStatement_retrieve
+  - review
+  - review_reviewObject
+  - review_retrieveList
+  - review_retrieveReview
+  - user
+  - user_retrieveList
+  - group
+  - group_retrieveList
+  - guestInvoice
+  - guestInvoice_guestInvoiceObject
+  - guestInvoice_retrieveList
+  - guestInvoice_retrieveGuestInvoice
+  - guestInvoice_guestInvoiceChargeObject
+  - guestInvoice_retrieveGuestInvoiceChargeList
+  - guestInvoice_retrieveGuestInvoiceCharge
   - coupon
   - coupon_couponObject
   - coupon_retrieveCouponsList
