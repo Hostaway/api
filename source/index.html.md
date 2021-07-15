@@ -26,6 +26,10 @@ includes:
   - listing_updateListing
   - listing_deleteListing
   - listing_exportAirbnb
+  - listing_feeSettings_list
+  - listing_feeSettings_create
+  - listing_feeSettings_update
+  - listing_feeSettings_delete
   - listingUnit
   - listingUnit_listingUnitObject
   - listingUnit_retrievelistingUnits
@@ -55,6 +59,7 @@ includes:
   - calendar_updateMultUnitCalendar
   - calendar_batchCalendarUpdate
   - calendar_reservationQuoteObject
+  - calendar_reservationQuoteComponentsObject
   - calendar_priceDetails
   - conversation
   - conversation_conversationMessageObject
