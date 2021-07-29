@@ -1,5 +1,10 @@
 ## Update the calendar
 
+To block/unblock calendar (for multi-unit and single-unit listings):
+
+ - Single units set "isAvailable" to 0
+ - Multi-units set "desiredUnitsToSell" to 0
+
 ### Request
 
 ```shell

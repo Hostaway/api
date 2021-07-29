@@ -46,6 +46,7 @@ includes:
   - reservation_updateReservationCreditCardDetails
   - reservation_addPaymentMethod
   - reservation_retrieveCardInformation
+  - reservation_reservationStatuses
   - reservationPaymentMethod
   - reservationPaymentMethod_retrieveList
   - calendar
@@ -56,6 +57,7 @@ includes:
   - calendar_batchCalendarUpdate
   - calendar_reservationQuoteObject
   - calendar_priceDetails
+  - calendar_calendarDayStatuses
   - conversation
   - conversation_conversationMessageObject
   - conversation_conversationObject

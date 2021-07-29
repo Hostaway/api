@@ -88,8 +88,8 @@ Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
 `id` | yes | int | 
 `date` | yes | date | 
-`isAvailable` | no | bool | 
-`isProcessed` | no | bool | 
+`isAvailable` | no | bool | It’s used to block/unblock single unit listings
+`isProcessed` | no | bool | It’s an internal informational field to show if the calendar was successfully pushed to all connected channels. 
 `status` | no | string | List of acceptable statuses can be found here: https://api.hostaway.com/dictionary/calendarDay
 `price` | no | float | 
 `minimumStay` | no | int | 
@@ -97,10 +97,10 @@ Property | Required | Type | Description
 `closedOnArrival` | no | bool | 
 `closedOnDeparture` | no | bool | 
 `note` | no | string |
-`countAvailableUnits` | no | int | Number of total available units (only for multi unit listing)
-`availableUnitsToSell` | no | int | Number of available units to sell (only for multi unit listing)
-`countPendingUnits` | no | int | Number of pending reservations (only for multi unit listing)
-`countBlockingReservations` | no | int | Number of blocking reservations (only for multi unit listing)
-`countBlockedUnits` | no | int | Number of blocked units (only for multi unit listing)
-`desiredUnitsToSell` | no | int |    
+`countAvailableUnits` | no | int | How many units of this unit type exist (max available, only for multi unit listing)
+`availableUnitsToSell` | no | int | How many units are left (available) to sell (only for multi unit listing)
+`countPendingUnits` | no | int | Number of rooms blocked by pending reservations (only for multi unit listing)
+`countBlockingReservations` | no | int | Deprecated field (will be replaced with countReservedUnits, only for multi unit listing)
+`countBlockedUnits` | no | int | Number of of units manually blocked (only for multi unit listing)
+`desiredUnitsToSell` | no | int | This is the field to update to decide how many units for that unit type to be sold   
 `reservations` | no | array | 
