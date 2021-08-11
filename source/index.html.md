@@ -26,6 +26,10 @@ includes:
   - listing_updateListing
   - listing_deleteListing
   - listing_exportAirbnb
+  - listing_feeSettings_list
+  - listing_feeSettings_create
+  - listing_feeSettings_update
+  - listing_feeSettings_delete
   - listingUnit
   - listingUnit_listingUnitObject
   - listingUnit_retrievelistingUnits
@@ -56,6 +60,7 @@ includes:
   - calendar_updateMultUnitCalendar
   - calendar_batchCalendarUpdate
   - calendar_reservationQuoteObject
+  - calendar_reservationQuoteComponentsObject
   - calendar_priceDetails
   - calendar_calendarDayStatuses
   - conversation
@@ -130,6 +135,17 @@ includes:
   - coupon
   - coupon_couponObject
   - coupon_retrieveCouponsList
+  - webhook
+  - webhook_reservationsList
+  - webhook_reservationsRead
+  - webhook_reservationsCreate
+  - webhook_reservationsUpdate
+  - webhook_reservationsDelete
+  - webhook_conversationMessagesList
+  - webhook_conversationMessagesRead
+  - webhook_conversationMessagesCreate
+  - webhook_conversationMessagesUpdate
+  - webhook_conversationMessagesDelete
 
 search: true
 ---
