@@ -94,7 +94,7 @@ Query Parameter | Required | Type | Description
 --------- | -------- | ---- | -----------
 `limit` | no | int | Maximum number of items in the list.
 `offset` | no | int | Number of items to skip from beginning of the list.
-`sortOrder` | no | string | One of: arrivalDate, arrivalDateDesc, lastConversationMessageSent, lastConversationMessageSentDesc, lastConversationMessageReceived, lastConversationMessageReceivedDesc.
+`sortOrder` | no | string | One of: arrivalDate, arrivalDateDesc, lastConversationMessageSent, lastConversationMessageSentDesc, lastConversationMessageReceived, lastConversationMessageReceivedDesc, latestActivity, latestActivityDesc.
 `channelId` | no | int | 
 `listingId` | no | int |
 `assigneeUserId` | no | int |
@@ -108,6 +108,8 @@ Query Parameter | Required | Type | Description
 `isArchived` | no | bool
 `isPinned` | no | bool
 `includeResources` | no | int | if includeResources flag is 1 then response object is supplied with supplementary resources, default is 1.
+`latestActivityStart` | no | date |
+`latestActivityEnd` | no | date |
 
 ### Response
 
