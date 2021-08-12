@@ -107,6 +107,7 @@ Query Parameter | Required | Type | Description
 `isStarred` | no | bool
 `isArchived` | no | bool
 `isPinned` | no | bool
+`customerUserId` | no | string
 `includeResources` | no | int | if includeResources flag is 1 then response object is supplied with supplementary resources, default is 1.
 `latestActivityStart` | no | date |
 `latestActivityEnd` | no | date |

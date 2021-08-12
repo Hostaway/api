@@ -88,10 +88,10 @@ data = res.read()
 print(data.decode("utf-8"))
 ```
 
-`GET https://api.hostaway.com/v1/webhooks/reservations/{reservationId}`
+`GET https://api.hostaway.com/v1/webhooks/reservations/{webhookId}`
 
 
 
 ### Response
 
-A reservation object.
+A reservation webhook object.

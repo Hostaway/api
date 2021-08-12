@@ -12,7 +12,7 @@ curl -X PUT \
     "listingMapId": null,
     "channelId": null,
     "isEnabled": 0,
-    "url": "https://webhook.site/017c9bec-775d-4c3b-a8fb-80f592cca440"
+    "url": "http://httpbin.org/post"
 }'
 ```
 
@@ -54,7 +54,7 @@ var data = JSON.stringify({
     "listingMapId": null,
     "channelId": null,
     "isEnabled": "0",
-    "url": "https://webhook.site/017c9bec-775d-4c3b-a8fb-80f592cca440"
+    "url": "http://httpbin.org/post"
 });
 
 var xhr = new XMLHttpRequest();
@@ -111,10 +111,10 @@ data = res.read()
 print(data.decode("utf-8"))
 ```
 
-`PUT https://api.hostaway.com/v1/webhooks/reservations/{reservationId}`
+`PUT https://api.hostaway.com/v1/webhooks/reservations/{webhookId}`
 
-A reservation object should be provided in the request body.
+A reservation webhook object should be provided in the request body.
 
 ### Response
 
-The updated reservation object or error response.
+The updated reservation webhook object or error response.

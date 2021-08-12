@@ -97,6 +97,7 @@
     "isStarred": 0,
     "isArchived": 0,
     "isPinned": 0,
+    "customerUserId": null,
     "customFieldValues": [
         {
             "customFieldId": 167,
@@ -209,6 +210,7 @@ Property | Required | Type | Description
 `guestAuthHash` | no | string |
 `guestPortalUrl` | no | string |
 `latestActivityOn` | no | date |
+`customerUserId` | no | string |
 `customFieldValues` | no | array | You should create Custom fields at the dashboard beforehand
 `reservationFees` | no | array | Array of `reservationFee` objects (will be empty array if `includeResources` parameter is set to 0). 
 `reservationUnit` | no | array | Array of `reservationUnit` objects (will be empty array if `includeResources` parameter is set to 0 or reservation is not multi unit). 
