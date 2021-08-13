@@ -1,5 +1,12 @@
 ## Changelog
 
+**2021-08-12**
+- Added new field "customerUserId" in reservations
+
+**2021-08-09**
+- Reservation webhooks
+- Conversation message webhooks
+
 **2021-07-08**
 - Add price details components
 - Add listing fee settings
