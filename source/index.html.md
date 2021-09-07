@@ -38,6 +38,7 @@ includes:
   - reservation_retrieveReservationsList
   - reservation_retrieveReservation
   - reservation_createReservation
+  - reservation_createReservationCreditCard
   - reservation_updateReservation
   - reservation_cancelReservation
   - reservation_deleteReservation
