@@ -98,7 +98,7 @@ Property | Required | Type | Description
 `id` | yes | int | 
 `accountId` | yes | int | 
 `listingMapId` | yes | int | 
-`channelId` | yes | int | 
+`channelIds` | yes | int[] | Array of channel IDs to apply formula to (empty = all channels)
 `formulaName` | yes | string | 
 `formulaValue` | yes | string | 
 `isOverride` | yes | int | 
@@ -107,41 +107,36 @@ Property | Required | Type | Description
 
 ```json
 {
-    "status": "success",
-    "result": [
-        {
-            "id": 20,
-            "accountId": 10638,
-            "listingMapId": 0,
-            "channelId": 0,
-            "formulaName": "pmCommissionAbc",
-            "formulaValue": "(vat + 40) / cleaningFeeValue + 3 / 0",
-            "isOverride": 0,
-            "insertedOn": "2020-06-04 14:29:03",
-            "updatedOn": "2020-06-04 14:29:03"
-        },
-        {
-            "id": 21,
-            "accountId": 10638,
-            "listingMapId": 60701,
-            "channelId": 0,
-            "formulaName": "pmCommissionAbc",
-            "formulaValue": "(vat + 40) / cleaningFeeValue + 3 / 0",
-            "isOverride": 0,
-            "insertedOn": "2020-06-04 14:29:03",
-            "updatedOn": "2020-06-04 14:29:03"
-        },
-        {
-            "id": 22,
-            "accountId": 10638,
-            "listingMapId": 60636,
-            "channelId": 0,
-            "formulaName": "pmCommissionAbc",
-            "formulaValue": "(vat + 40) / cleaningFeeValue + 3 / 0",
-            "isOverride": 0,
-            "insertedOn": "2020-06-04 14:29:03",
-            "updatedOn": "2020-06-04 14:29:03"
-        }
-    ]
+  "status": "success",
+  "result": [
+    {
+      "id": 9723,
+      "accountId": 10496,
+      "listingMapId": 60636,
+      "channelIds": [
+        2000
+      ],
+      "formulaName": "totalGuestFees",
+      "formulaValue": "cleaningFeeValue + 15",
+      "isOverride": 1,
+      "insertedOn": "2021-01-15 13:45:33",
+      "updatedOn": "2021-09-13 13:45:26"
+    },
+    {
+      "id": 9723,
+      "accountId": 10496,
+      "listingMapId": 60636,
+      "channelIds": [
+        2000, 2018
+      ],
+      "formulaName": "testFormula",
+      "formulaValue": "baseRate + 123",
+      "isOverride": 0,
+      "insertedOn": "2021-01-15 13:45:33",
+      "updatedOn": "2021-09-13 13:45:26"
+    }
+  ],
+  "count": "1",
+  "offset": null
 }
 ```
