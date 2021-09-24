@@ -78,6 +78,7 @@
     "cancelledBy": null,
     "hostNote": null,
     "guestNote": null,
+    "guestLocale": null,
     "doorCode": "12345",
     "doorCodeVendor": "vendor",
     "doorCodeInstruction": "instruction",
@@ -188,6 +189,7 @@ Property | Required | Type | Description
 `cancelledBy` | no | string | Can be one of the following: `guest`, `host`
 `hostNote` | no | string | 
 `guestNote` | no | string | 
+`guestLocale` | no | string | 
 `doorCode` | no | string | 
 `doorCodeVendor` | no | string | 
 `doorCodeInstruction` | no | string | 
