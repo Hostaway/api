@@ -5,7 +5,7 @@ Delete listing fee settings by ID
 ### Request
 
 ```shell
-curl --location --request DELETE 'backend.hostaway.local:8085/v1/listingFeeSettings/4' \
+curl --location --request DELETE 'https://api.hostaway.com/v1/listingFeeSettings/4' \
 --header 'jwt;'
 ```
 
@@ -15,7 +15,7 @@ curl --location --request DELETE 'backend.hostaway.local:8085/v1/listingFeeSetti
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'backend.hostaway.local:8085/v1/listingFeeSettings/4',
+  CURLOPT_URL => 'https://api.hostaway.com/v1/listingFeeSettings/4',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -45,7 +45,7 @@ xhr.addEventListener("readystatechange", function() {
     }
 });
 
-xhr.open("DELETE", "backend.hostaway.local:8085/v1/listingFeeSettings/4");
+xhr.open("DELETE", "https://api.hostaway.com/v1/listingFeeSettings/4");
 xhr.setRequestHeader("jwt", "");
 
 xhr.send();
@@ -57,7 +57,7 @@ OkHttpClient client = new OkHttpClient().newBuilder()
 MediaType mediaType = MediaType.parse("text/plain");
 RequestBody body = RequestBody.create(mediaType, "");
 Request request = new Request.Builder()
-  .url("backend.hostaway.local:8085/v1/listingFeeSettings/4")
+  .url("https://api.hostaway.com/v1/listingFeeSettings/4")
   .method("DELETE", body)
   .addHeader("jwt", "")
   .build();

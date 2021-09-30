@@ -147,7 +147,12 @@ includes:
   - webhook_conversationMessagesCreate
   - webhook_conversationMessagesUpdate
   - webhook_conversationMessagesDelete
-
+  - los
+  - los_losObject
+  - los_pricing
+  - los_createLos
+  - los_importCsv
+  - los_retrieveList
 search: true
 ---
 

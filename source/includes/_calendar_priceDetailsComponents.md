@@ -5,7 +5,7 @@ Endpoint for getting reservation quote based on components for dates selected.
 ### Request
 
 ```shell
-curl --location --request POST 'http://api.hostaway.local:8085/v1/listings/60701/calendar/priceDetails' \
+curl --location --request POST 'https://api.hostaway.com/v1/listings/60701/calendar/priceDetails' \
 --header 'authorization: Bearer ' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -40,7 +40,7 @@ curl --location --request POST 'http://api.hostaway.local:8085/v1/listings/60701
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'http://api.hostaway.local:8085/v1/listings/60701/calendar/priceDetails',
+  CURLOPT_URL => 'https://api.hostaway.com/v1/listings/60701/calendar/priceDetails',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -121,7 +121,7 @@ xhr.addEventListener("readystatechange", function() {
     }
 });
 
-xhr.open("POST", "http://api.hostaway.local:8085/v1/listings/60701/calendar/priceDetails");
+xhr.open("POST", "https://api.hostaway.com/v1/listings/60701/calendar/priceDetails");
 xhr.setRequestHeader("authorization", "Bearer ");
 xhr.setRequestHeader("Content-Type", "application/json");
 
@@ -134,7 +134,7 @@ OkHttpClient client = new OkHttpClient().newBuilder()
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, "{\n    \"startingDate\": \"2020-12-01\",\n    \"endingDate\": \"2020-12-31\",\n    \"numberOfGuests\": \"1\",\n    \"weeklyDiscount\": \"\",\n    \"customFees\": [\n        {\n            \"feeId\": 1\n        },\n        {\n            \"feeId\": 3,\n            \"quantity\": 3,\n            \"isManuallySet\": false\n        },\n        {\n            \"feeId\": 4,\n            \"quantity\": 3,\n            \"amount\": 21,\n            \"isManuallySet\": false\n        }\n    ],\n    \"includeInTotal\": [\n        \"employeeDiscount\"\n    ]\n}");
 Request request = new Request.Builder()
-  .url("http://api.hostaway.local:8085/v1/listings/60701/calendar/priceDetails")
+  .url("https://api.hostaway.com/v1/listings/60701/calendar/priceDetails")
   .method("POST", body)
   .addHeader("authorization", "Bearer ")
   .addHeader("Content-Type", "application/json")

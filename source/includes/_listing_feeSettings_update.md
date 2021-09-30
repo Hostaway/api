@@ -5,7 +5,7 @@ Update listing fee settings by listing map and ID
 ### Request
 
 ```shell
-curl --location --request PUT 'backend.hostaway.local:8085/v1/listingFeeSettings/40270/1' \
+curl --location --request PUT 'https://api.hostaway.com/v1/listingFeeSettings/40270/1' \
 --header 'jwt;' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -25,7 +25,7 @@ curl --location --request PUT 'backend.hostaway.local:8085/v1/listingFeeSettings
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'backend.hostaway.local:8085/v1/listingFeeSettings/40270/1',
+  CURLOPT_URL => 'https://api.hostaway.com/v1/listingFeeSettings/40270/1',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -75,7 +75,7 @@ xhr.addEventListener("readystatechange", function() {
     }
 });
 
-xhr.open("PUT", "backend.hostaway.local:8085/v1/listingFeeSettings/40270/1");
+xhr.open("PUT", "https://api.hostaway.com/v1/listingFeeSettings/40270/1");
 xhr.setRequestHeader("jwt", "");
 xhr.setRequestHeader("Content-Type", "application/json");
 
@@ -88,7 +88,7 @@ OkHttpClient client = new OkHttpClient().newBuilder()
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, "{\n    \"feeType\": \"parkingFee\",\n    \"feeTitle\": null,\n    \"feeAppliedPer\": \"base_rate\",\n    \"amount\": 1000,\n    \"amountType\": \"flat\",\n    \"isMandatory\": 0,\n    \"isQuantitySelectable\": 1\n}");
 Request request = new Request.Builder()
-  .url("backend.hostaway.local:8085/v1/listingFeeSettings/40270/1")
+  .url("https://api.hostaway.com/v1/listingFeeSettings/40270/1")
   .method("PUT", body)
   .addHeader("jwt", "")
   .addHeader("Content-Type", "application/json")
