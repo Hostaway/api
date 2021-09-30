@@ -10,7 +10,7 @@ After uploading LOS data to Hostaway you can check the work process by getting L
 - `isSyncedExpedia`  
 - `isSyncedVrbo`  
 
-The error messages from all the channel we can get from `syncErrorMessage` field  
+Channel error messages can be retrieved using `syncErrorMessage` field  
 
 ```json
 {
