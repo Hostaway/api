@@ -116,7 +116,7 @@ Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
 `id` | yes | int | 
 `listingMapId` | yes | int | Identifier of listing object.
-`channelId` | yes | int | Value can be set to one of the following: `2000` for a direct reservation, `2002` for a Homeaway reservation
+`channelId` | yes | int | Value can be set to one of the following: `2000` for a direct reservation, `2002` for a Homeaway reservation, `2019` for a Marriott reservation, `2020` for a Partner reservation
 `source` | no | string
 `channelName` | yes | string | 
 `reservationId` | yes | string | 
