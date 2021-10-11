@@ -3150,7 +3150,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">channelId</code></td>
 <td>yes</td>
 <td>int</td>
-<td>Value can be set to one of the following: <code class="prettyprint">2000</code> for a direct reservation, <code class="prettyprint">2002</code> for a Homeaway reservation</td>
+<td>Value can be set to one of the following: <code class="prettyprint">2000</code> for a direct reservation, <code class="prettyprint">2002</code> for a Homeaway reservation, <code class="prettyprint">2019</code> for a Marriott reservation, <code class="prettyprint">2020</code> for a Partner reservation</td>
 </tr>
 <tr>
 <td><code class="prettyprint">source</code></td>
@@ -4264,7 +4264,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 </code></pre>
 <p><code class="prettyprint">POST https://api.hostaway.com/v1/reservations?forceOverbooking=1</code></p>
 
-<p>A reservation object should be provided in the request body. Value of <code class="prettyprint">channelId</code> can be set to one of the following: <code class="prettyprint">2000</code> for a direct reservation, <code class="prettyprint">2002</code> for a HomeAway/Vrbo reservation. Also <code class="prettyprint">couponName</code> string field can be provided inside reservation object, it will cause the corresponding coupon to be applied to the specified reservation, however, keep in mind that it won&rsquo;t affect price, it will only decrement coupon usages.</p>
+<p>A reservation object should be provided in the request body. Value of <code class="prettyprint">channelId</code> can be set to one of the following: <code class="prettyprint">2000</code> for a direct reservation, <code class="prettyprint">2002</code> for a HomeAway/Vrbo reservation, <code class="prettyprint">2019</code> for a Marriott reservation, <code class="prettyprint">2020</code> for Partner reservation. Also <code class="prettyprint">couponName</code> string field can be provided inside reservation object, it will cause the corresponding coupon to be applied to the specified reservation, however, keep in mind that it won&rsquo;t affect price, it will only decrement coupon usages.</p>
 
 <h3 id="query-parameters">Query parameters</h3>
 
