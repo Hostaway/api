@@ -38,7 +38,7 @@ For each date of a year, properties can send up to 28 rates.
 
 Documentation: [https://developers.expediagroup.com/supply/lodging/docs/avail_and_rate_apis/avail_rates/learn/#per-day-length-of-stay-pricing](https://developers.expediagroup.com/supply/lodging/docs/avail_and_rate_apis/avail_rates/learn/#per-day-length-of-stay-pricing)
 
-### Homeaway
+### Vrbo (previously known as HomeAway)
 
 Up to 180 explicit stay rates, which provides one pre-calculated rate for each combination of occupancy level and check-in date.
 Up to 735 check-in dates (with 10 occupancy levels for each) so that you can calculate extended rates for up to two years. This means you can include up to 7350 los records.
