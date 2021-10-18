@@ -4,6 +4,10 @@
 
 Each row must have the check-in date, occupancy, followed by a value set for every possible length of stay. There is no way to express a default per night price, due to determining the difference between an unavailable length of stay and a default price length of stay. All pricing is in the default currency for the hotel. A maximum of two decimal places is supported for each price value. Maximum number of nights is 32. If you provider more than 32 nights, the remaining nights will be ignored and only the first 32 nights will be considred. Only one `Hostaway Listing` is allowed in one call i.e separate requests for each `Hostaway Listing` have to made.
 
+### Occupancy
+
+Occupancy is a way to specify "price per extra person". If you don't want to specify it, simply pass occupancy as 1. The channels will apply the price for any number of guests. If you want to charge an extra amount after a specific number of guests you should provide LOS records with an adjusted price.
+
 ### Availability
 
 - Check-in date must be within 18 months (550 days) from the date of submission
