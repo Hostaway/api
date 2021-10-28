@@ -110,6 +110,8 @@ Property | Required | Type | Description
 `insertedOn` | yes | string |
 `updatedOn` | yes | string |
 `listingName` | yes | string |
+`login` | no | string | Login for basic auth (if login and password provided we'll send basic auth header)
+`password` | no | string | Password for basic auth
 
 
 ```json
@@ -125,7 +127,9 @@ Property | Required | Type | Description
         "url": "http://httpbin.org/post",
         "insertedOn": "2021-08-10 08:29:16",
         "updatedOn": "2021-08-10 08:29:16",
-        "listingName": null
+        "listingName": null,
+        "login": "my_login",
+        "password": "****"
       }
     ]
 }

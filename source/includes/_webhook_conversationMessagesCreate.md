@@ -12,7 +12,9 @@ curl -X POST \
     "listingMapId": null,
     "channelId": null,
     "isEnabled": "1",
-    "url": "http://httpbin.org/post"
+    "url": "http://httpbin.org/post",
+    "login": "my_login",
+    "password": "****"
 }'
 ```
 
@@ -54,7 +56,9 @@ var data = JSON.stringify({
     "listingMapId": null,
     "channelId": null,
     "isEnabled": "1",
-    "url": "http://httpbin.org/post"
+    "url": "http://httpbin.org/post",
+    "login": "my_login",
+    "password": "****",
 });
 
 var xhr = new XMLHttpRequest();

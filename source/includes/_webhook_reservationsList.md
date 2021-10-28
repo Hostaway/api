@@ -110,6 +110,8 @@ Property | Required | Type | Description
 `insertedOn` | yes | string |
 `updatedOn` | yes | string |
 `listingName` | yes | string |
+`login` | no | string | Login for basic auth (if login and password provided we'll send basic auth header)
+`password` | no | string | Password for basic auth
 
 
 ```json
@@ -126,7 +128,9 @@ Property | Required | Type | Description
         "type": "manual",
         "insertedOn": "2021-08-05 10:08:01",
         "updatedOn": "2021-08-05 10:08:01",
-        "listingName": null
+        "listingName": null,
+        "login": "my_login",
+        "password": "****"
       }
     ]
 }
