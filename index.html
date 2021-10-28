@@ -8687,6 +8687,8 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
     </span><span class="s2">"currentReservationStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"previousReservationStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://webhook.site/6e73ba6d-789e-ds4d64-9f68-a2e1134d1c6f3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_login"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"****"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"responseStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"responseBody"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -8746,6 +8748,18 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 <td>yes</td>
 <td>string</td>
 <td>URL</td>
+</tr>
+<tr>
+<td><code class="prettyprint">login</code></td>
+<td>no</td>
+<td>string</td>
+<td>Login for basic auth (if login and password provided we&rsquo;ll send basic auth header)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">password</code></td>
+<td>no</td>
+<td>string</td>
+<td>Password for basic auth</td>
 </tr>
 <tr>
 <td><code class="prettyprint">responseStatus</code></td>
@@ -8850,6 +8864,8 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
     </span><span class="s2">"conversationMessageId"</span><span class="p">:</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w">
     </span><span class="s2">"conversationMessageWebhookId"</span><span class="p">:</span><span class="w"> </span><span class="mi">129</span><span class="p">,</span><span class="w">
     </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://webhook.site/6e73ba6d-789e-ds4d64-9f68-a2e1134d1c6f3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_login"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"****"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"responseStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"responseBody"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -8903,6 +8919,18 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 <td>yes</td>
 <td>string</td>
 <td>URL</td>
+</tr>
+<tr>
+<td><code class="prettyprint">login</code></td>
+<td>no</td>
+<td>string</td>
+<td>Login for basic auth (if login and password provided we&rsquo;ll send basic auth header)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">password</code></td>
+<td>no</td>
+<td>string</td>
+<td>Password for basic auth</td>
 </tr>
 <tr>
 <td><code class="prettyprint">responseStatus</code></td>
@@ -16272,6 +16300,18 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <td>string</td>
 <td></td>
 </tr>
+<tr>
+<td><code class="prettyprint">login</code></td>
+<td>no</td>
+<td>string</td>
+<td>Login for basic auth (if login and password provided we&rsquo;ll send basic auth header)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">password</code></td>
+<td>no</td>
+<td>string</td>
+<td>Password for basic auth</td>
+</tr>
 </tbody></table>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
@@ -16286,7 +16326,9 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manual"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-05 10:08:01"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-05 10:08:01"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"listingName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="s2">"listingName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_login"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"****"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -16384,7 +16426,9 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
     "listingMapId": null,
     "channelId": null,
     "isEnabled": "1",
-    "url": "http://httpbin.org/post"
+    "url": "http://httpbin.org/post",
+    "login": "my_login",
+    "password": "****"
 }'</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
@@ -16398,7 +16442,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\n    </span><span class="se">\"</span><span class="s2">channelId</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">listingMapId</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">   </span><span class="se">\"</span><span class="s2">isEnabled</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">     </span><span class="se">\"</span><span class="s2">url</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">http://httpbin.org/post</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2"> }"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\n    </span><span class="se">\"</span><span class="s2">channelId</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">listingMapId</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">   </span><span class="se">\"</span><span class="s2">isEnabled</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">     </span><span class="se">\"</span><span class="s2">url</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">http://httpbin.org/post</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2"> </span><span class="se">\"</span><span class="s2">login</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">my_login</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2"> </span><span class="se">\"</span><span class="s2">password</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">****</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2"> }"</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s2">"Cache-Control: no-cache"</span><span class="p">,</span>
     <span class="s2">"Content-Type: application/json"</span><span class="p">,</span>
@@ -16420,7 +16464,9 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
     <span class="s2">"listingMapId"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"channelId"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"isEnabled"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
-    <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"http://httpbin.org/post"</span>
+    <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span>
+    <span class="s2">"login"</span><span class="p">:</span> <span class="s2">"my_login"</span><span class="p">,</span>
+    <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"****"</span>
 <span class="p">});</span>
 
 <span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
@@ -16441,7 +16487,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 </code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
 
 <span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
-<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"channelId\": null,\n    \"listingMapId\": null,\n   \"isEnabled\": 1,\n     \"url\": \"http://httpbin.org/post\", \n}"</span><span class="o">);</span>
+<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"channelId\": null,\n    \"listingMapId\": null,\n   \"isEnabled\": 1,\n     \"url\": \"http://httpbin.org/post\", \n \"login\": \"my_login\",\n \"password\": \"****\",\n  }"</span><span class="o">);</span>
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
   <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/webhooks/reservations"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="n">body</span><span class="o">)</span>
@@ -16455,7 +16501,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPConnection</span><span class="p">(</span><span class="s">"api.hostaway.com"</span><span class="p">)</span>
 
-<span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">channelId</span><span class="se">\"</span><span class="s">: null,</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">listingMapId</span><span class="se">\"</span><span class="s">: null,</span><span class="se">\n</span><span class="s">   </span><span class="se">\"</span><span class="s">isEnabled</span><span class="se">\"</span><span class="s">: 1,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">url</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">http://httpbin.org/post</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s"> }"</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">channelId</span><span class="se">\"</span><span class="s">: null,</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">listingMapId</span><span class="se">\"</span><span class="s">: null,</span><span class="se">\n</span><span class="s">   </span><span class="se">\"</span><span class="s">isEnabled</span><span class="se">\"</span><span class="s">: 1,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">url</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">http://httpbin.org/post</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s"> </span><span class="se">\"</span><span class="s">login</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">my_login</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s"> </span><span class="se">\"</span><span class="s">password</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">****</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">  }"</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'authorization'</span><span class="p">:</span> <span class="s">"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImU3ZDRkNDM1ZDQ0M2UwYTJkYTYxOTE5Yzk0NWY3ODk0YThhYTMzZjM1MjM2ZWEzY2NiZjEwMzJmNTM2YzRiYjVhY2Y3YTkzYTNkN2ZhYjQ0In0.eyJhdWQiOiIxMDQ5MCIsImp0aSI6ImU3ZDRkNDM1ZDQ0M2UwYTJkYTYxOTE5Yzk0NWY3ODk0YThhYTMzZjM1MjM2ZWEzY2NiZjEwMzJmNTM2YzRiYjVhY2Y3YTkzYTNkN2ZhYjQ0IiwiaWF0IjoxNTI4MjgzMjgwLCJuYmYiOjE1MjgyODMyODAsImV4cCI6MTU0MzgzNTI4MCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.pzzHM2Qebad--FC8iwWZrFpblWQyiCKiroaEyrXKPWTXug3soe-62HK1bzZVlLQEJa166AtkevdEjXkOhQ6yRMJh3LlINrOKpLOSZKeTyMIydtYCdXJyWqgl3b3llAk8dZyQ8L8J_oyV9sRWMhy7MuIgAyFf1ITdVS2Z94KdyII"</span><span class="p">,</span>
@@ -16504,7 +16550,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"PUT"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\n    </span><span class="se">\"</span><span class="s2">channelId</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">listingMapId</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">   </span><span class="se">\"</span><span class="s2">isEnabled</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">     </span><span class="se">\"</span><span class="s2">url</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">http://httpbin.org/post</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2"> }"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\n    </span><span class="se">\"</span><span class="s2">channelId</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">listingMapId</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">   </span><span class="se">\"</span><span class="s2">isEnabled</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">     </span><span class="se">\"</span><span class="s2">url</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">http://httpbin.org/post</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2"> </span><span class="se">\"</span><span class="s2">login</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">my_login</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2"> </span><span class="se">\"</span><span class="s2">password</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">****</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2"> }"</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s2">"Cache-Control: no-cache"</span><span class="p">,</span>
     <span class="s2">"Content-Type: application/json"</span><span class="p">,</span>
@@ -16526,7 +16572,9 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
     <span class="s2">"listingMapId"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"channelId"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"isEnabled"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">,</span>
-    <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"http://httpbin.org/post"</span>
+    <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span>
+    <span class="s2">"login"</span><span class="p">:</span> <span class="s2">"my_login"</span><span class="p">,</span>
+    <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"****"</span>
 <span class="p">});</span>
 
 <span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
@@ -16547,7 +16595,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 </code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
 
 <span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
-<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"channelId\": null,\n    \"listingMapId\": null,\n   \"isEnabled\": 1,\n     \"url\": \"http://httpbin.org/post\",\n }"</span><span class="o">);</span>
+<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"channelId\": null,\n    \"listingMapId\": null,\n   \"isEnabled\": 1,\n     \"url\": \"http://httpbin.org/post\",\n  \"login\": \"my_login\",\n \"password\": \"****\",\n }"</span><span class="o">);</span>
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
   <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/webhooks/reservations/1"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">body</span><span class="o">)</span>
@@ -16561,7 +16609,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPConnection</span><span class="p">(</span><span class="s">"api.hostaway.com"</span><span class="p">)</span>
 
-<span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">channelId</span><span class="se">\"</span><span class="s">: null,</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">listingMapId</span><span class="se">\"</span><span class="s">: null,</span><span class="se">\n</span><span class="s">   </span><span class="se">\"</span><span class="s">isEnabled</span><span class="se">\"</span><span class="s">: 1,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">url</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">http://httpbin.org/post</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s"> }"</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">channelId</span><span class="se">\"</span><span class="s">: null,</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">listingMapId</span><span class="se">\"</span><span class="s">: null,</span><span class="se">\n</span><span class="s">   </span><span class="se">\"</span><span class="s">isEnabled</span><span class="se">\"</span><span class="s">: 1,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">url</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">http://httpbin.org/post</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s"> </span><span class="se">\"</span><span class="s">login</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">my_login</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s"> </span><span class="se">\"</span><span class="s">password</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">****</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s"> }"</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'authorization'</span><span class="p">:</span> <span class="s">"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImU3ZDRkNDM1ZDQ0M2UwYTJkYTYxOTE5Yzk0NWY3ODk0YThhYTMzZjM1MjM2ZWEzY2NiZjEwMzJmNTM2YzRiYjVhY2Y3YTkzYTNkN2ZhYjQ0In0.eyJhdWQiOiIxMDQ5MCIsImp0aSI6ImU3ZDRkNDM1ZDQ0M2UwYTJkYTYxOTE5Yzk0NWY3ODk0YThhYTMzZjM1MjM2ZWEzY2NiZjEwMzJmNTM2YzRiYjVhY2Y3YTkzYTNkN2ZhYjQ0IiwiaWF0IjoxNTI4MjgzMjgwLCJuYmYiOjE1MjgyODMyODAsImV4cCI6MTU0MzgzNTI4MCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.pzzHM2Qebad--FC8iwWZrFpblWQyiCKiroaEyrXKPWTXug3soe-62HK1bzZVlLQEJa166AtkevdEjXkOhQ6yRMJh3LlINrOKpLOSZKeTyMIydtYCdXJyWqgl3b3llAk8dZyQ8L8J_oyV9sRWMhy7MuIgAyFf1ITdVS2Z94KdyII"</span><span class="p">,</span>
@@ -16842,6 +16890,18 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <td>string</td>
 <td></td>
 </tr>
+<tr>
+<td><code class="prettyprint">login</code></td>
+<td>no</td>
+<td>string</td>
+<td>Login for basic auth (if login and password provided we&rsquo;ll send basic auth header)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">password</code></td>
+<td>no</td>
+<td>string</td>
+<td>Password for basic auth</td>
+</tr>
 </tbody></table>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
@@ -16855,7 +16915,9 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
         </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://httpbin.org/post"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-10 08:29:16"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-10 08:29:16"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"listingName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="s2">"listingName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_login"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"****"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -16953,7 +17015,9 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
     "listingMapId": null,
     "channelId": null,
     "isEnabled": "1",
-    "url": "http://httpbin.org/post"
+    "url": "http://httpbin.org/post",
+    "login": "my_login",
+    "password": "****"
 }'</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
@@ -16989,7 +17053,9 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
     <span class="s2">"listingMapId"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"channelId"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"isEnabled"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
-    <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"http://httpbin.org/post"</span>
+    <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span>
+    <span class="s2">"login"</span><span class="p">:</span> <span class="s2">"my_login"</span><span class="p">,</span>
+    <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"****"</span><span class="p">,</span>
 <span class="p">});</span>
 
 <span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
@@ -17059,7 +17125,9 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
     "listingMapId": null,
     "channelId": null,
     "isEnabled": 0,
-    "url": "http://httpbin.org/post"
+    "url": "http://httpbin.org/post",
+    "login": "my_login",
+    "password": "****"
 }'</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
@@ -17073,7 +17141,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"PUT"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\n    </span><span class="se">\"</span><span class="s2">channelId</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">listingMapId</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">   </span><span class="se">\"</span><span class="s2">isEnabled</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">     </span><span class="se">\"</span><span class="s2">url</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">http://httpbin.org/post</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2"> }"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\n    </span><span class="se">\"</span><span class="s2">channelId</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">listingMapId</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">   </span><span class="se">\"</span><span class="s2">isEnabled</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">     </span><span class="se">\"</span><span class="s2">url</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">http://httpbin.org/post</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2"> </span><span class="se">\"</span><span class="s2">login</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">my_login</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2"> </span><span class="se">\"</span><span class="s2">password</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">****</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2"> }"</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s2">"Cache-Control: no-cache"</span><span class="p">,</span>
     <span class="s2">"Content-Type: application/json"</span><span class="p">,</span>
@@ -17095,7 +17163,9 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
     <span class="s2">"listingMapId"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"channelId"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"isEnabled"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">,</span>
-    <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"http://httpbin.org/post"</span>
+    <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"http://httpbin.org/post"</span><span class="p">,</span>
+    <span class="s2">"login"</span><span class="p">:</span> <span class="s2">"my_login"</span><span class="p">,</span>
+    <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"****"</span>
 <span class="p">});</span>
 
 <span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
@@ -17116,7 +17186,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 </code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
 
 <span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
-<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"channelId\": null,\n    \"listingMapId\": null,\n   \"isEnabled\": 1,\n     \"url\": \"http://httpbin.org/post\",\n }"</span><span class="o">);</span>
+<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"channelId\": null,\n    \"listingMapId\": null,\n   \"isEnabled\": 1,\n     \"url\": \"http://httpbin.org/post\",\n \"login\": \"my_login\",\n \"password\": \"****\",\n  }"</span><span class="o">);</span>
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
   <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/webhooks/conversationMessages/1"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">body</span><span class="o">)</span>
@@ -17130,7 +17200,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPConnection</span><span class="p">(</span><span class="s">"api.hostaway.com"</span><span class="p">)</span>
 
-<span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">channelId</span><span class="se">\"</span><span class="s">: null,</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">listingMapId</span><span class="se">\"</span><span class="s">: null,</span><span class="se">\n</span><span class="s">   </span><span class="se">\"</span><span class="s">isEnabled</span><span class="se">\"</span><span class="s">: 1,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">url</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">http://httpbin.org/post</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s"> }"</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"{</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">channelId</span><span class="se">\"</span><span class="s">: null,</span><span class="se">\n</span><span class="s">    </span><span class="se">\"</span><span class="s">listingMapId</span><span class="se">\"</span><span class="s">: null,</span><span class="se">\n</span><span class="s">   </span><span class="se">\"</span><span class="s">isEnabled</span><span class="se">\"</span><span class="s">: 1,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">url</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">http://httpbin.org/post</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s"> </span><span class="se">\"</span><span class="s">login</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">my_login</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s"> </span><span class="se">\"</span><span class="s">password</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">****</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">  }"</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'authorization'</span><span class="p">:</span> <span class="s">"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImU3ZDRkNDM1ZDQ0M2UwYTJkYTYxOTE5Yzk0NWY3ODk0YThhYTMzZjM1MjM2ZWEzY2NiZjEwMzJmNTM2YzRiYjVhY2Y3YTkzYTNkN2ZhYjQ0In0.eyJhdWQiOiIxMDQ5MCIsImp0aSI6ImU3ZDRkNDM1ZDQ0M2UwYTJkYTYxOTE5Yzk0NWY3ODk0YThhYTMzZjM1MjM2ZWEzY2NiZjEwMzJmNTM2YzRiYjVhY2Y3YTkzYTNkN2ZhYjQ0IiwiaWF0IjoxNTI4MjgzMjgwLCJuYmYiOjE1MjgyODMyODAsImV4cCI6MTU0MzgzNTI4MCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.pzzHM2Qebad--FC8iwWZrFpblWQyiCKiroaEyrXKPWTXug3soe-62HK1bzZVlLQEJa166AtkevdEjXkOhQ6yRMJh3LlINrOKpLOSZKeTyMIydtYCdXJyWqgl3b3llAk8dZyQ8L8J_oyV9sRWMhy7MuIgAyFf1ITdVS2Z94KdyII"</span><span class="p">,</span>
