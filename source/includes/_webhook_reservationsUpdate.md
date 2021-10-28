@@ -12,7 +12,9 @@ curl -X PUT \
     "listingMapId": null,
     "channelId": null,
     "isEnabled": 0,
-    "url": "http://httpbin.org/post"
+    "url": "http://httpbin.org/post",
+    "login": "my_login",
+    "password": "****"
 }'
 ```
 
