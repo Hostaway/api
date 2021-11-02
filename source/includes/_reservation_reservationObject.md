@@ -114,14 +114,14 @@
 
 Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
-`id` | yes | int | 
+`id` | yes | int | Unique ID of the reservation on Hostaway
 `listingMapId` | yes | int | Identifier of listing object.
 `channelId` | yes | int | Value can be set to one of the following: `2000` for a direct reservation, `2020` for a Partner reservation
 `source` | no | string
-`channelName` | yes | string | 
-`reservationId` | yes | string | 
-`hostawayReservationId` | yes | int | 
-`channelReservationId` | yes | string | 
+`channelName` | yes | string | Channel name  (Airbnb, Booking.com, Expedia, Vrbo etc.)
+`reservationId` | yes | string | Reservation ID value which gets from the channel (Airbnb, Booking.com, Expedia, Vrbo etc.)
+`hostawayReservationId` | yes | int | Unique ID of the reservation on Hostaway (the same value as ID)
+`channelReservationId` | yes | string | The same value as reservationId
 `externalPropertyId` | no | string | 
 `externalRatePlanId` | no | string | 
 `externalUnitId` | no | string | 
@@ -135,16 +135,16 @@ Property | Required | Type | Description
 `reservationDate` | no | datetime | 
 `pendingExpireDate` | no | datetime | 
 `guestName` | no | string | 
-`guestFirstName` | no | string | 
-`guestLastName` | no | string | 
+`guestFirstName` | no | string | Guest first name
+`guestLastName` | no | string | Guest last name
 `guestExternalAccountId` | no | string | 
-`guestZipCode` | no | string | 
-`guestAddress` | no | string | 
-`guestCity` | no | string | 
-`guestCountry` | no | string | 
-`guestEmail` | no | string | 
-`guestPicture` | no | string | 
-`guestRecommendations` | no | int | 
+`guestZipCode` | no | string | Guest ZIP code
+`guestAddress` | no | string | Guest address
+`guestCity` | no | string | Guest city
+`guestCountry` | no | string | Guest country
+`guestEmail` | no | string | Guest email
+`guestPicture` | no | string | Guest picture
+`guestRecommendations` | no | int |
 `guestTrips` | no | int | 
 `guestWork` | no | string | 
 `isGuestIdentityVerified` | no | bool | 
