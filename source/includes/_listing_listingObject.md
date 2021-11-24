@@ -89,7 +89,8 @@
     "propertyLicenseNumber": null,
     "propertyLicenseType": null,
     "propertyLicenseIssueDate": null,
-    "propertyLicenseExpirationDate": null,  
+    "propertyLicenseExpirationDate": null,
+	"partnersListingMarkup": null,
     "listingAmenities": [
         {
             "id": 3449,
@@ -222,6 +223,7 @@ Property | Required | Type | Description
 `propertyLicenseType` | no | string |
 `propertyLicenseIssueDate` | no | date (YYYY-MM-DD) |
 `propertyLicenseExpirationDate` | no | date (YYYY-MM-DD) |
+`partnersListingMarkup` | no | float |
 `listingAmenities` | no | array | Array of listingAmenity objects.
 `listingBedTypes` | no | array | Array of listingBedType objects.
 `listingImages` | no | array | Array of listingImage objects.
