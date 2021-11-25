@@ -99,7 +99,7 @@ Query Parameter | Required | Type | Description
 `sortOrder` | no | string | Asc or desc
 `reservationId` | no | int | 
 `type` | no | string | One of: guest-to-host, host-to-guest
-`status` | no | array | awaiting, pending, scheduled, submitted, published, expired
+`statuses` | no | array | awaiting, pending, scheduled, submitted, published, expired
 `departureDateStart` | no | date |
 `departureDateEnd` | no | date |
 
