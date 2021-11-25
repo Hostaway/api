@@ -1,5 +1,10 @@
 ## Changelog
 
+**2021-11-25**
+
+- Partners markup value is added to listing object
+- Endpoints for custom fields (create, update and delete)
+
 **2021-08-12**
 - Added new field "customerUserId" in reservations
 

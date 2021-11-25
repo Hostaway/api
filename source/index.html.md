@@ -94,6 +94,12 @@ includes:
   - customField
   - customField_customFieldObject
   - customField_customFieldList
+  - newCustomField
+  - newCustomField_customFieldObject
+  - newCustomField_customFieldList
+  - newCustomField_createCustomField
+  - newCustomField_updateCustomField
+  - newCustomField_deleteCustomField
   - commonInfo
   - commonInfo_countries
   - commonInfo_currencies
