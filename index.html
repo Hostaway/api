@@ -4278,7 +4278,15 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 </code></pre>
 <p><code class="prettyprint">POST https://api.hostaway.com/v1/reservations?forceOverbooking=1</code></p>
 
-<p>A reservation object should be provided in the request body. Value of <code class="prettyprint">channelId</code> can be set to one of the following: <code class="prettyprint">2000</code> for a direct reservation, <code class="prettyprint">2020</code> for Partner reservation. Also <code class="prettyprint">couponName</code> string field can be provided inside reservation object, it will cause the corresponding coupon to be applied to the specified reservation, however, keep in mind that it won&rsquo;t affect price, it will only decrement coupon usages.</p>
+<p>A reservation object should be provided in the request body. 
+Value of <code class="prettyprint">channelId</code> can be set to one of the following: <code class="prettyprint">2000</code> for a direct reservation, <code class="prettyprint">2020</code> for Partner reservation.
+Also <code class="prettyprint">couponName</code> string field can be provided inside reservation object, it will cause the corresponding coupon to 
+be applied to the specified reservation, however, keep in mind that it won&rsquo;t affect price, it will only decrement 
+coupon usages.</p>
+
+<p>To calculate correct total price, including coupon discounts make sure you call <a href="#calculate-reservation-price">calculate reservation price</a>
+with all necessary query params and use total price received from it as <code class="prettyprint">totalPrice</code> value for reservation object + include 
+<code class="prettyprint">couponName</code> (if any). This will help you to get coupon usage counter, price and financial reporting aligned.</p>
 
 <h3 id="query-parameters">Query parameters</h3>
 
