@@ -243,7 +243,15 @@ print(data.decode("utf-8"))
 
 `POST https://api.hostaway.com/v1/reservations?forceOverbooking=1`
 
-A reservation object should be provided in the request body. Value of `channelId` can be set to one of the following: `2000` for a direct reservation, `2020` for Partner reservation. Also `couponName` string field can be provided inside reservation object, it will cause the corresponding coupon to be applied to the specified reservation, however, keep in mind that it won't affect price, it will only decrement coupon usages.
+A reservation object should be provided in the request body. 
+Value of `channelId` can be set to one of the following: `2000` for a direct reservation, `2020` for Partner reservation.
+Also `couponName` string field can be provided inside reservation object, it will cause the corresponding coupon to 
+be applied to the specified reservation, however, keep in mind that it won't affect price, it will only decrement 
+coupon usages.
+
+To calculate correct total price, including coupon discounts make sure you call [calculate reservation price](#calculate-reservation-price)
+with all necessary query params and use total price received from it as `totalPrice` value for reservation object + include 
+`couponName` (if any). This will help you to get coupon usage counter, price and financial reporting aligned.
 
 ### Query parameters
 
