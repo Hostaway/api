@@ -67,7 +67,7 @@ Response response = client.newCall(request).execute();
 ```python
 import http.client
 
-conn = http.client.HTTPSConnection("backend.hostaway.local", undefined)
+conn = http.client.HTTPSConnection("api.hostaway.com", undefined)
 payload = ''
 headers = {
   'jwt': ''

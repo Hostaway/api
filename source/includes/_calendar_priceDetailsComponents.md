@@ -146,7 +146,7 @@ Response response = client.newCall(request).execute();
 import http.client
 import json
 
-conn = http.client.HTTPSConnection("api.hostaway.local", 8085)
+conn = http.client.HTTPSConnection("api.hostaway.com", 80)
 payload = json.dumps({
   "startingDate": "2020-12-01",
   "endingDate": "2020-12-31",

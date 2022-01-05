@@ -100,7 +100,7 @@ Response response = client.newCall(request).execute();
 import http.client
 import json
 
-conn = http.client.HTTPSConnection("backend.hostaway.local", undefined)
+conn = http.client.HTTPSConnection("api.hostaway.com", undefined)
 payload = json.dumps({
   "feeType": "parkingFee",
   "feeTitle": None,

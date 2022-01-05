@@ -45,13 +45,18 @@ includes:
   - reservation_retrieveConversations
   - reservation_retrieveMessageTemplates
   - reservation_retrieveMessageTemplate
-  - reservation_reservationCardObject
   - reservation_reservationFeeObject
   - reservation_reservationUnitObject
   - reservation_updateReservationCreditCardDetails
   - reservation_addPaymentMethod
-  - reservation_retrieveCardInformation
   - reservation_reservationStatuses
+  - reservationPaymentCard
+  - reservationPaymentCard_reservationPaymentCardObject
+  - reservationPaymentCard_retrieveList
+  - reservationPaymentCard_addReservationPaymentCard
+  - reservationPaymentCard_addReservationPaymentMethodId
+  - reservationPaymentCard_getCardDetails
+  - reservationPaymentCard_defaultPaymentCard
   - reservationPaymentMethod
   - reservationPaymentMethod_retrieveList
   - calendar

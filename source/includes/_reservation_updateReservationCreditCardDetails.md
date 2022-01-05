@@ -1,5 +1,7 @@
 ## Update reservation credit card details
 
+This endpoint is deprecated. Please use reservation payment card endpoints.
+
 ### Request
 
 `PUT https://api.hostaway.com/v1/reservations/{reservationId}/card`

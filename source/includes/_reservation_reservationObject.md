@@ -64,14 +64,8 @@
     "cleaningFee": null,
     "securityDepositFee": null,
     "isPaid": null,
-    "ccName": null,
-    "ccNumberEndingDigits": null,
-    "ccExpirationYear": null,
-    "ccExpirationMonth": null,
-    "cvc": null,
     "paymentMethod": null,
     "stripeGuestId": null,
-    "stripeMessage": null,
     "currency": "USD",
     "status": "new",
     "cancellationDate": null,
@@ -175,14 +169,8 @@ Property | Required | Type | Description
 `cleaningFee` | no | float | 
 `securityDepositFee` | no | float | 
 `isPaid` | no | bool | 
-`ccName` | no | string | 
-`ccNumberEndingDigits` | no | int | 
-`ccExpirationYear` | no | int | 
-`ccExpirationMonth` | no | int | 
-`cvc` | no | string | 
 `paymentMethod` | no | string | 
 `stripeGuestId` | no | string | 
-`stripeMessage` | no | string | 
 `currency` | no | string | 
 `status` | no | string | Can be one of the following: `new`, `modified`, `cancelled`, `ownerStay`, `pending`, `awaitingPayment`, `declined`, `expired`, `inquiry`, `inquiryPreapproved`, `inquiryDenied`, `inquiryTimedout`, `inquiryNotPossible`
 `cancellationDate` | no | date | 
