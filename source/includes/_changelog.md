@@ -1,5 +1,9 @@
 ## Changelog
 
+**2022-01-18**
+
+- Guest invoice charge transaction object
+
 **2021-11-25**
 
 - Partners markup value is added to listing object

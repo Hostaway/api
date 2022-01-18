@@ -142,6 +142,7 @@ includes:
   - guestInvoice_retrieveList
   - guestInvoice_retrieveGuestInvoice
   - guestInvoice_guestInvoiceChargeObject
+  - guestInvoice_guestInvoiceChargeTransactionObject
   - guestInvoice_retrieveGuestInvoiceChargeList
   - guestInvoice_retrieveGuestInvoiceCharge
   - coupon
