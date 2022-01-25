@@ -290,6 +290,12 @@ Current API version is v1
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2022-01-25</strong></p>
+
+<ul>
+<li>Added possibility to create custom field with <code class="prettyprint">dropDown</code> type </li>
+</ul>
+
 <p><strong>2022-01-18</strong></p>
 
 <ul>
@@ -9839,7 +9845,7 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
           <h2 id="create-a-custom-field">Create a custom field</h2>
 
 <p>You can create a custom field by this endpoint. See new custom field object description for available options.
-You can&rsquo;t create a custom field of <code class="prettyprint">dropdown</code> type, thus, pass possible <code class="prettyprint">possibleValues</code> field as null</p>
+To create a custom field of <code class="prettyprint">dropdown</code> type, pass <code class="prettyprint">possibleValues</code> field as follows: <code class="prettyprint">[{&quot;value&quot;:&quot;custom field value&quot;,&quot;label&quot;:&quot;custom field label&quot;}]</code></p>
 <pre class="highlight shell tab-shell"><code>curl --location --request POST <span class="s1">'https://api.hostaway.com/v1/customFields'</span> <span class="se">\</span>
 --header <span class="s1">'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImFjM2QxN2Q1Y2YyYmRiYWM2YjFhODRhNTA0MmU4Nzc0NTU4Y2MzZDkwYTViYTJkYjU2MTAyOWjGdDA3MTQ2N2IzODA5NmI5MzhhNWY5NDU1In0.eyJhdWQiOiIxIiwianRpIjoiYWMzZDE3ZDVjZjJiZGJhYzZiMWE4NGE1MDQyZTg3NzQ1NThjYzNkOTBhNWJhMmRiNTYxMDI5YmQ4MDcxNDY3YjM4MDk2YjkzOGE1Zjk0NTUiLCJpYXQiOjE1NjgyMDk3MzIsIm5iZiI6MTU2ODIwOTczMiwiZXhwIjoxNjMxMzY4MTMyLCJzdWIiOiIiLCJzY29wZXMiOlsiZ2VuZXJhbCJdfQ.U41DnBKE4JrL167fY7gcIV4x5BefNlNjJIN1hI8BspT16XZKfuTW4E4pqN4WdqkNDp5WKZjh8Jz_qrnJVL_XYK99JufN4ABTNkPVGjxEp_6L5yTikgX77llYrUv9liCybwwM69iW6UNMjsJ3RjJkS_C-3LkJVdYKc-945Co8P-Y'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: text/plain'</span> <span class="se">\</span>
