@@ -1,6 +1,6 @@
 ## Create a custom field
 You can create a custom field by this endpoint. See new custom field object description for available options.
-You can't create a custom field of `dropdown` type, thus, pass possible `possibleValues` field as null
+To create a custom field of `dropdown` type, pass `possibleValues` field as follows: `[{"value":"custom field value","label":"custom field label"}]`
 
 ```shell
 curl --location --request POST 'https://api.hostaway.com/v1/customFields' \

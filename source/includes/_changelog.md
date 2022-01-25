@@ -1,5 +1,9 @@
 ## Changelog
 
+**2022-01-25**
+
+- Added possibility to create custom field with `dropDown` type 
+
 **2022-01-18**
 
 - Guest invoice charge transaction object
