@@ -126,6 +126,16 @@
             "url": "https://s3-us-west-2.amazonaws.com/hostaway-platform-dev/listing/10450-40160-QYseNxAOkr9LYYAwx4Vy-CQgo2gA0--lYu2Qqn8fpd3M-591ab82749ca1",
             "sortOrder": 2
         }
+    ],
+    "customFieldValues": [
+        {
+          "customFieldId": 167,
+          "value": "Custom field value one"
+        },
+        {
+          "customFieldId": 243,
+          "value": "Custom field value two"
+        }
     ]
 }
 ```
@@ -227,3 +237,4 @@ Property | Required | Type | Description
 `listingAmenities` | no | array | Array of listingAmenity objects.
 `listingBedTypes` | no | array | Array of listingBedType objects.
 `listingImages` | no | array | Array of listingImage objects.
+`customFieldValues` | no | array | You should create Custom fields at the dashboard beforehand
