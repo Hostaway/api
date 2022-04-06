@@ -1141,7 +1141,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">cancellationPolicyId</code></td>
 <td>no</td>
 <td>int</td>
-<td>Cancellation policy ID for direct channels (please check Cancellation Policy chapter)</td>
+<td>Cancellation policy that apply in direct channels (please use the Cancellation policies endpoint)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">squareMeters</code></td>
@@ -3083,6 +3083,8 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <p>Array of listingUnits objects.</p>
 
           <h1 id="cancellation-policies">Cancellation policies</h1>
+
+<p>The cancellation policies in this endpoint are the ones used in direct channel bookings. For the cancellation policy that applies to OTAs, please refer to the listing object &gt; cancellationPolicy property.</p>
 
           <h2 id="cancellation-policy-object">Cancellation policy object</h2>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
