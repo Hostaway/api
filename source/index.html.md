@@ -33,6 +33,14 @@ includes:
   - listingUnit
   - listingUnit_listingUnitObject
   - listingUnit_retrievelistingUnits
+  - cancellationPolicy
+  - cancellationPolicy_cancellationPolicyObject
+  - cancellationPolicy_cancellationPolicyItemObject
+  - cancellationPolicy_retrieveCancellationPolicyList
+  - cancellationPolicy_createCancellationPolicy
+  - cancellationPolicy_readCancellationPolicy
+  - cancellationPolicy_updateCancellationPolicy
+  - cancellationPolicy_deleteCancellationPolicy
   - reservation
   - reservation_reservationObject
   - reservation_retrieveReservationsList
