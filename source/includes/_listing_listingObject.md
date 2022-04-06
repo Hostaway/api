@@ -40,6 +40,7 @@
     "checkInTimeEnd": 21,
     "checkOutTime": 11,
     "cancellationPolicy": "strict",
+    "cancellationPolicyId": 4010,
     "squareMeters": 10,
     "roomType": "entire_home",
     "bathroomType": "shared",
@@ -183,6 +184,7 @@ Property | Required | Type | Description
 `checkInTimeEnd` | no | int | Accepted values are 0-23
 `checkOutTime` | no | int | Accepted values are 0-23
 `cancellationPolicy` | no | string | One of: flexible, moderate, strict.
+`cancellationPolicyId` | no | int / Cancellation policy for direct channels ID (please check Cancellation Policy API)
 `squareMeters` | no | int | 
 `roomType` | no | string | One of: entire_home, private_room, shared_room.
 `bathroomType` | no | string | One of: private, shared.
