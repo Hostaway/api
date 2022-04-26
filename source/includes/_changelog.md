@@ -1,5 +1,9 @@
 ## Changelog
 
+**2022-04-26**
+
+- Seasonal rule endpoint added
+
 **2022-01-25**
 
 - Added possibility to create custom field with `dropDown` type 

@@ -166,6 +166,10 @@ includes:
   - los_createLos
   - los_importCsv
   - los_retrieveList
+  - seasonalRule
+  - seasonalRule_object
+  - seasonalRule_retrieveList
+  - seasonalRule_retrieveIntervals
   
   
 search: true
