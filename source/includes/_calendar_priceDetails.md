@@ -84,7 +84,7 @@ Query Parameter | Required | Type | Description
 `endingDate` | yes | date |
 `numberOfGuests` | yes | int |
 `markup` | no | float |
-`couponName` | no | string |
+`reservationCouponId` | no | int |
 
 ### Response
 
