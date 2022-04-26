@@ -3,6 +3,7 @@
 **2022-04-26**
 
 - Seasonal rule endpoint added
+- Fix calculate reservation price endpoint parameters
 
 **2022-01-25**
 
