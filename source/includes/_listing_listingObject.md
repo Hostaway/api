@@ -40,6 +40,7 @@
     "checkInTimeEnd": 21,
     "checkOutTime": 11,
     "cancellationPolicy": "strict",
+    "cancellationPolicyId": 4010,
     "squareMeters": 10,
     "roomType": "entire_home",
     "bathroomType": "shared",
@@ -126,6 +127,16 @@
             "url": "https://s3-us-west-2.amazonaws.com/hostaway-platform-dev/listing/10450-40160-QYseNxAOkr9LYYAwx4Vy-CQgo2gA0--lYu2Qqn8fpd3M-591ab82749ca1",
             "sortOrder": 2
         }
+    ],
+    "customFieldValues": [
+        {
+          "customFieldId": 167,
+          "value": "Custom field value one"
+        },
+        {
+          "customFieldId": 243,
+          "value": "Custom field value two"
+        }
     ]
 }
 ```
@@ -173,6 +184,7 @@ Property | Required | Type | Description
 `checkInTimeEnd` | no | int | Accepted values are 0-23
 `checkOutTime` | no | int | Accepted values are 0-23
 `cancellationPolicy` | no | string | One of: flexible, moderate, strict.
+`cancellationPolicyId` | no | int | The policy that applies to OTA bookings. For cancellation policies that apply in direct channels please use the Cancellation policies endpoint
 `squareMeters` | no | int | 
 `roomType` | no | string | One of: entire_home, private_room, shared_room.
 `bathroomType` | no | string | One of: private, shared.
@@ -227,3 +239,4 @@ Property | Required | Type | Description
 `listingAmenities` | no | array | Array of listingAmenity objects.
 `listingBedTypes` | no | array | Array of listingBedType objects.
 `listingImages` | no | array | Array of listingImage objects.
+`customFieldValues` | no | array | You should create Custom fields at the dashboard beforehand
