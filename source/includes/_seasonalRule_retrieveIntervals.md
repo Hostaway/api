@@ -95,6 +95,7 @@ Query Parameter | Required | Type | Description
 `listingMapId` | yes | int | Listing ID
 `startDate` | yes | date |
 `endDate` | yes | date |
+`channelId` | no | int |
 
 
 ### Response
