@@ -1,5 +1,9 @@
 ## Changelog
 
+**2022-05-10**
+
+- Seasonal rule intervals endpoint channelId query parameter added
+
 **2022-04-26**
 
 - Seasonal rule endpoint added
