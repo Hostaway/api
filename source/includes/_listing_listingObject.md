@@ -92,6 +92,8 @@
     "propertyLicenseIssueDate": null,
     "propertyLicenseExpirationDate": null,
 	"partnersListingMarkup": null,
+    "isRentalAgreementActive": true,
+	"listingAgreementText": "Rental agreement text for listing",
     "listingAmenities": [
         {
             "id": 3449,
@@ -236,6 +238,8 @@ Property | Required | Type | Description
 `propertyLicenseIssueDate` | no | date (YYYY-MM-DD) |
 `propertyLicenseExpirationDate` | no | date (YYYY-MM-DD) |
 `partnersListingMarkup` | no | float |
+`isRentalAgreementActive` | no | bool |
+`listingAgreementText` | no | string | Text for Rental Agreement, set null to delete Agreement.
 `listingAmenities` | no | array | Array of listingAmenity objects.
 `listingBedTypes` | no | array | Array of listingBedType objects.
 `listingImages` | no | array | Array of listingImage objects.

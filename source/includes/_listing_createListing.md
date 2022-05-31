@@ -132,7 +132,9 @@ var data = JSON.stringify({
   "propertyLicenseNumber": null,
   "propertyLicenseType": null,
   "propertyLicenseIssueDate": null,
-  "propertyLicenseExpirationDate": null,  
+  "propertyLicenseExpirationDate": null, 
+  "isRentalAgreementActive": true, 
+  "listingAgreementText": "Rental agreement text for listing",
   "listingAmenities": [
     {
       "amenityId": 2

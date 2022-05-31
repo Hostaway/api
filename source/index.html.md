@@ -67,6 +67,7 @@ includes:
   - reservationPaymentCard_defaultPaymentCard
   - reservationPaymentMethod
   - reservationPaymentMethod_retrieveList
+  - reservation_retrieveRentalAgreement
   - calendar
   - calendar_calendarDayObject
   - calendar_retrieveCalendar

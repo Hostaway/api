@@ -1,5 +1,9 @@
 ## Changelog
 
+**2022-05-31**
+
+- Added possibility to create Rental Agreement
+
 **2022-05-10**
 
 - Seasonal rule intervals endpoint channelId query parameter added

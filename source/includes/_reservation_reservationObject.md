@@ -93,6 +93,8 @@
     "isArchived": 0,
     "isPinned": 0,
     "customerUserId": null,
+    "rentalAgreementFileUrl": "https://a0.muscache.com/im/pictures/3c4d82ed-196d-493a-a43b-07fcc70d5ccd.pdf",
+    "reservationAgreement": "signed",
     "customFieldValues": [
         {
             "customFieldId": 167,
@@ -201,6 +203,8 @@ Property | Required | Type | Description
 `guestPortalUrl` | no | string |
 `latestActivityOn` | no | date |
 `customerUserId` | no | string |
+`reservationAgreement` | no | string | Can be one of the following: `not_required`, `signed`, `not_signed`
+`rentalAgreementFileUrl` | no | string | Link to pdf file with signed Rental Agreement
 `customFieldValues` | no | array | You should create Custom fields at the dashboard beforehand
 `reservationFees` | no | array | Array of `reservationFee` objects (will be empty array if `includeResources` parameter is set to 0). 
 `reservationUnit` | no | array | Array of `reservationUnit` objects (will be empty array if `includeResources` parameter is set to 0 or reservation is not multi unit). 
