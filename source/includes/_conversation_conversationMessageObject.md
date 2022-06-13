@@ -9,6 +9,7 @@
     "communicationId": null,
     "airbnbThreadMessageId": null,
     "body": "hello guest",
+    "communicationType": "email",
     "status": "sent",
     "isIncoming": 0,
     "isSeen": 0,
@@ -37,6 +38,7 @@ Property | Required | Type | Description
 `communicationId` | no | int | Identifier of communication
 `airbnbThreadMessageId` | no | string | reference to channel conversation/thread
 `body` | yes | string | message contents
+`communicationType` | yes | string | communication gateway (email / channel / sms / whatsapp)
 `status` | no | string | message status (awaiting, cancelled_by_user, cancelled_by_system, sent, paused, failed)
 `isIncoming` | no | bool | is incoming message
 `isSeen` | no | bool | is message seen
