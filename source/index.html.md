@@ -30,6 +30,11 @@ includes:
   - listing_feeSettings_create
   - listing_feeSettings_update
   - listing_feeSettings_delete
+  - listing_listingAgreement_get
+  - listing_listingAgreement_create
+  - listing_listingAgreement_update
+  - listing_listingAgreement_delete
+  - listing_listingAgreement_duplicate
   - listingUnit
   - listingUnit_listingUnitObject
   - listingUnit_retrievelistingUnits
@@ -50,6 +55,7 @@ includes:
   - reservation_updateReservation
   - reservation_cancelReservation
   - reservation_deleteReservation
+  - reservation_retrieveRentalAgreement
   - reservation_retrieveConversations
   - reservation_retrieveMessageTemplates
   - reservation_retrieveMessageTemplate
@@ -67,7 +73,6 @@ includes:
   - reservationPaymentCard_defaultPaymentCard
   - reservationPaymentMethod
   - reservationPaymentMethod_retrieveList
-  - reservation_retrieveRentalAgreement
   - calendar
   - calendar_calendarDayObject
   - calendar_retrieveCalendar
