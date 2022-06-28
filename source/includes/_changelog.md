@@ -1,5 +1,9 @@
 ## Changelog
 
+**2022-06-28**
+
+- Added possibility to limit listings list response by userId
+
 **2022-05-31**
 
 - Added possibility to create Rental Agreement

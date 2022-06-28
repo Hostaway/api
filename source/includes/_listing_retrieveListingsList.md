@@ -103,6 +103,7 @@ Query Parameter | Required | Type | Description
 `availabilityDateStart` | no | string | date in Y-m-d format
 `availabilityDateEnd` | no | string | date in Y-m-d format
 `availabilityGuestNumber` | no | int | Listing person capacity
+`userId` | no | int | Used to limit listing to user got access to
 `isBookingEngineActive` | no | bool | Listing is active on website (Booking Engine)
 ### Response
 
