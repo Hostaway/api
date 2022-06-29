@@ -13,5 +13,7 @@ Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
 `id` | yes | int | 
 `caption` | no | string | 
+`vrboCaption` | no | string | 
+`airbnbCaption` | no | string | 
 `url` | yes | string | 
 `sortOrder` | no | int | 

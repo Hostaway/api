@@ -2,6 +2,10 @@
 
 **2022-06-28**
 
+- Added vrboCaption and airbnbCaption to listing Image object
+
+**2022-06-28**
+
 - Added possibility to limit listings list response by userId
 
 **2022-05-31**
