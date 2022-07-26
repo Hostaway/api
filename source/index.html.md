@@ -173,6 +173,13 @@ includes:
   - webhook_conversationMessagesCreate
   - webhook_conversationMessagesUpdate
   - webhook_conversationMessagesDelete
+  - webhook_unified
+  - webhook_unifiedWebhookObject
+  - webhook_unifiedWebhookList
+  - webhook_unifiedWebhookCreate
+  - webhook_unifiedWebhookRead
+  - webhook_unifiedWebhookUpdate
+  - webhook_unifiedWebhookDelete
   - los
   - los_limitations
   - los_losObject
