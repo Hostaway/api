@@ -22,34 +22,52 @@
     "communicationAlwaysTrigger": null,
     "date": "2018-07-16 10:12:52",
     "sentChannelDate": "2018-07-16 10:13:52",
+    "attachments": [
+      {
+        "accountId": 10450,
+        "listingMapId": null,
+        "reservationId": 2,
+        "taskId": null,
+        "name": "download.jpeg",
+        "url": "https://www.image.com/img.jpeg",
+        "isPublic": 1,
+        "communicationId": null,
+        "conversationMessageId": 3,
+        "extension": "jpeg",
+        "mimeType": "image/jpeg",
+        "isImage": null,
+        "id": 6
+      }
+    ],
     "insertedOn": "2018-07-16 10:12:52",
     "updatedOn": "2018-07-16 10:12:52",
     "id": 326
 }
 ```
 
-Property | Required | Type | Description
--------- | -------- | ---- | ----------- 
-`id` | yes | int | Identifier of conversation object
-`accountId` | yes | int | Identifier of account
-`listingMapId` | yes | int | Identifier of listing object.
-`reservationId` | no | int | Identifier of reservation object
-`conversationId` | yes | int | Identifier of conversation object
-`communicationId` | no | int | Identifier of communication
-`airbnbThreadMessageId` | no | string | reference to channel conversation/thread
-`body` | yes | string | message contents
-`communicationType` | yes | string | communication gateway (email / channel / sms / whatsapp)
-`status` | no | string | message status (awaiting, cancelled_by_user, cancelled_by_system, sent, paused, failed)
-`isIncoming` | no | bool | is incoming message
-`isSeen` | no | bool | is message seen
-`sentUsingHostaway` | no | bool | is message sent from hostaway dashboard
-`hash`: | no | string | message checksum
-`listingTimeZoneName` | no | string | Listing time zone name
-`communicationEvent` | no | string | Event triggered communication if any
-`communicationTimeDelta` | no | int | Communication time delta
-`communicationApplyListingTimeZone` | no | int | 1 or 0
-`communicationAlwaysTrigger` | no | int | 1 or 0
+Property | Required | Type                       | Description
+-------- | -------- |----------------------------| ----------- 
+`id` | yes | int                        | Identifier of conversation object
+`accountId` | yes | int                        | Identifier of account
+`listingMapId` | yes | int                        | Identifier of listing object.
+`reservationId` | no | int                        | Identifier of reservation object
+`conversationId` | yes | int                        | Identifier of conversation object
+`communicationId` | no | int                        | Identifier of communication
+`airbnbThreadMessageId` | no | string                     | reference to channel conversation/thread
+`body` | yes | string                     | message contents
+`communicationType` | yes | string                     | communication gateway (email / channel / sms / whatsapp)
+`status` | no | string                     | message status (awaiting, cancelled_by_user, cancelled_by_system, sent, paused, failed)
+`isIncoming` | no | bool                       | is incoming message
+`isSeen` | no | bool                       | is message seen
+`sentUsingHostaway` | no | bool                       | is message sent from hostaway dashboard
+`hash`: | no | string                     | message checksum
+`listingTimeZoneName` | no | string                     | Listing time zone name
+`communicationEvent` | no | string                     | Event triggered communication if any
+`communicationTimeDelta` | no | int                        | Communication time delta
+`communicationApplyListingTimeZone` | no | int                        | 1 or 0
+`communicationAlwaysTrigger` | no | int                        | 1 or 0
 `date` | no | date (YYYY-MM-DD HH:MM:SS) | the message scheduled date
 `sentChannelDate` | no | date (YYYY-MM-DD HH:MM:SS) | the message send to channel date
+`attachments` | no | array                      | attachments of this message
 `insertedOn` | no | date (YYYY-MM-DD HH:MM:SS) | the message inserted on
 `updatedOn` | no | date (YYYY-MM-DD HH:MM:SS) | the message updated on
