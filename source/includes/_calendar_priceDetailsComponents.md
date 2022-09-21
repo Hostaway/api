@@ -1,4 +1,4 @@
-## Calculate reservation price
+## Calculate reservation price components
 
 Endpoint for getting reservation quote based on components for dates selected.
 
@@ -193,6 +193,7 @@ JSON Parameter | Required | Type | Description
 `markup` | no | float |
 `couponName` | no | string |
 `includeInTotal` | no | array of strings | Names of optional components to include in total price
+`customFees` | no | array of objects | Custom fee objects to set quantities or override price
 
 Note: if custom direct channel fees feature flag is active then endpoint supports additional parameter `customFees`.
 It is an array of objects following structure:

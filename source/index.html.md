@@ -79,9 +79,10 @@ includes:
   - calendar_updateCalendar
   - calendar_updateMultUnitCalendar
   - calendar_batchCalendarUpdate
-  - calendar_reservationQuoteObject
-  - calendar_reservationQuoteComponentsObject
   - calendar_priceDetails
+  - calendar_reservationQuoteObject
+  - calendar_priceDetailsComponents
+  - calendar_reservationQuoteComponentsObject
   - calendar_calendarDayStatuses
   - conversation
   - conversation_conversationMessageObject
