@@ -108,6 +108,9 @@ includes:
   - reservationWebhookLog
   - reservationWebhookLog_reservationWebhookLogObject
   - reservationWebhookLog_retrieveReservationWebhookLogList
+  - unifiedWebhookLog
+  - unifiedWebhookLog_unifiedWebhookLogObject 
+  - unifiedWebhookLog_retrieveUnifiedWebhookLogList
   - conversationMessageWebhookLog
   - conversationMessageWebhookLog_conversationMessageWebhookLogObject
   - conversationMessageWebhookLog_retrieveConversationMessageWebhookLogList
