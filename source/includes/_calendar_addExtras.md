@@ -2,7 +2,7 @@
 
 You can add not mandatory extras (mondatory is added automatically) in total price calculation request and get total price and components for creating new reservation with print components in it.
 
-For getting list of available extras please check <a href="#list-listing-fee-settings">this chapter</a>
+For getting list of available extras please check [Listing fee settings](#list-listing-fee-settings)
 
 ### Request
 

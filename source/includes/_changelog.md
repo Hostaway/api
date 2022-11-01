@@ -1,5 +1,11 @@
 ## Changelog
 
+**2022-11-01**
+
+- [Calculate reservation price](#calculate-reservation-price) - new price details calculator. We recommend migrating to this calculator if you are using an old calculator as support for the old one has been discontinued.
+- [Calculate reservation price with extras](#calculate-reservation-price-with-extras) - calculator price details with extras
+- [Create a reservation with price details](#create-a-reservation-with-price-details) - create reservation with price details. Now it is possible to create reservations with any price details.
+
 **2022-07-13**
 
 - Unified webhooks support added
