@@ -290,6 +290,14 @@ Current API version is v1
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2022-11-01</strong></p>
+
+<ul>
+<li><a href="#calculate-reservation-price">Calculate reservation price</a> - new price details calculator. We recommend migrating to this calculator if you are using an old calculator as support for the old one has been discontinued.</li>
+<li><a href="#calculate-reservation-price-with-extras">Calculate reservation price with extras</a> - calculator price details with extras</li>
+<li><a href="#create-a-reservation-with-price-details">Create a reservation with price details</a> - create reservation with price details. Now it is possible to create reservations with any price details.</li>
+</ul>
+
 <p><strong>2022-07-13</strong></p>
 
 <ul>
@@ -2726,7 +2734,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 </span></code></pre>
           <h2 id="add-listing-fee-settings">Add Listing Fee Settings</h2>
 
-<p>Add listing fee settings by listing map. Then you can use it for calculate total price and create reservation. Please check <a href="#calculate-reservation-price-with-extras">this</a></p>
+<p>Add listing fee settings by listing map. Then you can use it for calculate total price and create reservation. Please check <a href="#calculate-reservation-price-with-extras">calculate reservation price with extras</a></p>
 
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl --location --request POST <span class="s1">'https://api.hostaway.com/v1/listingFeeSettings/40270'</span> <span class="se">\</span>
@@ -7424,7 +7432,7 @@ with all necessary query params and use total price received from it as <code cl
 
 <p>You can add not mandatory extras (mondatory is added automatically) in total price calculation request and get total price and components for creating new reservation with print components in it.</p>
 
-<p>For getting list of available extras please check <a href="#list-listing-fee-settings">this chapter</a></p>
+<p>For getting list of available extras please check <a href="#list-listing-fee-settings">Listing fee settings</a></p>
 
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl --location --request POST <span class="s1">'https://api.hostaway.com/v1/listings/90632/calendar/priceDetails'</span> <span class="se">\</span>
