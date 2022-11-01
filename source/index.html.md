@@ -48,22 +48,19 @@ includes:
   - cancellationPolicy_deleteCancellationPolicy
   - reservation
   - reservation_reservationObject
+  - reservation_reservationFeeObject
+  - reservation_reservationUnitObject
+  - reservation_reservationStatuses
   - reservation_retrieveReservationsList
   - reservation_retrieveReservation
   - reservation_createReservation
   - reservation_createReservationCreditCard
+  - reservation_createReservationFinanceFields
   - reservation_updateReservation
   - reservation_cancelReservation
   - reservation_deleteReservation
-  - reservation_retrieveRentalAgreement
-  - reservation_retrieveConversations
-  - reservation_retrieveMessageTemplates
-  - reservation_retrieveMessageTemplate
-  - reservation_reservationFeeObject
-  - reservation_reservationUnitObject
-  - reservation_updateReservationCreditCardDetails
-  - reservation_addPaymentMethod
-  - reservation_reservationStatuses
+  - calendar_priceDetails
+  - calendar_addExtras
   - reservationPaymentCard
   - reservationPaymentCard_reservationPaymentCardObject
   - reservationPaymentCard_retrieveList
@@ -73,21 +70,21 @@ includes:
   - reservationPaymentCard_defaultPaymentCard
   - reservationPaymentMethod
   - reservationPaymentMethod_retrieveList
+  - reservation_retrieveRentalAgreement
+  - reservation_retrieveMessageTemplates
+  - reservation_retrieveMessageTemplate
   - calendar
   - calendar_calendarDayObject
+  - calendar_calendarDayStatuses
   - calendar_retrieveCalendar
   - calendar_updateCalendar
   - calendar_updateMultUnitCalendar
   - calendar_batchCalendarUpdate
-  - calendar_priceDetails
-  - calendar_reservationQuoteObject
-  - calendar_priceDetailsComponents
-  - calendar_reservationQuoteComponentsObject
-  - calendar_calendarDayStatuses
   - conversation
   - conversation_conversationMessageObject
   - conversation_conversationObject
   - conversation_retrieveConversationsList
+  - reservation_retrieveConversations
   - conversation_retrieveConversation
   - conversation_retrieveConversationsMessagesList
   - conversation_retrieveConversationMessage

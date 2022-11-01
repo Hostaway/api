@@ -1,5 +1,7 @@
 ## Reservation unit object
 
+This object needs only for multi unit reservation. There can be several reservationUnit objects in one reservation.
+
 ```json
 {
     "id": 123,

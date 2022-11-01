@@ -1,3 +1,5 @@
+# Reservation message templates
+
 ## Retrieve a message templates list for the conversation with filled placeholders
  
 ### Request

@@ -1,4 +1,6 @@
-## Retrieve a Reservation Rental Agreement
+# Reservation Rental agreement
+
+## Retrieve a reservation rental agreement
 
 ### Request
 

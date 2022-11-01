@@ -1,6 +1,6 @@
 ## Add Listing Fee Settings
 
-Add listing fee settings by listing map
+Add listing fee settings by listing map. Then you can use it for calculate total price and create reservation. Please check <a href="#calculate-reservation-price-with-extras">this</a>
 
 ### Request
 
