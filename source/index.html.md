@@ -41,7 +41,11 @@ includes:
   - cancellationPolicy
   - cancellationPolicy_cancellationPolicyObject
   - cancellationPolicy_cancellationPolicyItemObject
-  - cancellationPolicy_retrieveCancellationPolicyList
+  - cancellationPolicy_retrieveCancellationPolicyList 
+  - cancellationPolicy_retrieveCancellationPolicyListAirbnb
+  - cancellationPolicy_retrieveCancellationPolicyListBooking
+  - cancellationPolicy_retrieveCancellationPolicyListMarriott
+  - cancellationPolicy_retrieveCancellationPolicyListVRBO
   - cancellationPolicy_createCancellationPolicy
   - cancellationPolicy_readCancellationPolicy
   - cancellationPolicy_updateCancellationPolicy
