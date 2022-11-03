@@ -290,6 +290,13 @@ Current API version is v1
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2022-11-03</strong></p>
+
+<ul>
+<li><a href="#update-reservation-with-price-components">Update finance fields in reservation</a> - update reservation finance fields</li>
+<li><a href="#finance-fields">Finance fields</a> - read and update finance fields in reservation breakdown</li>
+</ul>
+
 <p><strong>2022-11-01</strong></p>
 
 <ul>
@@ -8224,6 +8231,592 @@ Please check <a href="#create-a-reservation-with-credit-card-validation">create 
 
 <p>If you want to add extra fee you should add additional object in components with <code class="prettyprint">name</code> and <code class="prettyprint">listingFeeSettingId</code> values. It the component is quantity selectable you should set <code class="prettyprint">isQuantitySelectable</code> = 1 and <code class="prettyprint">quantity</code> value.</p>
 
+<h2 id="update-reservation-with-price-components">Update reservation with price components</h2>
+
+<p>You can also update price details component in reservation by updating reservation.</p>
+
+<p>Please note that all fields must be submitted in the request because not specified fields will be deleted.</p>
+
+<p>Get financeFields from price breakdown you can by <a href="#retrieve-a-reservation">retrieving a reservation</a> then update the value and pass with ID with reservation update request.</p>
+
+<p>If you change component in price breakdown you should also adapt total price on your side and send new totalPrice.</p>
+
+<p>Also please set <code class="prettyprint">isOverriddenByUser</code> = 1 if value was changed manually without price calculation because it guarantees that system will not change this value automatically</p>
+<pre class="highlight shell tab-shell"><code>curl --location --request PUT <span class="s1">'https://api.hostaway.com/v1/reservations/14150462'</span> <span class="se">\</span>
+--header <span class="s1">'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ'</span> <span class="se">\</span>
+--header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+--data-raw <span class="s1">'{
+    "financeField": [
+        {
+            "id": 13303244,
+            "value": 91002,
+            "isOverriddenByUser": 1
+        }
+    ],
+    "totalPrice": 91002
+}'</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s1">'https://api.hostaway.com/v1/reservations/14150462'</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nx">CURLOPT_FOLLOWLOCATION</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s1">'PUT'</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span><span class="s1">'{
+    "financeField": [
+        {
+            "id": 13303244,
+            "value": 91002,
+            "isOverriddenByUser": 1
+        }
+    ],
+    "totalPrice": 91002
+}'</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span>
+  <span class="p">),</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="s2">"financeField"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"id"</span><span class="p">:</span> <span class="mi">13303244</span><span class="p">,</span>
+            <span class="s2">"value"</span><span class="p">:</span> <span class="mi">91002</span><span class="p">,</span>
+            <span class="s2">"isOverriddenByUser"</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">"totalPrice"</span><span class="p">:</span> <span class="mi">91002</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">withCredentials</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"readystatechange"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"PUT"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/reservations/14150462"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"authorization"</span><span class="p">,</span> <span class="s2">"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span> <span class="s2">"application/json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"financeField\": [\n        {\n            \"id\": 13303244,\n            \"value\": 91002,\n            \"isOverriddenByUser\": 1\n        }\n    ],\n    \"totalPrice\": 91002\n}"</span><span class="o">);</span>
+<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/reservations/14150462"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"PUT"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"authorization"</span><span class="o">,</span> <span class="s">"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">http.client</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s">"api.hostaway.com"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"financeField"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s">"id"</span><span class="p">:</span> <span class="mi">13303244</span><span class="p">,</span>
+      <span class="s">"value"</span><span class="p">:</span> <span class="mi">91002</span><span class="p">,</span>
+      <span class="s">"isOverriddenByUser"</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s">"totalPrice"</span><span class="p">:</span> <span class="mi">91002</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'authorization'</span><span class="p">:</span> <span class="s">'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"PUT"</span><span class="p">,</span> <span class="s">"/v1/reservations/14150462"</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span>
+</code></pre>
+<h2 id="delete-finance-field-components">Delete finance field components</h2>
+
+<p>To remove a component, you need to pass a flag <strong>isDeleted</strong> equals to 1</p>
+
+<p>Also, it is needed to adapt totalPrice if it affects total price</p>
+
+<p>Please check example.</p>
+<pre class="highlight shell tab-shell"><code>curl --location --request PUT <span class="s1">'https://api.hostaway.com/v1/reservations/14150462'</span> <span class="se">\</span>
+--header <span class="s1">'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ'</span> <span class="se">\</span>
+--header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+--data-raw <span class="s1">'{
+    "financeField": [
+        {
+            "id": 13303244,
+            "isDeleted": 1
+        }
+    ],
+    "totalPrice": 91002
+}'</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s1">'https://api.hostaway.com/v1/reservations/14150462'</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nx">CURLOPT_FOLLOWLOCATION</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s1">'PUT'</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span><span class="s1">'{
+    "financeField": [
+        {
+            "id": 13303244,
+            "isDeleted": 1
+        }
+    ],
+    "totalPrice": 91002
+}'</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span>
+  <span class="p">),</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="s2">"financeField"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"id"</span><span class="p">:</span> <span class="mi">13303244</span><span class="p">,</span>
+            <span class="s2">"isDeleted"</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">"totalPrice"</span><span class="p">:</span> <span class="mi">91002</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">withCredentials</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"readystatechange"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"PUT"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/reservations/14150462"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"authorization"</span><span class="p">,</span> <span class="s2">"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span> <span class="s2">"application/json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"financeField\": [\n        {\n            \"id\": 13303244,\n            \"isDeleted\": 1\n        }\n    ],\n    \"totalPrice\": 91002\n}"</span><span class="o">);</span>
+<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/reservations/14150462"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"PUT"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"authorization"</span><span class="o">,</span> <span class="s">"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">http.client</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s">"api.hostaway.com"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"financeField"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s">"id"</span><span class="p">:</span> <span class="mi">13303244</span><span class="p">,</span>
+      <span class="s">"isDeleted"</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s">"totalPrice"</span><span class="p">:</span> <span class="mi">91002</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'authorization'</span><span class="p">:</span> <span class="s">'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"PUT"</span><span class="p">,</span> <span class="s">"/v1/reservations/14150462"</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span>
+</code></pre>
+          <h1 id="finance-fields">Finance fields</h1>
+
+<h2 id="finance-field-object">Finance field Object</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13303299</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"units"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"listingFeeSettingId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"price"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"totalPriceFromChannel"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Total price from channel"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"alias"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"isIncludedInTotalPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"isOverriddenByUser"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"isMandatory"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"isQuantitySelectable"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">id</code></td>
+<td>yes</td>
+<td>int</td>
+<td>Unique ID</td>
+</tr>
+<tr>
+<td><code class="prettyprint">units</code></td>
+<td>yes</td>
+<td>int</td>
+<td>Number of units (for multi unit reservation)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">listingFeeSettingId</code></td>
+<td>yes</td>
+<td>int</td>
+<td>Fee ID please check ListingFeeSetting</td>
+</tr>
+<tr>
+<td><code class="prettyprint">type</code></td>
+<td>yes</td>
+<td>string</td>
+<td>Type of field (price, tax, fee, discount)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">name</code></td>
+<td>yes</td>
+<td>string</td>
+<td>Name of field (e.g. BaseRate, CleaningFee) read only</td>
+</tr>
+<tr>
+<td><code class="prettyprint">title</code></td>
+<td>yes</td>
+<td>string</td>
+<td>Title of field</td>
+</tr>
+<tr>
+<td><code class="prettyprint">alias</code></td>
+<td>yes</td>
+<td>string</td>
+<td>Alias of field (Fee alias)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">value</code></td>
+<td>yes</td>
+<td>float</td>
+<td>Value of field (please use <code class="prettyprint">total</code> field for amount value)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">isIncludedInTotalPrice</code></td>
+<td>yes</td>
+<td>int</td>
+<td>Is component included in total price</td>
+</tr>
+<tr>
+<td><code class="prettyprint">isOverriddenByUser</code></td>
+<td>yes</td>
+<td>int</td>
+<td>Component was set manually by user</td>
+</tr>
+<tr>
+<td><code class="prettyprint">isMandatory</code></td>
+<td>yes</td>
+<td>int</td>
+<td>Fee is mandatory</td>
+</tr>
+<tr>
+<td><code class="prettyprint">isQuantitySelectable</code></td>
+<td>yes</td>
+<td>int</td>
+<td>Is quantity selectable</td>
+</tr>
+<tr>
+<td><code class="prettyprint">isDeleted</code></td>
+<td>yes</td>
+<td>int</td>
+<td>Unique ID</td>
+</tr>
+<tr>
+<td>&lsquo;quantity&rsquo;</td>
+<td>yes</td>
+<td>int</td>
+<td>Quantity</td>
+</tr>
+<tr>
+<td><code class="prettyprint">total</code></td>
+<td>yes</td>
+<td>float</td>
+<td>Total amount</td>
+</tr>
+</tbody></table>
+
+<h2 id="retrieve-finance-fields">Retrieve finance fields</h2>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET https://api.hostaway.com/v1/financeField/{reservationId}</code></p>
+<pre class="highlight shell tab-shell"><code>curl --location --request GET <span class="s1">'https://api.hostaway.com/v1/financeField/14150462'</span> <span class="se">\</span>
+--header <span class="s1">'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ'</span> <span class="se">\</span>
+--header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+--data-raw <span class="s1">'{
+    "value": 1000,
+    "isIncludedInTotalPrice": 1,
+    "isOverriddenByUser": 1
+}'</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s1">'https://api.hostaway.com/v1/financeField/14150462'</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nx">CURLOPT_FOLLOWLOCATION</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s1">'GET'</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span><span class="s1">'{
+    "value": 1000,
+    "isIncludedInTotalPrice": 1,
+    "isOverriddenByUser": 1
+}'</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span>
+  <span class="p">),</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+  <span class="s2">"value"</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+  <span class="s2">"isIncludedInTotalPrice"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"isOverriddenByUser"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">withCredentials</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"readystatechange"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/financeField/14150462"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"authorization"</span><span class="p">,</span> <span class="s2">"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span> <span class="s2">"application/json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"value\": 1000,\n    \"isIncludedInTotalPrice\": 1,\n    \"isOverriddenByUser\": 1\n}"</span><span class="o">);</span>
+<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/financeField/14150462"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"GET"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"authorization"</span><span class="o">,</span> <span class="s">"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">http.client</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s">"api.hostaway.com"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"value"</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+  <span class="s">"isIncludedInTotalPrice"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s">"isOverriddenByUser"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'authorization'</span><span class="p">:</span> <span class="s">'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="s">"/v1/financeField/14150462"</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span>
+</code></pre>
+<h3 id="response">Response</h3>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13303244</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"units"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"listingFeeSettingId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"price"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"baseRate"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Base rate"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"alias"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isIncludedInTotalPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isOverriddenByUser"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isMandatory"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isQuantitySelectable"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13303299</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"units"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"listingFeeSettingId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"price"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"totalPriceFromChannel"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Total price from channel"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"alias"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isIncludedInTotalPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isOverriddenByUser"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isMandatory"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isQuantitySelectable"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="update-finance-field">Update finance field</h2>
+
+<p>It is recommended to set <code class="prettyprint">isOverriddenByUser</code> = 1 if you want to change finance field otherwise it can be replaced by the value from the channel as example or due recalculations on our end. But please keep in mind that if you have changed this value and mark as override it can&rsquo;t be updated even if we need to recalculate it.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">PUT https://api.hostaway.com/v1/financeField/{reservationId}/{financeFieldId}</code></p>
+<pre class="highlight shell tab-shell"><code>curl --location --request PUT <span class="s1">'https://api.hostaway.com/v1/financeField/14150462/13303299'</span> <span class="se">\</span>
+--header <span class="s1">'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ'</span> <span class="se">\</span>
+--header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+--data-raw <span class="s1">'{
+    "value": 1000,
+    "isIncludedInTotalPrice": 1,
+    "isOverriddenByUser": 1
+}'</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s1">'https://api.hostaway.com/v1/financeField/14150462/13303299'</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nx">CURLOPT_FOLLOWLOCATION</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s1">'PUT'</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span><span class="s1">'{
+    "value": 1000,
+    "isIncludedInTotalPrice": 1,
+    "isOverriddenByUser": 1
+}'</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span>
+  <span class="p">),</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+  <span class="s2">"value"</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+  <span class="s2">"isIncludedInTotalPrice"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"isOverriddenByUser"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">withCredentials</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"readystatechange"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"PUT"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/financeField/14150462/13303299"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"authorization"</span><span class="p">,</span> <span class="s2">"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-Type"</span><span class="p">,</span> <span class="s2">"application/json"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"value\": 1000,\n    \"isIncludedInTotalPrice\": 1,\n    \"isOverriddenByUser\": 1\n}"</span><span class="o">);</span>
+<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/financeField/14150462/13303299"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"PUT"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"authorization"</span><span class="o">,</span> <span class="s">"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-Type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">http.client</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s">"api.hostaway.com"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"value"</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+  <span class="s">"isIncludedInTotalPrice"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s">"isOverriddenByUser"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'authorization'</span><span class="p">:</span> <span class="s">'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"PUT"</span><span class="p">,</span> <span class="s">"/v1/financeField/14150462/13303299"</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span>
+</code></pre>
+<h3 id="response">Response</h3>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13303244</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"units"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"listingFeeSettingId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"price"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"baseRate"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Base rate"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"alias"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"isIncludedInTotalPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"isOverriddenByUser"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"isMandatory"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"isQuantitySelectable"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
           <h1 id="reservation-payment-cards">Reservation Payment Cards</h1>
 
           <h2 id="reservation-payment-card-object">Reservation payment card object</h2>
