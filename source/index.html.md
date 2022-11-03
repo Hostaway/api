@@ -61,6 +61,7 @@ includes:
   - reservation_deleteReservation
   - calendar_priceDetails
   - calendar_addExtras
+  - finance_field
   - reservationPaymentCard
   - reservationPaymentCard_reservationPaymentCardObject
   - reservationPaymentCard_retrieveList

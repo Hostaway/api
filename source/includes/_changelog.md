@@ -1,5 +1,10 @@
 ## Changelog
 
+**2022-11-03**
+
+- [Update finance fields in reservation](#update-reservation-with-price-components) - update reservation finance fields
+- [Finance fields](#finance-fields) - read and update finance fields in reservation breakdown
+
 **2022-11-01**
 
 - [Calculate reservation price](#calculate-reservation-price) - new price details calculator. We recommend migrating to this calculator if you are using an old calculator as support for the old one has been discontinued.
