@@ -1,11 +1,16 @@
 ## Changelog
 
-**2022-11-02**
+**2022-11-09**
  - [Airbnb cancellation policies](#retrieve-airbnb-cancellation-policies) - new endpoint, list of Airbnb cancellation policies, id can be used as listing.airBnbCancellationPolicyId parameter
  - [Booking.com cancellation policies](#retrieve-booking-com-cancellation-policies) - new endpoint, new endpoint, list of Booking.com cancellation policies, id can be used as listing.bookingCancellationPolicyId parameter
  - [Marriott cancellation policies](#retrieve-marriott-cancellation-policies) - new endpoint, new endpoint, list of Marriott cancellation policies, id can be used as listing.marriottCancellationPolicyId parameter
  - [Vrbo cancellation policies](#retrieve-airbnb-cancellation-policies) - new endpoint, new endpoint, list of VRBO cancellation policies, id can be used as listing.vrboCancellationPolicyId parameter
  - Channel specific cancellation policy added to listing object (marriottCancellationPolicyId, vrboCancellationPolicyId, airBnbCancellationPolicyId, bookingCancellationPolicyId, cancellationPolicyId)
+
+**2022-11-03**
+
+- [Update finance fields in reservation](#update-reservation-with-price-components) - update reservation finance fields
+- [Finance fields](#finance-fields) - read and update finance fields in reservation breakdown
 
 **2022-11-01**
 
