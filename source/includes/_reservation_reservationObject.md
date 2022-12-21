@@ -92,6 +92,7 @@
     "isStarred": 0,
     "isArchived": 0,
     "isPinned": 0,
+    "originalChannel": null,
     "customerUserId": null,
     "rentalAgreementFileUrl": "https://a0.muscache.com/im/pictures/3c4d82ed-196d-493a-a43b-07fcc70d5ccd.pdf",
     "reservationAgreement": "signed",
@@ -201,6 +202,7 @@ Property | Required | Type | Description
 `isPinned` | no | bool | 
 `guestAuthHash` | no | string |
 `guestPortalUrl` | no | string |
+`originalChannel` | no | string |
 `latestActivityOn` | no | date |
 `customerUserId` | no | string |
 `reservationAgreement` | no | string | Can be one of the following: `not_required`, `signed`, `not_signed`

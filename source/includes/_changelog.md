@@ -1,5 +1,9 @@
 ## Changelog
 
+**2022-12-22**
+
+- Added originalChannel field to reservation response
+
 **2022-11-09**
 
 - [Airbnb cancellation policies](#retrieve-airbnb-cancellation-policies) - new endpoint, list of Airbnb cancellation policies, id can be used as listing.airBnbCancellationPolicyId parameter
