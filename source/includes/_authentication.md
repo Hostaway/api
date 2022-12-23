@@ -7,8 +7,8 @@ We use [Client Credentials Grant](https://tools.ietf.org/html/rfc6749#page-40) o
 ```shell
 curl -X POST \
   https://api.hostaway.com/v1/accessTokens \
-  -H 'cache-control: no-cache' \
-  -H 'content-type: application/x-www-form-urlencoded' \
+  -H 'Cache-control: no-cache' \
+  -H 'Content-type: application/x-www-form-urlencoded' \
   -d 'grant_type=client_credentials&client_id={your Hostaway account ID}&client_secret=yourclientsecret&scope=general'
 ```
 
@@ -27,8 +27,8 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => "grant_type=client_credentials&client_id={your Hostaway account ID}&client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&scope=general",
   CURLOPT_HTTPHEADER => array(
-    "cache-control: no-cache",
-    "content-type: application/x-www-form-urlencoded"
+    "Cache-control: no-cache",
+    "Content-type: application/x-www-form-urlencoded"
   ),
 ));
 
@@ -57,8 +57,8 @@ xhr.addEventListener("readystatechange", function () {
 });
 
 xhr.open("POST", "https://api.hostaway.com/v1/accessTokens");
-xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-xhr.setRequestHeader("cache-control", "no-cache");
+xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhr.setRequestHeader("Cache-control", "no-cache");
 
 xhr.send(data);
 ```
@@ -71,8 +71,8 @@ RequestBody body = RequestBody.create(mediaType, "grant_type=client_credentials&
 Request request = new Request.Builder()
   .url("https://api.hostaway.com/v1/accessTokens")
   .post(body)
-  .addHeader("content-type", "application/x-www-form-urlencoded")
-  .addHeader("cache-control", "no-cache")
+  .addHeader("Content-type", "application/x-www-form-urlencoded")
+  .addHeader("Cache-control", "no-cache")
   .build();
 
 Response response = client.newCall(request).execute();
@@ -86,8 +86,8 @@ conn = http.client.HTTPConnection("api.hostaway.com")
 payload = "grant_type=client_credentials&client_id={your Hostaway account ID}&client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&scope=general"
 
 headers = {
-    'content-type': "application/x-www-form-urlencoded",
-    'cache-control': "no-cache"
+    'Content-type': "application/x-www-form-urlencoded",
+    'Cache-control': "no-cache"
     }
 
 conn.request("POST", "/v1/accessTokens", payload, headers)
@@ -101,7 +101,7 @@ print(data.decode("utf-8"))
 `POST https://api.hostaway.com/v1/accessTokens`
 
 To issue a new access token the client sends a `POST` request with following request body parameters to the 
-authorization server endpoint:
+Authorization server endpoint:
 
 Parameter | Required | Type | Description
 --------- | -------- | ---- | -----------
@@ -120,17 +120,17 @@ Parameter | Required | Type | Description
 }
 ```
 
-The authorization server will respond with a JSON object containing the following properties:
+The Authorization server will respond with a JSON object containing the following properties:
 
 Property | Type | Description
 -------- | ---- | ----------- 
 `token_type` | string | `Bearer` is always returned
 `expires_in` | int | An integer representing the TTL of the access token
-`access_token` | string | A JWT signed with the authorization server’s private key
+`access_token` | string | A JWT signed with the Authorization server’s private key
 
 The access token should be included in all other API requests to the server in a header and should look like the following:
 
-`authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiId
+`Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiId
 sImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZ
 jIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2J
 kZWM0MDNiMzMwNzhhYTIyN2JmIiwi`
@@ -147,7 +147,7 @@ Please keep your API secret and access tokens strictly private
 
 ```shell
 curl --location --request DELETE 'https://api.hostaway.com/v1/accessTokens?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxMjQ3MSIsImp0aSI6IjA4ODkwMzgwYzU0NzA4MWM1MmEwYWU5Y2I1NmIwNmZhMWZkMjgwNTY1YWRjNmQ0NTc2MjNjNTk1ZmUyYzlhYzM5NDE2NmFjZmJjY2IyZmIwIiwiaWF0IjoxNTg1ODUxNDI1LCJuYmYiOjE1ODU4NTE0MjUsImV4cCI6MTY0ODkyMzQyNSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.R5TPnSTMYs7rSXNFj_GLxjO2vag2tKbsGKcSgMCFDXq6K0gLp-z52nOuCbCY7UlZnvbAFXi2zIpV-qzwCrBDHKi-YsY-LJEY5xzj8VTnlKiC9zKfRqhIaL_G3EQAvyFW04Kp2VXP3d7d_GiAFhTo412pjmrJIm6gN-N2JX6B-xo' \
---header 'Content-Type: application/x-www-form-urlencoded'
+--header 'Content-type: application/x-www-form-urlencoded'
 ```
 
 ```php
@@ -164,8 +164,8 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "DELETE",
   CURLOPT_HTTPHEADER => array(
-    "cache-control: no-cache",
-    "content-type: application/x-www-form-urlencoded"
+    "Cache-control: no-cache",
+    "Content-type: application/x-www-form-urlencoded"
   ),
 ));
 
@@ -193,8 +193,8 @@ xhr.addEventListener("readystatechange", function () {
 });
 
 xhr.open("DELETE", "https://api.hostaway.com/v1/accessTokens?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxMjQ3MSIsImp0aSI6IjA4ODkwMzgwYzU0NzA4MWM1MmEwYWU5Y2I1NmIwNmZhMWZkMjgwNTY1YWRjNmQ0NTc2MjNjNTk1ZmUyYzlhYzM5NDE2NmFjZmJjY2IyZmIwIiwiaWF0IjoxNTg1ODUxNDI1LCJuYmYiOjE1ODU4NTE0MjUsImV4cCI6MTY0ODkyMzQyNSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.R5TPnSTMYs7rSXNFj_GLxjO2vag2tKbsGKcSgMCFDXq6K0gLp-z52nOuCbCY7UlZnvbAFXi2zIpV-qzwCrBDHKi-YsY-LJEY5xzj8VTnlKiC9zKfRqhIaL_G3EQAvyFW04Kp2VXP3d7d_GiAFhTo412pjmrJIm6gN-N2JX6B-xo");
-xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-xhr.setRequestHeader("cache-control", "no-cache");
+xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhr.setRequestHeader("Cache-control", "no-cache");
 
 xhr.send();
 ```
@@ -207,8 +207,8 @@ MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
 Request request = new Request.Builder()
   .url("https://api.hostaway.com/v1/accessTokens?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxMjQ3MSIsImp0aSI6IjA4ODkwMzgwYzU0NzA4MWM1MmEwYWU5Y2I1NmIwNmZhMWZkMjgwNTY1YWRjNmQ0NTc2MjNjNTk1ZmUyYzlhYzM5NDE2NmFjZmJjY2IyZmIwIiwiaWF0IjoxNTg1ODUxNDI1LCJuYmYiOjE1ODU4NTE0MjUsImV4cCI6MTY0ODkyMzQyNSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.R5TPnSTMYs7rSXNFj_GLxjO2vag2tKbsGKcSgMCFDXq6K0gLp-z52nOuCbCY7UlZnvbAFXi2zIpV-qzwCrBDHKi-YsY-LJEY5xzj8VTnlKiC9zKfRqhIaL_G3EQAvyFW04Kp2VXP3d7d_GiAFhTo412pjmrJIm6gN-N2JX6B-xo")
   .delete()
-  .addHeader("content-type", "application/x-www-form-urlencoded")
-  .addHeader("cache-control", "no-cache")
+  .addHeader("Content-type", "application/x-www-form-urlencoded")
+  .addHeader("Cache-control", "no-cache")
   .build();
 
 Response response = client.newCall(request).execute();
@@ -222,8 +222,8 @@ conn = http.client.HTTPConnection("api.hostaway.com")
 payload = ""
 
 headers = {
-    'content-type': "application/x-www-form-urlencoded",
-    'cache-control': "no-cache"
+    'Content-type': "application/x-www-form-urlencoded",
+    'Cache-control': "no-cache"
     }
 
 conn.request("DELETE", "/v1/accessTokens?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxMjQ3MSIsImp0aSI6IjA4ODkwMzgwYzU0NzA4MWM1MmEwYWU5Y2I1NmIwNmZhMWZkMjgwNTY1YWRjNmQ0NTc2MjNjNTk1ZmUyYzlhYzM5NDE2NmFjZmJjY2IyZmIwIiwiaWF0IjoxNTg1ODUxNDI1LCJuYmYiOjE1ODU4NTE0MjUsImV4cCI6MTY0ODkyMzQyNSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.R5TPnSTMYs7rSXNFj_GLxjO2vag2tKbsGKcSgMCFDXq6K0gLp-z52nOuCbCY7UlZnvbAFXi2zIpV-qzwCrBDHKi-YsY-LJEY5xzj8VTnlKiC9zKfRqhIaL_G3EQAvyFW04Kp2VXP3d7d_GiAFhTo412pjmrJIm6gN-N2JX6B-xo", payload, headers)
@@ -237,7 +237,7 @@ print(data.decode("utf-8"))
 `DELETE https://api.hostaway.com/v1/accessTokens`
 
 To revoke existing access token the client sends a `DELETE` request with following request URL parameters to the 
-authorization server endpoint:
+Authorization server endpoint:
 
 Parameter | Required | Type | Description
 --------- | -------- | ---- | -----------

@@ -9,7 +9,7 @@ This endpoint is deprecated. Please use reservation payment card endpoints.
 ```shell
 curl -X PUT \
   https://api.hostaway.com/v1/reservations/1/card \
-  -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c' \
   -d '{
   "ccNumber": "5555555555554444",
   "ccName": "john dow",
@@ -35,8 +35,8 @@ curl_setopt_array($curl, [
     CURLOPT_CUSTOMREQUEST  => 'PUT',
     CURLOPT_POSTFIELDS     => "{\n  \"ccNumber\": \"5555555555554444\",\n  \"ccName\": \"john dow\",\n  \"cvc\": 123,\n  \"ccExpirationMonth\": 12,\n  \"ccExpirationYear\": 2034\n}\n",
     CURLOPT_HTTPHEADER     => [
-        'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
-        'cache-control: no-cache',
+        'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
+        'Cache-control: no-cache',
         'content-length: 130',
     ],
 ]);
@@ -72,8 +72,8 @@ xhr.addEventListener('readystatechange', function () {
 });
 
 xhr.open('PUT', 'https://api.hostaway.com/v1/reservations/1/card');
-xhr.setRequestHeader('authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c');
-xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c');
+xhr.setRequestHeader('Content-type', 'application/json');
 
 xhr.send(data);
 ```
@@ -86,8 +86,8 @@ RequestBody body = RequestBody.create(mediaType, "{\n  \"ccNumber\": \"555555555
 Request request = new Request.Builder()
         .url("https://api.hostaway.com/v1/reservations/1/card")
         .put(body)
-        .addHeader("authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c")
-        .addHeader("Content-Type", "application/json")
+        .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c")
+        .addHeader("Content-type", "application/json")
         .build();
 
 Response response = client.newCall(request).execute();
@@ -100,9 +100,9 @@ url = "https://api.hostaway.com/v1/reservations/1/card"
 
 payload = "{\n  \"ccNumber\": \"5555555555554444\",\n  \"ccName\": \"john dow\",\n  \"cvc\": 123,\n  \"ccExpirationMonth\": 12,\n  \"ccExpirationYear\": 2034\n}\n"
 headers = {
-    'authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-    'Content-Type': "application/json",
-    'cache-control': "no-cache"
+    'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+    'Content-type': "application/json",
+    'Cache-control': "no-cache"
     }
 
 response = requests.request("PUT", url, data=payload, headers=headers)

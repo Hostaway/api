@@ -7,7 +7,7 @@ Update listing agreement by listing map ID
 ```shell
 curl --location --request PUT 'https://api.hostaway.com/v1/listingAgreement/40270' \
 --header 'jwt;' \
---header 'Content-Type: application/json' \
+--header 'Content-type: application/json' \
 --data-raw '{
     "text": "another text with {{address}}"
 }'
@@ -32,7 +32,7 @@ curl_setopt_array($curl, array(
 }',
   CURLOPT_HTTPHEADER => array(
     'jwt: ',
-    'Content-Type: application/json'
+    'Content-type: application/json'
   ),
 ));
 
@@ -59,7 +59,7 @@ xhr.addEventListener("readystatechange", function() {
 
 xhr.open("PUT", "https://api.hostaway.com/v1/listingAgreement/40270");
 xhr.setRequestHeader("jwt", "");
-xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("Content-type", "application/json");
 
 xhr.send(data);
 ```
@@ -73,7 +73,7 @@ Request request = new Request.Builder()
   .url("https://api.hostaway.com/v1/listingAgreement/40270")
   .method("PUT", body)
   .addHeader("jwt", "")
-  .addHeader("Content-Type", "application/json")
+  .addHeader("Content-type", "application/json")
   .build();
 Response response = client.newCall(request).execute();
 ```
@@ -88,7 +88,7 @@ payload = json.dumps({
 })
 headers = {
   'jwt': '',
-  'Content-Type': 'application/json'
+  'Content-type': 'application/json'
 }
 conn.request("PUT", "/v1/listingAgreement/40270", payload, headers)
 res = conn.getresponse()

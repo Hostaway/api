@@ -7,7 +7,7 @@ Add listing fee settings by listing map. Then you can use it for calculate total
 ```shell
 curl --location --request POST 'https://api.hostaway.com/v1/listingFeeSettings/40270' \
 --header 'jwt;' \
---header 'Content-Type: application/json' \
+--header 'Content-type: application/json' \
 --data-raw '{
     "feeType": "parkingFee",
     "feeTitle": null,
@@ -44,7 +44,7 @@ curl_setopt_array($curl, array(
 }',
   CURLOPT_HTTPHEADER => array(
     'jwt: ',
-    'Content-Type: application/json'
+    'Content-type: application/json'
   ),
 ));
 
@@ -77,7 +77,7 @@ xhr.addEventListener("readystatechange", function() {
 
 xhr.open("POST", "https://api.hostaway.com/v1/listingFeeSettings/40270");
 xhr.setRequestHeader("jwt", "");
-xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("Content-type", "application/json");
 
 xhr.send(data);
 ```
@@ -91,7 +91,7 @@ Request request = new Request.Builder()
   .url("https://api.hostaway.com/v1/listingFeeSettings/40270")
   .method("POST", body)
   .addHeader("jwt", "")
-  .addHeader("Content-Type", "application/json")
+  .addHeader("Content-type", "application/json")
   .build();
 Response response = client.newCall(request).execute();
 ```
@@ -112,7 +112,7 @@ payload = json.dumps({
 })
 headers = {
   'jwt': '',
-  'Content-Type': 'application/json'
+  'Content-type': 'application/json'
 }
 conn.request("POST", "/v1/listingFeeSettings/40270", payload, headers)
 res = conn.getresponse()

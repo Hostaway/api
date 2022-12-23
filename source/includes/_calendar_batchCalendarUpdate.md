@@ -5,9 +5,9 @@
 ```shell
 curl -X PUT \
   http://api.hostaway.com/v1/listings/40160/calendarIntervals \
-  -H 'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIiwiaWF0IjoxNDk5NzczMjk4LCJuYmYiOjE0OTk3NzMyOTgsImV4cCI6MTUxNTY3MDg5OCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.RYS6Gi7iLyhHRAzNRPPMUd5jYlGJ5Psq2ejFLDM5wmD1alAB6CdkTIuyrDrtJzkcAyPBpjKBAtDzGzsVrEUxMU90FJG8UO-AXrhxMN0GVtcWqpT5ndCSx0aWEv2TMAOwLX0uU5BSCSzM0jmS2c21gNzRqW2-kMgLfMwMzkVZhas' \
-  -H 'cache-control: no-cache' \
-  -H 'content-type: application/json' \
+  -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIiwiaWF0IjoxNDk5NzczMjk4LCJuYmYiOjE0OTk3NzMyOTgsImV4cCI6MTUxNTY3MDg5OCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.RYS6Gi7iLyhHRAzNRPPMUd5jYlGJ5Psq2ejFLDM5wmD1alAB6CdkTIuyrDrtJzkcAyPBpjKBAtDzGzsVrEUxMU90FJG8UO-AXrhxMN0GVtcWqpT5ndCSx0aWEv2TMAOwLX0uU5BSCSzM0jmS2c21gNzRqW2-kMgLfMwMzkVZhas' \
+  -H 'Cache-control: no-cache' \
+  -H 'Content-type: application/json' \
   -d '[
 	{
 	    "startDate": "2017-10-05",
@@ -49,9 +49,9 @@ curl_setopt_array($curl, array(
   CURLOPT_CUSTOMREQUEST => "PUT",
   CURLOPT_POSTFIELDS => "[\n\t{\n\t    \"startDate\": \"2017-10-05\",\n\t    \"endDate\": \"2017-10-06\",\n\t    \"isAvailable\": 1,\n\t    \"price\": 20,\n\t    \"minimumStay\": 1,\n\t    \"maximumStay\": 1125,\n\t    \"closedOnArrival\": null,\n\t    \"closedOnDeparture\": null,\n\t    \"note\": \"test\"\n\t},\n\t{\n\t    \"startDate\": \"2017-10-10\",\n\t    \"endDate\": \"2017-10-11\",\n\t    \"isAvailable\": 1,\n\t    \"price\": 21,\n\t    \"minimumStay\": 1,\n\t    \"maximumStay\": 1125,\n\t    \"closedOnArrival\": null,\n\t    \"closedOnDeparture\": null,\n\t    \"note\": \"test\"\n\t}\n]",
   CURLOPT_HTTPHEADER => array(
-    "authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIiwiaWF0IjoxNDk5NzczMjk4LCJuYmYiOjE0OTk3NzMyOTgsImV4cCI6MTUxNTY3MDg5OCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.RYS6Gi7iLyhHRAzNRPPMUd5jYlGJ5Psq2ejFLDM5wmD1alAB6CdkTIuyrDrtJzkcAyPBpjKBAtDzGzsVrEUxMU90FJG8UO-AXrhxMN0GVtcWqpT5ndCSx0aWEv2TMAOwLX0uU5BSCSzM0jmS2c21gNzRqW2-kMgLfMwMzkVZhas",
-    "cache-control: no-cache",
-    "content-type: application/json",
+    "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIiwiaWF0IjoxNDk5NzczMjk4LCJuYmYiOjE0OTk3NzMyOTgsImV4cCI6MTUxNTY3MDg5OCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.RYS6Gi7iLyhHRAzNRPPMUd5jYlGJ5Psq2ejFLDM5wmD1alAB6CdkTIuyrDrtJzkcAyPBpjKBAtDzGzsVrEUxMU90FJG8UO-AXrhxMN0GVtcWqpT5ndCSx0aWEv2TMAOwLX0uU5BSCSzM0jmS2c21gNzRqW2-kMgLfMwMzkVZhas",
+    "Cache-control: no-cache",
+    "Content-type: application/json",
   ),
 ));
 
@@ -103,9 +103,9 @@ xhr.addEventListener("readystatechange", function () {
 });
 
 xhr.open("PUT", "http://api.hostaway.com/v1/listings/40160/calendarIntervals");
-xhr.setRequestHeader("authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIiwiaWF0IjoxNDk5NzczMjk4LCJuYmYiOjE0OTk3NzMyOTgsImV4cCI6MTUxNTY3MDg5OCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.RYS6Gi7iLyhHRAzNRPPMUd5jYlGJ5Psq2ejFLDM5wmD1alAB6CdkTIuyrDrtJzkcAyPBpjKBAtDzGzsVrEUxMU90FJG8UO-AXrhxMN0GVtcWqpT5ndCSx0aWEv2TMAOwLX0uU5BSCSzM0jmS2c21gNzRqW2-kMgLfMwMzkVZhas");
-xhr.setRequestHeader("content-type", "application/json");
-xhr.setRequestHeader("cache-control", "no-cache");
+xhr.setRequestHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIiwiaWF0IjoxNDk5NzczMjk4LCJuYmYiOjE0OTk3NzMyOTgsImV4cCI6MTUxNTY3MDg5OCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.RYS6Gi7iLyhHRAzNRPPMUd5jYlGJ5Psq2ejFLDM5wmD1alAB6CdkTIuyrDrtJzkcAyPBpjKBAtDzGzsVrEUxMU90FJG8UO-AXrhxMN0GVtcWqpT5ndCSx0aWEv2TMAOwLX0uU5BSCSzM0jmS2c21gNzRqW2-kMgLfMwMzkVZhas");
+xhr.setRequestHeader("Content-type", "application/json");
+xhr.setRequestHeader("Cache-control", "no-cache");
 
 xhr.send(data);
 ```
@@ -118,9 +118,9 @@ RequestBody body = RequestBody.create(mediaType, "[\n\t{\n\t    \"startDate\": \
 Request request = new Request.Builder()
   .url("http://api.hostaway.com/v1/listings/40160/calendarIntervals")
   .put(body)
-  .addHeader("authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIiwiaWF0IjoxNDk5NzczMjk4LCJuYmYiOjE0OTk3NzMyOTgsImV4cCI6MTUxNTY3MDg5OCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.RYS6Gi7iLyhHRAzNRPPMUd5jYlGJ5Psq2ejFLDM5wmD1alAB6CdkTIuyrDrtJzkcAyPBpjKBAtDzGzsVrEUxMU90FJG8UO-AXrhxMN0GVtcWqpT5ndCSx0aWEv2TMAOwLX0uU5BSCSzM0jmS2c21gNzRqW2-kMgLfMwMzkVZhas")
-  .addHeader("content-type", "application/json")
-  .addHeader("cache-control", "no-cache")
+  .addHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIiwiaWF0IjoxNDk5NzczMjk4LCJuYmYiOjE0OTk3NzMyOTgsImV4cCI6MTUxNTY3MDg5OCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.RYS6Gi7iLyhHRAzNRPPMUd5jYlGJ5Psq2ejFLDM5wmD1alAB6CdkTIuyrDrtJzkcAyPBpjKBAtDzGzsVrEUxMU90FJG8UO-AXrhxMN0GVtcWqpT5ndCSx0aWEv2TMAOwLX0uU5BSCSzM0jmS2c21gNzRqW2-kMgLfMwMzkVZhas")
+  .addHeader("Content-type", "application/json")
+  .addHeader("Cache-control", "no-cache")
   .build();
 
 Response response = client.newCall(request).execute();
@@ -134,9 +134,9 @@ conn = http.client.HTTPConnection("api.hostaway.com")
 payload = "[\n\t{\n\t    \"startDate\": \"2017-10-05\",\n\t    \"endDate\": \"2017-10-06\",\n\t    \"isAvailable\": 1,\n\t    \"price\": 20,\n\t    \"minimumStay\": 1,\n\t    \"maximumStay\": 1125,\n\t    \"closedOnArrival\": null,\n\t    \"closedOnDeparture\": null,\n\t    \"note\": \"test\"\n\t},\n\t{\n\t    \"startDate\": \"2017-10-10\",\n\t    \"endDate\": \"2017-10-11\",\n\t    \"isAvailable\": 1,\n\t    \"price\": 21,\n\t    \"minimumStay\": 1,\n\t    \"maximumStay\": 1125,\n\t    \"closedOnArrival\": null,\n\t    \"closedOnDeparture\": null,\n\t    \"note\": \"test\"\n\t}\n]"
 
 headers = {
-    'authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIiwiaWF0IjoxNDk5NzczMjk4LCJuYmYiOjE0OTk3NzMyOTgsImV4cCI6MTUxNTY3MDg5OCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.RYS6Gi7iLyhHRAzNRPPMUd5jYlGJ5Psq2ejFLDM5wmD1alAB6CdkTIuyrDrtJzkcAyPBpjKBAtDzGzsVrEUxMU90FJG8UO-AXrhxMN0GVtcWqpT5ndCSx0aWEv2TMAOwLX0uU5BSCSzM0jmS2c21gNzRqW2-kMgLfMwMzkVZhas",
-    'content-type': "application/json",
-    'cache-control': "no-cache",
+    'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIiwiaWF0IjoxNDk5NzczMjk4LCJuYmYiOjE0OTk3NzMyOTgsImV4cCI6MTUxNTY3MDg5OCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.RYS6Gi7iLyhHRAzNRPPMUd5jYlGJ5Psq2ejFLDM5wmD1alAB6CdkTIuyrDrtJzkcAyPBpjKBAtDzGzsVrEUxMU90FJG8UO-AXrhxMN0GVtcWqpT5ndCSx0aWEv2TMAOwLX0uU5BSCSzM0jmS2c21gNzRqW2-kMgLfMwMzkVZhas",
+    'Content-type': "application/json",
+    'Cache-control': "no-cache",
     }
 
 conn.request("PUT", "/v1/listings/40160/calendarIntervals", payload, headers)

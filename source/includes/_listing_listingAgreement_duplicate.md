@@ -7,7 +7,7 @@ Duplicate listing agreement by listing id and listing map ids
 ```shell
 curl --location --request POST 'https://api.hostaway.com/v1/listingAgreement/duplicate' \
 --header 'jwt;' \
---header 'Content-Type: application/json' \
+--header 'Content-type: application/json' \
 --data-raw '{
     "listingId": 40270,
     "listingIds": [40271, 40272]
@@ -34,7 +34,7 @@ curl_setopt_array($curl, array(
 }',
   CURLOPT_HTTPHEADER => array(
     'jwt: ',
-    'Content-Type: application/json'
+    'Content-type: application/json'
   ),
 ));
 
@@ -62,7 +62,7 @@ xhr.addEventListener("readystatechange", function() {
 
 xhr.open("POST", "https://api.hostaway.com/v1/listingAgreement/duplicate");
 xhr.setRequestHeader("jwt", "");
-xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("Content-type", "application/json");
 
 xhr.send(data);
 ```
@@ -76,7 +76,7 @@ Request request = new Request.Builder()
   .url("https://api.hostaway.com/v1/listingAgreement/duplicate")
   .method("POST", body)
   .addHeader("jwt", "")
-  .addHeader("Content-Type", "application/json")
+  .addHeader("Content-type", "application/json")
   .build();
 Response response = client.newCall(request).execute();
 ```
@@ -92,7 +92,7 @@ payload = json.dumps({
 })
 headers = {
   'jwt': '',
-  'Content-Type': 'application/json'
+  'Content-type': 'application/json'
 }
 conn.request("POST", "/v1/listingAgreement/duplicate", payload, headers)
 res = conn.getresponse()

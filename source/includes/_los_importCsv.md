@@ -10,7 +10,7 @@ This data is sent as an HTTP POST, where the CSV data is provided as a form valu
 curl -X POST \
   https://api.hostaway.com/v1/los/86156 \
   -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjBlNGNmYzljNWRiYWZlNjViNDRhNjVhOTJiM2FiNDQ3ZmQ2ODAxZDg3OTM4NjE2OThkMzlhOTkxZDFkZmY2ZDQ2ODI1YWUzNTcyY2JmMWMiLCJpYXQiOjE2MzEwOTYxMjIsIm5iZiI6MTYzMTA5NjEyMiwiZXhwIjoxNjk0MTY4MTIyLCJzdWIiOiIiLCJzY29wZXMiOlsiZ2VuZXJhbCJdLCJzZWNyZXRJZCI6Nn0.CYvYVdgeVZ3IMeexoykRwGozV8k1TVL7AwxYGyGHcU6aYf37bP59PWqsHJPam8l3sSFJWWecJJTFCDIKwrKR6YY_GJcSzrK5_cQJ8x4EsXFrFi2K5mvPz9UlDGSCoFEyDCP5QmCmiULb71_A-Zj-q_KEVshFh1FXu5GIVpyKxlo' \
-  -H 'Cache-Control: no-cache' \
+  -H 'Cache-control: no-cache' \
   -d CSV=2022-09-01%2C1%2C1%2C100%2C2%2C200%2C3%2C300%2C4%2C400%2C5%2C500%2C6%2C600%2C7%2C700%2C8%2C800%0A2022-09-02%2C1%2C1%2C100%2C2%2C200%2C3%2C300%2C4%2C400%2C5%2C500%2C6%2C600%2C7%2C700%2C8%2C800%0A2022-09-03%2C1%2C1%2C100%2C2%2C200%2C3%2C300%2C4%2C400%2C5%2C500%2C6%2C600%2C7%2C700%2C8%2C800%0A2022-09-04%2C1%2C1%2C100%2C2%2C200%2C3%2C300%2C4%2C400%2C5%2C500%2C6%2C600%2C7%2C700%2C8%2C800%0A2022-09-05%2C1%2C1%2C100%2C2%2C200%2C3%2C300%2C4%2C400%2C5%2C500%2C6%2C600%2C7%2C700%2C8%2C800
 ```
 
@@ -30,8 +30,8 @@ curl_setopt_array($curl, array(
   CURLOPT_POSTFIELDS => "CSV=2022-09-01%2C1%2C1%2C100%2C2%2C200%2C3%2C300%2C4%2C400%2C5%2C500%2C6%2C600%2C7%2C700%2C8%2C800%0A2022-09-02%2C1%2C1%2C100%2C2%2C200%2C3%2C300%2C4%2C400%2C5%2C500%2C6%2C600%2C7%2C700%2C8%2C800%0A2022-09-03%2C1%2C1%2C100%2C2%2C200%2C3%2C300%2C4%2C400%2C5%2C500%2C6%2C600%2C7%2C700%2C8%2C800%0A2022-09-04%2C1%2C1%2C100%2C2%2C200%2C3%2C300%2C4%2C400%2C5%2C500%2C6%2C600%2C7%2C700%2C8%2C800%0A2022-09-05%2C1%2C1%2C100%2C2%2C200%2C3%2C300%2C4%2C400%2C5%2C500%2C6%2C600%2C7%2C700%2C8%2C800",
   CURLOPT_HTTPHEADER => array(
     "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjBlNGNmYzljNWRiYWZlNjViNDRhNjVhOTJiM2FiNDQ3ZmQ2ODAxZDg3OTM4NjE2OThkMzlhOTkxZDFkZmY2ZDQ2ODI1YWUzNTcyY2JmMWMiLCJpYXQiOjE2MzEwOTYxMjIsIm5iZiI6MTYzMTA5NjEyMiwiZXhwIjoxNjk0MTY4MTIyLCJzdWIiOiIiLCJzY29wZXMiOlsiZ2VuZXJhbCJdLCJzZWNyZXRJZCI6Nn0.CYvYVdgeVZ3IMeexoykRwGozV8k1TVL7AwxYGyGHcU6aYf37bP59PWqsHJPam8l3sSFJWWecJJTFCDIKwrKR6YY_GJcSzrK5_cQJ8x4EsXFrFi2K5mvPz9UlDGSCoFEyDCP5QmCmiULb71_A-Zj-q_KEVshFh1FXu5GIVpyKxlo",
-    "Cache-Control: no-cache",
-    "Content-Type: application/x-www-form-urlencoded"
+    "Cache-control: no-cache",
+    "Content-type: application/x-www-form-urlencoded"
   ),
 ));
 
@@ -61,8 +61,8 @@ xhr.addEventListener("readystatechange", function () {
 
 xhr.open("POST", "https://api.hostaway.com/v1/los/86156");
 xhr.setRequestHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjBlNGNmYzljNWRiYWZlNjViNDRhNjVhOTJiM2FiNDQ3ZmQ2ODAxZDg3OTM4NjE2OThkMzlhOTkxZDFkZmY2ZDQ2ODI1YWUzNTcyY2JmMWMiLCJpYXQiOjE2MzEwOTYxMjIsIm5iZiI6MTYzMTA5NjEyMiwiZXhwIjoxNjk0MTY4MTIyLCJzdWIiOiIiLCJzY29wZXMiOlsiZ2VuZXJhbCJdLCJzZWNyZXRJZCI6Nn0.CYvYVdgeVZ3IMeexoykRwGozV8k1TVL7AwxYGyGHcU6aYf37bP59PWqsHJPam8l3sSFJWWecJJTFCDIKwrKR6YY_GJcSzrK5_cQJ8x4EsXFrFi2K5mvPz9UlDGSCoFEyDCP5QmCmiULb71_A-Zj-q_KEVshFh1FXu5GIVpyKxlo");
-xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-xhr.setRequestHeader("Cache-Control", "no-cache");
+xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhr.setRequestHeader("Cache-control", "no-cache");
 
 xhr.send(data);
 ```
@@ -76,8 +76,8 @@ Request request = new Request.Builder()
   .url("https://api.hostaway.com/v1/los/86156")
   .post(body)
   .addHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjBlNGNmYzljNWRiYWZlNjViNDRhNjVhOTJiM2FiNDQ3ZmQ2ODAxZDg3OTM4NjE2OThkMzlhOTkxZDFkZmY2ZDQ2ODI1YWUzNTcyY2JmMWMiLCJpYXQiOjE2MzEwOTYxMjIsIm5iZiI6MTYzMTA5NjEyMiwiZXhwIjoxNjk0MTY4MTIyLCJzdWIiOiIiLCJzY29wZXMiOlsiZ2VuZXJhbCJdLCJzZWNyZXRJZCI6Nn0.CYvYVdgeVZ3IMeexoykRwGozV8k1TVL7AwxYGyGHcU6aYf37bP59PWqsHJPam8l3sSFJWWecJJTFCDIKwrKR6YY_GJcSzrK5_cQJ8x4EsXFrFi2K5mvPz9UlDGSCoFEyDCP5QmCmiULb71_A-Zj-q_KEVshFh1FXu5GIVpyKxlo")
-  .addHeader("Content-Type", "application/x-www-form-urlencoded")
-  .addHeader("Cache-Control", "no-cache")
+  .addHeader("Content-type", "application/x-www-form-urlencoded")
+  .addHeader("Cache-control", "no-cache")
   .build();
 
 Response response = client.newCall(request).execute();
@@ -92,8 +92,8 @@ payload = "CSV=2022-09-01%2C1%2C1%2C100%2C2%2C200%2C3%2C300%2C4%2C400%2C5%2C500%
 
 headers = {
     'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjBlNGNmYzljNWRiYWZlNjViNDRhNjVhOTJiM2FiNDQ3ZmQ2ODAxZDg3OTM4NjE2OThkMzlhOTkxZDFkZmY2ZDQ2ODI1YWUzNTcyY2JmMWMiLCJpYXQiOjE2MzEwOTYxMjIsIm5iZiI6MTYzMTA5NjEyMiwiZXhwIjoxNjk0MTY4MTIyLCJzdWIiOiIiLCJzY29wZXMiOlsiZ2VuZXJhbCJdLCJzZWNyZXRJZCI6Nn0.CYvYVdgeVZ3IMeexoykRwGozV8k1TVL7AwxYGyGHcU6aYf37bP59PWqsHJPam8l3sSFJWWecJJTFCDIKwrKR6YY_GJcSzrK5_cQJ8x4EsXFrFi2K5mvPz9UlDGSCoFEyDCP5QmCmiULb71_A-Zj-q_KEVshFh1FXu5GIVpyKxlo",
-    'Content-Type': "application/x-www-form-urlencoded",
-    'Cache-Control': "no-cache",
+    'Content-type': "application/x-www-form-urlencoded",
+    'Cache-control': "no-cache",
     }
 
 conn.request("POST", "v1,los,csv,1", payload, headers)
