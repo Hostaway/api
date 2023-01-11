@@ -96,10 +96,10 @@ Json Parameter | Required | Type | Description
 `endingDate` | yes | date | Departure date
 `numberOfGuests` | yes | int | Number of guest
 `markup` | no | float | Markup must be more then 1.0
-`reservationCouponId` | no | int | Reservation Coupon ID
+`reservationCouponId` | no | int | Reservation Coupon ID / [How to create reservation coupon object](#create-reservation-coupon-object)
 `version` | yes | int | Please use version 2 (version = 2)
 
-Please note: for getting `reservationCouponId` please follow  [create reservation coupon object](#create-reservation-coupon-object) 
+Please note: for getting `reservationCouponId` please follow  [How to create reservation coupon object](#create-reservation-coupon-object) 
 
 ### Response
 
