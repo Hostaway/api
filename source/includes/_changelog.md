@@ -1,5 +1,9 @@
 ## Changelog
 
+**2023-01-11**
+
+- Added reservation coupon creating endpoint [create reservation coupon object](#create-reservation-coupon-object)
+
 **2022-12-22**
 
 - Added originalChannel field to reservation response
