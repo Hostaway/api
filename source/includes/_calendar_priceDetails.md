@@ -4,6 +4,9 @@
 
 This API was updated on 2022-11-01. If you use API version 1 (GET request) we recommend to migrate to API version 2 because previous version is deprecated. It is quite similar with previous version but allow you to create reservation with flexible price breakdown. 
 
+If you need to use reservation coupon discount you should create reservation coupon object before price calculation and then calculate price by passing reservationCouponId.
+For getting `reservationCouponId` please follow  [create reservation coupon object](#create-reservation-coupon-object)
+
 ### Request
 
 ```shell
@@ -95,6 +98,8 @@ Json Parameter | Required | Type | Description
 `markup` | no | float | Markup must be more then 1.0
 `reservationCouponId` | no | int | Reservation Coupon ID
 `version` | yes | int | Please use version 2 (version = 2)
+
+Please note: for getting `reservationCouponId` please follow  [create reservation coupon object](#create-reservation-coupon-object) 
 
 ### Response
 
