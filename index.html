@@ -617,7 +617,7 @@ Current API version is v1
 <span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">http.client</span>
 
-<span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPConnection</span><span class="p">(</span><span class="s">"api.hostaway.com"</span><span class="p">)</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s">"api.hostaway.com"</span><span class="p">)</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="s">"grant_type=client_credentials&amp;client_id={your Hostaway account ID}&amp;client_secret=3e58c1cee59edd616b9c060035db664c35c970e320577314c07535be87041a5d&amp;scope=general"</span>
 
@@ -6290,13 +6290,13 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">limit</code></td>
 <td>no</td>
 <td>int</td>
-<td>Maximum number of items in the list.</td>
+<td>Maximum number of items in the list (default limit is 100).</td>
 </tr>
 <tr>
 <td><code class="prettyprint">offset</code></td>
 <td>no</td>
 <td>int</td>
-<td>Number of items to skip from beginning of the list.</td>
+<td>Number of items to skip from beginning of the list. To retrieve next items set the parameter to 100, 200, etc. accordingly.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">sortOrder</code></td>
