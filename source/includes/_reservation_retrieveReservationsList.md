@@ -92,8 +92,8 @@ print(data.decode("utf-8"))
 
 Query Parameter | Required | Type | Description
 --------- | -------- | ---- | -----------
-`limit` | no | int | Maximum number of items in the list.
-`offset` | no | int | Number of items to skip from beginning of the list.
+`limit` | no | int | Maximum number of items in the list (default limit is 100).
+`offset` | no | int | Number of items to skip from beginning of the list. To retrieve next items set the parameter to 100, 200, etc. accordingly.
 `sortOrder` | no | string | One of: arrivalDate, arrivalDateDesc, lastConversationMessageSent, lastConversationMessageSentDesc, lastConversationMessageReceived, lastConversationMessageReceivedDesc, latestActivity, latestActivityDesc.
 `channelId` | no | int | 
 `listingId` | no | int |
