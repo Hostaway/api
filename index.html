@@ -7910,7 +7910,7 @@ with all necessary query params and use total price received from it as <code cl
 For getting <code class="prettyprint">reservationCouponId</code> please follow  <a href="#create-reservation-coupon-object">create reservation coupon object</a></p>
 
 <h3 id="request">Request</h3>
-<pre class="highlight shell tab-shell"><code>curl --location --request POST --data-raw <span class="s1">'{"startingDate": "2022-11-01", "endingDate": "2022-11-03", "numberOfGuests": 2, "reservationCouponId": 1, "markup": 1}'</span> 
+<pre class="highlight shell tab-shell"><code>curl --location --request POST --data-raw <span class="s1">'{"startingDate": "2022-11-01", "endingDate": "2022-11-03", "numberOfGuests": 2, "reservationCouponId": 1, "markup": 1, "version": 2}'</span> 
 <span class="s1">'https://api.hostaway.com/v1/listings/90632/calendar/priceDetails'</span> <span class="se">\</span>
 --header <span class="s1">'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6ImFmMjM3NWZiYjJkZmNiM2Y3YmJhZTk2MTFkY2YxYTc1ZGU5MjllZTQ0YWIxYjcwZmE4NzQzYjNlNGE1M2I5ZDBiNzk2NmVhZDk2MDQ5Nzg3IiwiaWF0IjoxNjY3MzEyMTYwLCJuYmYiOjE2NjczMTIxNjAsImV4cCI6MTczMDQ3MDU2MCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.ArIr26BPlgMDbexpkR-J2Xi_NrLdCXi186YTOYlZHlTMzXrfopeY2T9tzKC6oNNRoedEGKCVrSrDiEnt00fErNETaRiYj2wH7dwoHpmOgEqfajhQImUFlC_uHuMgtyoN1slzX9oj80px156RaZEK6Dnxf1qXsFhWsb0YETQFohc'</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
@@ -7926,7 +7926,7 @@ For getting <code class="prettyprint">reservationCouponId</code> please follow  
   <span class="nx">CURLOPT_FOLLOWLOCATION</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s1">'{"startingDate": "2022-11-01", "endingDate": "2022-11-03", "numberOfGuests": 2, "reservationCouponId": 1, "markup": 1}'</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s1">'{"startingDate": "2022-11-01", "endingDate": "2022-11-03", "numberOfGuests": 2, "reservationCouponId": 1, "markup": 1, "version": 2}'</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s2">"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6ImFmMjM3NWZiYjJkZmNiM2Y3YmJhZTk2MTFkY2YxYTc1ZGU5MjllZTQ0YWIxYjcwZmE4NzQzYjNlNGE1M2I5ZDBiNzk2NmVhZDk2MDQ5Nzg3IiwiaWF0IjoxNjY3MzEyMTYwLCJuYmYiOjE2NjczMTIxNjAsImV4cCI6MTczMDQ3MDU2MCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.ArIr26BPlgMDbexpkR-J2Xi_NrLdCXi186YTOYlZHlTMzXrfopeY2T9tzKC6oNNRoedEGKCVrSrDiEnt00fErNETaRiYj2wH7dwoHpmOgEqfajhQImUFlC_uHuMgtyoN1slzX9oj80px156RaZEK6Dnxf1qXsFhWsb0YETQFohc"</span>
   <span class="p">),</span>
