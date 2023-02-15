@@ -10,7 +10,7 @@ For getting `reservationCouponId` please follow  [create reservation coupon obje
 ### Request
 
 ```shell
-curl --location --request POST --data-raw '{"startingDate": "2022-11-01", "endingDate": "2022-11-03", "numberOfGuests": 2, "reservationCouponId": 1, "markup": 1}' 
+curl --location --request POST --data-raw '{"startingDate": "2022-11-01", "endingDate": "2022-11-03", "numberOfGuests": 2, "reservationCouponId": 1, "markup": 1, "version": 2}' 
 'https://api.hostaway.com/v1/listings/90632/calendar/priceDetails' \
 --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6ImFmMjM3NWZiYjJkZmNiM2Y3YmJhZTk2MTFkY2YxYTc1ZGU5MjllZTQ0YWIxYjcwZmE4NzQzYjNlNGE1M2I5ZDBiNzk2NmVhZDk2MDQ5Nzg3IiwiaWF0IjoxNjY3MzEyMTYwLCJuYmYiOjE2NjczMTIxNjAsImV4cCI6MTczMDQ3MDU2MCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.ArIr26BPlgMDbexpkR-J2Xi_NrLdCXi186YTOYlZHlTMzXrfopeY2T9tzKC6oNNRoedEGKCVrSrDiEnt00fErNETaRiYj2wH7dwoHpmOgEqfajhQImUFlC_uHuMgtyoN1slzX9oj80px156RaZEK6Dnxf1qXsFhWsb0YETQFohc'
 ```
@@ -28,7 +28,7 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS => '{"startingDate": "2022-11-01", "endingDate": "2022-11-03", "numberOfGuests": 2, "reservationCouponId": 1, "markup": 1}'
+  CURLOPT_POSTFIELDS => '{"startingDate": "2022-11-01", "endingDate": "2022-11-03", "numberOfGuests": 2, "reservationCouponId": 1, "markup": 1, "version": 2}'
   CURLOPT_HTTPHEADER => array(
     "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6ImFmMjM3NWZiYjJkZmNiM2Y3YmJhZTk2MTFkY2YxYTc1ZGU5MjllZTQ0YWIxYjcwZmE4NzQzYjNlNGE1M2I5ZDBiNzk2NmVhZDk2MDQ5Nzg3IiwiaWF0IjoxNjY3MzEyMTYwLCJuYmYiOjE2NjczMTIxNjAsImV4cCI6MTczMDQ3MDU2MCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.ArIr26BPlgMDbexpkR-J2Xi_NrLdCXi186YTOYlZHlTMzXrfopeY2T9tzKC6oNNRoedEGKCVrSrDiEnt00fErNETaRiYj2wH7dwoHpmOgEqfajhQImUFlC_uHuMgtyoN1slzX9oj80px156RaZEK6Dnxf1qXsFhWsb0YETQFohc"
   ),
