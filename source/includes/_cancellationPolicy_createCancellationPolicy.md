@@ -133,7 +133,7 @@ Response response = client.newCall(request).execute();
 ```python
 import http.client
 
-conn = http.client.HTTPConnection("api.hostaway.com")
+conn = http.client.HTTPSConnection("api.hostaway.com")
 
 payload = "{\n    \"name\": \"Cancellation policies\",\n    \"cancellationPolicyItem\": [\n        {\n            \"refundAmount\": 30,\n            \"refundType\": \"percentage\",\n            \"refundField\": \"totalPrice\",\n            \"timeDelta\": 3600,\n            \"event\": \"reservation\"\n        },\n        {\n            \"refundAmount\": 30,\n            \"refundType\": \"percentage\",\n            \"refundField\": \"totalPrice\",\n            \"timeDelta\": 3600,\n            \"event\": \"reservation\"\n        },\n        {\n            \"refundAmount\": 30,\n            \"refundType\": \"percentage\",\n            \"refundField\": \"totalPrice\",\n            \"timeDelta\": 3600,\n            \"event\": \"reservation\"\n        }\n    ]\n}\n"
 

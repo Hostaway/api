@@ -103,7 +103,7 @@ Response response = client.newCall(request).execute();
 ```python
 import http.client
 
-conn = http.client.HTTPConnection("api.hostaway.com")
+conn = http.client.HTTPSConnection("api.hostaway.com")
 
 payload = "{\n    \"startDate\": \"2017-09-01\",\n    \"endDate\": \"2017-09-05\",\n    \"desiredUnitsToSell\": 1,\n    \"price\": 20,\n    \"minimumStay\": 1,\n    \"maximumStay\": 1125,\n    \"closedOnArrival\": null,\n    \"closedOnDeparture\": null,\n    \"note\": \"test\"\n}"
 

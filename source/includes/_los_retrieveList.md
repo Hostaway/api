@@ -84,7 +84,7 @@ Response response = client.newCall(request).execute();
 ```python
 import http.client
 
-conn = http.client.HTTPConnection("api.hostaway.com")
+conn = http.client.HTTPSConnection("api.hostaway.com")
 
 headers = {
     'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjBlNGNmYzljNWRiYWZlNjViNDRhNjVhOTJiM2FiNDQ3ZmQ2ODAxZDg3OTM4NjE2OThkMzlhOTkxZDFkZmY2ZDQ2ODI1YWUzNTcyY2JmMWMiLCJpYXQiOjE2MzEwOTYxMjIsIm5iZiI6MTYzMTA5NjEyMiwiZXhwIjoxNjk0MTY4MTIyLCJzdWIiOiIiLCJzY29wZXMiOlsiZ2VuZXJhbCJdLCJzZWNyZXRJZCI6Nn0.CYvYVdgeVZ3IMeexoykRwGozV8k1TVL7AwxYGyGHcU6aYf37bP59PWqsHJPam8l3sSFJWWecJJTFCDIKwrKR6YY_GJcSzrK5_cQJ8x4EsXFrFi2K5mvPz9UlDGSCoFEyDCP5QmCmiULb71_A-Zj-q_KEVshFh1FXu5GIVpyKxlo",

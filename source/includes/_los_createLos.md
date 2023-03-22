@@ -93,7 +93,7 @@ Response response = client.newCall(request).execute();
 ```python
 import http.client
 
-conn = http.client.HTTPConnection("api.hostaway.com")
+conn = http.client.HTTPSConnection("api.hostaway.com")
 
 payload = "[\n\t{\n    \t\"checkin\": \"2021-01-01\",\n    \t\"occupancy\": 1,\n    \t\"prices\": \"1,100.10,2,200.25,28,2700.00,29,3100.00,36,7200.00\"\n\t},\n\t{\n    \t\"checkin\": \"2021-01-02\",\n    \t\"occupancy\": 1,\n    \t\"prices\": \"1,100.10,2,200.25,28,2700.00,29,3100.00,36,7200.00\"\n\t}\n]"
 

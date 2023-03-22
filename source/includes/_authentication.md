@@ -217,7 +217,7 @@ Response response = client.newCall(request).execute();
 ```python
 import http.client
 
-conn = http.client.HTTPConnection("api.hostaway.com")
+conn = http.client.HTTPSConnection("api.hostaway.com")
 
 payload = ""
 
