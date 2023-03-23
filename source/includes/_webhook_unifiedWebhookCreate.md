@@ -93,7 +93,7 @@ Response response = client.newCall(request).execute();
 ```python
 import http.client
 
-conn = http.client.HTTPConnection("api.hostaway.com")
+conn = http.client.HTTPSConnection("api.hostaway.com")
 
 payload = "{\n    \"isEnabled\": 1,\n    \"url\": \"https://api.example.com\",\n    \"login\": null,\n    \"password\": null}"
 
