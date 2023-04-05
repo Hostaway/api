@@ -105,7 +105,41 @@
             "customFieldId": 243,
             "value": "Custom field value two"
         }
-    ]
+    ],
+    "financeField": [
+        {
+            "id": 1,
+            "units": 1,
+            "listingFeeSettingId": null,
+            "type": "fee",
+            "name": "checkinFee",
+            "title": "Checkin fee",
+            "alias": null,
+            "value": 1000,
+            "isIncludedInTotalPrice": 1,
+            "isOverriddenByUser": 1,
+            "isMandatory": null,
+            "isQuantitySelectable": 0,
+            "isDeleted": 0,
+            "total": 69
+        },
+        {
+            "id": 2,
+            "units": 1,
+            "listingFeeSettingId": null,
+            "type": "price",
+            "name": "totalPriceFromChannel",
+            "title": "Total price from channel",
+            "alias": null,
+            "value": 1000,
+            "isIncludedInTotalPrice": 1,
+            "isOverriddenByUser": 1,
+            "isMandatory": null,
+            "isQuantitySelectable": 0,
+            "isDeleted": 0,
+            "total": 42
+        }
+    ]    
 }
 ```
 
@@ -210,4 +244,5 @@ Property | Required | Type | Description
 `customFieldValues` | no | array | You should create Custom fields at the dashboard beforehand
 `reservationFees` | no | array | Array of `reservationFee` objects (will be empty array if `includeResources` parameter is set to 0). 
 `reservationUnit` | no | array | Array of `reservationUnit` objects (will be empty array if `includeResources` parameter is set to 0 or reservation is not multi unit). 
+`financeField` | no | array | Array of `financeField` objects 
 
