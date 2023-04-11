@@ -157,14 +157,11 @@ includes:
   - user_retrieveList
   - group
   - group_retrieveList
-  - guestInvoice
-  - guestInvoice_guestInvoiceObject
-  - guestInvoice_retrieveList
-  - guestInvoice_retrieveGuestInvoice
-  - guestInvoice_guestInvoiceChargeObject
-  - guestInvoice_guestInvoiceChargeTransactionObject
-  - guestInvoice_retrieveGuestInvoiceChargeList
-  - guestInvoice_retrieveGuestInvoiceCharge
+  - guestPayment
+  - guestPayment_chargeObject
+  - guestPayment_chargeTransactionObject
+  - guestPayment_retrieveChargeList
+  - guestPayment_retrieveCharge
   - coupon
   - coupon_couponObject
   - coupon_retrieveCouponsList

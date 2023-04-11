@@ -1,12 +1,12 @@
-## Get guest invoice list
+## Get charge object
 
-Get invoices list
+Get charge object
 
 ### Request
 
 ```shell
 curl --request GET \
-  --url https://api.hostaway.com/v1/guestInvoices \
+  --url https://api.hostaway.com/v1/guestPayments/charges/{guestChargeId} \
   --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZjg1M2FkNzU4YjI1M2Y0ZmFhZjk2MjIxODcyMDIzMDYyNjg2MjVhMjU2MTRkOWM1NTllYzM4ODJmZDVmZjYxYzNhNzY1NjI3NzUyZjE4ZTkiLCJpYXQiOjE2MTk1OTQ3MDgsIm5iZiI6MTYxOTU5NDcwOCwiZXhwIjoxNjgyNjY2NzA4LCJzdWIiOiIiLCJzY29wZXMiOlsiZ2VuZXJhbCJdLCJzZWNyZXRJZCI6MX0.pOQxtj9ur2GTBtLHnDyFdNkXGLQKxPR6kA2z6-eVv_GsCmb1-kWh1FPD3SY-ADVYwbsna_QrT0mRU4_wZNwC7WO3s9LUFUDwkGaQOMDvJO4nWZodvNZZuhAY96QzOZ7JBwpW_NlYk5mQ_WVPvbYr9RRpw-nUB8JDXOwbrph4nuw' \
   --header 'Cache-control: no-cache'
 ```
@@ -17,7 +17,7 @@ curl --request GET \
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.hostaway.com/v1/guestInvoices",
+  CURLOPT_URL => "https://api.hostaway.com/v1/guestPayments/charges/{guestChargeId}",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -54,7 +54,7 @@ xhr.addEventListener("readystatechange", function () {
   }
 });
 
-xhr.open("GET", "https://api.hostaway.com/v1/guestInvoices");
+xhr.open("GET", "https://api.hostaway.com/v1/guestPayments/charges/{guestChargeId}");
 xhr.setRequestHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZjg1M2FkNzU4YjI1M2Y0ZmFhZjk2MjIxODcyMDIzMDYyNjg2MjVhMjU2MTRkOWM1NTllYzM4ODJmZDVmZjYxYzNhNzY1NjI3NzUyZjE4ZTkiLCJpYXQiOjE2MTk1OTQ3MDgsIm5iZiI6MTYxOTU5NDcwOCwiZXhwIjoxNjgyNjY2NzA4LCJzdWIiOiIiLCJzY29wZXMiOlsiZ2VuZXJhbCJdLCJzZWNyZXRJZCI6MX0.pOQxtj9ur2GTBtLHnDyFdNkXGLQKxPR6kA2z6-eVv_GsCmb1-kWh1FPD3SY-ADVYwbsna_QrT0mRU4_wZNwC7WO3s9LUFUDwkGaQOMDvJO4nWZodvNZZuhAY96QzOZ7JBwpW_NlYk5mQ_WVPvbYr9RRpw-nUB8JDXOwbrph4nuw");
 xhr.setRequestHeader("Cache-control", "no-cache");
 
@@ -65,7 +65,7 @@ xhr.send(data);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://api.hostaway.com/v1/guestInvoices")
+  .url("https://api.hostaway.com/v1/guestPayments/charges/{guestChargeId}")
   .get()
   .addHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZjg1M2FkNzU4YjI1M2Y0ZmFhZjk2MjIxODcyMDIzMDYyNjg2MjVhMjU2MTRkOWM1NTllYzM4ODJmZDVmZjYxYzNhNzY1NjI3NzUyZjE4ZTkiLCJpYXQiOjE2MTk1OTQ3MDgsIm5iZiI6MTYxOTU5NDcwOCwiZXhwIjoxNjgyNjY2NzA4LCJzdWIiOiIiLCJzY29wZXMiOlsiZ2VuZXJhbCJdLCJzZWNyZXRJZCI6MX0.pOQxtj9ur2GTBtLHnDyFdNkXGLQKxPR6kA2z6-eVv_GsCmb1-kWh1FPD3SY-ADVYwbsna_QrT0mRU4_wZNwC7WO3s9LUFUDwkGaQOMDvJO4nWZodvNZZuhAY96QzOZ7JBwpW_NlYk5mQ_WVPvbYr9RRpw-nUB8JDXOwbrph4nuw")
   .addHeader("Cache-control", "no-cache")
@@ -77,7 +77,7 @@ Response response = client.newCall(request).execute();
 ```python
 import requests
 
-url = "https://api.hostaway.com/v1/guestInvoices"
+url = "https://api.hostaway.com/v1/guestPayments/charges/{guestChargeId}"
 
 headers = {
     'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZjg1M2FkNzU4YjI1M2Y0ZmFhZjk2MjIxODcyMDIzMDYyNjg2MjVhMjU2MTRkOWM1NTllYzM4ODJmZDVmZjYxYzNhNzY1NjI3NzUyZjE4ZTkiLCJpYXQiOjE2MTk1OTQ3MDgsIm5iZiI6MTYxOTU5NDcwOCwiZXhwIjoxNjgyNjY2NzA4LCJzdWIiOiIiLCJzY29wZXMiOlsiZ2VuZXJhbCJdLCJzZWNyZXRJZCI6MX0.pOQxtj9ur2GTBtLHnDyFdNkXGLQKxPR6kA2z6-eVv_GsCmb1-kWh1FPD3SY-ADVYwbsna_QrT0mRU4_wZNwC7WO3s9LUFUDwkGaQOMDvJO4nWZodvNZZuhAY96QzOZ7JBwpW_NlYk5mQ_WVPvbYr9RRpw-nUB8JDXOwbrph4nuw",
@@ -89,59 +89,42 @@ response = requests.request("GET", url, headers=headers)
 print(response.text)
 ```
 
-`GET https://api.hostaway.com/v1/guestInvoices`
-
-Query Parameter | Required | Type | Description
---------- | -------- | ---- | -----------
-`limit` | no | int | Maximum number of items in the list.
-`offset` | no | int | Number of items to skip from beginning of the list.
-`type` | no | string | 
-`channelId` | no | int |
-`paymentStatus` | no | string |
-`listingMapId` | no | int |
-`reservationId` | no | int |
-`startDueDate` | no | date |
-`endDueDate` | no | date |
+`GET https://api.hostaway.com/v1/guestPayments/charges/{guestChargeId}`
 
 ### Response
 
-An array of guest invoice objects.
+Guest charge object.
 
 ```json
 {
     "status": "success",
-    "result": [
-        {
-            "id": 1,
-            "accountId": 1,
-            "listingMapId": 1,
-            "channelId": 2000,
-            "reservationId": 2,
-            "guestAutoInvoiceId": null,
-            "assigneeUserId": null,
-            "supervisorUserId": null,
-            "createdByUserId": null,
-            "type": "reservationCharge",
-            "dueDate": "2021-08-22 12:54:00",
-            "title": "invoice title",
-            "description": "invoice description",
-            "paymentTerms": "payment terms",
-            "paymentInstructions": "payment instructions",
-            "invoiceGuestNote": "invoice guest note",
-            "totalAmount": 20,
-            "excludeTotalPrice": 0,
-            "currency": "USD",
-            "color": "#444444",
-            "paymentStatus": "awaiting",
-            "paidAt": null,
-            "failedAt": null,
-            "insertedOn": "2021-07-09 11:00:10",
-            "updatedOn": "2021-07-09 11:00:10",
-            "reservation": null,
-            "guestInvoiceLineItem": []
-        }
-    ],
-    "count": 1,
-    "offset": null
+    "result": {
+          "id": 1,
+          "listingMapId": 40100,
+          "reservationId": 1435239,
+          "autopaymentId": 34231,
+          "type": "charge",
+          "title": "Charge",
+          "description": "Charge description",
+          "currency": "USD",
+          "paymentMethod": "credit_card_online",
+          "amount": 10,
+          "capturedAmount": null,
+          "status": "awaiting",
+          "paymentProvider": null,
+          "paymentProviderMessage": null,
+          "paymentProviderInvoiceId": null,
+          "paymentProviderChargeId": null,
+          "scheduledDate": null,
+          "chargeDate": null,
+          "holdReleaseDate": null,
+          "isManual": 0,
+          "autoChargeId": null,
+          "triggerEvent": null,
+          "triggerTimeDelta": 0,
+          "flatFee": null,
+          "percentageFee": null,
+          "transactions": []
+    }
 }
 ```

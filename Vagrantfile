@@ -11,8 +11,8 @@ Vagrant.configure(2) do |config|
       sudo apt-add-repository -y ppa:brightbox/ruby-ng
       sudo apt-get update
       sudo apt-get -y dist-upgrade
-      sudo apt-get -y install ruby2.3 ruby2.3-dev pkg-config build-essential nodejs git libxml2-dev libxslt-dev
-      sudo gem2.3 install --no-document bundler
+      sudo apt-get -y install ruby2.6 ruby2.6-dev pkg-config build-essential nodejs git libxml2-dev libxslt-dev mc
+      sudo gem2.6 install --no-document bundler
     SHELL
 
   # add the local user git config to the vm

@@ -1,5 +1,9 @@
 ## Changelog
 
+**2023-04-11**
+
+- Added guest payments article [guest payments](#guest-payment)
+
 **2023-01-11**
 
 - Added reservation coupon creating endpoint [create reservation coupon object](#create-reservation-coupon-object)

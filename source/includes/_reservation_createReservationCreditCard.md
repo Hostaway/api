@@ -232,8 +232,8 @@ print(data.decode("utf-8"))
 `POST https://api.hostaway.com/v1/reservations?validatePaymentMethod=1`
 
 It is possible to validate a credit card upon creating a reservation, so you should add query parameter validatePaymentMethod=1 and credit card information in the json body (`ccNumber`, `ccName`, `ccExpirationYear`, `ccExpirationMonth`, `cvc`).
-Before that you need to create guest auto invoice with auto charge in it. Auto charge must have event `reservation` and time delta must be zero (at event).
-During creation, a reservation guest invoice and charge will be created and charged immediately.
+Before that you need to create guest auto payment with auto charge in it. Auto charge must have event `reservation` and time delta must be zero (at event).
+During creation, a reservation guest charge will be created and charged immediately.
 if the charge fails the reservation will be deleted and you get a response with error. 
 
 ### Query parameters
@@ -250,5 +250,5 @@ The created reservation object or error response.
 
 Issue | Description
 ------------- | -----------
-Reservation was created without validation | Please check guest invoice configuration. Pay attention on event and time delta, `event` must be `reservation` and time delta must be zero (at event). If it is impossible to find such guest auto invoice the reservation will be created without validation.
+Reservation was created without validation | Please check auto payment configuration. Pay attention on event and time delta, `event` must be `reservation` and time delta must be zero (at event). If it is impossible to find such auto payment the reservation will be created without validation.
 Error `no credit card` in the response | Please check json body of the request. It must have `ccNumber`, `ccName`, `ccExpirationYear`, `ccExpirationMonth`, `cvc`
