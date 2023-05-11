@@ -1,5 +1,9 @@
 ## Changelog
 
+**2023-05-11**
+
+- Added owner statement expense articles [owner statement expense](#owner-statement-expense)
+
 **2023-04-11**
 
 - Added guest payments article [guest payments](#guest-payment)

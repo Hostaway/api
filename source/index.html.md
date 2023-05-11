@@ -149,6 +149,13 @@ includes:
   - ownerStatement
   - ownerStatement_retrieveList
   - ownerStatement_retrieve
+  - ownerStatementExpense
+  - ownerStatementExpense_object
+  - ownerStatementExpense_retrieveList
+  - ownerStatementExpense_retrieve
+  - ownerStatementExpense_create
+  - ownerStatementExpense_delete
+  - ownerStatementExpense_update
   - review
   - review_reviewObject
   - review_retrieveList
