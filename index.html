@@ -293,7 +293,7 @@ Current API version is v1
 <p><strong>2023-05-11</strong></p>
 
 <ul>
-<li>Added owner statement expense articles <a href="#owner-statement-expense">owner statement expense</a></li>
+<li>Added expense articles <a href="#expense">expense</a></li>
 </ul>
 
 <p><strong>2023-04-11</strong></p>
@@ -18458,11 +18458,11 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-          <h1 id="owner-statement-expense">Owner Statement Expense</h1>
+          <h1 id="expense">Expense</h1>
 
-<p>Owner statement expense represents financial expense values for property owners</p>
+<p>Expense represents financial expense values</p>
 
-          <h2 id="owner-statement-expense-object">Owner Statement Expense Object</h2>
+          <h2 id="expense-object">Expense Object</h2>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
   </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10638</span><span class="p">,</span><span class="w">
@@ -18620,9 +18620,9 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 </tr>
 </tbody></table>
 
-          <h2 id="get-owner-statements-expenses-list">Get Owner Statements expenses list</h2>
+          <h2 id="get-expenses-list">Get expenses list</h2>
 
-<p>Get Owner Statement Expenses list</p>
+<p>Get expenses list</p>
 
 <h3 id="query-params">Query params:</h3>
 
@@ -18652,7 +18652,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url <span class="s1">'https://api.hostaway.com/v1/ownerStatementExpenses'</span> <span class="se">\</span>
+  --url <span class="s1">'https://api.hostaway.com/v1/expenses'</span> <span class="se">\</span>
   --header <span class="s1">'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'</span> <span class="se">\</span>
   --header <span class="s1">'Cache-control: no-cache'</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
@@ -18660,7 +18660,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/ownerStatementExpenses"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/expenses"</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
   <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
@@ -18694,7 +18694,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
     <span class="p">}</span>
 <span class="p">});</span>
 
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/ownerStatementExpenses"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/expenses"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Authorization"</span><span class="p">,</span> <span class="s2">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Cache-control"</span><span class="p">,</span> <span class="s2">"no-cache"</span><span class="p">);</span>
 
@@ -18702,7 +18702,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 </code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
 
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/ownerStatementExpenses"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/expenses"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">get</span><span class="o">()</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Cache-control"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">)</span>
@@ -18711,7 +18711,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.hostaway.com/v1/ownerStatementExpenses"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.hostaway.com/v1/expenses"</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">,</span>
@@ -18722,11 +18722,11 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre>
-<p><code class="prettyprint">GET https://api.hostaway.com/v1/ownerStatementExpenses</code></p>
+<p><code class="prettyprint">GET https://api.hostaway.com/v1/expenses</code></p>
 
 <h3 id="response">Response</h3>
 
-<p>List of owner statement expense objects</p>
+<p>List of expense objects</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -18793,13 +18793,13 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-          <h2 id="get-owner-statement-expense-by-id">Get Owner Statement expense by ID</h2>
+          <h2 id="get-expense-by-id">Get expense by ID</h2>
 
-<p>Get Owner Statement Expense by id</p>
+<p>Get expense by id</p>
 
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url <span class="s1">'https://api.hostaway.com/v1/ownerStatementExpenses/1'</span> <span class="se">\</span>
+  --url <span class="s1">'https://api.hostaway.com/v1/expenses/1'</span> <span class="se">\</span>
   --header <span class="s1">'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'</span> <span class="se">\</span>
   --header <span class="s1">'Cache-control: no-cache'</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
@@ -18807,7 +18807,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/ownerStatementExpenses/1"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/expenses/1"</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
   <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
@@ -18841,7 +18841,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
     <span class="p">}</span>
 <span class="p">});</span>
 
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/ownerStatementExpenses/1"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/expenses/1"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Authorization"</span><span class="p">,</span> <span class="s2">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Cache-control"</span><span class="p">,</span> <span class="s2">"no-cache"</span><span class="p">);</span>
 
@@ -18849,7 +18849,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 </code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
 
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/ownerStatementExpenses/1"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/expenses/1"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">get</span><span class="o">()</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Cache-control"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">)</span>
@@ -18858,7 +18858,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.hostaway.com/v1/ownerStatementExpenses/1"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.hostaway.com/v1/expenses/1"</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">,</span>
@@ -18869,11 +18869,11 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre>
-<p><code class="prettyprint">GET https://api.hostaway.com/v1/ownerStatementExpenses/1</code></p>
+<p><code class="prettyprint">GET https://api.hostaway.com/v1/expenses/1</code></p>
 
 <h3 id="response">Response</h3>
 
-<p>Owner statement expense object</p>
+<p>Expense object</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -18910,12 +18910,12 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-          <h2 id="create-owner-statements-expense">Create Owner Statements expense</h2>
+          <h2 id="create-expense">Create expense</h2>
 
-<p>Create Owner Statement Expense</p>
+<p>Create expense</p>
 
 <h3 id="request">Request</h3>
-<pre class="highlight shell tab-shell"><code>curl --location --request POST <span class="s1">'https://api.hostaway.com/v1/ownerStatementExpenses'</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl --location --request POST <span class="s1">'https://api.hostaway.com/v1/expenses'</span> <span class="se">\</span>
 --header <span class="s1">'jwt;'</span> <span class="se">\</span>
 --header <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
 --data-raw <span class="s1">'{
@@ -18941,7 +18941,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s1">'https://api.hostaway.com/v1/ownerStatementExpenses'</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s1">'https://api.hostaway.com/v1/expenses'</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
   <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
@@ -19006,7 +19006,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
     <span class="p">}</span>
 <span class="p">});</span>
 
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"POST"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/ownerStatementExpenses"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"POST"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/expenses"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"jwt"</span><span class="p">,</span> <span class="s2">""</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-type"</span><span class="p">,</span> <span class="s2">"application/json"</span><span class="p">);</span>
 
@@ -19016,7 +19016,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
 <span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"ownerStatementId\": null,\n    \"listingMapId\": 123,\n    \"reservationId\": null,\n    \"expenseDate\": \"2021-10-21\",\n    \"concept\": \"test\",\n    \"amount\": 123,\n    \"isDeleted\": 0,\n    \"ownerUserId\": null,\n    \"ownerStatementIds\": [\n        5,\n        6\n    ],\n    \"categories\": [\n        1\n    ],\n    \"attachments\": []\n}"</span><span class="o">);</span>
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/ownerStatementExpenses"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/expenses"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"jwt"</span><span class="o">,</span> <span class="s">""</span><span class="o">)</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
@@ -19048,16 +19048,16 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
   <span class="s">'jwt'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span>
   <span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span>
 <span class="p">}</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="s">"/v1/ownerStatementExpenses"</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="s">"/v1/expenses"</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span>
 </code></pre>
-<p><code class="prettyprint">POST https://api.hostaway.com/v1/ownerStatementExpenses</code></p>
+<p><code class="prettyprint">POST https://api.hostaway.com/v1/expenses</code></p>
 
 <h3 id="response">Response</h3>
 
-<p>Created owner statement expense object</p>
+<p>Created expense object</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -19094,13 +19094,13 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-          <h2 id="delete-owner-statement-expense-by-id">Delete Owner Statement Expense by ID</h2>
+          <h2 id="delete-expense-by-id">Delete expense by ID</h2>
 
-<p>Delete Owner Statement Expense by id</p>
+<p>Delete expense by id</p>
 
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="se">\</span>
-  --url <span class="s1">'https://api.hostaway.com/v1/ownerStatementExpenses/1'</span> <span class="se">\</span>
+  --url <span class="s1">'https://api.hostaway.com/v1/expenses/1'</span> <span class="se">\</span>
   --header <span class="s1">'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'</span> <span class="se">\</span>
   --header <span class="s1">'Cache-control: no-cache'</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
@@ -19108,7 +19108,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/ownerStatementExpenses/1"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/expenses/1"</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
   <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
@@ -19142,7 +19142,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
     <span class="p">}</span>
 <span class="p">});</span>
 
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"DELETE"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/ownerStatementExpenses/1"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"DELETE"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/expenses/1"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Authorization"</span><span class="p">,</span> <span class="s2">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Cache-control"</span><span class="p">,</span> <span class="s2">"no-cache"</span><span class="p">);</span>
 
@@ -19152,14 +19152,14 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"text/plain"</span><span class="o">);</span>
 <span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/ownerStatementExpenses/1"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/expenses/1"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"DELETE"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"jwt"</span><span class="o">,</span> <span class="s">""</span><span class="o">)</span>
   <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 <span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.hostaway.com/v1/ownerStatementExpenses/1"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.hostaway.com/v1/expenses/1"</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">,</span>
@@ -19170,7 +19170,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre>
-<p><code class="prettyprint">DELETE https://api.hostaway.com/v1/ownerStatementExpenses/1</code></p>
+<p><code class="prettyprint">DELETE https://api.hostaway.com/v1/expenses/1</code></p>
 
 <h3 id="response">Response</h3>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -19178,12 +19178,12 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
   </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-          <h2 id="update-owner-statement-expense-by-id">Update Owner Statement expense by ID</h2>
+          <h2 id="update-expense-by-id">Update expense by ID</h2>
 
-<p>Update Owner Statement expense by id</p>
+<p>Update expense by id</p>
 
 <h3 id="request">Request</h3>
-<pre class="highlight shell tab-shell"><code>curl --location --request PUT <span class="s1">'https://api.hostaway.com/v1/ownerStatementExpenses/1'</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl --location --request PUT <span class="s1">'https://api.hostaway.com/v1/expenses/1'</span> <span class="se">\</span>
 --header <span class="s1">'jwt;'</span> <span class="se">\</span>
 --header <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
 --data-raw <span class="s1">'{
@@ -19209,7 +19209,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s1">'https://api.hostaway.com/v1/ownerStatementExpenses/1'</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s1">'https://api.hostaway.com/v1/expenses/1'</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
   <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
@@ -19274,7 +19274,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
     <span class="p">}</span>
 <span class="p">});</span>
 
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"PUT"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/ownerStatementExpenses/1"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"PUT"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/expenses/1"</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"jwt"</span><span class="p">,</span> <span class="s2">""</span><span class="p">);</span>
 <span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-type"</span><span class="p">,</span> <span class="s2">"application/json"</span><span class="p">);</span>
 
@@ -19284,7 +19284,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
 <span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"ownerStatementId\": null,\n    \"listingMapId\": 123,\n    \"reservationId\": null,\n    \"expenseDate\": \"2021-10-21\",\n    \"concept\": \"test\",\n    \"amount\": 123,\n    \"isDeleted\": 0,\n    \"ownerUserId\": null,\n    \"ownerStatementIds\": [\n        5,\n        6\n    ],\n    \"categories\": [\n        1\n    ],\n    \"attachments\": []\n}"</span><span class="o">);</span>
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/ownerStatementExpenses/1"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/expenses/1"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"PUT"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"jwt"</span><span class="o">,</span> <span class="s">""</span><span class="o">)</span>
   <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
@@ -19316,16 +19316,16 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
   <span class="s">'jwt'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span>
   <span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span>
 <span class="p">}</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"PUT"</span><span class="p">,</span> <span class="s">"/v1/ownerStatementExpenses/1"</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"PUT"</span><span class="p">,</span> <span class="s">"/v1/expenses/1"</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span>
 </code></pre>
-<p><code class="prettyprint">PUT https://api.hostaway.com/v1/ownerStatementExpenses/1</code></p>
+<p><code class="prettyprint">PUT https://api.hostaway.com/v1/expenses/1</code></p>
 
 <h3 id="response">Response</h3>
 
-<p>Updated owner statement expense object</p>
+<p>Updated expense object</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
