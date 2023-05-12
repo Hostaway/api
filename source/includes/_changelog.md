@@ -2,7 +2,7 @@
 
 **2023-05-11**
 
-- Added owner statement expense articles [owner statement expense](#owner-statement-expense)
+- Added expense articles [expense](#expense)
 
 **2023-04-11**
 

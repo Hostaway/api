@@ -1,4 +1,4 @@
-## Owner Statement Expense Object
+## Expense Object
 
 ```json
 {

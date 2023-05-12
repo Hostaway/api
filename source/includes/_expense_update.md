@@ -1,11 +1,11 @@
-## Create Owner Statements expense
+## Update expense by ID
 
-Create Owner Statement Expense
+Update expense by id
 
 ### Request
 
 ```shell
-curl --location --request POST 'https://api.hostaway.com/v1/ownerStatementExpenses' \
+curl --location --request PUT 'https://api.hostaway.com/v1/expenses/1' \
 --header 'jwt;' \
 --header 'Content-type: application/json' \
 --data-raw '{
@@ -34,14 +34,14 @@ curl --location --request POST 'https://api.hostaway.com/v1/ownerStatementExpens
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://api.hostaway.com/v1/ownerStatementExpenses',
+  CURLOPT_URL => 'https://api.hostaway.com/v1/expenses/1',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 0,
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => 'POST',
+  CURLOPT_CUSTOMREQUEST => 'PUT',
   CURLOPT_POSTFIELDS =>'{
         "ownerStatementId": null,
         "listingMapId": 123,
@@ -102,7 +102,7 @@ xhr.addEventListener("readystatechange", function() {
     }
 });
 
-xhr.open("POST", "https://api.hostaway.com/v1/ownerStatementExpenses");
+xhr.open("PUT", "https://api.hostaway.com/v1/expenses/1");
 xhr.setRequestHeader("jwt", "");
 xhr.setRequestHeader("Content-type", "application/json");
 
@@ -115,8 +115,8 @@ OkHttpClient client = new OkHttpClient().newBuilder()
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, "{\n    \"ownerStatementId\": null,\n    \"listingMapId\": 123,\n    \"reservationId\": null,\n    \"expenseDate\": \"2021-10-21\",\n    \"concept\": \"test\",\n    \"amount\": 123,\n    \"isDeleted\": 0,\n    \"ownerUserId\": null,\n    \"ownerStatementIds\": [\n        5,\n        6\n    ],\n    \"categories\": [\n        1\n    ],\n    \"attachments\": []\n}");
 Request request = new Request.Builder()
-  .url("https://api.hostaway.com/v1/ownerStatementExpenses")
-  .method("POST", body)
+  .url("https://api.hostaway.com/v1/expenses/1")
+  .method("PUT", body)
   .addHeader("jwt", "")
   .addHeader("Content-type", "application/json")
   .build();
@@ -150,17 +150,17 @@ headers = {
   'jwt': '',
   'Content-type': 'application/json'
 }
-conn.request("POST", "/v1/ownerStatementExpenses", payload, headers)
+conn.request("PUT", "/v1/expenses/1", payload, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
 ```
 
-`POST https://api.hostaway.com/v1/ownerStatementExpenses`
+`PUT https://api.hostaway.com/v1/expenses/1`
 
 ### Response
 
-Created owner statement expense object
+Updated expense object
 
 ```json
 {

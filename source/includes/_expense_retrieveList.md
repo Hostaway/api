@@ -1,6 +1,6 @@
-## Get Owner Statements expenses list
+## Get expenses list
 
-Get Owner Statement Expenses list
+Get expenses list
 
 ### Query params:
 name | default | options
@@ -14,7 +14,7 @@ name | default | options
 
 ```shell
 curl --request GET \
-  --url 'https://api.hostaway.com/v1/ownerStatementExpenses' \
+  --url 'https://api.hostaway.com/v1/expenses' \
   --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c' \
   --header 'Cache-control: no-cache'
 ```
@@ -25,7 +25,7 @@ curl --request GET \
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.hostaway.com/v1/ownerStatementExpenses",
+  CURLOPT_URL => "https://api.hostaway.com/v1/expenses",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -62,7 +62,7 @@ xhr.addEventListener("readystatechange", function () {
     }
 });
 
-xhr.open("GET", "https://api.hostaway.com/v1/ownerStatementExpenses");
+xhr.open("GET", "https://api.hostaway.com/v1/expenses");
 xhr.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c");
 xhr.setRequestHeader("Cache-control", "no-cache");
 
@@ -73,7 +73,7 @@ xhr.send(data);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://api.hostaway.com/v1/ownerStatementExpenses")
+  .url("https://api.hostaway.com/v1/expenses")
   .get()
   .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c")
   .addHeader("Cache-control", "no-cache")
@@ -85,7 +85,7 @@ Response response = client.newCall(request).execute();
 ```python
 import requests
 
-url = "https://api.hostaway.com/v1/ownerStatementExpenses"
+url = "https://api.hostaway.com/v1/expenses"
 
 headers = {
     'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
@@ -97,11 +97,11 @@ response = requests.request("GET", url, headers=headers)
 print(response.text)
 ```
 
-`GET https://api.hostaway.com/v1/ownerStatementExpenses`
+`GET https://api.hostaway.com/v1/expenses`
 
 ### Response
 
-List of owner statement expense objects
+List of expense objects
 
 ```json
 {
