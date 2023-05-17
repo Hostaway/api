@@ -112,7 +112,7 @@ Query Parameter | Required | Type | Description
 `latestActivityStart` | no | date |
 `latestActivityEnd` | no | date |
 `reservationAgreement` | no | string |
-`guestEmail` | no | string |
+`guestEmail` | no | string | Filter reservations by guest email address
 
 ### Response
 
