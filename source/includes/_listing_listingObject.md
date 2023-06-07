@@ -98,6 +98,9 @@
 	"partnersListingMarkup": null,
     "isRentalAgreementActive": true,
 	"listingAgreementText": "Rental agreement text for listing",
+    "bookingcomPropertyRegisteredInVcs": false,
+    "bookingcomPropertyHasVat": false,
+    "bookingcomPropertyDeclaresRevenue": false,
     "listingAmenities": [
         {
             "id": 3449,

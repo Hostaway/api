@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  hostaways-api:
+    container_name: hostaways-api
+    restart: always
+    build:
+      context: .
+      args:
+        UID: 1000 # -- id -u $USER -- from docker's HOST machine(your user id)
+        GID: 1000 # -- id -g $USER -- from docker's HOST machine(your group id)
+        CONTAINER_USER_NAME: vagrant
+    volumes:
+      - ./:/var/www
+    ports:
+      - "4567:4567"
