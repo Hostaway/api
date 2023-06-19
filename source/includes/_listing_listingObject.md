@@ -95,9 +95,12 @@
     "propertyLicenseType": null,
     "propertyLicenseIssueDate": null,
     "propertyLicenseExpirationDate": null,
-	"partnersListingMarkup": null,
+    "partnersListingMarkup": null,
     "isRentalAgreementActive": true,
-	"listingAgreementText": "Rental agreement text for listing",
+    "listingAgreementText": "Rental agreement text for listing",
+    "bookingcomPropertyRegisteredInVcs": false,
+    "bookingcomPropertyHasVat": false,
+    "bookingcomPropertyDeclaresRevenue": false,
     "listingAmenities": [
         {
             "id": 3449,
@@ -252,3 +255,6 @@ Property | Required | Type | Description
 `listingBedTypes` | no | array | Array of listingBedType objects.
 `listingImages` | no | array | Array of listingImage objects.
 `customFieldValues` | no | array | You should create Custom fields at the dashboard beforehand
+`bookingcomPropertyRegisteredInVcs` | no | bool | Answer on the question: Am I registered as a professional at the trade commercial register (Registre du Commerce et des Sociétés)?
+`bookingcomPropertyHasVat` | no | bool | Answer on the question: Do I have a VAT registered for this activity?
+`bookingcomPropertyDeclaresRevenue` | no | bool | Answer on the question: Should I declare revenues as professional for direct tax purposes (see article 155 IV du CGI)?
