@@ -201,6 +201,13 @@ includes:
   - seasonalRule_object
   - seasonalRule_retrieveList
   - seasonalRule_retrieveIntervals
+  - task
+  - task_object
+  - task_retrieveList
+  - task_retrieve
+  - task_create
+  - task_update
+  - task_delete
   
   
 search: true
