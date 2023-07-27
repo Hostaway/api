@@ -158,7 +158,6 @@ Property | Required | Type | Description
 `externalListingName` | yes | string | The same as `name`. 
 `internalListingName` | no | string |
 `description` | no | string | 
-`thumbnailUrl` | no | string | 
 `houseRules` | no | string | 
 `keyPickup` | no | string | 
 `specialInstruction` | no | string | 
