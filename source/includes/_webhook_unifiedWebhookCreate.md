@@ -13,6 +13,7 @@ curl -X POST \
     "url": "https://api.example.com",
     "login": null,
     "password": null,
+    "alertingEmailAddress": null
 }'
 ```
 
@@ -55,6 +56,7 @@ var data = JSON.stringify({
     "url": "https://api.example.com",
     "login": null,
     "password": null,
+    "alertingEmailAddress": null
 });
 
 var xhr = new XMLHttpRequest();

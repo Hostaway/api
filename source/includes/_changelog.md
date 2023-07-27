@@ -1,5 +1,9 @@
 ## Changelog
 
+**2023-05-11**
+
+- Added expense articles [expense](#expense)
+
 **2023-04-11**
 
 - Added guest payments article [guest payments](#guest-payment)

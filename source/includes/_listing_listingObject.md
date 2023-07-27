@@ -8,7 +8,6 @@
     "externalListingName": "Beautiful and cozy apartment close to city center",
     "internalListingName": "Property #3",
     "description": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",
-    "thumbnailUrl": "https://a1.muscache.com/im/pictures/78885433/a151f1a8_original.jpg?aki_policy=small",
     "houseRules": "Additional rules",
     "keyPickup": "Key pickup",
     "specialInstruction": "Any special instruction",
@@ -95,9 +94,12 @@
     "propertyLicenseType": null,
     "propertyLicenseIssueDate": null,
     "propertyLicenseExpirationDate": null,
-	"partnersListingMarkup": null,
+    "partnersListingMarkup": null,
     "isRentalAgreementActive": true,
-	"listingAgreementText": "Rental agreement text for listing",
+    "listingAgreementText": "Rental agreement text for listing",
+    "bookingcomPropertyRegisteredInVcs": false,
+    "bookingcomPropertyHasVat": false,
+    "bookingcomPropertyDeclaresRevenue": false,
     "listingAmenities": [
         {
             "id": 3449,
@@ -251,3 +253,6 @@ Property | Required | Type | Description
 `listingBedTypes` | no | array | Array of listingBedType objects.
 `listingImages` | no | array | Array of listingImage objects.
 `customFieldValues` | no | array | You should create Custom fields at the dashboard beforehand
+`bookingcomPropertyRegisteredInVcs` | no | bool | Answer on the question: Am I registered as a professional at the trade commercial register (Registre du Commerce et des Sociétés)?
+`bookingcomPropertyHasVat` | no | bool | Answer on the question: Do I have a VAT registered for this activity?
+`bookingcomPropertyDeclaresRevenue` | no | bool | Answer on the question: Should I declare revenues as professional for direct tax purposes (see article 155 IV du CGI)?

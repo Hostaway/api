@@ -149,6 +149,13 @@ includes:
   - ownerStatement
   - ownerStatement_retrieveList
   - ownerStatement_retrieve
+  - expense
+  - expense_object
+  - expense_retrieveList
+  - expense_retrieve
+  - expense_create
+  - expense_delete
+  - expense_update
   - review
   - review_reviewObject
   - review_retrieveList
@@ -194,6 +201,13 @@ includes:
   - seasonalRule_object
   - seasonalRule_retrieveList
   - seasonalRule_retrieveIntervals
+  - task
+  - task_object
+  - task_retrieveList
+  - task_retrieve
+  - task_create
+  - task_update
+  - task_delete
   
   
 search: true

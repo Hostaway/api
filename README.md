@@ -29,6 +29,16 @@ Features
 
 Getting started with Slate is super easy! Simply fork this repository and follow the instructions below. Or, if you'd like to check out what Slate is capable of, take a look at the [sample docs](http://lord.github.io/slate).
 
+Hostaway docs
+------------------------------
+### How to launch the project locally
+
+Just run in the console: `make up`
+
+### How to deploy your commit to the server
+
+Just run in the console: `make deploy`
+
 Getting Started with Slate
 ------------------------------
 
