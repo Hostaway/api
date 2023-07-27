@@ -290,12 +290,6 @@ Current API version is v1
 
           <h2 id="changelog">Changelog</h2>
 
-<p><strong>2023-05-11</strong></p>
-
-<ul>
-<li>Added expense articles <a href="#expense">expense</a></li>
-</ul>
-
 <p><strong>2023-04-11</strong></p>
 
 <ul>
@@ -937,9 +931,6 @@ Authorization server endpoint:</p>
     </span><span class="s2">"partnersListingMarkup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isRentalAgreementActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"listingAgreementText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rental agreement text for listing"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bookingcomPropertyRegisteredInVcs"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bookingcomPropertyHasVat"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bookingcomPropertyDeclaresRevenue"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"listingAmenities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3449</span><span class="p">,</span><span class="w">
@@ -1599,24 +1590,6 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>array</td>
 <td>You should create Custom fields at the dashboard beforehand</td>
 </tr>
-<tr>
-<td><code class="prettyprint">bookingcomPropertyRegisteredInVcs</code></td>
-<td>no</td>
-<td>bool</td>
-<td>Answer on the question: Am I registered as a professional at the trade commercial register (Registre du Commerce et des Sociétés)?</td>
-</tr>
-<tr>
-<td><code class="prettyprint">bookingcomPropertyHasVat</code></td>
-<td>no</td>
-<td>bool</td>
-<td>Answer on the question: Do I have a VAT registered for this activity?</td>
-</tr>
-<tr>
-<td><code class="prettyprint">bookingcomPropertyDeclaresRevenue</code></td>
-<td>no</td>
-<td>bool</td>
-<td>Answer on the question: Should I declare revenues as professional for direct tax purposes (see article 155 IV du CGI)?</td>
-</tr>
 </tbody></table>
 
           <h2 id="listing-amenity-object">Listing amenity object</h2>
@@ -2016,7 +1989,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
   --header <span class="s1">'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijc4MjUwZDMxY2FmNTczMWRhZGFlMWE2YmMxYzQ4ZWE2MWZjNzU5YjljYjUyYmQyNGM3ZDBkNzA1ZTI1Nzc2MTQ4ZDIzNWRlY2NkMzJlZGU2In0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6Ijc4MjUwZDMxY2FmNTczMWRhZGFlMWE2YmMxYzQ4ZWE2MWZjNzU5YjljYjUyYmQyNGM3ZDBkNzA1ZTI1Nzc2MTQ4ZDIzNWRlY2NkMzJlZGU2IiwiaWF0IjoxNTA2Njc1MTc4LCJuYmYiOjE1MDY2NzUxNzgsImV4cCI6MTUyMjIyNzE3OCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.flG98dFtx0M0k9E_WQq2-fqUgGOip8s0HjuKGc4paLzgC1dMvIDAHnbR4xNnELL4PSN4HmzAQVVFfcMQOW3vP-qdPUae_wiMeT0Cu47wH-0KAZVSgZzCP0WhBTBgUm4yvgeKeKj5ha5WNfUo_w0Bx3cvtHtyjfEOr5yNNQznfF8'</span> <span class="se">\</span>
   --header <span class="s1">'Cache-control: no-cache'</span> <span class="se">\</span>
   --header <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
-  --data <span class="s1">'{\n    "propertyTypeId": 1,\n    "name": "Beautiful and cozy apartment close to city center",\n    "externalListingName": "Beautiful and cozy apartment close to city center",\n    "internalListingName": "Property #3",\n    "description": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",\n    "thumbnailUrl": "https://a1.muscache.com/im/pictures/78885433/a151f1a8_original.jpg?aki_policy=small",\n    "houseRules": "Additional rules",\n    "keyPickup": "Key pickup",\n    "specialInstruction": "Any special instruction",\n    "doorSecurityCode": "ddff8",\n    "country": "Germany",\n    "countryCode": "DE",\n    "state": "Bremen",\n    "city": "Bremerhaven",\n    "street": "Schulstraße 7",\n    "address": "Schulstraße 7, Bremerhaven, Bremen 27570, Germany",\n    "publicAddress": "Bremerhaven, Bremen 27570, Germany",\n    "zipcode": "27570",\n    "price": 211.62,\n    "starRating": 5,\n    "weeklyDiscount": 0.71,\n    "monthlyDiscount": 0.82,\n    "propertyRentTax": 12,\n    "guestPerPersonPerNightTax": 10,\n    "guestStayTax": 12,\n    "guestNightlyTax": 13,\n    "refundableDamageDeposit": 15,\n    "personCapacity": 6,\n    "maxChildrenAllowed": null,\n    "maxInfantsAllowed": null,\n    "maxPetsAllowed": null,\n    "lat": 53.5403,\n    "lng": 8.58936,\n    "checkInTimeStart": 12,\n    "checkInTimeEnd": 21,\n    "checkOutTime": 11,\n    "cancellationPolicy": "strict",\n    "cancellationPolicyId": 1,\n    "vrboCancellationPolicyId": 2,\n    "bookingCancellationPolicyId": 3,\n    "airbnbCancellationPolicyId": 4,\n    "marriottCancellationPolicyId": 5,\n    "squareMeters": 10,\n    "roomType": "entire_home",\n    "bathroomType": "shared",\n    "bedroomsNumber": 1,\n    "bedsNumber": 1,\n    "bedType": "real_bed",\n    "bathroomsNumber": 1,\n    "minNights": 1,\n    "maxNights": 1125,\n    "guestsIncluded": 3,\n    "cleaningFee": 40.32,\n    "priceForExtraPerson": 54.01,\n    "instantBookable": 0,\n    "instantBookableLeadTime": 1,\n    "allowSameDayBooking": 2,\n    "sameDayBookingLeadTime": 12,\n    "contactName": "contactName",\n    "contactSurName": "contactSurName",\n    "contactPhone1": "contactPhone1",\n    "contactPhone2": "contactPhone2",\n    "contactLanguage": "contactLanguage",\n    "contactEmail": "contactEmail@mail.com",\n    "contactAddress": "contactAddress",\n    "language": "en",\n    "currencyCode": "USD",\n    "timeZoneName": "Europe/Berlin",\n    "wifiUsername": "un",\n    "wifiPassword": "pass",\n    "cleannessStatus": null,\n    "cleaningInstruction": null,\n    "cleannessStatusUpdatedOn": null,\n    "homeawayPropertyName": "Beautiful and cozy apartment close to city center",\n    "homeawayPropertyHeadline": "Beautiful and cozy apartment close to city center with a living room and bed room",\n    "homeawayPropertyDescription": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",\n   "bookingcomPropertyName": "Beautiful and cozy apartment close to city center",\n    "bookingcomPropertyDescription": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",\n    "invoicingContactName": "Name",\n "bookingcomPropertyHasVat": true,\n    "invoicingContactSurName": "SurName",\n    "invoicingContactPhone1": "+11122334456",\n    "invoicingContactPhone2": "+11122334456",\n    "invoicingContactLanguage": "en",\n    "invoicingContactEmail": "invoice@company.com",\n    "invoicingContactAddress": "221B Baker Street",\n    "invoicingContactCity": "London",\n    "invoicingContactZipcode": "110011",\n    "invoicingContactCountry": "UK",\n    "listingAmenities": [\n        {\n            "amenityId": 2\n        },\n        {\n            "amenityId": 3\n        },\n        {\n            "amenityId": 3\n        }\n    ],\n    "listingBedTypes": [\n        {\n            "bedTypeId": 2,\n            "quantity": 1\n        },\n        {\n            "bedTypeId": 33,\n            "quantity": 1\n        },\n        {\n            "bedTypeId": 33,\n            "quantity": 1\n        }\n    ],\n    "listingImages": [\n        {\n            "caption": "Kitche",\n            "url": "https://www.sharingxchange.com/spacelist/assets/uploads/property/9/5853ff465e538.JPG",\n            "sortOrder": 2\n        },\n        {\n            "caption": "hall",\n            "url": "https://www.sharingxchange.com/spacelist/assets/uploads/property/6/57eb022da2b28.jpg",\n            "sortOrder": 3\n        }\n    ]\n ,     "customFieldValues": [{"customFieldId": 167, "value": "Custom field value one"},{"customFieldId": 243, "value": "Custom field value two"}] \n}'</span>
+  --data <span class="s1">'{\n    "propertyTypeId": 1,\n    "name": "Beautiful and cozy apartment close to city center",\n    "externalListingName": "Beautiful and cozy apartment close to city center",\n    "internalListingName": "Property #3",\n    "description": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",\n    "thumbnailUrl": "https://a1.muscache.com/im/pictures/78885433/a151f1a8_original.jpg?aki_policy=small",\n    "houseRules": "Additional rules",\n    "keyPickup": "Key pickup",\n    "specialInstruction": "Any special instruction",\n    "doorSecurityCode": "ddff8",\n    "country": "Germany",\n    "countryCode": "DE",\n    "state": "Bremen",\n    "city": "Bremerhaven",\n    "street": "Schulstraße 7",\n    "address": "Schulstraße 7, Bremerhaven, Bremen 27570, Germany",\n    "publicAddress": "Bremerhaven, Bremen 27570, Germany",\n    "zipcode": "27570",\n    "price": 211.62,\n    "starRating": 5,\n    "weeklyDiscount": 0.71,\n    "monthlyDiscount": 0.82,\n    "propertyRentTax": 12,\n    "guestPerPersonPerNightTax": 10,\n    "guestStayTax": 12,\n    "guestNightlyTax": 13,\n    "refundableDamageDeposit": 15,\n    "personCapacity": 6,\n    "maxChildrenAllowed": null,\n    "maxInfantsAllowed": null,\n    "maxPetsAllowed": null,\n    "lat": 53.5403,\n    "lng": 8.58936,\n    "checkInTimeStart": 12,\n    "checkInTimeEnd": 21,\n    "checkOutTime": 11,\n    "cancellationPolicy": "strict",\n    "cancellationPolicyId": 1,\n    "vrboCancellationPolicyId": 2,\n    "bookingCancellationPolicyId": 3,\n    "airbnbCancellationPolicyId": 4,\n    "marriottCancellationPolicyId": 5,\n    "squareMeters": 10,\n    "roomType": "entire_home",\n    "bathroomType": "shared",\n    "bedroomsNumber": 1,\n    "bedsNumber": 1,\n    "bedType": "real_bed",\n    "bathroomsNumber": 1,\n    "minNights": 1,\n    "maxNights": 1125,\n    "guestsIncluded": 3,\n    "cleaningFee": 40.32,\n    "priceForExtraPerson": 54.01,\n    "instantBookable": 0,\n    "instantBookableLeadTime": 1,\n    "allowSameDayBooking": 2,\n    "sameDayBookingLeadTime": 12,\n    "contactName": "contactName",\n    "contactSurName": "contactSurName",\n    "contactPhone1": "contactPhone1",\n    "contactPhone2": "contactPhone2",\n    "contactLanguage": "contactLanguage",\n    "contactEmail": "contactEmail@mail.com",\n    "contactAddress": "contactAddress",\n    "language": "en",\n    "currencyCode": "USD",\n    "timeZoneName": "Europe/Berlin",\n    "wifiUsername": "un",\n    "wifiPassword": "pass",\n    "cleannessStatus": null,\n    "cleaningInstruction": null,\n    "cleannessStatusUpdatedOn": null,\n    "homeawayPropertyName": "Beautiful and cozy apartment close to city center",\n    "homeawayPropertyHeadline": "Beautiful and cozy apartment close to city center with a living room and bed room",\n    "homeawayPropertyDescription": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",\n   "bookingcomPropertyName": "Beautiful and cozy apartment close to city center",\n    "bookingcomPropertyDescription": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",\n    "invoicingContactName": "Name",\n    "invoicingContactSurName": "SurName",\n    "invoicingContactPhone1": "+11122334456",\n    "invoicingContactPhone2": "+11122334456",\n    "invoicingContactLanguage": "en",\n    "invoicingContactEmail": "invoice@company.com",\n    "invoicingContactAddress": "221B Baker Street",\n    "invoicingContactCity": "London",\n    "invoicingContactZipcode": "110011",\n    "invoicingContactCountry": "UK",\n    "listingAmenities": [\n        {\n            "amenityId": 2\n        },\n        {\n            "amenityId": 3\n        },\n        {\n            "amenityId": 3\n        }\n    ],\n    "listingBedTypes": [\n        {\n            "bedTypeId": 2,\n            "quantity": 1\n        },\n        {\n            "bedTypeId": 33,\n            "quantity": 1\n        },\n        {\n            "bedTypeId": 33,\n            "quantity": 1\n        }\n    ],\n    "listingImages": [\n        {\n            "caption": "Kitche",\n            "url": "https://www.sharingxchange.com/spacelist/assets/uploads/property/9/5853ff465e538.JPG",\n            "sortOrder": 2\n        },\n        {\n            "caption": "hall",\n            "url": "https://www.sharingxchange.com/spacelist/assets/uploads/property/6/57eb022da2b28.jpg",\n            "sortOrder": 3\n        }\n    ]\n ,     "customFieldValues": [{"customFieldId": 167, "value": "Custom field value one"},{"customFieldId": 243, "value": "Custom field value two"}] \n}'</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
@@ -2029,7 +2002,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\n    </span><span class="se">\"</span><span class="s2">propertyTypeId</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">name</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Beautiful and cozy apartment close to city center</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">externalListingName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Beautiful and cozy apartment close to city center</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">internalListingName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Property #3</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">description</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">thumbnailUrl</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">https://a1.muscache.com/im/pictures/78885433/a151f1a8_original.jpg?aki_policy=small</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">houseRules</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Additional rules</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">keyPickup</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Key pickup</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">specialInstruction</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Any special instruction</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">doorSecurityCode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">ddff8</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">country</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Germany</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">countryCode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">DE</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">state</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Bremen</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">city</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Bremerhaven</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">street</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Schulstraße 7</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">address</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Schulstraße 7, Bremerhaven, Bremen 27570, Germany</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">publicAddress</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Bremerhaven, Bremen 27570, Germany</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">zipcode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">27570</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">price</span><span class="se">\"</span><span class="s2">: 211.62,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">starRating</span><span class="se">\"</span><span class="s2">: 5,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">weeklyDiscount</span><span class="se">\"</span><span class="s2">: 0.71,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">monthlyDiscount</span><span class="se">\"</span><span class="s2">: 0.82,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">propertyRentTax</span><span class="se">\"</span><span class="s2">: 12,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">guestPerPersonPerNightTax</span><span class="se">\"</span><span class="s2">: 10,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">guestStayTax</span><span class="se">\"</span><span class="s2">: 12,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">guestNightlyTax</span><span class="se">\"</span><span class="s2">: 13,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">refundableDamageDeposit</span><span class="se">\"</span><span class="s2">: 15,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">personCapacity</span><span class="se">\"</span><span class="s2">: 6,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">maxChildrenAllowed</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">maxInfantsAllowed</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">maxPetsAllowed</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">lat</span><span class="se">\"</span><span class="s2">: 53.5403,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">lng</span><span class="se">\"</span><span class="s2">: 8.58936,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">checkInTimeStart</span><span class="se">\"</span><span class="s2">: 12,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">checkInTimeEnd</span><span class="se">\"</span><span class="s2">: 21,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">checkOutTime</span><span class="se">\"</span><span class="s2">: 11,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">cancellationPolicy</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">strict</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">cancellationPolicyId</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2"> </span><span class="se">\"</span><span class="s2">bookingcomPropertyHasVat</span><span class="se">\"</span><span class="s2">: true,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">vrboCancellationPolicyId</span><span class="se">\"</span><span class="s2">: 2,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">bookingCancellationPolicyId</span><span class="se">\"</span><span class="s2">: 3,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">airbnbCancellationPolicyId</span><span class="se">\"</span><span class="s2">: 4,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">marriottCancellationPolicyId</span><span class="se">\"</span><span class="s2">: 5,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">squareMeters</span><span class="se">\"</span><span class="s2">: 10,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">roomType</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">entire_home</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">bathroomType</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">shared</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">bedroomsNumber</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">bedsNumber</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">bedType</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">real_bed</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">bathroomsNumber</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">minNights</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">maxNights</span><span class="se">\"</span><span class="s2">: 1125,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">guestsIncluded</span><span class="se">\"</span><span class="s2">: 3,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">cleaningFee</span><span class="se">\"</span><span class="s2">: 40.32,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">priceForExtraPerson</span><span class="se">\"</span><span class="s2">: 54.01,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">instantBookable</span><span class="se">\"</span><span class="s2">: 0,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">instantBookableLeadTime</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">allowSameDayBooking</span><span class="se">\"</span><span class="s2">: 2,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">sameDayBookingLeadTime</span><span class="se">\"</span><span class="s2">: 12,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">contactName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">contactName</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">contactSurName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">contactSurName</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">contactPhone1</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">contactPhone1</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">contactPhone2</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">contactPhone2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">contactLanguage</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">contactLanguage</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">contactEmail</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">contactEmail@mail.com</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">contactAddress</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">contactAddress</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">language</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">currencyCode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">USD</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">timeZoneName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Europe/Berlin</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">wifiUsername</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">un</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">wifiPassword</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">pass</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">cleannessStatus</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">cleaningInstruction</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">cleannessStatusUpdatedOn</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">homeawayPropertyName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Beautiful and cozy apartment close to city center</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">homeawayPropertyHeadline</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Beautiful and cozy apartment close to city center with a living room and bed room</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">homeawayPropertyDescription</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">bookingcomPropertyName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Beautiful and cozy apartment close to city center</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">bookingcomPropertyDescription</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Name</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactSurName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">SurName</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactPhone1</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">+11122334456</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactPhone2</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">+11122334456</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactLanguage</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactEmail</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">invoice@company.com</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactAddress</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">221B Baker Street</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactCity</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">London</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactZipcode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">110011</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactCountry</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">UK</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">listingAmenities</span><span class="se">\"</span><span class="s2">: [</span><span class="se">\n</span><span class="s2">        {\n            </span><span class="se">\"</span><span class="s2">amenityId</span><span class="se">\"</span><span class="s2">: 2</span><span class="se">\n</span><span class="s2">        },</span><span class="se">\n</span><span class="s2">        {\n            </span><span class="se">\"</span><span class="s2">amenityId</span><span class="se">\"</span><span class="s2">: 3</span><span class="se">\n</span><span class="s2">        },</span><span class="se">\n</span><span class="s2">        {\n            </span><span class="se">\"</span><span class="s2">amenityId</span><span class="se">\"</span><span class="s2">: 3</span><span class="se">\n</span><span class="s2">        }</span><span class="se">\n</span><span class="s2">    ],</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">listingBedTypes</span><span class="se">\"</span><span class="s2">: [</span><span class="se">\n</span><span class="s2">        {\n            </span><span class="se">\"</span><span class="s2">bedTypeId</span><span class="se">\"</span><span class="s2">: 2,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\"</span><span class="s2">quantity</span><span class="se">\"</span><span class="s2">: 1</span><span class="se">\n</span><span class="s2">        },</span><span class="se">\n</span><span class="s2">        {\n            </span><span class="se">\"</span><span class="s2">bedTypeId</span><span class="se">\"</span><span class="s2">: 33,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\"</span><span class="s2">quantity</span><span class="se">\"</span><span class="s2">: 1</span><span class="se">\n</span><span class="s2">        },</span><span class="se">\n</span><span class="s2">        {\n            </span><span class="se">\"</span><span class="s2">bedTypeId</span><span class="se">\"</span><span class="s2">: 33,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\"</span><span class="s2">quantity</span><span class="se">\"</span><span class="s2">: 1</span><span class="se">\n</span><span class="s2">        }</span><span class="se">\n</span><span class="s2">    ],</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">listingImages</span><span class="se">\"</span><span class="s2">: [</span><span class="se">\n</span><span class="s2">        {\n            </span><span class="se">\"</span><span class="s2">caption</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Kitche</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\"</span><span class="s2">url</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">https://www.sharingxchange.com/spacelist/assets/uploads/property/9/5853ff465e538.JPG</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\"</span><span class="s2">sortOrder</span><span class="se">\"</span><span class="s2">: 2</span><span class="se">\n</span><span class="s2">        },</span><span class="se">\n</span><span class="s2">        {\n            </span><span class="se">\"</span><span class="s2">caption</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">hall</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\"</span><span class="s2">url</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">https://www.sharingxchange.com/spacelist/assets/uploads/property/6/57eb022da2b28.jpg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\"</span><span class="s2">sortOrder</span><span class="se">\"</span><span class="s2">: 3</span><span class="se">\n</span><span class="s2">        }</span><span class="se">\n</span><span class="s2">    ]</span><span class="se">\n</span><span class="s2">,</span><span class="se">\"</span><span class="s2">customFieldValues</span><span class="se">\"</span><span class="s2">: [{\"</span><span class="nx">customFieldId\</span><span class="s2">": 167, </span><span class="se">\"</span><span class="s2">value</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Custom field value one</span><span class="se">\"</span><span class="s2">}, {\"</span><span class="nx">customFieldId\</span><span class="s2">": 243, </span><span class="se">\"</span><span class="s2">value</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Custom field value two</span><span class="se">\"</span><span class="s2">}]</span><span class="se">\n</span><span class="s2">}"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="s2">"{\n    </span><span class="se">\"</span><span class="s2">propertyTypeId</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">name</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Beautiful and cozy apartment close to city center</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">externalListingName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Beautiful and cozy apartment close to city center</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">internalListingName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Property #3</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">description</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">thumbnailUrl</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">https://a1.muscache.com/im/pictures/78885433/a151f1a8_original.jpg?aki_policy=small</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">houseRules</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Additional rules</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">keyPickup</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Key pickup</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">specialInstruction</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Any special instruction</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">doorSecurityCode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">ddff8</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">country</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Germany</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">countryCode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">DE</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">state</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Bremen</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">city</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Bremerhaven</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">street</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Schulstraße 7</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">address</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Schulstraße 7, Bremerhaven, Bremen 27570, Germany</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">publicAddress</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Bremerhaven, Bremen 27570, Germany</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">zipcode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">27570</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">price</span><span class="se">\"</span><span class="s2">: 211.62,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">starRating</span><span class="se">\"</span><span class="s2">: 5,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">weeklyDiscount</span><span class="se">\"</span><span class="s2">: 0.71,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">monthlyDiscount</span><span class="se">\"</span><span class="s2">: 0.82,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">propertyRentTax</span><span class="se">\"</span><span class="s2">: 12,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">guestPerPersonPerNightTax</span><span class="se">\"</span><span class="s2">: 10,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">guestStayTax</span><span class="se">\"</span><span class="s2">: 12,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">guestNightlyTax</span><span class="se">\"</span><span class="s2">: 13,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">refundableDamageDeposit</span><span class="se">\"</span><span class="s2">: 15,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">personCapacity</span><span class="se">\"</span><span class="s2">: 6,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">maxChildrenAllowed</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">maxInfantsAllowed</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">maxPetsAllowed</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">lat</span><span class="se">\"</span><span class="s2">: 53.5403,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">lng</span><span class="se">\"</span><span class="s2">: 8.58936,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">checkInTimeStart</span><span class="se">\"</span><span class="s2">: 12,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">checkInTimeEnd</span><span class="se">\"</span><span class="s2">: 21,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">checkOutTime</span><span class="se">\"</span><span class="s2">: 11,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">cancellationPolicy</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">strict</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">cancellationPolicyId</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">vrboCancellationPolicyId</span><span class="se">\"</span><span class="s2">: 2,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">bookingCancellationPolicyId</span><span class="se">\"</span><span class="s2">: 3,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">airbnbCancellationPolicyId</span><span class="se">\"</span><span class="s2">: 4,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">marriottCancellationPolicyId</span><span class="se">\"</span><span class="s2">: 5,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">squareMeters</span><span class="se">\"</span><span class="s2">: 10,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">roomType</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">entire_home</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">bathroomType</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">shared</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">bedroomsNumber</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">bedsNumber</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">bedType</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">real_bed</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">bathroomsNumber</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">minNights</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">maxNights</span><span class="se">\"</span><span class="s2">: 1125,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">guestsIncluded</span><span class="se">\"</span><span class="s2">: 3,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">cleaningFee</span><span class="se">\"</span><span class="s2">: 40.32,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">priceForExtraPerson</span><span class="se">\"</span><span class="s2">: 54.01,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">instantBookable</span><span class="se">\"</span><span class="s2">: 0,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">instantBookableLeadTime</span><span class="se">\"</span><span class="s2">: 1,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">allowSameDayBooking</span><span class="se">\"</span><span class="s2">: 2,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">sameDayBookingLeadTime</span><span class="se">\"</span><span class="s2">: 12,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">contactName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">contactName</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">contactSurName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">contactSurName</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">contactPhone1</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">contactPhone1</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">contactPhone2</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">contactPhone2</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">contactLanguage</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">contactLanguage</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">contactEmail</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">contactEmail@mail.com</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">contactAddress</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">contactAddress</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">language</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">currencyCode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">USD</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">timeZoneName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Europe/Berlin</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">wifiUsername</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">un</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">wifiPassword</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">pass</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">cleannessStatus</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">cleaningInstruction</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">cleannessStatusUpdatedOn</span><span class="se">\"</span><span class="s2">: null,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">homeawayPropertyName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Beautiful and cozy apartment close to city center</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">homeawayPropertyHeadline</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Beautiful and cozy apartment close to city center with a living room and bed room</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">homeawayPropertyDescription</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">  </span><span class="se">\"</span><span class="s2">bookingcomPropertyName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Beautiful and cozy apartment close to city center</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">bookingcomPropertyDescription</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Name</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactSurName</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">SurName</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactPhone1</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">+11122334456</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactPhone2</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">+11122334456</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactLanguage</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactEmail</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">invoice@company.com</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactAddress</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">221B Baker Street</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactCity</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">London</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactZipcode</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">110011</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">invoicingContactCountry</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">UK</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">listingAmenities</span><span class="se">\"</span><span class="s2">: [</span><span class="se">\n</span><span class="s2">        {\n            </span><span class="se">\"</span><span class="s2">amenityId</span><span class="se">\"</span><span class="s2">: 2</span><span class="se">\n</span><span class="s2">        },</span><span class="se">\n</span><span class="s2">        {\n            </span><span class="se">\"</span><span class="s2">amenityId</span><span class="se">\"</span><span class="s2">: 3</span><span class="se">\n</span><span class="s2">        },</span><span class="se">\n</span><span class="s2">        {\n            </span><span class="se">\"</span><span class="s2">amenityId</span><span class="se">\"</span><span class="s2">: 3</span><span class="se">\n</span><span class="s2">        }</span><span class="se">\n</span><span class="s2">    ],</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">listingBedTypes</span><span class="se">\"</span><span class="s2">: [</span><span class="se">\n</span><span class="s2">        {\n            </span><span class="se">\"</span><span class="s2">bedTypeId</span><span class="se">\"</span><span class="s2">: 2,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\"</span><span class="s2">quantity</span><span class="se">\"</span><span class="s2">: 1</span><span class="se">\n</span><span class="s2">        },</span><span class="se">\n</span><span class="s2">        {\n            </span><span class="se">\"</span><span class="s2">bedTypeId</span><span class="se">\"</span><span class="s2">: 33,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\"</span><span class="s2">quantity</span><span class="se">\"</span><span class="s2">: 1</span><span class="se">\n</span><span class="s2">        },</span><span class="se">\n</span><span class="s2">        {\n            </span><span class="se">\"</span><span class="s2">bedTypeId</span><span class="se">\"</span><span class="s2">: 33,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\"</span><span class="s2">quantity</span><span class="se">\"</span><span class="s2">: 1</span><span class="se">\n</span><span class="s2">        }</span><span class="se">\n</span><span class="s2">    ],</span><span class="se">\n</span><span class="s2">    </span><span class="se">\"</span><span class="s2">listingImages</span><span class="se">\"</span><span class="s2">: [</span><span class="se">\n</span><span class="s2">        {\n            </span><span class="se">\"</span><span class="s2">caption</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Kitche</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\"</span><span class="s2">url</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">https://www.sharingxchange.com/spacelist/assets/uploads/property/9/5853ff465e538.JPG</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\"</span><span class="s2">sortOrder</span><span class="se">\"</span><span class="s2">: 2</span><span class="se">\n</span><span class="s2">        },</span><span class="se">\n</span><span class="s2">        {\n            </span><span class="se">\"</span><span class="s2">caption</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">hall</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\"</span><span class="s2">url</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">https://www.sharingxchange.com/spacelist/assets/uploads/property/6/57eb022da2b28.jpg</span><span class="se">\"</span><span class="s2">,</span><span class="se">\n</span><span class="s2">            </span><span class="se">\"</span><span class="s2">sortOrder</span><span class="se">\"</span><span class="s2">: 3</span><span class="se">\n</span><span class="s2">        }</span><span class="se">\n</span><span class="s2">    ]</span><span class="se">\n</span><span class="s2">,</span><span class="se">\"</span><span class="s2">customFieldValues</span><span class="se">\"</span><span class="s2">: [{\"</span><span class="nx">customFieldId\</span><span class="s2">": 167, </span><span class="se">\"</span><span class="s2">value</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Custom field value one</span><span class="se">\"</span><span class="s2">}, {\"</span><span class="nx">customFieldId\</span><span class="s2">": 243, </span><span class="se">\"</span><span class="s2">value</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">Custom field value two</span><span class="se">\"</span><span class="s2">}]</span><span class="se">\n</span><span class="s2">}"</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s2">"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijc4MjUwZDMxY2FmNTczMWRhZGFlMWE2YmMxYzQ4ZWE2MWZjNzU5YjljYjUyYmQyNGM3ZDBkNzA1ZTI1Nzc2MTQ4ZDIzNWRlY2NkMzJlZGU2In0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6Ijc4MjUwZDMxY2FmNTczMWRhZGFlMWE2YmMxYzQ4ZWE2MWZjNzU5YjljYjUyYmQyNGM3ZDBkNzA1ZTI1Nzc2MTQ4ZDIzNWRlY2NkMzJlZGU2IiwiaWF0IjoxNTA2Njc1MTc4LCJuYmYiOjE1MDY2NzUxNzgsImV4cCI6MTUyMjIyNzE3OCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.flG98dFtx0M0k9E_WQq2-fqUgGOip8s0HjuKGc4paLzgC1dMvIDAHnbR4xNnELL4PSN4HmzAQVVFfcMQOW3vP-qdPUae_wiMeT0Cu47wH-0KAZVSgZzCP0WhBTBgUm4yvgeKeKj5ha5WNfUo_w0Bx3cvtHtyjfEOr5yNNQznfF8"</span><span class="p">,</span>
     <span class="s2">"Cache-control: no-cache"</span><span class="p">,</span>
@@ -2140,8 +2113,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
   <span class="s2">"propertyLicenseType"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="s2">"propertyLicenseIssueDate"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="s2">"propertyLicenseExpirationDate"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span> 
-  <span class="s2">"isRentalAgreementActive"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"bookingcomPropertyHasVat"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"isRentalAgreementActive"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> 
   <span class="s2">"listingAgreementText"</span><span class="p">:</span> <span class="s2">"Rental agreement text for listing"</span><span class="p">,</span>
   <span class="s2">"listingAmenities"</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
@@ -2210,7 +2182,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 </code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
 
 <span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
-<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"propertyTypeId\": 1,\n    \"name\": \"Beautiful and cozy apartment close to city center\",\n    \"externalListingName\": \"Beautiful and cozy apartment close to city center\",\n    \"internalListingName\": \"Property #3\",\n    \"description\": \"In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.\",\n    \"thumbnailUrl\": \"https://a1.muscache.com/im/pictures/78885433/a151f1a8_original.jpg?aki_policy=small\",\n    \"houseRules\": \"Additional rules\",\n    \"keyPickup\": \"Key pickup\",\n    \"specialInstruction\": \"Any special instruction\",\n    \"doorSecurityCode\": \"ddff8\",\n    \"country\": \"Germany\",\n    \"countryCode\": \"DE\",\n    \"state\": \"Bremen\",\n    \"city\": \"Bremerhaven\",\n    \"street\": \"Schulstraße 7\",\n    \"address\": \"Schulstraße 7, Bremerhaven, Bremen 27570, Germany\",\n    \"publicAddress\": \"Bremerhaven, Bremen 27570, Germany\",\n    \"zipcode\": \"27570\",\n    \"price\": 211.62,\n    \"starRating\": 5,\n    \"weeklyDiscount\": 0.71,\n    \"monthlyDiscount\": 0.82,\n    \"propertyRentTax\": 12,\n    \"guestPerPersonPerNightTax\": 10,\n    \"guestStayTax\": 12,\n    \"guestNightlyTax\": 13,\n    \"refundableDamageDeposit\": 15,\n    \"personCapacity\": 6,\n    \"maxChildrenAllowed\": null,\n    \"maxInfantsAllowed\": null,\n    \"maxPetsAllowed\": null,\n    \"lat\": 53.5403,\n    \"lng\": 8.58936,\n    \"checkInTimeStart\": 12,\n    \"checkInTimeEnd\": 21,\n    \"checkOutTime\": 11,\n    \"cancellationPolicy\": \"strict\",\n    \"cancellationPolicyId\": 1,\n    \"vrboCancellationPolicyId\": 2,\n    \"bookingCancellationPolicyId\": 3,\n    \"airbnbCancellationPolicyId\": 4,\n    \"marriottCancellationPolicyId\": 5,\n    \"squareMeters\": 10,\n    \"roomType\": \"entire_home\",\n    \"bathroomType\": \"shared\",\n    \"bedroomsNumber\": 1,\n    \"bedsNumber\": 1,\n    \"bedType\": \"real_bed\",\n    \"bathroomsNumber\": 1,\n    \"minNights\": 1,\n    \"maxNights\": 1125,\n    \"guestsIncluded\": 3,\n    \"cleaningFee\": 40.32,\n    \"priceForExtraPerson\": 54.01,\n    \"instantBookable\": 0,\n    \"instantBookableLeadTime\": 1,\n    \"allowSameDayBooking\": 2,\n    \"sameDayBookingLeadTime\": 12,\n    \"contactName\": \"contactName\",\n    \"contactSurName\": \"contactSurName\",\n    \"contactPhone1\": \"contactPhone1\",\n    \"contactPhone2\": \"contactPhone2\",\n    \"contactLanguage\": \"contactLanguage\",\n    \"contactEmail\": \"contactEmail@mail.com\",\n    \"contactAddress\": \"contactAddress\",\n    \"language\": \"en\",\n    \"currencyCode\": \"USD\",\n    \"timeZoneName\": \"Europe/Berlin\",\n    \"wifiUsername\": \"un\",\n    \"wifiPassword\": \"pass\",\n    \"cleannessStatus\": null,\n    \"cleaningInstruction\": null,\n    \"cleannessStatusUpdatedOn\": null,\n    \"homeawayPropertyName\": \"Beautiful and cozy apartment close to city center\",\n    \"homeawayPropertyHeadline\": \"Beautiful and cozy apartment close to city center with a living room and bed room\",\n    \"homeawayPropertyDescription\": \"In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.\",\n   \"bookingcomPropertyName\": \"Beautiful and cozy apartment close to city center\",\n    \"bookingcomPropertyDescription\": \"In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.\",\n    \"invoicingContactName\": \"Name\",\n    \"invoicingContactSurName\": \"SurName\",\n    \"invoicingContactPhone1\": \"+11122334456\",\n    \"invoicingContactPhone2\": \"+11122334456\",\n    \"invoicingContactLanguage\": \"en\",\n    \"invoicingContactEmail\": \"invoice@company.com\",\n    \"invoicingContactAddress\": \"221B Baker Street\",\n    \"invoicingContactCity\": \"London\",\n    \"invoicingContactZipcode\": \"110011\",\n    \"invoicingContactCountry\": \"UK\",\n  \"bookingcomPropertyHasVat\": true,\n  \"listingAmenities\": [\n        {\n            \"amenityId\": 2\n        },\n        {\n            \"amenityId\": 3\n        },\n        {\n            \"amenityId\": 3\n        }\n    ],\n    \"listingBedTypes\": [\n        {\n            \"bedTypeId\": 2,\n            \"quantity\": 1\n        },\n        {\n            \"bedTypeId\": 33,\n            \"quantity\": 1\n        },\n        {\n            \"bedTypeId\": 33,\n            \"quantity\": 1\n        }\n    ],\n    \"listingImages\": [\n        {\n            \"caption\": \"Kitche\",\n            \"url\": \"https://www.sharingxchange.com/spacelist/assets/uploads/property/9/5853ff465e538.JPG\",\n            \"sortOrder\": 2\n        },\n        {\n            \"caption\": \"hall\",\n            \"url\": \"https://www.sharingxchange.com/spacelist/assets/uploads/property/6/57eb022da2b28.jpg\",\n            \"sortOrder\": 3\n        }\n    ]\n, \"customFieldValues\": [{\"customFieldId\": 167, \"value\": \"Custom field value one\"}, {\"customFieldId\": 243, \"value\": \"Custom field value two\"}]\n}"</span><span class="o">);</span>
+<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"propertyTypeId\": 1,\n    \"name\": \"Beautiful and cozy apartment close to city center\",\n    \"externalListingName\": \"Beautiful and cozy apartment close to city center\",\n    \"internalListingName\": \"Property #3\",\n    \"description\": \"In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.\",\n    \"thumbnailUrl\": \"https://a1.muscache.com/im/pictures/78885433/a151f1a8_original.jpg?aki_policy=small\",\n    \"houseRules\": \"Additional rules\",\n    \"keyPickup\": \"Key pickup\",\n    \"specialInstruction\": \"Any special instruction\",\n    \"doorSecurityCode\": \"ddff8\",\n    \"country\": \"Germany\",\n    \"countryCode\": \"DE\",\n    \"state\": \"Bremen\",\n    \"city\": \"Bremerhaven\",\n    \"street\": \"Schulstraße 7\",\n    \"address\": \"Schulstraße 7, Bremerhaven, Bremen 27570, Germany\",\n    \"publicAddress\": \"Bremerhaven, Bremen 27570, Germany\",\n    \"zipcode\": \"27570\",\n    \"price\": 211.62,\n    \"starRating\": 5,\n    \"weeklyDiscount\": 0.71,\n    \"monthlyDiscount\": 0.82,\n    \"propertyRentTax\": 12,\n    \"guestPerPersonPerNightTax\": 10,\n    \"guestStayTax\": 12,\n    \"guestNightlyTax\": 13,\n    \"refundableDamageDeposit\": 15,\n    \"personCapacity\": 6,\n    \"maxChildrenAllowed\": null,\n    \"maxInfantsAllowed\": null,\n    \"maxPetsAllowed\": null,\n    \"lat\": 53.5403,\n    \"lng\": 8.58936,\n    \"checkInTimeStart\": 12,\n    \"checkInTimeEnd\": 21,\n    \"checkOutTime\": 11,\n    \"cancellationPolicy\": \"strict\",\n    \"cancellationPolicyId\": 1,\n    \"vrboCancellationPolicyId\": 2,\n    \"bookingCancellationPolicyId\": 3,\n    \"airbnbCancellationPolicyId\": 4,\n    \"marriottCancellationPolicyId\": 5,\n    \"squareMeters\": 10,\n    \"roomType\": \"entire_home\",\n    \"bathroomType\": \"shared\",\n    \"bedroomsNumber\": 1,\n    \"bedsNumber\": 1,\n    \"bedType\": \"real_bed\",\n    \"bathroomsNumber\": 1,\n    \"minNights\": 1,\n    \"maxNights\": 1125,\n    \"guestsIncluded\": 3,\n    \"cleaningFee\": 40.32,\n    \"priceForExtraPerson\": 54.01,\n    \"instantBookable\": 0,\n    \"instantBookableLeadTime\": 1,\n    \"allowSameDayBooking\": 2,\n    \"sameDayBookingLeadTime\": 12,\n    \"contactName\": \"contactName\",\n    \"contactSurName\": \"contactSurName\",\n    \"contactPhone1\": \"contactPhone1\",\n    \"contactPhone2\": \"contactPhone2\",\n    \"contactLanguage\": \"contactLanguage\",\n    \"contactEmail\": \"contactEmail@mail.com\",\n    \"contactAddress\": \"contactAddress\",\n    \"language\": \"en\",\n    \"currencyCode\": \"USD\",\n    \"timeZoneName\": \"Europe/Berlin\",\n    \"wifiUsername\": \"un\",\n    \"wifiPassword\": \"pass\",\n    \"cleannessStatus\": null,\n    \"cleaningInstruction\": null,\n    \"cleannessStatusUpdatedOn\": null,\n    \"homeawayPropertyName\": \"Beautiful and cozy apartment close to city center\",\n    \"homeawayPropertyHeadline\": \"Beautiful and cozy apartment close to city center with a living room and bed room\",\n    \"homeawayPropertyDescription\": \"In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.\",\n   \"bookingcomPropertyName\": \"Beautiful and cozy apartment close to city center\",\n    \"bookingcomPropertyDescription\": \"In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.\",\n    \"invoicingContactName\": \"Name\",\n    \"invoicingContactSurName\": \"SurName\",\n    \"invoicingContactPhone1\": \"+11122334456\",\n    \"invoicingContactPhone2\": \"+11122334456\",\n    \"invoicingContactLanguage\": \"en\",\n    \"invoicingContactEmail\": \"invoice@company.com\",\n    \"invoicingContactAddress\": \"221B Baker Street\",\n    \"invoicingContactCity\": \"London\",\n    \"invoicingContactZipcode\": \"110011\",\n    \"invoicingContactCountry\": \"UK\",\n    \"listingAmenities\": [\n        {\n            \"amenityId\": 2\n        },\n        {\n            \"amenityId\": 3\n        },\n        {\n            \"amenityId\": 3\n        }\n    ],\n    \"listingBedTypes\": [\n        {\n            \"bedTypeId\": 2,\n            \"quantity\": 1\n        },\n        {\n            \"bedTypeId\": 33,\n            \"quantity\": 1\n        },\n        {\n            \"bedTypeId\": 33,\n            \"quantity\": 1\n        }\n    ],\n    \"listingImages\": [\n        {\n            \"caption\": \"Kitche\",\n            \"url\": \"https://www.sharingxchange.com/spacelist/assets/uploads/property/9/5853ff465e538.JPG\",\n            \"sortOrder\": 2\n        },\n        {\n            \"caption\": \"hall\",\n            \"url\": \"https://www.sharingxchange.com/spacelist/assets/uploads/property/6/57eb022da2b28.jpg\",\n            \"sortOrder\": 3\n        }\n    ]\n, \"customFieldValues\": [{\"customFieldId\": 167, \"value\": \"Custom field value one\"}, {\"customFieldId\": 243, \"value\": \"Custom field value two\"}]\n}"</span><span class="o">);</span>
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
   <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/listings"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="n">body</span><span class="o">)</span>
@@ -2309,7 +2281,6 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
   <span class="s">"invoicingContactCity"</span><span class="p">:</span> <span class="s">"London"</span><span class="p">,</span>
   <span class="s">"invoicingContactZipcode"</span><span class="p">:</span> <span class="s">"110011"</span><span class="p">,</span>
   <span class="s">"invoicingContactCountry"</span><span class="p">:</span> <span class="s">"UK"</span><span class="p">,</span>
-  <span class="s">"bookingcomPropertyHasVat"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
   <span class="s">"listingAmenities"</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="s">"amenityId"</span><span class="p">:</span> <span class="mi">2</span>
@@ -2373,7 +2344,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
   --header <span class="s1">'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijc4MjUwZDMxY2FmNTczMWRhZGFlMWE2YmMxYzQ4ZWE2MWZjNzU5YjljYjUyYmQyNGM3ZDBkNzA1ZTI1Nzc2MTQ4ZDIzNWRlY2NkMzJlZGU2In0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6Ijc4MjUwZDMxY2FmNTczMWRhZGFlMWE2YmMxYzQ4ZWE2MWZjNzU5YjljYjUyYmQyNGM3ZDBkNzA1ZTI1Nzc2MTQ4ZDIzNWRlY2NkMzJlZGU2IiwiaWF0IjoxNTA2Njc1MTc4LCJuYmYiOjE1MDY2NzUxNzgsImV4cCI6MTUyMjIyNzE3OCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.flG98dFtx0M0k9E_WQq2-fqUgGOip8s0HjuKGc4paLzgC1dMvIDAHnbR4xNnELL4PSN4HmzAQVVFfcMQOW3vP-qdPUae_wiMeT0Cu47wH-0KAZVSgZzCP0WhBTBgUm4yvgeKeKj5ha5WNfUo_w0Bx3cvtHtyjfEOr5yNNQznfF8'</span> <span class="se">\</span>
   --header <span class="s1">'Cache-control: no-cache'</span> <span class="se">\</span>
   --header <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
-  --data <span class="s1">'{\n    "propertyTypeId": 1,\n    "name": "Beautiful and cozy apartment close to city center",\n    "externalListingName": "Beautiful and cozy apartment close to city center",\n    "internalListingName": "Property #3",\n    "description": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",\n    "thumbnailUrl": "https://a1.muscache.com/im/pictures/78885433/a151f1a8_original.jpg?aki_policy=small",\n    "houseRules": "Additional rules",\n    "keyPickup": "Key pickup",\n    "specialInstruction": "Any special instruction",\n    "doorSecurityCode": "ddff8",\n    "country": "Germany",\n    "countryCode": "DE",\n    "state": "Bremen",\n    "city": "Bremerhaven",\n    "street": "Schulstraße 7",\n    "address": "Schulstraße 7, Bremerhaven, Bremen 27570, Germany",\n    "publicAddress": "Bremerhaven, Bremen 27570, Germany",\n    "zipcode": "27570",\n    "price": 211.62,\n    "starRating": 5,\n    "weeklyDiscount": 0.71,\n    "monthlyDiscount": 0.82,\n    "propertyRentTax": 12,\n    "guestPerPersonPerNightTax": 10,\n    "guestStayTax": 12,\n    "guestNightlyTax": 13,\n    "refundableDamageDeposit": 15,\n    "personCapacity": 6,\n    "maxChildrenAllowed": null,\n    "maxInfantsAllowed": null,\n    "maxPetsAllowed": null,\n    "lat": 53.5403,\n    "lng": 8.58936,\n    "checkInTimeStart": 12,\n    "checkInTimeEnd": 21,\n    "checkOutTime": 11,\n    "cancellationPolicy": "strict",\n    "cancellationPolicyId": 1,\n    "vrboCancellationPolicyId": 2,\n    "bookingCancellationPolicyId": 3,\n    "airbnbCancellationPolicyId": 4,\n    "marriottCancellationPolicyId": 5,\n    "squareMeters": 10,\n    "roomType": "entire_home",\n    "bathroomType": "shared",\n    "bedroomsNumber": 1,\n    "bedsNumber": 1,\n    "bedType": "real_bed",\n    "bathroomsNumber": 1,\n    "minNights": 1,\n    "maxNights": 1125,\n    "guestsIncluded": 3,\n    "cleaningFee": 40.32,\n    "priceForExtraPerson": 54.01,\n    "instantBookable": 0,\n    "instantBookableLeadTime": 1,\n    "allowSameDayBooking": 2,\n    "sameDayBookingLeadTime": 12,\n    "contactName": "contactName",\n    "contactSurName": "contactSurName",\n    "contactPhone1": "contactPhone1",\n    "contactPhone2": "contactPhone2",\n    "contactLanguage": "contactLanguage",\n    "contactEmail": "contactEmail@mail.com",\n    "contactAddress": "contactAddress",\n    "language": "en",\n    "currencyCode": "USD",\n    "timeZoneName": "Europe/Berlin",\n    "wifiUsername": "un",\n    "wifiPassword": "pass",\n    "cleannessStatus": null,\n    "cleaningInstruction": null,\n    "cleannessStatusUpdatedOn": null,\n    "homeawayPropertyName": "Beautiful and cozy apartment close to city center",\n    "homeawayPropertyHeadline": "Beautiful and cozy apartment close to city center with a living room and bed room",\n    "homeawayPropertyDescription": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",\n    "bookingcomPropertyName": "Beautiful and cozy apartment close to city center",\n    "bookingcomPropertyDescription": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",\n    "invoicingContactName": "Name",\n    "invoicingContactSurName": "SurName",\n    "invoicingContactPhone1": "+11122334456",\n    "invoicingContactPhone2": "+11122334456",\n    "invoicingContactLanguage": "en",\n    "invoicingContactEmail": "invoice@company.com",\n    "invoicingContactAddress": "221B Baker Street",\n    "invoicingContactCity": "London",\n    "invoicingContactZipcode": "110011",\n    "invoicingContactCountry": "UK",\n  "bookingcomPropertyHasVat": true,\n   "listingAmenities": [\n        {\n            "amenityId": 2\n        },\n        {\n            "amenityId": 3\n        }\n    ],\n    "listingBedTypes": [\n        {\n            "bedTypeId": 2,\n            "quantity": 1\n        }\n    ],\n    "listingImages": [\n        {\n            "caption": "Kitche",\n            "url": "https://www.sharingxchange.com/spacelist/assets/uploads/property/9/5853ff465e538.JPG",\n            "sortOrder": 2\n        },\n        {\n            "caption": "hall",\n            "url": "https://www.sharingxchange.com/spacelist/assets/uploads/property/6/57eb022da2b28.jpg",\n            "sortOrder": 3\n        }\n    ]\n,"customFieldValues": [{"customFieldId": 167,"value": "Custom field value one"},{"customFieldId": 243,"value": "Custom field value two"}]\n}'</span>
+  --data <span class="s1">'{\n    "propertyTypeId": 1,\n    "name": "Beautiful and cozy apartment close to city center",\n    "externalListingName": "Beautiful and cozy apartment close to city center",\n    "internalListingName": "Property #3",\n    "description": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",\n    "thumbnailUrl": "https://a1.muscache.com/im/pictures/78885433/a151f1a8_original.jpg?aki_policy=small",\n    "houseRules": "Additional rules",\n    "keyPickup": "Key pickup",\n    "specialInstruction": "Any special instruction",\n    "doorSecurityCode": "ddff8",\n    "country": "Germany",\n    "countryCode": "DE",\n    "state": "Bremen",\n    "city": "Bremerhaven",\n    "street": "Schulstraße 7",\n    "address": "Schulstraße 7, Bremerhaven, Bremen 27570, Germany",\n    "publicAddress": "Bremerhaven, Bremen 27570, Germany",\n    "zipcode": "27570",\n    "price": 211.62,\n    "starRating": 5,\n    "weeklyDiscount": 0.71,\n    "monthlyDiscount": 0.82,\n    "propertyRentTax": 12,\n    "guestPerPersonPerNightTax": 10,\n    "guestStayTax": 12,\n    "guestNightlyTax": 13,\n    "refundableDamageDeposit": 15,\n    "personCapacity": 6,\n    "maxChildrenAllowed": null,\n    "maxInfantsAllowed": null,\n    "maxPetsAllowed": null,\n    "lat": 53.5403,\n    "lng": 8.58936,\n    "checkInTimeStart": 12,\n    "checkInTimeEnd": 21,\n    "checkOutTime": 11,\n    "cancellationPolicy": "strict",\n    "cancellationPolicyId": 1,\n    "vrboCancellationPolicyId": 2,\n    "bookingCancellationPolicyId": 3,\n    "airbnbCancellationPolicyId": 4,\n    "marriottCancellationPolicyId": 5,\n    "squareMeters": 10,\n    "roomType": "entire_home",\n    "bathroomType": "shared",\n    "bedroomsNumber": 1,\n    "bedsNumber": 1,\n    "bedType": "real_bed",\n    "bathroomsNumber": 1,\n    "minNights": 1,\n    "maxNights": 1125,\n    "guestsIncluded": 3,\n    "cleaningFee": 40.32,\n    "priceForExtraPerson": 54.01,\n    "instantBookable": 0,\n    "instantBookableLeadTime": 1,\n    "allowSameDayBooking": 2,\n    "sameDayBookingLeadTime": 12,\n    "contactName": "contactName",\n    "contactSurName": "contactSurName",\n    "contactPhone1": "contactPhone1",\n    "contactPhone2": "contactPhone2",\n    "contactLanguage": "contactLanguage",\n    "contactEmail": "contactEmail@mail.com",\n    "contactAddress": "contactAddress",\n    "language": "en",\n    "currencyCode": "USD",\n    "timeZoneName": "Europe/Berlin",\n    "wifiUsername": "un",\n    "wifiPassword": "pass",\n    "cleannessStatus": null,\n    "cleaningInstruction": null,\n    "cleannessStatusUpdatedOn": null,\n    "homeawayPropertyName": "Beautiful and cozy apartment close to city center",\n    "homeawayPropertyHeadline": "Beautiful and cozy apartment close to city center with a living room and bed room",\n    "homeawayPropertyDescription": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",\n    "bookingcomPropertyName": "Beautiful and cozy apartment close to city center",\n    "bookingcomPropertyDescription": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",\n    "invoicingContactName": "Name",\n    "invoicingContactSurName": "SurName",\n    "invoicingContactPhone1": "+11122334456",\n    "invoicingContactPhone2": "+11122334456",\n    "invoicingContactLanguage": "en",\n    "invoicingContactEmail": "invoice@company.com",\n    "invoicingContactAddress": "221B Baker Street",\n    "invoicingContactCity": "London",\n    "invoicingContactZipcode": "110011",\n    "invoicingContactCountry": "UK",\n    "listingAmenities": [\n        {\n            "amenityId": 2\n        },\n        {\n            "amenityId": 3\n        }\n    ],\n    "listingBedTypes": [\n        {\n            "bedTypeId": 2,\n            "quantity": 1\n        }\n    ],\n    "listingImages": [\n        {\n            "caption": "Kitche",\n            "url": "https://www.sharingxchange.com/spacelist/assets/uploads/property/9/5853ff465e538.JPG",\n            "sortOrder": 2\n        },\n        {\n            "caption": "hall",\n            "url": "https://www.sharingxchange.com/spacelist/assets/uploads/property/6/57eb022da2b28.jpg",\n            "sortOrder": 3\n        }\n    ]\n,"customFieldValues": [{"customFieldId": 167,"value": "Custom field value one"},{"customFieldId": 243,"value": "Custom field value two"}]\n}'</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
@@ -2494,7 +2465,6 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
   <span class="s2">"invoicingContactZipcode"</span><span class="p">:</span> <span class="s2">"110011"</span><span class="p">,</span>
   <span class="s2">"invoicingContactCountry"</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span> 
   <span class="s2">"isRentalAgreementActive"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"bookingcomPropertyHasVat"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="s2">"listingAgreementText"</span><span class="p">:</span> <span class="s2">"Rental agreement text for listing"</span><span class="p">,</span>
   <span class="s2">"propertyLicenseNumber"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="s2">"propertyLicenseType"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -6598,12 +6568,6 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>no</td>
 <td>string</td>
 <td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">guestEmail</code></td>
-<td>no</td>
-<td>string</td>
-<td>Filter reservations by guest email address</td>
 </tr>
 </tbody></table>
 
@@ -18488,910 +18452,6 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-          <h1 id="expense">Expense</h1>
-
-<p>Expense represents financial expense values</p>
-
-          <h2 id="expense-object">Expense Object</h2>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10638</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ownerStatementId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"listingMapId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"reservationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"expenseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-22"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"concept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ownerUserId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01 00:00:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01 00:00:00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ownerStatementIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="mi">6</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"categoriesNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-  </span><span class="s2">"listingName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"guestName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ownerStatementNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"test"</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"ownerStatementExpenseId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Required</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">id</code></td>
-<td>yes</td>
-<td>int</td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">accountId</code></td>
-<td>yes</td>
-<td>int</td>
-<td>Account ID</td>
-</tr>
-<tr>
-<td><code class="prettyprint">ownerStatementId</code></td>
-<td>no</td>
-<td>int</td>
-<td>Related owner statement ID</td>
-</tr>
-<tr>
-<td><code class="prettyprint">listingMapId</code></td>
-<td>no</td>
-<td>int</td>
-<td>ID of listing map</td>
-</tr>
-<tr>
-<td><code class="prettyprint">reservationId</code></td>
-<td>no</td>
-<td>int</td>
-<td>ID of the reservation</td>
-</tr>
-<tr>
-<td><code class="prettyprint">expenseDate</code></td>
-<td>yes</td>
-<td>string</td>
-<td>Date of expense</td>
-</tr>
-<tr>
-<td><code class="prettyprint">concept</code></td>
-<td>yes</td>
-<td>string</td>
-<td>Reason of expense, max 255 characters</td>
-</tr>
-<tr>
-<td><code class="prettyprint">amount</code></td>
-<td>yes</td>
-<td>float</td>
-<td>Financial amount of expense</td>
-</tr>
-<tr>
-<td><code class="prettyprint">isDeleted</code></td>
-<td>yes</td>
-<td>int</td>
-<td>IF 1 then it is marked as deleted and not considered in owner statements</td>
-</tr>
-<tr>
-<td><code class="prettyprint">ownerUserId</code></td>
-<td>no</td>
-<td>int</td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">insertedOn</code></td>
-<td>yes</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">updatedOn</code></td>
-<td>yes</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">ownerStatementIds</code></td>
-<td>no</td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">categories</code></td>
-<td>no</td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">categoriesNames</code></td>
-<td>no</td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">attachments</code></td>
-<td>no</td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">listingName</code></td>
-<td>no</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td><code class="prettyprint">guestName</code></td>
-<td>no</td>
-<td>string</td>
-<td>Related reservation ID guest name</td>
-</tr>
-<tr>
-<td><code class="prettyprint">ownerStatementNames</code></td>
-<td>no</td>
-<td>array</td>
-<td>List of owner statement names that contain the expense</td>
-</tr>
-<tr>
-<td><code class="prettyprint">ownerStatementExpenseId</code></td>
-<td>yes</td>
-<td>int</td>
-<td>Just a copy of id field</td>
-</tr>
-</tbody></table>
-
-          <h2 id="get-expenses-list">Get expenses list</h2>
-
-<p>Get expenses list</p>
-
-<h3 id="query-params">Query params:</h3>
-
-<table><thead>
-<tr>
-<th>name</th>
-<th>default</th>
-<th>options</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">limit</code></td>
-<td>100</td>
-<td>amount of records to retrieve, 500 is max</td>
-</tr>
-<tr>
-<td><code class="prettyprint">offset</code></td>
-<td>0</td>
-<td>amount of records to skip</td>
-</tr>
-<tr>
-<td><code class="prettyprint">format</code></td>
-<td>json</td>
-<td>one of the following: json, csv</td>
-</tr>
-</tbody></table>
-
-<h3 id="request">Request</h3>
-<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url <span class="s1">'https://api.hostaway.com/v1/expenses'</span> <span class="se">\</span>
-  --header <span class="s1">'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'</span> <span class="se">\</span>
-  --header <span class="s1">'Cache-control: no-cache'</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-
-<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/expenses"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
-  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s2">"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">,</span>
-    <span class="s2">"Cache-control: no-cache"</span>
-  <span class="p">),</span>
-<span class="p">));</span>
-
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-<span class="nv">$err</span> <span class="o">=</span> <span class="nb">curl_error</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="nv">$err</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">echo</span> <span class="s2">"cURL Error #:"</span> <span class="o">.</span> <span class="nv">$err</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-
-<span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">withCredentials</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"readystatechange"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">});</span>
-
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/expenses"</span><span class="p">);</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Authorization"</span><span class="p">,</span> <span class="s2">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">);</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Cache-control"</span><span class="p">,</span> <span class="s2">"no-cache"</span><span class="p">);</span>
-
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
-
-<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/expenses"</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">get</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Cache-control"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-
-<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.hostaway.com/v1/expenses"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">,</span>
-    <span class="s">'Cache-control'</span><span class="p">:</span> <span class="s">"no-cache"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre>
-<p><code class="prettyprint">GET https://api.hostaway.com/v1/expenses</code></p>
-
-<h3 id="response">Response</h3>
-
-<p>List of expense objects</p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10638</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ownerStatementId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"listingMapId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"reservationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"expenseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-22"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"concept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ownerUserId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01 00:00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01 00:00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ownerStatementIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="mi">6</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-      </span><span class="s2">"categoriesNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-      </span><span class="s2">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-      </span><span class="s2">"listingName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"guestName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ownerStatementNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"test"</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"ownerStatementExpenseId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10638</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ownerStatementId"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"listingMapId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"reservationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"expenseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-21"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"concept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">555</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ownerUserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-10-19 13:44:00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-02-10 15:30:48"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ownerStatementIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="mi">16</span><span class="p">,</span><span class="w">
-        </span><span class="mi">5</span><span class="p">,</span><span class="w">
-        </span><span class="mi">6</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-      </span><span class="s2">"categoriesNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-      </span><span class="s2">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-      </span><span class="s2">"ownerUserEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@test.com"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ownerUserFirstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ownerUserLastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ownerUserName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test User (test@test.com)"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"listingName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"guestName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ownerStatementNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"test1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"test2"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"test3"</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"ownerStatementExpenseId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-          <h2 id="get-expense-by-id">Get expense by ID</h2>
-
-<p>Get expense by id</p>
-
-<h3 id="request">Request</h3>
-<pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url <span class="s1">'https://api.hostaway.com/v1/expenses/1'</span> <span class="se">\</span>
-  --header <span class="s1">'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'</span> <span class="se">\</span>
-  --header <span class="s1">'Cache-control: no-cache'</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-
-<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/expenses/1"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
-  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s2">"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">,</span>
-    <span class="s2">"Cache-control: no-cache"</span>
-  <span class="p">),</span>
-<span class="p">));</span>
-
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-<span class="nv">$err</span> <span class="o">=</span> <span class="nb">curl_error</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="nv">$err</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">echo</span> <span class="s2">"cURL Error #:"</span> <span class="o">.</span> <span class="nv">$err</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-
-<span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">withCredentials</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"readystatechange"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">});</span>
-
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/expenses/1"</span><span class="p">);</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Authorization"</span><span class="p">,</span> <span class="s2">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">);</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Cache-control"</span><span class="p">,</span> <span class="s2">"no-cache"</span><span class="p">);</span>
-
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
-
-<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/expenses/1"</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">get</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Cache-control"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-
-<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.hostaway.com/v1/expenses/1"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">,</span>
-    <span class="s">'Cache-control'</span><span class="p">:</span> <span class="s">"no-cache"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre>
-<p><code class="prettyprint">GET https://api.hostaway.com/v1/expenses/1</code></p>
-
-<h3 id="response">Response</h3>
-
-<p>Expense object</p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10638</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ownerStatementId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"listingMapId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"reservationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expenseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-21"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"concept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ownerUserId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01 00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01 00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ownerStatementIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="mi">5</span><span class="p">,</span><span class="w">
-      </span><span class="mi">6</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="mi">1</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"categoriesNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"test"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"listingName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"guestName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ownerStatementNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"test4"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"test2"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"ownerStatementExpenseId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-          <h2 id="create-expense">Create expense</h2>
-
-<p>Create expense</p>
-
-<h3 id="request">Request</h3>
-<pre class="highlight shell tab-shell"><code>curl --location --request POST <span class="s1">'https://api.hostaway.com/v1/expenses'</span> <span class="se">\</span>
---header <span class="s1">'jwt;'</span> <span class="se">\</span>
---header <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
---data-raw <span class="s1">'{
-        "ownerStatementId": null,
-        "listingMapId": 123,
-        "reservationId": null,
-        "expenseDate": "2021-10-21",
-        "concept": "test",
-        "amount": 123,
-        "isDeleted": 0,
-        "ownerUserId": null,
-        "ownerStatementIds": [
-            5,
-            6
-        ],
-        "categories": [
-            1
-        ],
-        "attachments": []
-    }'</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-
-<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s1">'https://api.hostaway.com/v1/expenses'</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
-  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="nx">CURLOPT_FOLLOWLOCATION</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s1">'POST'</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span><span class="s1">'{
-        "ownerStatementId": null,
-        "listingMapId": 123,
-        "reservationId": null,
-        "expenseDate": "2021-10-21",
-        "concept": "test",
-        "amount": 123,
-        "isDeleted": 0,
-        "ownerUserId": null,
-        "ownerStatementIds": [
-            5,
-            6
-        ],
-        "categories": [
-            1
-        ],
-        "attachments": []
-    }'</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'jwt: '</span><span class="p">,</span>
-    <span class="s1">'Content-type: application/json'</span>
-  <span class="p">),</span>
-<span class="p">));</span>
-
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="s2">"ownerStatementId"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"listingMapId"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
-    <span class="s2">"reservationId"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"expenseDate"</span><span class="p">:</span> <span class="s2">"2021-10-21"</span><span class="p">,</span>
-    <span class="s2">"concept"</span><span class="p">:</span> <span class="s2">"test"</span><span class="p">,</span>
-    <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
-    <span class="s2">"isDeleted"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"ownerUserId"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"ownerStatementIds"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="mi">5</span><span class="p">,</span>
-        <span class="mi">6</span>
-    <span class="p">],</span>
-    <span class="s2">"categories"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="mi">1</span>
-    <span class="p">],</span>
-    <span class="s2">"attachments"</span><span class="p">:</span> <span class="p">[]</span>
-<span class="p">});</span>
-
-<span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">withCredentials</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"readystatechange"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">});</span>
-
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"POST"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/expenses"</span><span class="p">);</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"jwt"</span><span class="p">,</span> <span class="s2">""</span><span class="p">);</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-type"</span><span class="p">,</span> <span class="s2">"application/json"</span><span class="p">);</span>
-
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-<span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
-<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"ownerStatementId\": null,\n    \"listingMapId\": 123,\n    \"reservationId\": null,\n    \"expenseDate\": \"2021-10-21\",\n    \"concept\": \"test\",\n    \"amount\": 123,\n    \"isDeleted\": 0,\n    \"ownerUserId\": null,\n    \"ownerStatementIds\": [\n        5,\n        6\n    ],\n    \"categories\": [\n        1\n    ],\n    \"attachments\": []\n}"</span><span class="o">);</span>
-<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/expenses"</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"jwt"</span><span class="o">,</span> <span class="s">""</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">http.client</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s">"api.hostaway.com"</span><span class="p">,</span> <span class="n">undefined</span><span class="p">)</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
-        <span class="s">"ownerStatementId"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-        <span class="s">"listingMapId"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
-        <span class="s">"reservationId"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-        <span class="s">"expenseDate"</span><span class="p">:</span> <span class="s">"2021-10-21"</span><span class="p">,</span>
-        <span class="s">"concept"</span><span class="p">:</span> <span class="s">"test"</span><span class="p">,</span>
-        <span class="s">"amount"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
-        <span class="s">"isDeleted"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s">"ownerUserId"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-        <span class="s">"ownerStatementIds"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="mi">5</span><span class="p">,</span>
-            <span class="mi">6</span>
-        <span class="p">],</span>
-        <span class="s">"categories"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="mi">1</span>
-        <span class="p">],</span>
-        <span class="s">"attachments"</span><span class="p">:</span> <span class="p">[]</span>
-    <span class="p">})</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'jwt'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span>
-  <span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span>
-<span class="p">}</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="s">"/v1/expenses"</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span>
-</code></pre>
-<p><code class="prettyprint">POST https://api.hostaway.com/v1/expenses</code></p>
-
-<h3 id="response">Response</h3>
-
-<p>Created expense object</p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10638</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ownerStatementId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"listingMapId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"reservationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expenseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-21"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"concept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ownerUserId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01 00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01 00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ownerStatementIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="mi">5</span><span class="p">,</span><span class="w">
-      </span><span class="mi">6</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="mi">1</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"categoriesNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"test"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"listingName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"guestName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ownerStatementNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"test4"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"test2"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"ownerStatementExpenseId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-          <h2 id="delete-expense-by-id">Delete expense by ID</h2>
-
-<p>Delete expense by id</p>
-
-<h3 id="request">Request</h3>
-<pre class="highlight shell tab-shell"><code>curl --request DELETE <span class="se">\</span>
-  --url <span class="s1">'https://api.hostaway.com/v1/expenses/1'</span> <span class="se">\</span>
-  --header <span class="s1">'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'</span> <span class="se">\</span>
-  --header <span class="s1">'Cache-control: no-cache'</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-
-<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/expenses/1"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
-  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"DELETE"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s2">"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">,</span>
-    <span class="s2">"Cache-control: no-cache"</span>
-  <span class="p">),</span>
-<span class="p">));</span>
-
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-<span class="nv">$err</span> <span class="o">=</span> <span class="nb">curl_error</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="nv">$err</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">echo</span> <span class="s2">"cURL Error #:"</span> <span class="o">.</span> <span class="nv">$err</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-
-<span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">withCredentials</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"readystatechange"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">});</span>
-
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"DELETE"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/expenses/1"</span><span class="p">);</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Authorization"</span><span class="p">,</span> <span class="s2">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">);</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Cache-control"</span><span class="p">,</span> <span class="s2">"no-cache"</span><span class="p">);</span>
-
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-<span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"text/plain"</span><span class="o">);</span>
-<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span>
-<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/expenses/1"</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"DELETE"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"jwt"</span><span class="o">,</span> <span class="s">""</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.hostaway.com/v1/expenses/1"</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"</span><span class="p">,</span>
-    <span class="s">'Cache-control'</span><span class="p">:</span> <span class="s">"no-cache"</span><span class="p">,</span>
-    <span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"DELETE"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre>
-<p><code class="prettyprint">DELETE https://api.hostaway.com/v1/expenses/1</code></p>
-
-<h3 id="response">Response</h3>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-          <h2 id="update-expense-by-id">Update expense by ID</h2>
-
-<p>Update expense by id</p>
-
-<h3 id="request">Request</h3>
-<pre class="highlight shell tab-shell"><code>curl --location --request PUT <span class="s1">'https://api.hostaway.com/v1/expenses/1'</span> <span class="se">\</span>
---header <span class="s1">'jwt;'</span> <span class="se">\</span>
---header <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
---data-raw <span class="s1">'{
-        "ownerStatementId": null,
-        "listingMapId": 123,
-        "reservationId": null,
-        "expenseDate": "2021-10-21",
-        "concept": "test",
-        "amount": 123,
-        "isDeleted": 0,
-        "ownerUserId": null,
-        "ownerStatementIds": [
-            5,
-            6
-        ],
-        "categories": [
-            1
-        ],
-        "attachments": []
-    }'</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-
-<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-
-<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s1">'https://api.hostaway.com/v1/expenses/1'</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">,</span>
-  <span class="nx">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="nx">CURLOPT_FOLLOWLOCATION</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="nx">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s1">'PUT'</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span><span class="s1">'{
-        "ownerStatementId": null,
-        "listingMapId": 123,
-        "reservationId": null,
-        "expenseDate": "2021-10-21",
-        "concept": "test",
-        "amount": 123,
-        "isDeleted": 0,
-        "ownerUserId": null,
-        "ownerStatementIds": [
-            5,
-            6
-        ],
-        "categories": [
-            1
-        ],
-        "attachments": []
-    }'</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'jwt: '</span><span class="p">,</span>
-    <span class="s1">'Content-type: application/json'</span>
-  <span class="p">),</span>
-<span class="p">));</span>
-
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="s2">"ownerStatementId"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"listingMapId"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
-    <span class="s2">"reservationId"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"expenseDate"</span><span class="p">:</span> <span class="s2">"2021-10-21"</span><span class="p">,</span>
-    <span class="s2">"concept"</span><span class="p">:</span> <span class="s2">"test"</span><span class="p">,</span>
-    <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
-    <span class="s2">"isDeleted"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"ownerUserId"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"ownerStatementIds"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="mi">5</span><span class="p">,</span>
-        <span class="mi">6</span>
-    <span class="p">],</span>
-    <span class="s2">"categories"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="mi">1</span>
-    <span class="p">],</span>
-    <span class="s2">"attachments"</span><span class="p">:</span> <span class="p">[]</span>
-<span class="p">});</span>
-
-<span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">withCredentials</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"readystatechange"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">});</span>
-
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"PUT"</span><span class="p">,</span> <span class="s2">"https://api.hostaway.com/v1/expenses/1"</span><span class="p">);</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"jwt"</span><span class="p">,</span> <span class="s2">""</span><span class="p">);</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-type"</span><span class="p">,</span> <span class="s2">"application/json"</span><span class="p">);</span>
-
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-</code></pre><pre class="highlight java tab-java"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-<span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
-<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"ownerStatementId\": null,\n    \"listingMapId\": 123,\n    \"reservationId\": null,\n    \"expenseDate\": \"2021-10-21\",\n    \"concept\": \"test\",\n    \"amount\": 123,\n    \"isDeleted\": 0,\n    \"ownerUserId\": null,\n    \"ownerStatementIds\": [\n        5,\n        6\n    ],\n    \"categories\": [\n        1\n    ],\n    \"attachments\": []\n}"</span><span class="o">);</span>
-<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
-  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/expenses/1"</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"PUT"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"jwt"</span><span class="o">,</span> <span class="s">""</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
-  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">http.client</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s">"api.hostaway.com"</span><span class="p">,</span> <span class="n">undefined</span><span class="p">)</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
-        <span class="s">"ownerStatementId"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-        <span class="s">"listingMapId"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
-        <span class="s">"reservationId"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-        <span class="s">"expenseDate"</span><span class="p">:</span> <span class="s">"2021-10-21"</span><span class="p">,</span>
-        <span class="s">"concept"</span><span class="p">:</span> <span class="s">"test"</span><span class="p">,</span>
-        <span class="s">"amount"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
-        <span class="s">"isDeleted"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s">"ownerUserId"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
-        <span class="s">"ownerStatementIds"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="mi">5</span><span class="p">,</span>
-            <span class="mi">6</span>
-        <span class="p">],</span>
-        <span class="s">"categories"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="mi">1</span>
-        <span class="p">],</span>
-        <span class="s">"attachments"</span><span class="p">:</span> <span class="p">[]</span>
-    <span class="p">})</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'jwt'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span>
-  <span class="s">'Content-type'</span><span class="p">:</span> <span class="s">'application/json'</span>
-<span class="p">}</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"PUT"</span><span class="p">,</span> <span class="s">"/v1/expenses/1"</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span>
-</code></pre>
-<p><code class="prettyprint">PUT https://api.hostaway.com/v1/expenses/1</code></p>
-
-<h3 id="response">Response</h3>
-
-<p>Updated expense object</p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10638</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ownerStatementId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"listingMapId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"reservationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expenseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-21"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"concept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ownerUserId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01 00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01 00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ownerStatementIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="mi">5</span><span class="p">,</span><span class="w">
-      </span><span class="mi">6</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="mi">1</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"categoriesNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"test"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"listingName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"guestName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ownerStatementNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"test4"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"test2"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"ownerStatementExpenseId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
           <h1 id="review">Review</h1>
 
           <h2 id="review-object">Review object</h2>
@@ -23047,8 +22107,7 @@ technics. You can log the request, return 200 and process it later asynchronousl
     </span><span class="s2">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.example.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"login"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"alertingEmailAddress"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -23088,12 +22147,6 @@ technics. You can log the request, return 200 and process it later asynchronousl
 <td>no</td>
 <td>string</td>
 <td>Basic auth password</td>
-</tr>
-<tr>
-<td><code class="prettyprint">alertingEmailAddress</code></td>
-<td>no</td>
-<td>string</td>
-<td>Alert email address</td>
 </tr>
 </tbody></table>
 
@@ -23191,7 +22244,6 @@ technics. You can log the request, return 200 and process it later asynchronousl
     "url": "https://api.example.com",
     "login": null,
     "password": null,
-    "alertingEmailAddress": null
 }'</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
@@ -23228,7 +22280,6 @@ technics. You can log the request, return 200 and process it later asynchronousl
     <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://api.example.com"</span><span class="p">,</span>
     <span class="s2">"login"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"password"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"alertingEmailAddress"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">});</span>
 
 <span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
@@ -23380,7 +22431,6 @@ technics. You can log the request, return 200 and process it later asynchronousl
     "url": "https://api.example.com",
     "login": null,
     "password": null,
-    "alertingEmailAddress": null
 }'</span>
 </code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 
@@ -23417,7 +22467,6 @@ technics. You can log the request, return 200 and process it later asynchronousl
     <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://api.example.com"</span><span class="p">,</span>
     <span class="s2">"login"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="s2">"password"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"alertingEmailAddress"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">});</span>
 
 <span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
