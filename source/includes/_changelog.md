@@ -1,5 +1,9 @@
 ## Changelog
 
+**2023-07-27**
+
+- thumbnailUrl in listing object is deprecated [listing object](#listing-object)
+
 **2023-05-11**
 
 - Added expense articles [expense](#expense)
