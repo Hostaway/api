@@ -17,7 +17,7 @@ RUN groupadd -r -g $GID $CONTAINER_GROUP_NAME \
 
 RUN apt-get clean
 
-RUN apt-get update -y && apt-get install -y sudo nano vim mc locales curl net-tools \
+RUN apt-get update -y && apt-get install -y sudo nano vim libffi-dev mc locales nano curl net-tools \
     software-properties-common git aptitude wget htop ncdu build-essential zip unzip \
     bc curl nodejs libxslt-dev rubygems ruby-dev
 
@@ -26,7 +26,9 @@ RUN locale-gen en_US.UTF-8 && export LC_ALL=en_US.UTF-8;
 WORKDIR /var/www
 COPY . .
 
-RUN gem install --no-document bundler
-RUN bundle config build.nokogiri --use-system-libraries && bundle install --path=ruby_dep
+RUN gem install bundler -v '~> 1.1'
+RUN bundle config build.nokogiri --use-system-libraries
+RUN bundle install --path=ruby_dep
+EXPOSE 4567
 
 CMD ["./start-server.sh"]

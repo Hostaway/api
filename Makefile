@@ -13,6 +13,6 @@ build:
 	docker-compose build
 
 deploy:
-	docker compose exec hostaways-api bundle exec middleman build --clean
+	docker-compose exec hostaways-api bundle exec middleman build --clean
 	bash deploy.sh
 	echo "The app has been deployed. In 2-3 minutes try to open: https://hostaway.github.io/api/"
