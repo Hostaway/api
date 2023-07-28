@@ -91,17 +91,18 @@ print(response.text)
 
 `GET https://api.hostaway.com/v1/reviews`
 
-Query Parameter | Required | Type | Description
---------- | -------- | ---- | -----------
-`limit` | no | int | Maximum number of items in the list.
-`offset` | no | int | Number of items to skip from beginning of the list.
+Query Parameter | Required | Type   | Description
+--------- | -------- |--------| -----------
+`listingMapIds` | no | int[]  | Array of Listing IDs
+`limit` | no | int    | Maximum number of items in the list.
+`offset` | no | int    | Number of items to skip from beginning of the list.
 `sortBy` | no | string | One of: id, guestName, arrivalDate, departureDate.
 `sortOrder` | no | string | Asc or desc
-`reservationId` | no | int | 
+`reservationId` | no | int    | 
 `type` | no | string | One of: guest-to-host, host-to-guest
-`statuses` | no | array | awaiting, pending, scheduled, submitted, published, expired
-`departureDateStart` | no | date |
-`departureDateEnd` | no | date |
+`statuses` | no | array  | awaiting, pending, scheduled, submitted, published, expired
+`departureDateStart` | no | date   |
+`departureDateEnd` | no | date   |
 
 ### Response
 
