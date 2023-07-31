@@ -1,5 +1,9 @@
 ## Changelog
 
+**2023-07-31**
+
+- Added Guest payment / auto-payment rules
+
 **2023-07-27**
 
 - thumbnailUrl in listing object is deprecated [listing object](#listing-object)
