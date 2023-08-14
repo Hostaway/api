@@ -26,9 +26,10 @@ RUN locale-gen en_US.UTF-8 && export LC_ALL=en_US.UTF-8;
 WORKDIR /var/www
 COPY . .
 
-RUN gem install bundler -v '~> 1.1'
+RUN gem install bundler -v '~> 2.1.4'
 RUN bundle config build.nokogiri --use-system-libraries
-RUN bundle install --path=ruby_dep
+RUN bundle install
+
 EXPOSE 4567
 
 CMD ["./start-server.sh"]
