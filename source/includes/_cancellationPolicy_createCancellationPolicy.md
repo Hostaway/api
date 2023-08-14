@@ -132,18 +132,46 @@ Response response = client.newCall(request).execute();
 
 ```python
 import http.client
+import json
 
 conn = http.client.HTTPSConnection("api.hostaway.com")
 
-payload = "{\n    \"name\": \"Cancellation policies\",\n    \"cancellationPolicyItem\": [\n        {\n            \"refundAmount\": 30,\n            \"refundType\": \"percentage\",\n            \"refundField\": \"totalPrice\",\n            \"timeDelta\": 3600,\n            \"event\": \"reservation\"\n        },\n        {\n            \"refundAmount\": 30,\n            \"refundType\": \"percentage\",\n            \"refundField\": \"totalPrice\",\n            \"timeDelta\": 3600,\n            \"event\": \"reservation\"\n        },\n        {\n            \"refundAmount\": 30,\n            \"refundType\": \"percentage\",\n            \"refundField\": \"totalPrice\",\n            \"timeDelta\": 3600,\n            \"event\": \"reservation\"\n        }\n    ]\n}\n"
+payload_obj = {
+    "name": "Cancellation policies",
+    "cancellationPolicyItem": [
+        {
+            "refundAmount": 30,
+            "refundType": "percentage",
+            "refundField": "totalPrice",
+            "timeDelta": 3600,
+            "event": "reservation"
+        },
+        {
+            "refundAmount": 30,
+            "refundType": "percentage",
+            "refundField": "totalPrice",
+            "timeDelta": 3600,
+            "event": "reservation"
+        },
+        {
+            "refundAmount": 30,
+            "refundType": "percentage",
+            "refundField": "totalPrice",
+            "timeDelta": 3600,
+            "event": "reservation"
+        }
+    ]
+}
+
+payload_json = json.dumps(payload_obj)
 
 headers = {
     'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImU3ZDRkNDM1ZDQ0M2UwYTJkYTYxOTE5Yzk0NWY3ODk0YThhYTMzZjM1MjM2ZWEzY2NiZjEwMzJmNTM2YzRiYjVhY2Y3YTkzYTNkN2ZhYjQ0In0.eyJhdWQiOiIxMDQ5MCIsImp0aSI6ImU3ZDRkNDM1ZDQ0M2UwYTJkYTYxOTE5Yzk0NWY3ODk0YThhYTMzZjM1MjM2ZWEzY2NiZjEwMzJmNTM2YzRiYjVhY2Y3YTkzYTNkN2ZhYjQ0IiwiaWF0IjoxNTI4MjgzMjgwLCJuYmYiOjE1MjgyODMyODAsImV4cCI6MTU0MzgzNTI4MCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.pzzHM2Qebad--FC8iwWZrFpblWQyiCKiroaEyrXKPWTXug3soe-62HK1bzZVlLQEJa166AtkevdEjXkOhQ6yRMJh3LlINrOKpLOSZKeTyMIydtYCdXJyWqgl3b3llAk8dZyQ8L8J_oyV9sRWMhy7MuIgAyFf1ITdVS2Z94KdyII",
     'Content-type': "application/json",
     'Cache-control': "no-cache"
-    }
+}
 
-conn.request("POST", "v1/cancellationPolicies", payload, headers)
+conn.request("POST", "v1/cancellationPolicies", payload_json, headers)
 
 res = conn.getresponse()
 data = res.read()

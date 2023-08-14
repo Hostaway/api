@@ -74,14 +74,26 @@ Response response = client.newCall(request).execute();
 
 ```python
 import http.client
+import json
 
 conn = http.client.HTTPSConnection("api.hostaway.com")
-payload = "{\n    \"startingDate\": \"2022-12-01\",\n    \"endingDate\": \"2022-12-31\",\n    \"numberOfGuests\": \"1\",\n \"version\": 2,\n}"
-headers = {
-  'Authorization': 'Bearer {{publicApiToken}}',
-  'Content-type': 'text/plain'
+
+payload = {
+    "startingDate": "2022-12-01",
+    "endingDate": "2022-12-31",
+    "numberOfGuests": "1",
+    "version": 2
 }
-conn.request("POST", "/v1/listings/40100/calendar/priceDetails", payload, headers)
+
+headers = {
+    'Authorization': 'Bearer {{publicApiToken}}',
+    'Content-type': 'application/json',
+    'Cache-control': 'no-cache'
+}
+
+payload_json = json.dumps(payload)
+
+conn.request("POST", "/v1/listings/40100/calendar/priceDetails", payload_json, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))

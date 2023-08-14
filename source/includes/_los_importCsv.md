@@ -94,14 +94,15 @@ headers = {
     'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjBlNGNmYzljNWRiYWZlNjViNDRhNjVhOTJiM2FiNDQ3ZmQ2ODAxZDg3OTM4NjE2OThkMzlhOTkxZDFkZmY2ZDQ2ODI1YWUzNTcyY2JmMWMiLCJpYXQiOjE2MzEwOTYxMjIsIm5iZiI6MTYzMTA5NjEyMiwiZXhwIjoxNjk0MTY4MTIyLCJzdWIiOiIiLCJzY29wZXMiOlsiZ2VuZXJhbCJdLCJzZWNyZXRJZCI6Nn0.CYvYVdgeVZ3IMeexoykRwGozV8k1TVL7AwxYGyGHcU6aYf37bP59PWqsHJPam8l3sSFJWWecJJTFCDIKwrKR6YY_GJcSzrK5_cQJ8x4EsXFrFi2K5mvPz9UlDGSCoFEyDCP5QmCmiULb71_A-Zj-q_KEVshFh1FXu5GIVpyKxlo",
     'Content-type': "application/x-www-form-urlencoded",
     'Cache-control': "no-cache",
-    }
+}
 
-conn.request("POST", "v1,los,csv,1", payload, headers)
+conn.request("POST", "/v1/los/csv/1", payload, headers)
 
 res = conn.getresponse()
 data = res.read()
 
 print(data.decode("utf-8"))
+
 ```
 
 `POST https://api.hostaway.com/v1/los/csv/{listingMapId}`

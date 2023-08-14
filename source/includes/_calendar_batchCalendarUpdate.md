@@ -128,18 +128,42 @@ Response response = client.newCall(request).execute();
 
 ```python
 import http.client
+import json
 
 conn = http.client.HTTPSConnection("api.hostaway.com")
 
-payload = "[\n\t{\n\t    \"startDate\": \"2017-10-05\",\n\t    \"endDate\": \"2017-10-06\",\n\t    \"isAvailable\": 1,\n\t    \"price\": 20,\n\t    \"minimumStay\": 1,\n\t    \"maximumStay\": 1125,\n\t    \"closedOnArrival\": null,\n\t    \"closedOnDeparture\": null,\n\t    \"note\": \"test\"\n\t},\n\t{\n\t    \"startDate\": \"2017-10-10\",\n\t    \"endDate\": \"2017-10-11\",\n\t    \"isAvailable\": 1,\n\t    \"price\": 21,\n\t    \"minimumStay\": 1,\n\t    \"maximumStay\": 1125,\n\t    \"closedOnArrival\": null,\n\t    \"closedOnDeparture\": null,\n\t    \"note\": \"test\"\n\t}\n]"
+payload = [
+    {
+        "startDate": "2017-10-05",
+        "endDate": "2017-10-06",
+        "isAvailable": 1,
+        "price": 20,
+        "minimumStay": 1,
+        "maximumStay": 1125,
+        "closedOnArrival": None,
+        "closedOnDeparture": None,
+        "note": "test"
+    },
+    {
+        "startDate": "2017-10-10",
+        "endDate": "2017-10-11",
+        "isAvailable": 1,
+        "price": 21,
+        "minimumStay": 1,
+        "maximumStay": 1125,
+        "closedOnArrival": None,
+        "closedOnDeparture": None,
+        "note": "test"
+    }
+]
 
 headers = {
     'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjJjZGRkYzNiZWU3OGEyZTA5NDgzNmZiYzE3MTQ3M2EwNjlkYTZlYzRjNmRlZDc1NTAzMWYzMzNmODVjYmQyMzI0Y2E4MTk0NzNkYzkxNjYzIiwiaWF0IjoxNDk5NzczMjk4LCJuYmYiOjE0OTk3NzMyOTgsImV4cCI6MTUxNTY3MDg5OCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.RYS6Gi7iLyhHRAzNRPPMUd5jYlGJ5Psq2ejFLDM5wmD1alAB6CdkTIuyrDrtJzkcAyPBpjKBAtDzGzsVrEUxMU90FJG8UO-AXrhxMN0GVtcWqpT5ndCSx0aWEv2TMAOwLX0uU5BSCSzM0jmS2c21gNzRqW2-kMgLfMwMzkVZhas",
     'Content-type': "application/json",
     'Cache-control': "no-cache",
-    }
+}
 
-conn.request("PUT", "/v1/listings/40160/calendarIntervals", payload, headers)
+conn.request("PUT", "/v1/listings/40160/calendarIntervals", json.dumps(payload), headers)
 
 res = conn.getresponse()
 data = res.read()

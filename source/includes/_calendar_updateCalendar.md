@@ -109,18 +109,32 @@ Response response = client.newCall(request).execute();
 
 ```python
 import http.client
+import json
 
 conn = http.client.HTTPSConnection("api.hostaway.com")
 
-payload = "{\n    \"startDate\": \"2017-09-01\",\n    \"endDate\": \"2017-09-05\",\n    \"isAvailable\": 1,\n    \"isProcessed\": 1,\n    \"price\": 20,\n    \"minimumStay\": 1,\n    \"maximumStay\": 1125,\n    \"closedOnArrival\": null,\n    \"closedOnDeparture\": null,\n    \"note\": \"test\"\n}"
+payload = {
+    "startDate": "2017-09-01",
+    "endDate": "2017-09-05",
+    "isAvailable": 1,
+    "isProcessed": 1,
+    "price": 20,
+    "minimumStay": 1,
+    "maximumStay": 1125,
+    "closedOnArrival": None,
+    "closedOnDeparture": None,
+    "note": "test"
+}
 
 headers = {
     'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw",
     'Content-type': "application/json",
     'Cache-control': "no-cache"
-    }
+}
 
-conn.request("PUT", "/v1/listings/40160/calendar", payload, headers)
+payload_json = json.dumps(payload)
+
+conn.request("PUT", "/v1/listings/40160/calendar", payload_json, headers)
 
 res = conn.getresponse()
 data = res.read()

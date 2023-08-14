@@ -74,12 +74,21 @@ import requests
 
 url = "https://api.hostaway.com/v1/listings"
 
-querystring = {"limit":"","offset":"","sortOrder":"","city":"","match":"","country":"","contactName":"","propertyTypeId":""}
+querystring = {
+    "limit": "",
+    "offset": "",
+    "sortOrder": "",
+    "city": "",
+    "match": "",
+    "country": "",
+    "contactName": "",
+    "propertyTypeId": ""
+}
 
 headers = {
     'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
     'Cache-control': "no-cache",
-    }
+}
 
 response = requests.request("GET", url, headers=headers, params=querystring)
 
@@ -178,15 +187,22 @@ import requests
 
 url = "https://api.hostaway.com/v1/reservationCoupons"
 
-payload = "{\n    \"couponName\": \"COUPONNAME\",\n    \"listingMapId\": 40100,\n    \"startingDate\": \"2023-01-01\",\n    \"endingDate\": \"2023-12-31\"\n}"
-headers = {
-  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6ImFmMjM3NWZiYjJkZmNiM2Y3YmJhZTk2MTFkY2YxYTc1ZGU5MjllZTQ0YWIxYjcwZmE4NzQzYjNlNGE1M2I5ZDBiNzk2NmVhZDk2MDQ5Nzg3IiwiaWF0IjoxNjY3MzEyMTYwLCJuYmYiOjE2NjczMTIxNjAsImV4cCI6MTczMDQ3MDU2MCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.ArIr26BPlgMDbexpkR-J2Xi_NrLdCXi186YTOYlZHlTMzXrfopeY2T9tzKC6oNNRoedEGKCVrSrDiEnt00fErNETaRiYj2wH7dwoHpmOgEqfajhQImUFlC_uHuMgtyoN1slzX9oj80px156RaZEK6Dnxf1qXsFhWsb0YETQFohc',
-  'Content-Type': 'text/plain'
+payload = {
+    "couponName": "COUPONNAME",
+    "listingMapId": 40100,
+    "startingDate": "2023-01-01",
+    "endingDate": "2023-12-31"
 }
 
-response = requests.request("POST", url, headers=headers, data=payload)
+headers = {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6ImFmMjM3NWZiYjJkZmNiM2Y3YmJhZTk2MTFkY2YxYTc1ZGU5MjllZTQ0YWIxYjcwZmE4NzQzYjNlNGE1M2I5ZDBiNzk2NmVhZDk2MDQ5Nzg3IiwiaWF0IjoxNjY3MzEyMTYwLCJuYmYiOjE2NjczMTIxNjAsImV4cCI6MTczMDQ3MDU2MCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.ArIr26BPlgMDbexpkR-J2Xi_NrLdCXi186YTOYlZHlTMzXrfopeY2T9tzKC6oNNRoedEGKCVrSrDiEnt00fErNETaRiYj2wH7dwoHpmOgEqfajhQImUFlC_uHuMgtyoN1slzX9oj80px156RaZEK6Dnxf1qXsFhWsb0YETQFohc',
+    'Content-Type': 'application/json'
+}
+
+response = requests.request("POST", url, headers=headers, json=payload)
 
 print(response.text)
+
 ```
 
 `POST https://api.hostaway.com/v1/reservationCoupons`
