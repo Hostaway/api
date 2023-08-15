@@ -96,17 +96,36 @@ Response response = client.newCall(request).execute();
 
 ```python
 import http.client
+import json
 
 conn = http.client.HTTPSConnection("api.hostaway.com")
-payload = "{\n    \"startingDate\": \"2020-12-01\",\n    \"endingDate\": \"2020-12-31\",\n    \"numberOfGuests\": \"1\",\n    \"version\": 2,\n    \"components\": [\n        {\n            \"listingFeeSettingId\": 17643,\n            \"name\": \"childrenExtraFee\"\n        }\n    ]\n}"
-headers = {
-  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ',
-  'Content-type': 'text/plain'
+
+payload = {
+    "startingDate": "2020-12-01",
+    "endingDate": "2020-12-31",
+    "numberOfGuests": "1",
+    "version": 2,
+    "components": [
+        {
+            "listingFeeSettingId": 17643,
+            "name": "childrenExtraFee"
+        }
+    ]
 }
-conn.request("POST", "/v1/listings/90632/calendar/priceDetails", payload, headers)
+
+headers = {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ',
+    'Content-type': 'application/json',
+    'Cache-control': 'no-cache'
+}
+
+payload_json = json.dumps(payload)
+
+conn.request("POST", "/v1/listings/90632/calendar/priceDetails", payload_json, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))
+
 ```
 
 
@@ -375,14 +394,34 @@ Response response = client.newCall(request).execute();
 
 ```python
 import http.client
+import json
 
 conn = http.client.HTTPSConnection("api.hostaway.com")
-payload = "{\n    \"startingDate\": \"2020-12-01\",\n    \"endingDate\": \"2020-12-31\",\n    \"numberOfGuests\": \"1\",\n    \"version\": 2,\n    \"components\": [\n        {\n            \"listingFeeSettingId\": 17643,\n            \"name\": \"childrenExtraFee\",\n            \"isOverriddenByUser\": 1,\n            \"value\": 500\n        }\n    ]\n}"
-headers = {
-  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ',
-  'Content-type': 'text/plain'
+
+payload = {
+    "startingDate": "2020-12-01",
+    "endingDate": "2020-12-31",
+    "numberOfGuests": "1",
+    "version": 2,
+    "components": [
+        {
+            "listingFeeSettingId": 17643,
+            "name": "childrenExtraFee",
+            "isOverriddenByUser": 1,
+            "value": 500
+        }
+    ]
 }
-conn.request("POST", "/v1/listings/90632/calendar/priceDetails", payload, headers)
+
+headers = {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyODY3MyIsImp0aSI6IjJjYjk4NWRlNDIzYmExZTBiMzdiZjgzNjdjOWExZDE0ZmIwNDE3YjIxNGQ0Yjk4OGJkYzE5NjU3NjI4YmFiZDQ0YTQxNGRlZmI5NTYyMGRhIiwiaWF0IjoxNjY3MzEyNjUxLCJuYmYiOjE2NjczMTI2NTEsImV4cCI6MTczMDQ3MTA1MSwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjI3MTd9.JSvlt8VuBvPygoSjBeShiG0SQgwleninXSMuD4S4NwpsvljtHmsfM5CF1uQT-FTVeRuc8BdxNVPFuobWovQIEOlh6dYZJtaYv8PECp-EzgJCZKyv7-sY6cEC9s8Kf8hmJP3uOc-T90gxmOmOWm5zeL09HzWrdOqF_b-WgMifBtQ',
+    'Content-type': 'application/json',
+    'Cache-control': 'no-cache'
+}
+
+payload_json = json.dumps(payload)
+
+conn.request("POST", "/v1/listings/90632/calendar/priceDetails", payload_json, headers)
 res = conn.getresponse()
 data = res.read()
 print(data.decode("utf-8"))

@@ -83,16 +83,28 @@ Response response = client.newCall(request).execute();
 
 ```python
 import requests
+import json
 
 url = "https://api.hostaway.com/v1/paymentCards/154242"
 
-payload = "{\n    \"ccName\": \"Mikhail Ivanov\",\n    \"ccNumber\": \"4242424242424242\",\n    \"ccExpirationYear\": \"2024\",\n    \"ccExpirationMonth\": \"12\",\n    \"ccCvc\": \"123\",\n    \"isDefault\": 1\n}"
+payload = {
+    "ccName": "Mikhail Ivanov",
+    "ccNumber": "4242424242424242",
+    "ccExpirationYear": "2024",
+    "ccExpirationMonth": "12",
+    "ccCvc": "123",
+    "isDefault": 1
+}
+
 headers = {
     'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjljOGYzN2NjMzAzNWI5M2Q5MzJiMGZjZGYwOGYzNjc2NDA5MWNjMTI3MTY0ZWZhOGIzMTk1ZjRiOTU4YjNkZjYxZWNlZjVmOGJhMzkxZGYyIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6IjljOGYzN2NjMzAzNWI5M2Q5MzJiMGZjZGYwOGYzNjc2NDA5MWNjMTI3MTY0ZWZhOGIzMTk1ZjRiOTU4YjNkZjYxZWNlZjVmOGJhMzkxZGYyIiwiaWF0IjoxNTI2NjQ0MzE0LCJuYmYiOjE1MjY2NDQzMTQsImV4cCI6MTU0MjE5NjMxNCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.hVv1ybL5Ifl6VatEBXxJz4sNa7f2RPGlSGCK5YNiSDNBeW9FjgfzbKFW4GaKGXNBYk2b7TpxhwF_3RbBRE0Y817TIiwUNZEhMCz5do4Kp9ZX6nrHlvJiqdLYZXhaHUlU8vq-80a0xTmgVnjRH20JeA0q9t8gxcfYJUQfQMOb59Q",
-    'Cache-control': "no-cache",
-    }
+    'Content-type': 'application/json',
+    'Cache-control': 'no-cache',
+}
 
-response = requests.request("POST", url, data=payload, headers=headers)
+payload_json = json.dumps(payload)
+
+response = requests.request("POST", url, data=payload_json, headers=headers)
 
 print(response.text)
 ```

@@ -95,19 +95,28 @@ Response response = client.newCall(request).execute();
 
 ```python
 import requests
+import json
 
 url = "https://api.hostaway.com/v1/reservations/1/card"
 
-payload = "{\n  \"ccNumber\": \"5555555555554444\",\n  \"ccName\": \"john dow\",\n  \"cvc\": 123,\n  \"ccExpirationMonth\": 12,\n  \"ccExpirationYear\": 2034\n}\n"
+payload = {
+    "ccNumber": "5555555555554444",
+    "ccName": "john dow",
+    "cvc": 123,
+    "ccExpirationMonth": 12,
+    "ccExpirationYear": 2034
+}
+
 headers = {
     'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
     'Content-type': "application/json",
     'Cache-control': "no-cache"
-    }
+}
 
-response = requests.request("PUT", url, data=payload, headers=headers)
+response = requests.request("PUT", url, json=payload, headers=headers)
 
 print(response.text)
+
 ```
 
 ### Response

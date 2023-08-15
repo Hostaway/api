@@ -96,18 +96,28 @@ Response response = client.newCall(request).execute();
 
 ```python
 import http.client
+import json
 
 conn = http.client.HTTPSConnection("api.hostaway.com")
 
-payload = "{\n    \"channelId\": null,\n    \"listingMapId\": null,\n   \"isEnabled\": 1,\n     \"url\": \"http://httpbin.org/post\",\n \"login\": \"my_login\",\n \"password\": \"****\",\n  }"
+payload = {
+    "channelId": None,
+    "listingMapId": None,
+    "isEnabled": 1,
+    "url": "http://httpbin.org/post",
+    "login": "my_login",
+    "password": "****"
+}
 
 headers = {
     'Authorization': "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImU3ZDRkNDM1ZDQ0M2UwYTJkYTYxOTE5Yzk0NWY3ODk0YThhYTMzZjM1MjM2ZWEzY2NiZjEwMzJmNTM2YzRiYjVhY2Y3YTkzYTNkN2ZhYjQ0In0.eyJhdWQiOiIxMDQ5MCIsImp0aSI6ImU3ZDRkNDM1ZDQ0M2UwYTJkYTYxOTE5Yzk0NWY3ODk0YThhYTMzZjM1MjM2ZWEzY2NiZjEwMzJmNTM2YzRiYjVhY2Y3YTkzYTNkN2ZhYjQ0IiwiaWF0IjoxNTI4MjgzMjgwLCJuYmYiOjE1MjgyODMyODAsImV4cCI6MTU0MzgzNTI4MCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.pzzHM2Qebad--FC8iwWZrFpblWQyiCKiroaEyrXKPWTXug3soe-62HK1bzZVlLQEJa166AtkevdEjXkOhQ6yRMJh3LlINrOKpLOSZKeTyMIydtYCdXJyWqgl3b3llAk8dZyQ8L8J_oyV9sRWMhy7MuIgAyFf1ITdVS2Z94KdyII",
     'Content-type': "application/json",
     'Cache-control': "no-cache"
-    }
+}
 
-conn.request("POST", "v1/webhooks/reservations", payload, headers)
+payload_json = json.dumps(payload)
+
+conn.request("POST", "/v1/webhooks/reservations", payload_json, headers)
 
 res = conn.getresponse()
 data = res.read()
