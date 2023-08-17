@@ -1,5 +1,9 @@
 ## Changelog
 
+**2023-08-17**
+
+- Endpoints for tasks
+
 **2023-07-31**
 
 - Added Guest payment / auto-payment rules
