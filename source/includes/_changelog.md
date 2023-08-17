@@ -2,7 +2,7 @@
 
 **2023-08-17**
 
-- Endpoints for tasks
+- Endpoints for tasks 
 
 **2023-07-31**
 
