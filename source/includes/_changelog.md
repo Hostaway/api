@@ -1,5 +1,9 @@
 ## Changelog
 
+**2023-08-21**
+
+- Added Guest payment / create offline charges
+
 **2023-08-17**
 
 - Endpoints for tasks 
