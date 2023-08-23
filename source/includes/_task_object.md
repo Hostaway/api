@@ -47,40 +47,41 @@
 Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
 `id` | yes | int | 
-`listingMapId` | no | int | 
+`listingMapId` | no | int | Identifier of listing object
 `channelId` | no | int | 
-`reservationId` | no | int | 
-`autoTaskId` | no | int | 
-`assigneeUserId` | no | int | 
-`canBePickedByGroupId` | no | int | 
-`supervisorUserId` | no | int | 
-`createdByUserId` | no | int | 
-`isUpdatedManually` | no | int | 
-`checklistTemplateId` | no | int | 
-`reservationUnitId` | no | int | 
-`title` | yes | string | 
-`description` | no | string | 
-`canStartFrom` | no | date | 
-`canStartFromListingTime` | no | date | 
-`canStartFromEvent` | no | string | 
-`canStartFromEventDelta` | no | int | 
-`shouldEndBy` | no | date | 
-`shouldEndByListingTime` | no | date | 
-`shouldEndByEvent` | no | string | 
-`shouldEndByEventDelta` | no | int | 
-`status` | no | string | 
-`resolutionNote` | no | string | 
-`feedbackScore` | no | int | 
-`feedbackNote` | no | string | 
-`startedAt` | no | date | 
-`confirmedAt` | no | date | 
-`priority` | no | int | 
-`cost` | no | float | 
-`costCurrency` | no | string | 
-`costDescription` | no | string | 
-`color` | no | string | 
-`expense` | no | array | 
-`rank` | no | int | 
-`checklistItems` | no | array | 
-`customFieldValue` | no | array | 
-`categoriesMap` | no | array | 
+`reservationId` | no | int | Identifier of reservation object
+`autoTaskId` | no | int | Identifier of auto task object
+`assigneeUserId` | no | int | Identifier of assignee user object
+`canBePickedByGroupId` | no | int | Identifier of group object
+`supervisorUserId` | no | int | Identifier of supervisor user object
+`createdByUserId` | no | int | Identifier of user object
+`isUpdatedManually` | no | int | Whether task is updated manually from dashboard
+`checklistTemplateId` | no | int | Identifier of checklist template object
+`reservationUnitId` | no | int | Identifier of reservation unit object
+`title` | yes | string | Title
+`description` | no | string | Description
+`canStartFrom` | no | date | Start time
+`canStartFromListingTime` | no | date | Start time in listing time zone
+`canStartFromEvent` | no | string | If task is created from auto-task by event (`arrival`, `departure`, `previousArrival`, `previousDeparture`)
+`canStartFromEventDelta` | no | int | Event delta in hours
+`shouldEndBy` | no | date | End time
+`shouldEndByListingTime` | no | date | End time in listing time zone
+`shouldEndByEvent` | no | string | If task is created from auto-task by event (`arrival`, `departure`, `previousArrival`, `previousDeparture`)
+`shouldEndByEventDelta` | no | int | Event delta in hours
+`status` | no | string | Can be one of the following: `pending`, `confirmed`, `inProgress`, `completed`, `cancelled`
+`resolutionNote` | no | string | Resolution note
+`feedbackScore` | no | int | Feedback score
+`feedbackNote` | no | string | Feedback note
+`startedAt` | no | date | Time when task was started (`inProgress` status)
+`confirmedAt` | no | date | Time when task was confirmed
+`priority` | no | int | Priority
+`cost` | no | float | Cost
+`costCurrency` | no | string | Cost currency
+`costDescription` | no | string | Cost description
+`color` | no | string | Color in hex format (#000000)
+`expense` | no | array | Array of expenses (if any)
+`rank` | no | int | Rank
+`checklistItems` | no | array | Checklist items (if any)
+`customFieldValue` | no | array | Custom fields
+`categoriesMap` | no | array | 1 - cleaning, 2 - maintenance, 3 - check-in, 4 - check-out, 5 - back office, 6 - other
+
