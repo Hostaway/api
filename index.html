@@ -25748,7 +25748,7 @@ Up to 735 check-in dates (with 10 occupancy levels for each) so that you can cal
 <td><code class="prettyprint">listingMapId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Identifier of listing object</td>
 </tr>
 <tr>
 <td><code class="prettyprint">channelId</code></td>
@@ -25760,211 +25760,211 @@ Up to 735 check-in dates (with 10 occupancy levels for each) so that you can cal
 <td><code class="prettyprint">reservationId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Identifier of reservation object</td>
 </tr>
 <tr>
 <td><code class="prettyprint">autoTaskId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Identifier of auto task object</td>
 </tr>
 <tr>
 <td><code class="prettyprint">assigneeUserId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Identifier of assignee user object</td>
 </tr>
 <tr>
 <td><code class="prettyprint">canBePickedByGroupId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Identifier of group object</td>
 </tr>
 <tr>
 <td><code class="prettyprint">supervisorUserId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Identifier of supervisor user object</td>
 </tr>
 <tr>
 <td><code class="prettyprint">createdByUserId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Identifier of user object</td>
 </tr>
 <tr>
 <td><code class="prettyprint">isUpdatedManually</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Whether task is updated manually from dashboard</td>
 </tr>
 <tr>
 <td><code class="prettyprint">checklistTemplateId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Identifier of checklist template object</td>
 </tr>
 <tr>
 <td><code class="prettyprint">reservationUnitId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Identifier of reservation unit object</td>
 </tr>
 <tr>
 <td><code class="prettyprint">title</code></td>
 <td>yes</td>
 <td>string</td>
-<td></td>
+<td>Title</td>
 </tr>
 <tr>
 <td><code class="prettyprint">description</code></td>
 <td>no</td>
 <td>string</td>
-<td></td>
+<td>Description</td>
 </tr>
 <tr>
 <td><code class="prettyprint">canStartFrom</code></td>
 <td>no</td>
 <td>date</td>
-<td></td>
+<td>Start time</td>
 </tr>
 <tr>
 <td><code class="prettyprint">canStartFromListingTime</code></td>
 <td>no</td>
 <td>date</td>
-<td></td>
+<td>Start time in listing time zone</td>
 </tr>
 <tr>
 <td><code class="prettyprint">canStartFromEvent</code></td>
 <td>no</td>
 <td>string</td>
-<td></td>
+<td>If task is created from auto-task by event (<code class="prettyprint">arrival</code>, <code class="prettyprint">departure</code>, <code class="prettyprint">previousArrival</code>, <code class="prettyprint">previousDeparture</code>)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">canStartFromEventDelta</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Event delta in hours</td>
 </tr>
 <tr>
 <td><code class="prettyprint">shouldEndBy</code></td>
 <td>no</td>
 <td>date</td>
-<td></td>
+<td>End time</td>
 </tr>
 <tr>
 <td><code class="prettyprint">shouldEndByListingTime</code></td>
 <td>no</td>
 <td>date</td>
-<td></td>
+<td>End time in listing time zone</td>
 </tr>
 <tr>
 <td><code class="prettyprint">shouldEndByEvent</code></td>
 <td>no</td>
 <td>string</td>
-<td></td>
+<td>If task is created from auto-task by event (<code class="prettyprint">arrival</code>, <code class="prettyprint">departure</code>, <code class="prettyprint">previousArrival</code>, <code class="prettyprint">previousDeparture</code>)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">shouldEndByEventDelta</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Event delta in hours</td>
 </tr>
 <tr>
 <td><code class="prettyprint">status</code></td>
 <td>no</td>
 <td>string</td>
-<td></td>
+<td>Can be one of the following: <code class="prettyprint">pending</code>, <code class="prettyprint">confirmed</code>, <code class="prettyprint">inProgress</code>, <code class="prettyprint">completed</code>, <code class="prettyprint">cancelled</code></td>
 </tr>
 <tr>
 <td><code class="prettyprint">resolutionNote</code></td>
 <td>no</td>
 <td>string</td>
-<td></td>
+<td>Resolution note</td>
 </tr>
 <tr>
 <td><code class="prettyprint">feedbackScore</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Feedback score</td>
 </tr>
 <tr>
 <td><code class="prettyprint">feedbackNote</code></td>
 <td>no</td>
 <td>string</td>
-<td></td>
+<td>Feedback note</td>
 </tr>
 <tr>
 <td><code class="prettyprint">startedAt</code></td>
 <td>no</td>
 <td>date</td>
-<td></td>
+<td>Time when task was started (<code class="prettyprint">inProgress</code> status)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">confirmedAt</code></td>
 <td>no</td>
 <td>date</td>
-<td></td>
+<td>Time when task was confirmed</td>
 </tr>
 <tr>
 <td><code class="prettyprint">priority</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Priority</td>
 </tr>
 <tr>
 <td><code class="prettyprint">cost</code></td>
 <td>no</td>
 <td>float</td>
-<td></td>
+<td>Cost</td>
 </tr>
 <tr>
 <td><code class="prettyprint">costCurrency</code></td>
 <td>no</td>
 <td>string</td>
-<td></td>
+<td>Cost currency</td>
 </tr>
 <tr>
 <td><code class="prettyprint">costDescription</code></td>
 <td>no</td>
 <td>string</td>
-<td></td>
+<td>Cost description</td>
 </tr>
 <tr>
 <td><code class="prettyprint">color</code></td>
 <td>no</td>
 <td>string</td>
-<td></td>
+<td>Color in hex format (#000000)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">expense</code></td>
 <td>no</td>
 <td>array</td>
-<td></td>
+<td>Array of expenses (if any)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">rank</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Rank</td>
 </tr>
 <tr>
 <td><code class="prettyprint">checklistItems</code></td>
 <td>no</td>
 <td>array</td>
-<td></td>
+<td>Checklist items (if any)</td>
 </tr>
 <tr>
 <td><code class="prettyprint">customFieldValue</code></td>
 <td>no</td>
 <td>array</td>
-<td></td>
+<td>Custom fields</td>
 </tr>
 <tr>
 <td><code class="prettyprint">categoriesMap</code></td>
 <td>no</td>
 <td>array</td>
-<td></td>
+<td>1 - cleaning, 2 - maintenance, 3 - check-in, 4 - check-out, 5 - back office, 6 - other</td>
 </tr>
 </tbody></table>
 
