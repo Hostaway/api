@@ -1,5 +1,9 @@
 ## Changelog
 
+**2023-08-24**
+
+- Added endpoint [Get user by ID](#get-user-by-id)
+
 **2023-08-17**
 
 - Endpoints for tasks 
