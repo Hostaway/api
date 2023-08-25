@@ -1,8 +1,12 @@
 ## Changelog
 
-**2023-08-21**
+**2023-08-25**
 
 - Added Guest payment / create offline charges
+
+**2023-08-24**
+
+- Added endpoint [Get user by ID](#get-user-by-id)
 
 **2023-08-17**
 

@@ -162,6 +162,7 @@ includes:
   - review_retrieveReview
   - user
   - user_retrieveList
+  - user_retrieve
   - group
   - group_retrieveList
   - guestPayment
