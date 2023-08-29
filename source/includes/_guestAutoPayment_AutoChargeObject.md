@@ -1,4 +1,4 @@
-## Guest auto invoice auto charge object
+## Guest auto payment auto charge object
 
 ```json
 {
@@ -22,9 +22,9 @@
 
 Property | Required | Type     | Description
 -------- | -------- |----------| ----------- 
-`id` | yes | int      | Hostaway auto invoice auto charge ID
+`id` | yes | int      | Hostaway auto payment auto charge ID
 `accountId` | yes | int      | Account ID
-`guestAutoInvoiceId` | yes | int      | Hostaway auto invoice ID
+`guestAutoInvoiceId` | yes | int      | Hostaway auto payment ID
 `type` | yes | string   | Type of charge (charge or preAuth)
 `title` | yes | string   | Charge title
 `description` | yes | string   | Charge description
