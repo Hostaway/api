@@ -1,5 +1,9 @@
 ## Changelog
 
+**2023-09-11**
+
+- Added reservation coupons list endpoint
+
 **2023-08-25**
 
 - Added Guest payment / create offline charges
