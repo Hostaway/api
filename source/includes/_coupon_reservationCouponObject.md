@@ -1,4 +1,4 @@
-## Coupon object
+## Reservation coupon object
 
 Represents relation between Coupon and Reservation objects, used
 in [calculate reservation total price and breakdown](#reservation-price-calculation) as `reservationCouponId`
