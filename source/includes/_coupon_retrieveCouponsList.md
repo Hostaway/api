@@ -72,17 +72,9 @@ Response response = client.newCall(request).execute();
 ```python
 import requests
 
-url = "https://api.hostaway.com/v1/listings"
+url = "https://api.hostaway.com/v1/coupons"
 
 querystring = {
-    "limit": "",
-    "offset": "",
-    "sortOrder": "",
-    "city": "",
-    "match": "",
-    "country": "",
-    "contactName": "",
-    "propertyTypeId": ""
 }
 
 headers = {

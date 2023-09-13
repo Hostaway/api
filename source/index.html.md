@@ -176,6 +176,8 @@ includes:
   - coupon
   - coupon_couponObject
   - coupon_retrieveCouponsList
+  - coupon_reservationCouponObject
+  - coupon_retrieveReservationCouponsList
   - webhook
   - webhook_reservationsList
   - webhook_reservationsRead
