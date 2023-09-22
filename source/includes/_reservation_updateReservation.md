@@ -306,6 +306,7 @@ print(data.decode("utf-8"))
 `PUT https://api.hostaway.com/v1/reservations/{reservationId}?forceOverbooking=1`
 
 A reservation object should be provided in the request body.
+It’s not possible to update the listingMapId of a reservation with this request.
 
 ### Query parameters
 
