@@ -1,5 +1,9 @@
 ## Changelog
 
+**2023-09-29**
+
+- Added listing airbnbListingUrl, vrboListingUrl, googleVrListingUrl fields
+
 **2023-09-11**
 
 - Added reservation coupons list endpoint
