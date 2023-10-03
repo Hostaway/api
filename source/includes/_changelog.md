@@ -1,5 +1,13 @@
 ## Changelog
 
+**2023-10-02**
+
+- Set includeResources default value to 0
+
+**2023-09-29**
+
+- Added listing airbnbListingUrl, vrboListingUrl, googleVrListingUrl fields
+
 **2023-09-11**
 
 - Added reservation coupons list endpoint

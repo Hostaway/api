@@ -96,7 +96,7 @@ Query Parameter | Required | Type | Description
 --------- | -------- | ---- | -----------
 `startDate` | no | date | 
 `endDate` | no | date | 
-`includeResources` | no | int | if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 1.
+`includeResources` | no | int | if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 0.
 ### Response
 
 An array of calendar day objects.
