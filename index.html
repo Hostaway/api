@@ -290,6 +290,18 @@ Current API version is v1
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2023-10-02</strong></p>
+
+<ul>
+<li>Set includeResources default value to 0</li>
+</ul>
+
+<p><strong>2023-09-29</strong></p>
+
+<ul>
+<li>Added listing airbnbListingUrl, vrboListingUrl, googleVrListingUrl fields</li>
+</ul>
+
 <p><strong>2023-09-11</strong></p>
 
 <ul>
@@ -877,154 +889,157 @@ Authorization server endpoint:</p>
 
           <h2 id="listing-object">Listing object</h2>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">40160</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"propertyTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beautiful and cozy apartment close to city center"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"externalListingName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beautiful and cozy apartment close to city center"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"internalListingName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Property #3"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"houseRules"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Additional rules"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"keyPickup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Key pickup"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"specialInstruction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Any special instruction"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"doorSecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddff8"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Germany"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"countryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bremen"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bremerhaven"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Schulstraße 7"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Schulstraße 7, Bremerhaven, Bremen 27570, Germany"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"publicAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bremerhaven, Bremen 27570, Germany"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27570"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">211.62</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"starRating"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"weeklyDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.71</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"monthlyDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.82</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"propertyRentTax"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"guestPerPersonPerNightTax"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"guestStayTax"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"guestNightlyTax"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"refundableDamageDeposit"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"personCapacity"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"maxChildrenAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"maxInfantsAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"maxPetsAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">53.5403</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"lng"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.58936</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"checkInTimeStart"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"checkInTimeEnd"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"checkOutTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cancellationPolicy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"strict"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4010</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"vrboCancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4011</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"airBnbCancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4012</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"marriottCancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4013</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bookingCancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4013</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"squareMeters"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"roomType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"entire_home"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bathroomType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shared"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bedroomsNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bedsNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bedType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"real_bed"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bathroomsNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"minNights"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"maxNights"</span><span class="p">:</span><span class="w"> </span><span class="mi">1125</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"guestsIncluded"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cleaningFee"</span><span class="p">:</span><span class="w"> </span><span class="mf">40.32</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"priceForExtraPerson"</span><span class="p">:</span><span class="w"> </span><span class="mf">54.01</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"instantBookable"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"instantBookableLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"allowSameDayBooking"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"sameDayBookingLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"contactName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactName"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"contactSurName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactSurName"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"contactPhone1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactPhone1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"contactPhone2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactPhone2"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"contactLanguage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactLanguage"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"contactEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactEmail@mail.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"contactAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactAddress"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"currencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"timeZoneName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Berlin"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"wifiUsername"</span><span class="p">:</span><span class="w"> </span><span class="s2">"un"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"wifiPassword"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pass"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cleannessStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cleaningInstruction"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cleannessStatusUpdatedOn"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"homeawayPropertyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beautiful and cozy apartment close to city center"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"homeawayPropertyHeadline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beautiful and cozy apartment close to city center with a living room and bed room"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"homeawayPropertyDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bookingcomPropertyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beautiful and cozy apartment close to city center"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bookingcomPropertyDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"invoicingContactName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"invoicingContactSurName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Surname"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"invoicingContactPhone1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+11122334456"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"invoicingContactPhone2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+11122334456"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"invoicingContactLanguage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"invoicingContactEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invoice@company.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"invoicingContactAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"221B Baker Street"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"invoicingContactCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"invoicingContactZipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110011"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"invoicingContactCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"propertyLicenseNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"propertyLicenseType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"propertyLicenseIssueDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"propertyLicenseExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"partnersListingMarkup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"isRentalAgreementActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"listingAgreementText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rental agreement text for listing"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bookingcomPropertyRegisteredInVcs"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bookingcomPropertyHasVat"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bookingcomPropertyDeclaresRevenue"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"listingAmenities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3449</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"amenityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3444</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"amenityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"listingBedTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"bedTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"bedTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"listingImages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">877</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"caption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kitche"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3-us-west-2.amazonaws.com/hostaway-platform-dev/listing/10450-40160-fmR2QBJ-5jFbWDbHx-WcibQ5gXoSEq9V--FkCGtJ4jRE-591ab75c9816f"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sortOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1027</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"caption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hall"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3-us-west-2.amazonaws.com/hostaway-platform-dev/listing/10450-40160-QYseNxAOkr9LYYAwx4Vy-CQgo2gA0--lYu2Qqn8fpd3M-591ab82749ca1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sortOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"customFieldValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"customFieldId"</span><span class="p">:</span><span class="w"> </span><span class="mi">167</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom field value one"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"customFieldId"</span><span class="p">:</span><span class="w"> </span><span class="mi">243</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom field value two"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">40160</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"propertyTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beautiful and cozy apartment close to city center"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"externalListingName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beautiful and cozy apartment close to city center"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"internalListingName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Property #3"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife."</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"houseRules"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Additional rules"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"keyPickup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Key pickup"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"specialInstruction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Any special instruction"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"doorSecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddff8"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Germany"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"countryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bremen"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bremerhaven"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Schulstraße 7"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Schulstraße 7, Bremerhaven, Bremen 27570, Germany"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"publicAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bremerhaven, Bremen 27570, Germany"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27570"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">211.62</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"starRating"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"weeklyDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.71</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"monthlyDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.82</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"propertyRentTax"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"guestPerPersonPerNightTax"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"guestStayTax"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"guestNightlyTax"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"refundableDamageDeposit"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"personCapacity"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"maxChildrenAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"maxInfantsAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"maxPetsAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">53.5403</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"lng"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.58936</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"checkInTimeStart"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"checkInTimeEnd"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"checkOutTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cancellationPolicy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"strict"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4010</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"vrboCancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4011</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"airBnbCancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4012</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"marriottCancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4013</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bookingCancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4013</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"squareMeters"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"roomType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"entire_home"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bathroomType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shared"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bedroomsNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bedsNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bedType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"real_bed"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bathroomsNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"minNights"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"maxNights"</span><span class="p">:</span><span class="w"> </span><span class="mi">1125</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"guestsIncluded"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cleaningFee"</span><span class="p">:</span><span class="w"> </span><span class="mf">40.32</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"priceForExtraPerson"</span><span class="p">:</span><span class="w"> </span><span class="mf">54.01</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"instantBookable"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"instantBookableLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"allowSameDayBooking"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sameDayBookingLeadTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contactName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactName"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contactSurName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactSurName"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contactPhone1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactPhone1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contactPhone2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactPhone2"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contactLanguage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactLanguage"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contactEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactEmail@mail.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contactAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactAddress"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timeZoneName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Berlin"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"wifiUsername"</span><span class="p">:</span><span class="w"> </span><span class="s2">"un"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"wifiPassword"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pass"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cleannessStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cleaningInstruction"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cleannessStatusUpdatedOn"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"homeawayPropertyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beautiful and cozy apartment close to city center"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"homeawayPropertyHeadline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beautiful and cozy apartment close to city center with a living room and bed room"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"homeawayPropertyDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife."</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bookingcomPropertyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beautiful and cozy apartment close to city center"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bookingcomPropertyDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife."</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"invoicingContactName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"invoicingContactSurName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Surname"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"invoicingContactPhone1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+11122334456"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"invoicingContactPhone2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+11122334456"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"invoicingContactLanguage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"invoicingContactEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invoice@company.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"invoicingContactAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"221B Baker Street"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"invoicingContactCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"invoicingContactZipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"110011"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"invoicingContactCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"propertyLicenseNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"propertyLicenseType"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"propertyLicenseIssueDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"propertyLicenseExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"partnersListingMarkup"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"isRentalAgreementActive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"listingAgreementText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rental agreement text for listing"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bookingcomPropertyRegisteredInVcs"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bookingcomPropertyHasVat"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bookingcomPropertyDeclaresRevenue"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"airbnbListingUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.airbnb.com/rooms/1234567"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"vrboListingUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.vrbo.com/1234567"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"googleVrListingUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.google.com/travel/hotels/entity/1234567/overview"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"listingAmenities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3449</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amenityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3444</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amenityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"listingBedTypes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"bedTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"bedTypeId"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"listingImages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">877</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"caption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kitche"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3-us-west-2.amazonaws.com/hostaway-platform-dev/listing/10450-40160-fmR2QBJ-5jFbWDbHx-WcibQ5gXoSEq9V--FkCGtJ4jRE-591ab75c9816f"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sortOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1027</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"caption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hall"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3-us-west-2.amazonaws.com/hostaway-platform-dev/listing/10450-40160-QYseNxAOkr9LYYAwx4Vy-CQgo2gA0--lYu2Qqn8fpd3M-591ab82749ca1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sortOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"customFieldValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"customFieldId"</span><span class="p">:</span><span class="w"> </span><span class="mi">167</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom field value one"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"customFieldId"</span><span class="p">:</span><span class="w"> </span><span class="mi">243</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom field value two"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Some fields which is marked by asterisk (*) are required to change listing status to <code class="prettyprint">complete</code>.
-Only <code class="prettyprint">complete</code> listing can be activated for synchronization. </p>
+Only <code class="prettyprint">complete</code> listing can be activated for synchronization.</p>
 
 <table><thead>
 <tr>
@@ -1646,6 +1661,24 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>bool</td>
 <td>Answer on the question: Should I declare revenues as professional for direct tax purposes (see article 155 IV du CGI)?</td>
 </tr>
+<tr>
+<td><code class="prettyprint">googleVrListingUrl</code></td>
+<td>no</td>
+<td>string</td>
+<td>Listing URL in Google VR</td>
+</tr>
+<tr>
+<td><code class="prettyprint">vrboListingUrl</code></td>
+<td>no</td>
+<td>string</td>
+<td>Listing URL in VRBO</td>
+</tr>
+<tr>
+<td><code class="prettyprint">airbnbListingUrl</code></td>
+<td>no</td>
+<td>string</td>
+<td>Listing URL in Airbnb</td>
+</tr>
 </tbody></table>
 
           <h2 id="listing-amenity-object">Listing amenity object</h2>
@@ -1903,7 +1936,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">includeResources</code></td>
 <td>no</td>
 <td>int</td>
-<td>if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 1.</td>
+<td>if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 0.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">availabilityDateStart</code></td>
@@ -2029,7 +2062,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">includeResources</code></td>
 <td>no</td>
 <td>int</td>
-<td>if includeResources flag is 1 then response object is supplied with supplementary resources, default is 1.</td>
+<td>if includeResources flag is 1 then response object is supplied with supplementary resources, default is 0.</td>
 </tr>
 </tbody></table>
 
@@ -6730,7 +6763,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">includeResources</code></td>
 <td>no</td>
 <td>int</td>
-<td>if includeResources flag is 1 then response object is supplied with supplementary resources, default is 1.</td>
+<td>if includeResources flag is 1 then response object is supplied with supplementary resources, default is 0.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">latestActivityStart</code></td>
@@ -11631,7 +11664,7 @@ Credit card details for reservations made before the moment you downloaded the S
 <td><code class="prettyprint">includeResources</code></td>
 <td>no</td>
 <td>int</td>
-<td>if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 1.</td>
+<td>if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 0.</td>
 </tr>
 </tbody></table>
 
@@ -12594,7 +12627,7 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 <td><code class="prettyprint">includeResources</code></td>
 <td>no</td>
 <td>int</td>
-<td>if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 1.</td>
+<td>if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 0.</td>
 </tr>
 </tbody></table>
 
@@ -12772,7 +12805,7 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 <td><code class="prettyprint">includeResources</code></td>
 <td>no</td>
 <td>int</td>
-<td>if includeResources flag is 1 then response object is supplied with supplementary resources, default is 1.</td>
+<td>if includeResources flag is 1 then response object is supplied with supplementary resources, default is 0.</td>
 </tr>
 </tbody></table>
 
