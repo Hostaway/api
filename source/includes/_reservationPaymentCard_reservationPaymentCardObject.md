@@ -34,5 +34,5 @@ Property | Required | Type | Description
 `paymentProviderMessage` | no | string | Payment provider error messages if we get an error
 `paymentProvider` | no | string | Payment provider name (stripe, braintree, authorizeNet)
 `isCcDecryptable` | no | int | cc number is decryptable. please use card details endpoint to decrypt.
-`isVirtual` | no | int | cc number is decryptable. please use card details endpoint to decrypt.
+`isVirtual` | no | int | Is it a virtual credit card or not.
 
