@@ -128,6 +128,7 @@ print(response.text)
     "ccExpirationMonth": "12",
     "ccCvc": "123",
     "isDefault": 1,
+    "isVirtual": null,
     "isAddedByGuest": null,
     "paymentProviderMessage": null,
     "paymentProvider": "stripe",
