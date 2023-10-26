@@ -1,5 +1,9 @@
 ## Changelog
 
+**2023-10-24**
+
+- Added `isVirtual` to reservation payment card object
+
 **2023-10-02**
 
 - Set includeResources default value to 0
