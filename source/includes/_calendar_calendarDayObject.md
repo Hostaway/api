@@ -86,8 +86,8 @@ Property | Required | Type | Description
 `isProcessed` | no | bool | It’s an internal informational field to show if the calendar was successfully pushed to all connected channels. 
 `status` | no | string | List of acceptable statuses can be found here: https://api.hostaway.com/dictionary/calendarDay
 `price` | no | float | 
-`minimumStay` | no | int | 
-`maximumStay` | no | int | 
+`minimumStay` | no | int | Must be positive integer
+`maximumStay` | no | int | Must be positive integer 
 `closedOnArrival` | no | bool | 
 `closedOnDeparture` | no | bool | 
 `note` | no | string |
