@@ -93,20 +93,22 @@ print(response.text)
 
 ### Response
 
-Property | Required | Type | Description
--------- | -------- | ---- | ----------- 
-`id` | yes | int | 
-`accountId` | yes | int | 
-`listingMapId` | yes | int |
-`feeType` | yes | string | Can be one of the following: additionalCleaningFee, parkingFee, towelChangeFee, midstayCleaningFee, roomRequestFee, reservationChangeFee, lateCheckoutFee, otherFees, creditCardFee, kitchenLinenFee, linenPackageFee, transferFee, wristbandFee, extraBedsFee, serviceFee, bedLinenFee, bookingFee, petFee, skiPassFee, tourismFee, childrenExtraFee, resortFee
-`feeTitle` | no | string | Fee title
-`feeAppliedPer` | yes | string | Can be one of the following: reservation, person, night, person_per_night
-`amount` | yes | float | 
-`amountType` | yes | string | Can be one of the following: percent, flat
-`isMandatory` | no | int | 1 = fee always included in total price, 0/null = is not included by default
-`isQuantitySelectable` | yes | int | 1 = fee quantity can be selected, it will be multiplied to get value, 0 = quantity is not selectable and is always 1
-`insertedOn` | yes | date time | 
-`updatedOn` | yes | date time | 
+Property | Required | Type      | Description
+-------- |----------|-----------| ----------- 
+`id` | yes      | int       | 
+`accountId` | yes      | int       | 
+`listingMapId` | yes      | int       |
+`feeType` | yes      | string    | Can be one of the following: additionalCleaningFee, parkingFee, towelChangeFee, midstayCleaningFee, roomRequestFee, reservationChangeFee, lateCheckoutFee, otherFees, creditCardFee, kitchenLinenFee, linenPackageFee, transferFee, wristbandFee, extraBedsFee, serviceFee, bedLinenFee, bookingFee, petFee, skiPassFee, tourismFee, childrenExtraFee, resortFee
+`feeTitle` | no       | string    | Fee title
+`feeDescription` | no       | string    | Fee description
+`feeAppliedPer` | yes      | string    | Can be one of the following: reservation, person, night, person_per_night
+`amount` | yes      | float     | 
+`amountType` | yes      | string    | Can be one of the following: percent, flat
+`isMandatory` | no       | int       | 1 = fee always included in total price, 0/null = is not included by default
+`isQuantitySelectable` | yes      | int       | 1 = fee quantity can be selected, it will be multiplied to get value, 0 = quantity is not selectable and is always 1
+`insertedOn` | yes      | date time | 
+`updatedOn` | yes      | date time | 
+`attachments` | no       | array     | 
 
 ```json
 {
@@ -118,13 +120,15 @@ Property | Required | Type | Description
       "listingMapId": 40270,
       "feeType": "parkingFee",
       "feeTitle": null,
+      "feeDescription": "feeDescription",
       "feeAppliedPer": "base_rate",
       "amount": 1000,
       "amountType": "flat",
       "isMandatory": null,
       "isQuantitySelectable": 0,
       "insertedOn": "2020-07-29 15:23:49",
-      "updatedOn": "2020-07-29 15:23:49"
+      "updatedOn": "2020-07-29 15:23:49",
+      "attachments": []
     }
   ]
 }
