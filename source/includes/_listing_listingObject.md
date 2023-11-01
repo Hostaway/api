@@ -21,7 +21,8 @@
   "publicAddress": "Bremerhaven, Bremen 27570, Germany",
   "zipcode": "27570",
   "price": 211.62,
-  "starRating": 5,
+  "starRating": 2.5,
+  "averageReviewRating": 9.2,
   "weeklyDiscount": 0.71,
   "monthlyDiscount": 0.82,
   "propertyRentTax": 12,
@@ -176,7 +177,8 @@ Only `complete` listing can be activated for synchronization.
 | `publicAddress`                           | no       | string            |                                                                                                                                                |
 | `zipcode`                                 | no       | string            |                                                                                                                                                |
 | `price`                                   | yes*     | float             |                                                                                                                                                |
-| `starRating`                              | no       | int               |                                                                                                                                                |
+| `starRating`                              | no       | float             | 0-5 Star rating of the listing                                                                                                                 |
+| `averageReviewRating`                     | no       | float             | 0-10 Average review rating of the listing                                                                                                      |
 | `weeklyDiscount`                          | no       | float             |                                                                                                                                                |
 | `monthlyDiscount`                         | no       | float             |                                                                                                                                                |
 | `propertyRentTax`                         | no       | float             |                                                                                                                                                |

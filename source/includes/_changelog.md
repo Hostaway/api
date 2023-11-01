@@ -1,5 +1,9 @@
 ## Changelog
 
+**2023-11-02**
+
+- Added listing `averageReviewRating` field
+
 **2023-10-24**
 
 - Added `isVirtual` to reservation payment card object
