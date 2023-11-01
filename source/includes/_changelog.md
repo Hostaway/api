@@ -1,8 +1,9 @@
 ## Changelog
 
-**2023-11-02**
+**2023-11-07**
 
 - Added listing `averageReviewRating` field
+- Added rate limit section
 
 **2023-10-24**
 
