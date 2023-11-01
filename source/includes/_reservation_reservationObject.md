@@ -96,6 +96,7 @@
     "customerUserId": null,
     "rentalAgreementFileUrl": "https://a0.muscache.com/im/pictures/3c4d82ed-196d-493a-a43b-07fcc70d5ccd.pdf",
     "reservationAgreement": "signed",
+    "remainingBalance": 4563.54,
     "customFieldValues": [
         {
             "customFieldId": 167,
@@ -143,106 +144,107 @@
 }
 ```
 
-Property | Required | Type | Description
--------- | -------- | ---- | ----------- 
-`id` | yes | int | Unique ID of the reservation on Hostaway
-`listingMapId` | yes | int | Identifier of listing object.
-`channelId` | yes | int | Value can be set to one of the following: `2000` for a direct reservation, `2020` for a Partner reservation
-`source` | no | string
-`channelName` | yes | string | Channel name  (Airbnb, Booking.com, Expedia, Vrbo etc.)
-`reservationId` | yes | string | Reservation ID value which gets from the channel (Airbnb, Booking.com, Expedia, Vrbo etc.)
-`hostawayReservationId` | yes | int | Unique ID of the reservation on Hostaway (the same value as ID)
-`channelReservationId` | yes | string | The same value as reservationId
-`externalPropertyId` | no | string | 
-`externalRatePlanId` | no | string | 
-`externalUnitId` | no | string | 
-`assigneeUserId` | no | int | 
-`manualIcalId` | no | string | 
-`manualIcalName` | no | string | 
-`isProcessed` | no | bool | 
-`isManuallyChecked` | no | bool | 
-`isInstantBooked` | no | bool | 
-`hasPullError` | no | bool | 
-`reservationDate` | no | datetime | 
-`pendingExpireDate` | no | datetime | 
-`guestName` | no | string | 
-`guestFirstName` | no | string | Guest first name
-`guestLastName` | no | string | Guest last name
-`guestExternalAccountId` | no | string | 
-`guestZipCode` | no | string | Guest ZIP code
-`guestAddress` | no | string | Guest address
-`guestCity` | no | string | Guest city
-`guestCountry` | no | string | Guest country
-`guestEmail` | no | string | Guest email
-`guestPicture` | no | string | Guest picture
-`guestRecommendations` | no | int |
-`guestTrips` | no | int | 
-`guestWork` | no | string | 
-`isGuestIdentityVerified` | no | bool | 
-`isGuestVerifiedByEmail` | no | bool | 
-`isGuestVerifiedByWorkEmail` | no | bool | 
-`isGuestVerifiedByFacebook` | no | bool | 
-`isGuestVerifiedByGovernmentId` | no | bool | 
-`isGuestVerifiedByPhone` | no | bool | 
-`isGuestVerifiedByReviews` | no | bool | 
-`numberOfGuests` | no | int | 
-`adults` | no | int | 
-`children` | no | int | 
-`infants` | no | int | 
-`pets` | no | int | 
-`arrivalDate` | yes | date | 
-`departureDate` | yes | date | 
-`isDatesUnspecified` | no | int | Set to `1` in case a channel doesn't provide reservation dates. If it is `1` `arrivalDate` and `departureDate` are set to yesterday.
-`previousArrivalDate` | no | date | 
-`previousDepartureDate` | no | date | 
-`checkInTime` | no | int | 
-`checkOutTime` | no | int | 
-`nights` | no | int | 
-`phone` | no | string | 
-`totalPrice` | no | float | 
-`taxAmount` | no | float | 
-`channelCommissionAmount` | no | float | 
-`hostawayCommissionAmount` | no | float | 
-`cleaningFee` | no | float | 
-`securityDepositFee` | no | float | 
-`isPaid` | no | bool | 
-`paymentMethod` | no | string | 
-`stripeGuestId` | no | string | 
-`currency` | no | string | 
-`status` | no | string | Can be one of the following: `new`, `modified`, `cancelled`, `ownerStay`, `pending`, `awaitingPayment`, `declined`, `expired`, `inquiry`, `inquiryPreapproved`, `inquiryDenied`, `inquiryTimedout`, `inquiryNotPossible`
-`cancellationDate` | no | date | 
-`cancelledBy` | no | string | Can be one of the following: `guest`, `host`
-`hostNote` | no | string | 
-`guestNote` | no | string | 
-`guestLocale` | no | string | 
-`doorCode` | no | string | 
-`doorCodeVendor` | no | string | 
-`doorCodeInstruction` | no | string | 
-`comment` | no | string | 
-`confirmationCode` | no | string | Airbnb confirmation code
-`airbnbExpectedPayoutAmount` | no | float | 
-`airbnbListingBasePrice` | no | float |
-`airbnbListingCancellationHostFee` | no | float | 
-`airbnbListingCancellationPayout` | no | float | 
-`airbnbListingCleaningFee` | no | float | 
-`airbnbListingHostFee` | no | float | 
-`airbnbListingSecurityPrice` | no | float | 
-`airbnbOccupancyTaxAmountPaidToHost` | no | float | 
-`airbnbTotalPaidAmount` | no | float | 
-`airbnbTransientOccupancyTaxPaidAmount` | no | float | 
-`airbnbCancellationPolicy` | no | string | 
-`isStarred` | no | bool | 
-`isArchived` | no | bool | 
-`isPinned` | no | bool | 
-`guestAuthHash` | no | string |
-`guestPortalUrl` | no | string |
-`originalChannel` | no | string |
-`latestActivityOn` | no | date |
-`customerUserId` | no | string |
-`reservationAgreement` | no | string | Can be one of the following: `not_required`, `signed`, `not_signed`
-`rentalAgreementFileUrl` | no | string | Link to pdf file with signed Rental Agreement
-`customFieldValues` | no | array | You should create Custom fields at the dashboard beforehand
-`reservationFees` | no | array | Array of `reservationFee` objects (will be empty array if `includeResources` parameter is set to 0). 
-`reservationUnit` | no | array | Array of `reservationUnit` objects (will be empty array if `includeResources` parameter is set to 0 or reservation is not multi unit). 
-`financeField` | no | array | Array of `financeField` objects 
+| Property                                | Required | Type     | Description                                                                                                                                                                                                              |
+|-----------------------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`                                    | yes      | int      | Unique ID of the reservation on Hostaway                                                                                                                                                                                 |
+| `listingMapId`                          | yes      | int      | Identifier of listing object.                                                                                                                                                                                            |
+| `channelId`                             | yes      | int      | Value can be set to one of the following: `2000` for a direct reservation, `2020` for a Partner reservation                                                                                                              |
+| `source`                                | no       | string   |                                                                                                                                                                                                                          |
+| `channelName`                           | yes      | string   | Channel name  (Airbnb, Booking.com, Expedia, Vrbo etc.)                                                                                                                                                                  |
+| `reservationId`                         | yes      | string   | Reservation ID value which gets from the channel (Airbnb, Booking.com, Expedia, Vrbo etc.)                                                                                                                               |
+| `hostawayReservationId`                 | yes      | int      | Unique ID of the reservation on Hostaway (the same value as ID)                                                                                                                                                          |
+| `channelReservationId`                  | yes      | string   | The same value as reservationId                                                                                                                                                                                          |
+| `externalPropertyId`                    | no       | string   |                                                                                                                                                                                                                          |
+| `externalRatePlanId`                    | no       | string   |                                                                                                                                                                                                                          |
+| `externalUnitId`                        | no       | string   |                                                                                                                                                                                                                          |
+| `assigneeUserId`                        | no       | int      |                                                                                                                                                                                                                          |
+| `manualIcalId`                          | no       | string   |                                                                                                                                                                                                                          |
+| `manualIcalName`                        | no       | string   |                                                                                                                                                                                                                          |
+| `isProcessed`                           | no       | bool     |                                                                                                                                                                                                                          |
+| `isManuallyChecked`                     | no       | bool     |                                                                                                                                                                                                                          |
+| `isInstantBooked`                       | no       | bool     |                                                                                                                                                                                                                          |
+| `hasPullError`                          | no       | bool     |                                                                                                                                                                                                                          |
+| `reservationDate`                       | no       | datetime |                                                                                                                                                                                                                          |
+| `pendingExpireDate`                     | no       | datetime |                                                                                                                                                                                                                          |
+| `guestName`                             | no       | string   |                                                                                                                                                                                                                          |
+| `guestFirstName`                        | no       | string   | Guest first name                                                                                                                                                                                                         |
+| `guestLastName`                         | no       | string   | Guest last name                                                                                                                                                                                                          |
+| `guestExternalAccountId`                | no       | string   |                                                                                                                                                                                                                          |
+| `guestZipCode`                          | no       | string   | Guest ZIP code                                                                                                                                                                                                           |
+| `guestAddress`                          | no       | string   | Guest address                                                                                                                                                                                                            |
+| `guestCity`                             | no       | string   | Guest city                                                                                                                                                                                                               |
+| `guestCountry`                          | no       | string   | Guest country                                                                                                                                                                                                            |
+| `guestEmail`                            | no       | string   | Guest email                                                                                                                                                                                                              |
+| `guestPicture`                          | no       | string   | Guest picture                                                                                                                                                                                                            |
+| `guestRecommendations`                  | no       | int      |                                                                                                                                                                                                                          |
+| `guestTrips`                            | no       | int      |                                                                                                                                                                                                                          |
+| `guestWork`                             | no       | string   |                                                                                                                                                                                                                          |
+| `isGuestIdentityVerified`               | no       | bool     |                                                                                                                                                                                                                          |
+| `isGuestVerifiedByEmail`                | no       | bool     |                                                                                                                                                                                                                          |
+| `isGuestVerifiedByWorkEmail`            | no       | bool     |                                                                                                                                                                                                                          |
+| `isGuestVerifiedByFacebook`             | no       | bool     |                                                                                                                                                                                                                          |
+| `isGuestVerifiedByGovernmentId`         | no       | bool     |                                                                                                                                                                                                                          |
+| `isGuestVerifiedByPhone`                | no       | bool     |                                                                                                                                                                                                                          |
+| `isGuestVerifiedByReviews`              | no       | bool     |                                                                                                                                                                                                                          |
+| `numberOfGuests`                        | no       | int      |                                                                                                                                                                                                                          |
+| `adults`                                | no       | int      |                                                                                                                                                                                                                          |
+| `children`                              | no       | int      |                                                                                                                                                                                                                          |
+| `infants`                               | no       | int      |                                                                                                                                                                                                                          |
+| `pets`                                  | no       | int      |                                                                                                                                                                                                                          |
+| `arrivalDate`                           | yes      | date     |                                                                                                                                                                                                                          |
+| `departureDate`                         | yes      | date     |                                                                                                                                                                                                                          |
+| `isDatesUnspecified`                    | no       | int      | Set to `1` in case a channel doesn't provide reservation dates. If it is `1` `arrivalDate` and `departureDate` are set to yesterday.                                                                                     |
+| `previousArrivalDate`                   | no       | date     |                                                                                                                                                                                                                          |
+| `previousDepartureDate`                 | no       | date     |                                                                                                                                                                                                                          |
+| `checkInTime`                           | no       | int      |                                                                                                                                                                                                                          |
+| `checkOutTime`                          | no       | int      |                                                                                                                                                                                                                          |
+| `nights`                                | no       | int      |                                                                                                                                                                                                                          |
+| `phone`                                 | no       | string   |                                                                                                                                                                                                                          |
+| `totalPrice`                            | no       | float    |                                                                                                                                                                                                                          |
+| `taxAmount`                             | no       | float    |                                                                                                                                                                                                                          |
+| `channelCommissionAmount`               | no       | float    |                                                                                                                                                                                                                          |
+| `hostawayCommissionAmount`              | no       | float    |                                                                                                                                                                                                                          |
+| `cleaningFee`                           | no       | float    |                                                                                                                                                                                                                          |
+| `securityDepositFee`                    | no       | float    |                                                                                                                                                                                                                          |
+| `isPaid`                                | no       | bool     |                                                                                                                                                                                                                          |
+| `paymentMethod`                         | no       | string   |                                                                                                                                                                                                                          |
+| `stripeGuestId`                         | no       | string   |                                                                                                                                                                                                                          |
+| `currency`                              | no       | string   |                                                                                                                                                                                                                          |
+| `status`                                | no       | string   | Can be one of the following: `new`, `modified`, `cancelled`, `ownerStay`, `pending`, `awaitingPayment`, `declined`, `expired`, `inquiry`, `inquiryPreapproved`, `inquiryDenied`, `inquiryTimedout`, `inquiryNotPossible` |
+| `cancellationDate`                      | no       | date     |                                                                                                                                                                                                                          |
+| `cancelledBy`                           | no       | string   | Can be one of the following: `guest`, `host`                                                                                                                                                                             |
+| `hostNote`                              | no       | string   |                                                                                                                                                                                                                          |
+| `guestNote`                             | no       | string   |                                                                                                                                                                                                                          |
+| `guestLocale`                           | no       | string   |                                                                                                                                                                                                                          |
+| `doorCode`                              | no       | string   |                                                                                                                                                                                                                          |
+| `doorCodeVendor`                        | no       | string   |                                                                                                                                                                                                                          |
+| `doorCodeInstruction`                   | no       | string   |                                                                                                                                                                                                                          |
+| `comment`                               | no       | string   |                                                                                                                                                                                                                          |
+| `confirmationCode`                      | no       | string   | Airbnb confirmation code                                                                                                                                                                                                 |
+| `airbnbExpectedPayoutAmount`            | no       | float    |                                                                                                                                                                                                                          |
+| `airbnbListingBasePrice`                | no       | float    |                                                                                                                                                                                                                          |
+| `airbnbListingCancellationHostFee`      | no       | float    |                                                                                                                                                                                                                          |
+| `airbnbListingCancellationPayout`       | no       | float    |                                                                                                                                                                                                                          |
+| `airbnbListingCleaningFee`              | no       | float    |                                                                                                                                                                                                                          |
+| `airbnbListingHostFee`                  | no       | float    |                                                                                                                                                                                                                          |
+| `airbnbListingSecurityPrice`            | no       | float    |                                                                                                                                                                                                                          |
+| `airbnbOccupancyTaxAmountPaidToHost`    | no       | float    |                                                                                                                                                                                                                          |
+| `airbnbTotalPaidAmount`                 | no       | float    |                                                                                                                                                                                                                          |
+| `airbnbTransientOccupancyTaxPaidAmount` | no       | float    |                                                                                                                                                                                                                          |
+| `airbnbCancellationPolicy`              | no       | string   |                                                                                                                                                                                                                          |
+| `isStarred`                             | no       | bool     |                                                                                                                                                                                                                          |
+| `isArchived`                            | no       | bool     |                                                                                                                                                                                                                          |
+| `isPinned`                              | no       | bool     |                                                                                                                                                                                                                          |
+| `guestAuthHash`                         | no       | string   |                                                                                                                                                                                                                          |
+| `guestPortalUrl`                        | no       | string   |                                                                                                                                                                                                                          |
+| `originalChannel`                       | no       | string   |                                                                                                                                                                                                                          |
+| `latestActivityOn`                      | no       | date     |                                                                                                                                                                                                                          |
+| `customerUserId`                        | no       | string   |                                                                                                                                                                                                                          |
+| `reservationAgreement`                  | no       | string   | Can be one of the following: `not_required`, `signed`, `not_signed`                                                                                                                                                      |
+| `remainingBalance`                      | no       | float    | Difference between reservation total price and amount already paid by guest                                                                                                                                              |
+| `rentalAgreementFileUrl`                | no       | string   | Link to pdf file with signed Rental Agreement                                                                                                                                                                            |
+| `customFieldValues`                     | no       | array    | You should create Custom fields at the dashboard beforehand                                                                                                                                                              |
+| `reservationFees`                       | no       | array    | Array of `reservationFee` objects (will be empty array if `includeResources` parameter is set to 0).                                                                                                                     |
+| `reservationUnit`                       | no       | array    | Array of `reservationUnit` objects (will be empty array if `includeResources` parameter is set to 0 or reservation is not multi unit).                                                                                   |
+| `financeField`                          | no       | array    | Array of `financeField` objects                                                                                                                                                                                          |
 
