@@ -254,8 +254,8 @@ We have the following data structure of response for the most of the endpoints:
 ```
 
 * `status` can be one of: 
-    * `success` if case of no errors occurred or 
-    * `fail` in case of any error.
+* `success` if case of no errors occurred or 
+* `fail` in case of any error.
 * `result` contains endpoint result if no errors or an error message string if `status` is `fail`.
 
 Pagination data — met in retrieve `list` responses.
@@ -288,7 +288,44 @@ When you go over the rate limits specified above, the API will return HTTP code 
   "message": "This error occurs because a server detects that your application has exceeded the rate limits or has made too many requests in a given period of time."
 }
 ```
-   
+
+## Webhook events
+
+Hostaway allows you to create and manage webhooks so you get notified when something changes on our platform. That way, you don’t need to poll the API and can update your system in real-time.
+
+Our system will not filter events for you, so once the webhooks are enabled, you will receive notifications for all supported events. Make sure your system is able to filter the events you need, as well as handle any new events that are added to the list.
+
+If Hostaway tries to deliver the webhook notification to your server and doesn’t receive a successful status code in return, the system will retry it 3 times. After 3 failed attempts, the webhook notification won’t be retried by Hostaway anymore and we’ll send an email alert either to a pre-configured email address (see below) or to the account owner with the details of the failed message.
+
+To create the webhooks, you’ll need to provide us with the following information:
+* URL (mandatory) → the endpoint that Hostaway should trigger to alert your system about an update
+* Login (optional) → a username that Hostaway should pass on the authentication header of the webhook request sent to your endpoint
+* Password (optional) → a password that Hostaway should pass on the authentication header of the webhook request sent to your endpoint
+* Recipient email (optional) → an email that Hostaway can use to send notifications when a webhook delivery fails. If not provided, the email with the error details will be sent to the primary email address from the Hostaway account
+
+The events we support are the moment are the ones below, but keep in mind that we are constantly improving our webhooks and expect your service to handle any future webhook events that are added to this list:
+* reservation created → triggered when a new reservation is created in Hostaway, from any channel
+* reservation updated → triggered when an existing reservation is updated
+* new message received → triggered when a new message is added to a conversation
+
+The [full request](#create-a-unified-webhook) to create the webhook.
+
+## Recommendations around polling
+
+In general idea is to spread polling across different times instead of concentrating all requests at 00:00:01 every day. Instead of polling mechanism you can use webhooks to subscribe for events.
+
+## Working with authorization token
+
+To access Hostaway Public API endpoints you need to generate access token ([here is how to do that](#authentication)). 
+Once access token is generated you can use it until it expires in 24 months. So the algorithm can be as following:
+1. Check if there is non-expired token
+2. IF yes -> use token to access public API endpoints
+3. IF no -> get token using `POST https://api.hostaway.com/v1/accessTokens`
+4. Store token somewhere on your side (for instance in the database table)
+5. Once you get access denied 403 HTTP code it means your token is no longer valid and probably expired. You need to refresh it using step 1 and store a new refreshed token to continue using it in your public API calls
+
+**Important**: There is **NO need** to generate new access token over and over for each particular API request putting unneeded load both on our and your systems. You should store it on your side instead while it is valid. There are rate limits which restrict amount of allowed requests per ip address and account in a time period.
+
 ## Questions and bug reporting
 
 If you have any questions regarding API, feel free to send them by email to [support@hostaway.com](mailto:support@hostaway.com).
