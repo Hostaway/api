@@ -265,6 +265,29 @@ Pagination data — met in retrieve `list` responses.
    * `count`: count of all records with specified filters,
    * `page`: page number,
    * `totalPages`: total pages number
+
+## Rate limits
+
+To ensure a good performance of Hostaway’s Public API across the entire platform and protect it from external threats,
+we limit the number of calls an application can make at once by enforcing rate limits as follows:
+Maximum number of requests
+
+| Maximum number of requests | Time frame | Key            |
+|----------------------------|------------|----------------|
+| 15                         | 10 seconds | Per IP address |
+| 20                         | 10 seconds | Per account ID |
+
+To ensure your service is not interrupted, make sure to spread API calls throughout the day instead of concentrating
+them, and implement queuing mechanisms that process a few requests and responses at a time
+
+When you go over the rate limits specified above, the API will return HTTP code 429 and response
+
+```json
+{
+  "status": "fail",
+  "message": "This error occurs because a server detects that your application has exceeded the rate limits or has made too many requests in a given period of time."
+}
+```
    
 ## Questions and bug reporting
 
