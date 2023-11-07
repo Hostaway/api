@@ -4,6 +4,7 @@
 
 - Added listing `averageReviewRating` field
 - Added rate limit section
+- Added `remainingBalance` to reservation object
 
 **2023-10-24**
 
