@@ -263,12 +263,9 @@ Current API version is v1
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <ul>
-<li><code class="prettyprint">status</code> can be one of: 
-
-<ul>
+<li><code class="prettyprint">status</code> can be one of: </li>
 <li><code class="prettyprint">success</code> if case of no errors occurred or </li>
 <li><code class="prettyprint">fail</code> in case of any error.</li>
-</ul></li>
 <li><code class="prettyprint">result</code> contains endpoint result if no errors or an error message string if <code class="prettyprint">status</code> is <code class="prettyprint">fail</code>.</li>
 </ul>
 
@@ -282,6 +279,77 @@ Current API version is v1
 <li><code class="prettyprint">totalPages</code>: total pages number</li>
 </ul>
 
+<h2 id="rate-limits">Rate limits</h2>
+
+<p>To ensure a good performance of Hostaway’s Public API across the entire platform and protect it from external threats,
+we limit the number of calls an application can make at once by enforcing rate limits as follows:
+Maximum number of requests</p>
+
+<table><thead>
+<tr>
+<th>Maximum number of requests</th>
+<th>Time frame</th>
+<th>Key</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>15</td>
+<td>10 seconds</td>
+<td>Per IP address</td>
+</tr>
+<tr>
+<td>20</td>
+<td>10 seconds</td>
+<td>Per account ID</td>
+</tr>
+</tbody></table>
+
+<p>To ensure your service is not interrupted, make sure to spread API calls throughout the day instead of concentrating
+them, and implement queuing mechanisms that process a few requests and responses at a time</p>
+
+<p>When you go over the rate limits specified above, the API will return HTTP code 429 and response</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This error occurs because a server detects that your application has exceeded the rate limits or has made too many requests in a given period of time."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h2 id="webhook-events">Webhook events</h2>
+
+<p>Hostaway allows you to create and manage webhooks so you get notified when something changes on our platform. That way, you don’t need to poll the API and can update your system in real-time.</p>
+
+<p>Our system will not filter events for you, so once the webhooks are enabled, you will receive notifications for all supported events. Make sure your system is able to filter the events you need, as well as handle any new events that are added to the list.</p>
+
+<p>If Hostaway tries to deliver the webhook notification to your server and doesn’t receive a successful status code in return, the system will retry it 3 times. After 3 failed attempts, the webhook notification won’t be retried by Hostaway anymore and we’ll send an email alert either to a pre-configured email address (see below) or to the account owner with the details of the failed message.</p>
+
+<p>To create the webhooks, you’ll need to provide us with the following information:
+* URL (mandatory) → the endpoint that Hostaway should trigger to alert your system about an update
+* Login (optional) → a username that Hostaway should pass on the authentication header of the webhook request sent to your endpoint
+* Password (optional) → a password that Hostaway should pass on the authentication header of the webhook request sent to your endpoint
+* Recipient email (optional) → an email that Hostaway can use to send notifications when a webhook delivery fails. If not provided, the email with the error details will be sent to the primary email address from the Hostaway account</p>
+
+<p>The events we support are the moment are the ones below, but keep in mind that we are constantly improving our webhooks and expect your service to handle any future webhook events that are added to this list:
+* reservation created → triggered when a new reservation is created in Hostaway, from any channel
+* reservation updated → triggered when an existing reservation is updated
+* new message received → triggered when a new message is added to a conversation</p>
+
+<p>The <a href="#create-a-unified-webhook">full request</a> to create the webhook.</p>
+
+<h2 id="recommendations-around-polling">Recommendations around polling</h2>
+
+<p>In general idea is to spread polling across different times instead of concentrating all requests at 00:00:01 every day. Instead of polling mechanism you can use webhooks to subscribe for events.</p>
+
+<h2 id="working-with-authorization-token">Working with authorization token</h2>
+
+<p>To access Hostaway Public API endpoints you need to generate access token (<a href="#authentication">here is how to do that</a>). 
+Once access token is generated you can use it until it expires in 24 months. So the algorithm can be as following:
+1. Check if there is non-expired token
+2. IF yes -&gt; use token to access public API endpoints
+3. IF no -&gt; get token using <code class="prettyprint">POST https://api.hostaway.com/v1/accessTokens</code>
+4. Store token somewhere on your side (for instance in the database table)
+5. Once you get access denied 403 HTTP code it means your token is no longer valid and probably expired. You need to refresh it using step 1 and store a new refreshed token to continue using it in your public API calls</p>
+
+<p><strong>Important</strong>: There is <strong>NO need</strong> to generate new access token over and over for each particular API request putting unneeded load both on our and your systems. You should store it on your side instead while it is valid. There are rate limits which restrict amount of allowed requests per ip address and account in a time period.</p>
+
 <h2 id="questions-and-bug-reporting">Questions and bug reporting</h2>
 
 <p>If you have any questions regarding API, feel free to send them by email to <a href="mailto:support@hostaway.com">support@hostaway.com</a>.</p>
@@ -289,6 +357,14 @@ Current API version is v1
 <p>If you ever notice a bug, please send a report to <a href="mailto:support@hostaway.com">support@hostaway.com</a>. Report should include <code class="prettyprint">cURL</code> request with endpoint URL, time of the request with timezone, header, payload, response and expected result.</p>
 
           <h2 id="changelog">Changelog</h2>
+
+<p><strong>2023-11-07</strong></p>
+
+<ul>
+<li>Added listing <code class="prettyprint">averageReviewRating</code> field</li>
+<li>Added rate limit section</li>
+<li>Added <code class="prettyprint">remainingBalance</code> to reservation object</li>
+</ul>
 
 <p><strong>2023-10-24</strong></p>
 
@@ -914,7 +990,8 @@ Authorization server endpoint:</p>
   </span><span class="s2">"publicAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bremerhaven, Bremen 27570, Germany"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27570"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">211.62</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"starRating"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"starRating"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"averageReviewRating"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.2</span><span class="p">,</span><span class="w">
   </span><span class="s2">"weeklyDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.71</span><span class="p">,</span><span class="w">
   </span><span class="s2">"monthlyDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.82</span><span class="p">,</span><span class="w">
   </span><span class="s2">"propertyRentTax"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
@@ -1172,8 +1249,14 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <tr>
 <td><code class="prettyprint">starRating</code></td>
 <td>no</td>
-<td>int</td>
-<td></td>
+<td>float</td>
+<td>0-5 Star rating of the listing</td>
+</tr>
+<tr>
+<td><code class="prettyprint">averageReviewRating</code></td>
+<td>no</td>
+<td>float</td>
+<td>0-10 Average review rating of the listing</td>
 </tr>
 <tr>
 <td><code class="prettyprint">weeklyDiscount</code></td>
@@ -5640,6 +5723,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
     </span><span class="s2">"customerUserId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"rentalAgreementFileUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://a0.muscache.com/im/pictures/3c4d82ed-196d-493a-a43b-07fcc70d5ccd.pdf"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"reservationAgreement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"signed"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"remainingBalance"</span><span class="p">:</span><span class="w"> </span><span class="mf">4563.54</span><span class="p">,</span><span class="w">
     </span><span class="s2">"customFieldValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"customFieldId"</span><span class="p">:</span><span class="w"> </span><span class="mi">167</span><span class="p">,</span><span class="w">
@@ -6263,6 +6347,12 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>no</td>
 <td>string</td>
 <td>Can be one of the following: <code class="prettyprint">not_required</code>, <code class="prettyprint">signed</code>, <code class="prettyprint">not_signed</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">remainingBalance</code></td>
+<td>no</td>
+<td>float</td>
+<td>Difference between reservation total price and amount already paid by guest</td>
 </tr>
 <tr>
 <td><code class="prettyprint">rentalAgreementFileUrl</code></td>
