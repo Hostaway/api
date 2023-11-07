@@ -312,7 +312,7 @@ The [full request](#create-a-unified-webhook) to create the webhook.
 
 ## Recommendations around polling
 
-In general idea is to spread polling across different times instead of concentrating all requests at 00:00:01 every day. Instead of polling mechanism you can use [unified webhooks](#unified-webhooks) to subscribe for events. To create unified webhook you can use [public API request](#documentation#create-a-unified-webhook) or Hostaway Dashboard https://dashboard.hostaway.com/settings/integrations. You can read more about events supported by webhooks [here](n#webhook-events)
+In general idea is to spread polling across different times instead of concentrating all requests at 00:00:01 every day. Instead of polling mechanism you can use [unified webhooks](#unified-webhooks) to subscribe for events. To create unified webhook you can use [public API request](#create-a-unified-webhook) or Hostaway Dashboard https://dashboard.hostaway.com/settings/integrations. You can read more about events supported by webhooks [here](#webhook-events)
 
 ## Working with authorization token
 
