@@ -171,6 +171,7 @@ includes:
   - guestPayment_retrieveChargeList
   - guestPayment_retrieveCharge
   - guestPayment_createOfflineCharge
+  - guestPayment_updateOfflineCharge
   - guestAutoPayment_AutoChargeObjectList
   - guestAutoPayment_AutoChargeObject
   - coupon
