@@ -350,6 +350,43 @@ Once access token is generated you can use it until it expires in 24 months. So 
 
 <p><strong>Important</strong>: There is <strong>NO need</strong> to generate new access token over and over for each particular API request putting unneeded load both on our and your systems. You should store it on your side instead while it is valid. There are rate limits which restrict amount of allowed requests per ip address and account in a time period.</p>
 
+<h2 id="changing-behavior-of-returning-attached-objects">Changing behavior of returning attached objects</h2>
+
+<p>In our efforts to improve your services, we will change the behavior on how to return the attached objects in response to requests made towards Hostaway’s Public API retrieving a list of reservations or calendar days.
+Now you will need to pass an extra query parameter <code class="prettyprint">includeResources=1</code> to get those attached objects. </p>
+
+<h3 id="the-following-are-the-endpoints-and-its-objects-that-will-be-affected-by-the-change">The following are the endpoints and its objects that will be affected by the change</h3>
+
+<ul>
+<li><p><code class="prettyprint">GET {baseUrl}/v1/reservations</code></p>
+
+<ul>
+<li>customFieldValues</li>
+<li>reservationFees</li>
+<li>reservationUnit</li>
+</ul></li>
+</ul>
+
+<p>Now, if you didn&rsquo;t pass the query parameter <code class="prettyprint">?includeResources=1</code> the above fields will be always an empty array <code class="prettyprint">[]</code> as shown in the response snippet on the right</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"customFieldValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"reservationFees"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"reservationUnit"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<ul>
+<li><p><code class="prettyprint">GET {baseUrl}/v1/listings/{listingId}/calendar</code></p>
+
+<ul>
+<li>reservations</li>
+</ul></li>
+</ul>
+
+<p>The same thing applied on the endpoint, if the query parameter <code class="prettyprint">?includeResources=1</code> didn&rsquo;t passed, the <code class="prettyprint">reservations</code> will be always an empty array <code class="prettyprint">[]</code> as shown in the response snippet on the right</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"reservations"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h2 id="questions-and-bug-reporting">Questions and bug reporting</h2>
 
 <p>If you have any questions regarding API, feel free to send them by email to <a href="mailto:support@hostaway.com">support@hostaway.com</a>.</p>
