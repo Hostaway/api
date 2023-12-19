@@ -1,5 +1,9 @@
 ## Changelog
 
+**2023-12-19**
+
+- Added endpoint [Update offline charge](#update-offline-charge)
+
 **2023-12-14**
 
 - Added listing `airbnbOfficialListingMarkup` field
