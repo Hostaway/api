@@ -96,6 +96,10 @@
   "propertyLicenseIssueDate": null,
   "propertyLicenseExpirationDate": null,
   "partnersListingMarkup": null,
+  "airbnbOfficialListingMarkup": null,
+  "bookingEngineMarkup": null,
+  "homeawayApiMarkup": null,
+  "marriottListingMarkup": null,
   "isRentalAgreementActive": true,
   "listingAgreementText": "Rental agreement text for listing",
   "bookingcomPropertyRegisteredInVcs": false,
@@ -252,6 +256,10 @@ Only `complete` listing can be activated for synchronization.
 | `propertyLicenseIssueDate`                | no       | date (YYYY-MM-DD) |                                                                                                                                                |
 | `propertyLicenseExpirationDate`           | no       | date (YYYY-MM-DD) |                                                                                                                                                |
 | `partnersListingMarkup`                   | no       | float             |                                                                                                                                                |
+| `airbnbOfficialListingMarkup`             | no       | float             |                                                                                                                                                |
+| `bookingEngineMarkup`                     | no       | float             |                                                                                                                                                |
+| `homeawayApiMarkup`                       | no       | float             |                                                                                                                                                |
+| `marriottListingMarkup`                   | no       | float             |                                                                                                                                                |
 | `isRentalAgreementActive`                 | no       | bool              |                                                                                                                                                |
 | `listingAgreementText`                    | no       | string            | Text for Rental Agreement, set null to delete Agreement.                                                                                       |
 | `listingAmenities`                        | no       | array             | Array of listingAmenity objects.                                                                                                               |

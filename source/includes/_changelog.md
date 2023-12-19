@@ -1,5 +1,12 @@
 ## Changelog
 
+**2023-12-14**
+
+- Added listing `airbnbOfficialListingMarkup` field
+- Added listing `bookingEngineMarkup` field
+- Added listing `homeawayApiMarkup` field
+- Added listing `marriottListingMarkup` field
+
 **2023-11-07**
 
 - Added listing `averageReviewRating` field

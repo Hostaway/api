@@ -327,6 +327,41 @@ Once access token is generated you can use it until it expires in 24 months. So 
 
 **Important**: There is **NO need** to generate new access token over and over for each particular API request putting unneeded load both on our and your systems. You should store it on your side instead while it is valid. There are rate limits which restrict amount of allowed requests per ip address and account in a time period.
 
+## Changing behavior of returning attached objects
+
+In our efforts to improve your services, we will change the behavior on how to return the attached objects in response to requests made towards Hostaway’s Public API retrieving a list of reservations or calendar days.
+Now you will need to pass an extra query parameter `includeResources=1` to get those attached objects. 
+
+### The following are the endpoints and its objects that will be affected by the change
+
+- `GET {baseUrl}/v1/reservations`
+
+  - customFieldValues
+  - reservationFees
+  - reservationUnit
+
+Now, if you didn't pass the query parameter `?includeResources=1` the above fields will be always an empty array `[]` as shown in the response snippet on the right
+
+```json
+{
+    "customFieldValues": [],
+    "reservationFees": [],
+    "reservationUnit": []
+}
+```
+
+- `GET {baseUrl}/v1/listings/{listingId}/calendar`
+
+  - reservations
+
+The same thing applied on the endpoint, if the query parameter `?includeResources=1` didn't passed, the `reservations` will be always an empty array `[]` as shown in the response snippet on the right
+
+```json
+{
+    "reservations": []
+}
+```
+
 ## Questions and bug reporting
 
 If you have any questions regarding API, feel free to send them by email to [support@hostaway.com](mailto:support@hostaway.com).
