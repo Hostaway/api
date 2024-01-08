@@ -118,13 +118,13 @@ print(data.decode("utf-8"))
 
 `PUT https://api.hostaway.com/v1/guestPayments/charges/{reservationId:\d+}/{chargeId:\d+}`
 
-A charge object with the desired updated fields should be provided in the request body.
+A charge object with the all fields should be provided in the request body.
 
 Only charges in the status `awaiting` can be updated with this API request.
 
 Charges with `credit_card_online` payment method can’t be updated via API regardless of the status.
 
-All fields are optional for update
+All object fields are required when using this endpoint
 
 Possible values for field `status`: `paid`,`cancelled`.
 

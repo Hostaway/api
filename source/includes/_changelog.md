@@ -1,5 +1,9 @@
 ## Changelog
 
+**2024-01-08**
+
+  - Adding the ability to sort and filter by latest activity in listings
+
 **2023-12-19**
 
 - Added endpoint [Update offline charge](#update-offline-charge)

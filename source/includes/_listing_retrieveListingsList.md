@@ -93,7 +93,7 @@ Query Parameter | Required | Type | Description
 --------- | -------- | ---- | -----------
 `limit` | no | int | Maximum number of items in the list.
 `offset` | no | int | Number of items to skip from beginning of the list.
-`sortOrder` | no | string | One of: name, nameReversed, order, orderReversed, contactName, contactNameReversed.
+`sortOrder` | no | string | One of: name, nameReversed, order, orderReversed, contactName, contactNameReversed, latestActivity, latestActivityDesc.
 `city` | no | string | 
 `match` | no | string | Used to search a listing by listing name.
 `country` | no | string |
@@ -104,6 +104,8 @@ Query Parameter | Required | Type | Description
 `availabilityDateEnd` | no | string | date in Y-m-d format
 `availabilityGuestNumber` | no | int | Listing person capacity
 `userId` | no | int | Used to limit listing to user got access to
+`latestActivityStart` | no | date |
+`latestActivityEnd` | no | date |
 `isBookingEngineActive` | no | bool | Listing is active on website (Booking Engine)
 ### Response
 
