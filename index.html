@@ -395,6 +395,12 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2024-01-08</strong></p>
+
+<ul>
+<li>Adding the ability to sort and filter by latest activity in listings</li>
+</ul>
+
 <p><strong>2023-12-19</strong></p>
 
 <ul>
@@ -1807,6 +1813,12 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>Array of listingImage objects.</td>
 </tr>
 <tr>
+<td><code class="prettyprint">latestActivityOn</code></td>
+<td>no</td>
+<td>date</td>
+<td></td>
+</tr>
+<tr>
 <td><code class="prettyprint">customFieldValues</code></td>
 <td>no</td>
 <td>array</td>
@@ -2069,7 +2081,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">sortOrder</code></td>
 <td>no</td>
 <td>string</td>
-<td>One of: name, nameReversed, order, orderReversed, contactName, contactNameReversed.</td>
+<td>One of: name, nameReversed, order, orderReversed, contactName, contactNameReversed, latestActivity, latestActivityDesc.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">city</code></td>
@@ -2130,6 +2142,18 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>no</td>
 <td>int</td>
 <td>Used to limit listing to user got access to</td>
+</tr>
+<tr>
+<td><code class="prettyprint">latestActivityStart</code></td>
+<td>no</td>
+<td>date</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">latestActivityEnd</code></td>
+<td>no</td>
+<td>date</td>
+<td></td>
 </tr>
 <tr>
 <td><code class="prettyprint">isBookingEngineActive</code></td>
@@ -22683,13 +22707,13 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 </code></pre>
 <p><code class="prettyprint">PUT https://api.hostaway.com/v1/guestPayments/charges/{reservationId:\d+}/{chargeId:\d+}</code></p>
 
-<p>A charge object with the desired updated fields should be provided in the request body.</p>
+<p>A charge object with the all fields should be provided in the request body.</p>
 
 <p>Only charges in the status <code class="prettyprint">awaiting</code> can be updated with this API request.</p>
 
 <p>Charges with <code class="prettyprint">credit_card_online</code> payment method can’t be updated via API regardless of the status.</p>
 
-<p>All fields are optional for update</p>
+<p>All object fields are required when using this endpoint</p>
 
 <p>Possible values for field <code class="prettyprint">status</code>: <code class="prettyprint">paid</code>,<code class="prettyprint">cancelled</code>.</p>
 
