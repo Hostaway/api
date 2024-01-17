@@ -108,6 +108,14 @@
   "airbnbListingUrl": "https://www.airbnb.com/rooms/1234567",
   "vrboListingUrl": "https://www.vrbo.com/1234567",
   "googleVrListingUrl": "http://www.google.com/travel/hotels/entity/1234567/overview",
+  "airbnbName": "",
+  "airbnbSummary": "",
+  "airbnbSpace": null,
+  "airbnbAccess": null,
+  "airbnbInteraction": null,
+  "airbnbNeighborhoodOverview": null,
+  "airbnbTransit": null,
+  "airbnbNotes": null,
   "listingAmenities": [
     {
       "id": 3449,
@@ -265,7 +273,7 @@ Only `complete` listing can be activated for synchronization.
 | `listingAmenities`                        | no       | array             | Array of listingAmenity objects.                                                                                                               |
 | `listingBedTypes`                         | no       | array             | Array of listingBedType objects.                                                                                                               |
 | `listingImages`                           | no       | array             | Array of listingImage objects.                                                                                                                 |
-| `latestActivityOn`                      | no       | date     |                                                                                                                                                           |
+| `latestActivityOn`                        | no       | date              |                                                                                                                                                |
 | `customFieldValues`                       | no       | array             | You should create Custom fields at the dashboard beforehand                                                                                    |
 | `bookingcomPropertyRegisteredInVcs`       | no       | bool              | Answer on the question: Am I registered as a professional at the trade commercial register (Registre du Commerce et des Sociétés)?             |
 | `bookingcomPropertyHasVat`                | no       | bool              | Answer on the question: Do I have a VAT registered for this activity?                                                                          |
@@ -273,3 +281,11 @@ Only `complete` listing can be activated for synchronization.
 | `googleVrListingUrl`                      | no       | string            | Listing URL in Google VR                                                                                                                       |
 | `vrboListingUrl`                          | no       | string            | Listing URL in VRBO                                                                                                                            |
 | `airbnbListingUrl`                        | no       | string            | Listing URL in Airbnb                                                                                                                          |
+| `airbnbName`                              | no       | string            | Listing name in Airbnb                                                                                                                         |
+| `airbnbSummary`                           | no       | string            | Listing summary in Airbnb                                                                                                                      |
+| `airbnbSpace`                             | no       | string            | Listing space in Airbnb                                                                                                                        |
+| `airbnbAccess`                            | no       | string            | Listing access in Airbnb                                                                                                                       |
+| `airbnbInteraction`                       | no       | string            | Listing interaction in Airbnb                                                                                                                  |
+| `airbnbNeighborhoodOverview`              | no       | string            | Listing neighborhood overview in Airbnb                                                                                                        |
+| `airbnbTransit`                           | no       | string            | Listing transit information in Airbnb                                                                                                          |
+| `airbnbNotes`                             | no       | string            | Listing notes in Airbnb                                                                                                                        |
