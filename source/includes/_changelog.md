@@ -1,5 +1,9 @@
 ## Changelog
 
+**2024-01-23**
+
+- Adding `bookingEngineUrls` in `listing` object
+
 **2024-01-17**
 
 - Add listing object Airbnb fields

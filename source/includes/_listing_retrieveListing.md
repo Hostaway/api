@@ -89,9 +89,10 @@ print(response.text)
 
 `GET https://api.hostaway.com/v1/listings/{listingId}`
 
-Query Parameter | Required | Type | Description
---------- | -------- | ---- | -----------
-`includeResources` | no | int | if includeResources flag is 1 then response object is supplied with supplementary resources, default is 0. 
+Query Parameter | Required | Type  | Description
+--------- | -------- |-------| -----------
+`includeResources` | no | int   | if includeResources flag is 1 then response object is supplied with supplementary resources, default is 0. 
+`attachObjects[]`  | no | array | if `?attachObjects[]=bookingEngineUrls` is provided, the actual value of bookingEngineUrls will be returned instead of the empty array default value
 
 
 ### Response

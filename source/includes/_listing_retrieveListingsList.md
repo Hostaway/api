@@ -100,6 +100,7 @@ Query Parameter | Required | Type | Description
 `contactName` | no | string |
 `propertyTypeId` | no | int |
 `includeResources` | no | int | if includeResources flag is 1 then response objects are supplied with supplementary resources, default is 0.
+`attachObjects[]`  | no | array | if `?attachObjects[]=bookingEngineUrls` is provided, the actual value of bookingEngineUrls will be returned in each object instead of the empty array default value
 `availabilityDateStart` | no | string | date in Y-m-d format
 `availabilityDateEnd` | no | string | date in Y-m-d format
 `availabilityGuestNumber` | no | int | Listing person capacity
