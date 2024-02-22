@@ -156,7 +156,7 @@ Property | Required | Type | Description
 `otherSpecialDiscount` | no | float | 
 `paymentServiceProcessingFees` | no | float | 
 `bookingComCancellationGuestFee` | no | float | 
-`bookingcomPaymentProcessingFee` | no | float | 
+`otaPaymentProcessingFee` | no | float | 
 `insuranceFee` | no | float | 
 `manuallySetFields` | no | string | JSON serialized string with manually set fields list
 `customFeeValuesJson` | no | string | JSON serialized string with custom fees configuration
@@ -228,7 +228,7 @@ Property | Required | Type | Description
     "otherSpecialDiscount": null,
     "paymentServiceProcessingFees": 0,
     "bookingComCancellationGuestFee": null,
-    "bookingcomPaymentProcessingFee": null,
+    "otaPaymentProcessingFee": null,
     "insuranceFee": null,
     "manuallySetFields": "[\"baseRate\"]",
     "customFeeValuesJson": "[{\"feeType\":\"creditCardFee\",\"feeAppliedPer\":\"reservation\",\"accountId\":10638,\"isQuantitySelectable\":false,\"isMandatory\":false,\"feeTitle\":null,\"amountType\":\"flat\",\"listingMapId\":86249,\"insertedOn\":\"2021-07-01 07:13:25\",\"amount\":15,\"updatedOn\":\"2021-07-01 07:27:17\",\"id\":1214,\"name\":\"creditCardFee\",\"title\":null,\"isIncludedInTotalPrice\":true,\"isOverriddenByUser\":false,\"value\":15,\"quantity\":1,\"feeId\":1214}]",
