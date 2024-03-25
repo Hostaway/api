@@ -1,5 +1,9 @@
 ## Changelog
 
+**2024-03-25**
+
+- Add `guestPaymentCardIsVirtual` to Reservation object
+
 **2024-01-23**
 
 - Adding `bookingEngineUrls` in `listing` object
