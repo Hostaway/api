@@ -395,6 +395,12 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2024-03-25</strong></p>
+
+<ul>
+<li>Add <code class="prettyprint">guestPaymentCardIsVirtual</code> to Reservation object</li>
+</ul>
+
 <p><strong>2024-01-23</strong></p>
 
 <ul>
@@ -6573,6 +6579,12 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>no</td>
 <td>array</td>
 <td>Array of <code class="prettyprint">financeField</code> objects</td>
+</tr>
+<tr>
+<td><code class="prettyprint">guestPaymentCardIsVirtual</code></td>
+<td>no</td>
+<td>int</td>
+<td><code class="prettyprint">1</code> = guest payment card is virtual, <code class="prettyprint">0</code> = not virtual</td>
 </tr>
 </tbody></table>
 
@@ -16368,7 +16380,7 @@ You shouldn&rsquo;t edit a custom field of <code class="prettyprint">dropdown</c
 <td></td>
 </tr>
 <tr>
-<td><code class="prettyprint">otaPaymentProcessingFee</code></td>
+<td><code class="prettyprint">bookingcomPaymentProcessingFee</code></td>
 <td>no</td>
 <td>float</td>
 <td></td>
@@ -16468,7 +16480,7 @@ You shouldn&rsquo;t edit a custom field of <code class="prettyprint">dropdown</c
     </span><span class="s2">"otherSpecialDiscount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"paymentServiceProcessingFees"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"bookingComCancellationGuestFee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"otaPaymentProcessingFee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bookingcomPaymentProcessingFee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"insuranceFee"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"manuallySetFields"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[</span><span class="se">\"</span><span class="s2">baseRate</span><span class="se">\"</span><span class="s2">]"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"customFeeValuesJson"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[{</span><span class="se">\"</span><span class="s2">feeType</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">creditCardFee</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">feeAppliedPer</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">reservation</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">accountId</span><span class="se">\"</span><span class="s2">:10638,</span><span class="se">\"</span><span class="s2">isQuantitySelectable</span><span class="se">\"</span><span class="s2">:false,</span><span class="se">\"</span><span class="s2">isMandatory</span><span class="se">\"</span><span class="s2">:false,</span><span class="se">\"</span><span class="s2">feeTitle</span><span class="se">\"</span><span class="s2">:null,</span><span class="se">\"</span><span class="s2">amountType</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">flat</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">listingMapId</span><span class="se">\"</span><span class="s2">:86249,</span><span class="se">\"</span><span class="s2">insertedOn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2021-07-01 07:13:25</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">amount</span><span class="se">\"</span><span class="s2">:15,</span><span class="se">\"</span><span class="s2">updatedOn</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2021-07-01 07:27:17</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1214,</span><span class="se">\"</span><span class="s2">name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">creditCardFee</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">title</span><span class="se">\"</span><span class="s2">:null,</span><span class="se">\"</span><span class="s2">isIncludedInTotalPrice</span><span class="se">\"</span><span class="s2">:true,</span><span class="se">\"</span><span class="s2">isOverriddenByUser</span><span class="se">\"</span><span class="s2">:false,</span><span class="se">\"</span><span class="s2">value</span><span class="se">\"</span><span class="s2">:15,</span><span class="se">\"</span><span class="s2">quantity</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">feeId</span><span class="se">\"</span><span class="s2">:1214}]"</span><span class="p">,</span><span class="w">
