@@ -1,5 +1,9 @@
 ## Changelog
 
+**2024-04-08**
+
+- Add `insertedOn` to Listing object
+- 
 **2024-03-25**
 
 - Add `guestPaymentCardIsVirtual` to Reservation object
