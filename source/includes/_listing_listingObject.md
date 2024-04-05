@@ -116,6 +116,7 @@
   "airbnbNeighborhoodOverview": null,
   "airbnbTransit": null,
   "airbnbNotes": null,
+  "insertedOn": "2024-04-05 08:04:48",
   "listingAmenities": [
     {
       "id": 3449,
@@ -290,3 +291,4 @@ Only `complete` listing can be activated for synchronization.
 | `airbnbTransit`                           | no       | string            | Listing transit information in Airbnb                                                                                                                             |
 | `airbnbNotes`                             | no       | string            | Listing notes in Airbnb                                                                                                                                           |
 | `bookingEngineUrls`                       | no       | array             | Empty array by default, pass the query parameter `?attachObjects[]=bookingEngineUrls` to get the actual value when Retrieving the listings list or a single listing |
+| `insertedOn`                              | yes      | string            | The creation date of the listing on Hostaway in UTC timezone                                                                                                    |
