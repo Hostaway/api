@@ -247,4 +247,4 @@
 | `reservationFees`                       | no       | array    | Array of `reservationFee` objects (will be empty array if `includeResources` parameter is set to 0).                                                                                                                     |
 | `reservationUnit`                       | no       | array    | Array of `reservationUnit` objects (will be empty array if `includeResources` parameter is set to 0 or reservation is not multi unit).                                                                                   |
 | `financeField`                          | no       | array    | Array of `financeField` objects                                                                                                                                                                                          |
-
+| `guestPaymentCardIsVirtual `            | no       | int       | `1` = guest payment card is virtual, `0` = not virtual                                                                                                                                                                       |
