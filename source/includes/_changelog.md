@@ -1,5 +1,13 @@
 ## Changelog
 
+**2024-04-17**
+
+- Changed `type` in financial fields:
+    - `baseRate`, `pricePerExtraPerson` from `price` to `accomodation`
+    - `totalPriceFromChannel` from `price` to `totals`
+    - `cancellationPayout`, `airbnbPayoutSum`, `totalPaid` from `fee` to `totals`
+    - `hostCancellationPenalty`, `bookingComCancellationGuestFee`, `cancellationHostFee`, `otaPaymentProcessingFee`, `hostChannelFee`, `paymentServiceProcessingFee` from `fee` to `commissions` 
+
 **2024-03-25**
 
 - Add `guestPaymentCardIsVirtual` to Reservation object
