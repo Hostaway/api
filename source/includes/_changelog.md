@@ -7,6 +7,8 @@
     - `airbnbClosedResolutionsSum`, `refundSum`, `damageDeposit` from `fee` to `other`
     - `airbnbPassThroughTax`, `airbnbTransientOccupancyTax` from `fee` to `tax` 
 
+Full and actual list of financial fields and types can be found [here](https://support.hostaway.com/hc/en-us/articles/360059842193-Financial-Reporting-Full-List-of-Standard-Fields)
+
 **2024-04-17**
 
 - Changed `type` in financial fields:
