@@ -1,6 +1,6 @@
 ## Changelog
 
-**2024-04-17**
+**2024-05-15**
 
 - Changed `type` in financial fields:
     - `guestChannelFee` from `fee` to `commissions`
