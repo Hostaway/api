@@ -3,6 +3,13 @@
 **2024-04-17**
 
 - Changed `type` in financial fields:
+    - `guestChannelFee` from `fee` to `commissions`
+    - `airbnbClosedResolutionsSum`, `refundSum`, `damageDeposit` from `fee` to `other`
+    - `airbnbPassThroughTax`, `airbnbTransientOccupancyTax` from `fee` to `tax` 
+
+**2024-04-17**
+
+- Changed `type` in financial fields:
     - `baseRate`, `pricePerExtraPerson` from `price` to `accomodation`
     - `totalPriceFromChannel` from `price` to `totals`
     - `cancellationPayout`, `airbnbPayoutSum`, `totalPaid` from `fee` to `totals`
