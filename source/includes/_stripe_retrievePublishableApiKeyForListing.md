@@ -1,5 +1,7 @@
 ## Retrieve Stripe publishable API key
 
+This endpoint provides Connect Stripe publishable API key.
+
 ### Request
 
 ```shell
