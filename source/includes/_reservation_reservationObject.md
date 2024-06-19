@@ -97,6 +97,8 @@
     "rentalAgreementFileUrl": "https://a0.muscache.com/im/pictures/3c4d82ed-196d-493a-a43b-07fcc70d5ccd.pdf",
     "reservationAgreement": "signed",
     "remainingBalance": 4563.54,
+    "insuranceStatus": "insured",
+    "claimStatus": "claim_started",
     "customFieldValues": [
         {
             "customFieldId": 167,
@@ -241,10 +243,12 @@
 | `latestActivityOn`                      | no       | date     |                                                                                                                                                                                                                          |
 | `customerUserId`                        | no       | string   |                                                                                                                                                                                                                          |
 | `reservationAgreement`                  | no       | string   | Can be one of the following: `not_required`, `signed`, `not_signed`                                                                                                                                                      |
-| `remainingBalance`                      | no       | float    | Difference between reservation total price and amount already paid by guest. Returns only if `includePayments=1` passed                                                                                                                                              |
+| `remainingBalance`                      | no       | float    | Difference between reservation total price and amount already paid by guest. Returns only if `includePayments=1` passed                                                                                                  |
 | `rentalAgreementFileUrl`                | no       | string   | Link to pdf file with signed Rental Agreement                                                                                                                                                                            |
 | `customFieldValues`                     | no       | array    | You should create Custom fields at the dashboard beforehand                                                                                                                                                              |
 | `reservationFees`                       | no       | array    | Array of `reservationFee` objects (will be empty array if `includeResources` parameter is set to 0).                                                                                                                     |
 | `reservationUnit`                       | no       | array    | Array of `reservationUnit` objects (will be empty array if `includeResources` parameter is set to 0 or reservation is not multi unit).                                                                                   |
 | `financeField`                          | no       | array    | Array of `financeField` objects                                                                                                                                                                                          |
-| `guestPaymentCardIsVirtual `            | no       | int       | `1` = guest payment card is virtual, `0` = not virtual                                                                                                                                                                       |
+| `guestPaymentCardIsVirtual`             | no       | int      | `1` = guest payment card is virtual, `0` = not virtual                                                                                                                                                                   |
+| `insuranceStatus`                       | no       | string   | Can be one of the following: `insured`, `pending`, `rejected`, `not_eligible`                                                                                                                                            |
+| `claimStatus`                           | no       | string   | Can be one of the following: `claim_started`, `claim_approved`, `claim_rejected`, `claim_draft`, `claim_paid`, `claim_withdrawn` and `null` when claim status not found.                                                 |
