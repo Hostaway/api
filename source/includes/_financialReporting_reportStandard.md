@@ -145,7 +145,7 @@ Parameter | Required | Type | Description
 `fromDate` | no | date string | Y-m-d
 `toDate` | no | date string | Y-m-d
 `dateType` | no | float | Can be one of the following: arrivalDate, departureDate, reservationDate
-`channelIds[]` | no | int[] | Array of channel ids
+`channelIds[]` | no | int[] | Array of channel ids<br>Please check here for valid channel values: [Channels](#reservation-channels)
 `statuses[]` | no | string[] | Array of reservation statuses
 `format` | no | string | csv
 `sortBy` | no | string | Field to sort by

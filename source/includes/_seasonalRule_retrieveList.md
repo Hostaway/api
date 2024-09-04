@@ -94,7 +94,7 @@ Query Parameter | Required | Type | Description
 --------- | -------- | ---- | -----------
 `limit` | no | int | Maximum number of items in the list.
 `offset` | no | int | Number of items to skip from beginning of the list.
-`channelId` | no | int |
+`channelId` | no | int | Please check here for valid channel values: [Channels](#reservation-channels)
 
 
 ### Response

@@ -92,7 +92,7 @@ print(response.text)
 Query Parameter | Required | Type | Description
 --------- | -------- | ---- | -----------
 `messageTemplateGroupId` | no | int | message template grpup id.
-`channelId` | no | int | channel id.
+`channelId` | no | int | channel id. Please check here for valid channel values: [Channels](#reservation-channels)
 `listingMapId` | no | int | listing map id
 `reservationId` | no | int | reservation id
 

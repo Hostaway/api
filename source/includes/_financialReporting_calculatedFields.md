@@ -99,7 +99,7 @@ Property | Required | Type | Description
 `accountId` | yes | int | 
 `listingMapId` | yes | int | 
 `financeCustomFormulaId` | no | int | 
-`channelId` | yes | int | 
+`channelId` | yes | int | Please check here for valid channel values: [Channels](#reservation-channels)
 `reservationId` | yes | int |
 `formulaName` | yes | string | 
 `formulaValue` | yes | string | 

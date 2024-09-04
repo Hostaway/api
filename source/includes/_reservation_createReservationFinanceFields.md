@@ -449,7 +449,7 @@ You can create a reservation with flexible price details using price calculator 
 From the calculator response you should use components array of objects for creating reservation with price details.
 
 A reservation object should be provided in the request body.
-Value of `channelId` can be set to one of the following: `2000` for a direct reservation, `2020` for Partner reservation.
+Please check here for a valid `channelId` values: [Channels](#reservation-channels)
 Also `couponName` string field can be provided inside reservation object, it will cause the corresponding coupon to
 be applied to the specified reservation, however, keep in mind that it won't affect price, it will only decrement
 coupon usages.

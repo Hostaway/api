@@ -32,7 +32,7 @@ Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
 `id` | yes | int | 
 `title` | yes | string | 
-`channelId` | yes | int | 
+`channelId` | yes | int | Please check here for valid channel values: [Channels](#reservation-channels) 
 `closedForCheckin` | false | string | 
 `closedForCheckout` | false | string | 
 `color` | false | int | 

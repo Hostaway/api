@@ -95,7 +95,7 @@ Query Parameter | Required | Type | Description
 `listingMapId` | yes | int | Listing ID
 `startDate` | yes | date |
 `endDate` | yes | date |
-`channelId` | no | int |
+`channelId` | no | int | Please check here for valid channel values: [Channels](#reservation-channels)
 
 
 ### Response

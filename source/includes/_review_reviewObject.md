@@ -38,7 +38,7 @@ Property | Required | Type | Description
 `autoReviewId` | yes | int |
 `timeDelta` | yes | int |
 `scheduledDateTime` | yes | int |
-`channelId` | yes | int |
+`channelId` | yes | int | Please check here for valid channel values: [Channels](#reservation-channels)
 `type` | yes | string |
 `status` | yes | string |
 `raiting` | yes | int |
