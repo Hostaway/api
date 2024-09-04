@@ -48,7 +48,7 @@ Property | Required | Type | Description
 -------- | -------- | ---- | ----------- 
 `id` | yes | int | 
 `listingMapId` | no | int | Identifier of listing object
-`channelId` | no | int | 
+`channelId` | no | int | Identifier of the channel object. Please check here for valid channel values: [Channels](#reservation-channels) 
 `reservationId` | no | int | Identifier of reservation object
 `autoTaskId` | no | int | Identifier of auto task object
 `assigneeUserId` | no | int | Identifier of assignee user object

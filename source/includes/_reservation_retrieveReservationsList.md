@@ -95,7 +95,7 @@ Query Parameter | Required | Type | Description
 `limit` | no | int | Maximum number of items in the list (default limit is 100).
 `offset` | no | int | Number of items to skip from beginning of the list. To retrieve next items set the parameter to 100, 200, etc. accordingly.
 `sortOrder` | no | string | One of: arrivalDate, arrivalDateDesc, lastConversationMessageSent, lastConversationMessageSentDesc, lastConversationMessageReceived, lastConversationMessageReceivedDesc, latestActivity, latestActivityDesc.
-`channelId` | no | int | 
+`channelId` | no | int | Please check here for valid channel values: [Channels](#reservation-channels) 
 `listingId` | no | int |
 `assigneeUserId` | no | int |
 `match` | no | string | Used to search a reservation by guest name.

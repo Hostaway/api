@@ -63,6 +63,7 @@ includes:
   - reservation_updateReservation
   - reservation_cancelReservation
   - reservation_deleteReservation
+  - reservation_channels
   - calendar_priceDetails
   - calendar_addExtras
   - finance_field

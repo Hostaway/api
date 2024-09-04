@@ -98,7 +98,7 @@ Property | Required | Type | Description
 `id` | yes | int | 
 `accountId` | yes | int | 
 `listingMapId` | yes | int | 
-`channelIds` | yes | int[] | Array of channel IDs to apply formula to (empty = all channels)
+`channelIds` | yes | int[] | Array of channel IDs to apply formula to (empty = all channels). <br>Please check here for valid channel values: [Channels](#reservation-channels)
 `formulaName` | yes | string | 
 `formulaValue` | yes | string | 
 `isOverride` | yes | int | 

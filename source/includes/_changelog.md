@@ -1,5 +1,9 @@
 ## Changelog
 
+**2024-09-04**
+
+- Added predefined channel values: [Channels](#reservation-channels)
+
 **2024-05-15**
 
 - Changed `type` in financial fields:
