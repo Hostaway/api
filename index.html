@@ -395,6 +395,12 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2024-09-04</strong></p>
+
+<ul>
+<li>Added predefined channel values: <a href="#reservation-channels">Channels</a></li>
+</ul>
+
 <p><strong>2024-05-15</strong></p>
 
 <ul>
@@ -1188,6 +1194,7 @@ Authorization server endpoint:</p>
   </span><span class="s2">"airbnbNeighborhoodOverview"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"airbnbTransit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"airbnbNotes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"insuranceEligibilityStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="s2">"listingAmenities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3449</span><span class="p">,</span><span class="w">
@@ -1966,6 +1973,12 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>no</td>
 <td>array</td>
 <td>Empty array by default, pass the query parameter <code class="prettyprint">?attachObjects[]=bookingEngineUrls</code> to get the actual value when Retrieving the listings list or a single listing</td>
+</tr>
+<tr>
+<td><code class="prettyprint">insuranceEligibilityStatus</code></td>
+<td>no</td>
+<td>bool</td>
+<td>Insurance eligibility status</td>
 </tr>
 </tbody></table>
 
@@ -5947,6 +5960,8 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
     </span><span class="s2">"rentalAgreementFileUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://a0.muscache.com/im/pictures/3c4d82ed-196d-493a-a43b-07fcc70d5ccd.pdf"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"reservationAgreement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"signed"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"remainingBalance"</span><span class="p">:</span><span class="w"> </span><span class="mf">4563.54</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"insuranceStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"insured"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"claimStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"claim_started"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"customFieldValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"customFieldId"</span><span class="p">:</span><span class="w"> </span><span class="mi">167</span><span class="p">,</span><span class="w">
@@ -6017,7 +6032,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">channelId</code></td>
 <td>yes</td>
 <td>int</td>
-<td>Value can be set to one of the following: <code class="prettyprint">2000</code> for a direct reservation, <code class="prettyprint">2020</code> for a Partner reservation</td>
+<td>Identifier of the channel. Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">source</code></td>
@@ -6029,7 +6044,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">channelName</code></td>
 <td>yes</td>
 <td>string</td>
-<td>Channel name  (Airbnb, Booking.com, Expedia, Vrbo etc.)</td>
+<td>Channel name  (Airbnb, Booking.com, Expedia, Vrbo etc.) Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">reservationId</code></td>
@@ -6613,6 +6628,24 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>int</td>
 <td><code class="prettyprint">1</code> = guest payment card is virtual, <code class="prettyprint">0</code> = not virtual</td>
 </tr>
+<tr>
+<td><code class="prettyprint">insuranceStatus</code></td>
+<td>no</td>
+<td>string</td>
+<td>Can be one of the following: <code class="prettyprint">insured</code>, <code class="prettyprint">pending</code>, <code class="prettyprint">rejected</code>, <code class="prettyprint">not_eligible</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">claimStatus</code></td>
+<td>no</td>
+<td>string</td>
+<td>Can be one of the following: <code class="prettyprint">claim_started</code>, <code class="prettyprint">claim_approved</code>, <code class="prettyprint">claim_rejected</code>, <code class="prettyprint">claim_draft</code>, <code class="prettyprint">claim_paid</code>, <code class="prettyprint">claim_withdrawn</code> and <code class="prettyprint">null</code> when claim status not found.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">insurancePolicyId</code></td>
+<td>no</td>
+<td>string</td>
+<td>Insurance external policyID</td>
+</tr>
 </tbody></table>
 
           <h2 id="reservation-fee-object">Reservation fee object</h2>
@@ -7010,7 +7043,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">channelId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">listingId</code></td>
@@ -7498,8 +7531,8 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 </code></pre>
 <p><code class="prettyprint">POST https://api.hostaway.com/v1/reservations?forceOverbooking=1</code></p>
 
-<p>A reservation object should be provided in the request body. 
-Value of <code class="prettyprint">channelId</code> can be set to one of the following: <code class="prettyprint">2000</code> for a direct reservation, <code class="prettyprint">2020</code> for Partner reservation.
+<p>A reservation object should be provided in the request body.
+Please check here for a valid <code class="prettyprint">channelId</code>: <a href="#reservation-channels">Channels</a>.
 Also <code class="prettyprint">couponName</code> string field can be provided inside reservation object, it will cause the corresponding coupon to 
 be applied to the specified reservation, however, keep in mind that it won&rsquo;t affect price, it will only decrement 
 coupon usages.</p>
@@ -8301,7 +8334,7 @@ if the charge fails the reservation will be deleted and you get a response with 
 From the calculator response you should use components array of objects for creating reservation with price details.</p>
 
 <p>A reservation object should be provided in the request body.
-Value of <code class="prettyprint">channelId</code> can be set to one of the following: <code class="prettyprint">2000</code> for a direct reservation, <code class="prettyprint">2020</code> for Partner reservation.
+Please check here for a valid <code class="prettyprint">channelId</code> values: <a href="#reservation-channels">Channels</a>
 Also <code class="prettyprint">couponName</code> string field can be provided inside reservation object, it will cause the corresponding coupon to
 be applied to the specified reservation, however, keep in mind that it won&rsquo;t affect price, it will only decrement
 coupon usages.</p>
@@ -8921,6 +8954,78 @@ It’s not possible to update the listingMapId of a reservation with this reques
 
 <p>An empty success response or error response.</p>
 
+          <h2 id="reservation-channels">Reservation Channels</h2>
+
+<p>We have these channels predefined:</p>
+
+<table><thead>
+<tr>
+<th>Channel ID</th>
+<th>Channel Name</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>2018</td>
+<td>airbnbOfficial</td>
+</tr>
+<tr>
+<td>2002</td>
+<td>homeaway</td>
+</tr>
+<tr>
+<td>2005</td>
+<td>bookingcom</td>
+</tr>
+<tr>
+<td>2007</td>
+<td>expedia</td>
+</tr>
+<tr>
+<td>2009</td>
+<td>homeawayical</td>
+</tr>
+<tr>
+<td>2010</td>
+<td>vrboical</td>
+</tr>
+<tr>
+<td>2000</td>
+<td>direct</td>
+</tr>
+<tr>
+<td>2013</td>
+<td>bookingengine</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>customIcal</td>
+</tr>
+<tr>
+<td>2016</td>
+<td>tripadvisorical</td>
+</tr>
+<tr>
+<td>2017</td>
+<td>wordpress</td>
+</tr>
+<tr>
+<td>2019</td>
+<td>marriott</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>partner</td>
+</tr>
+<tr>
+<td>2021</td>
+<td>gds</td>
+</tr>
+<tr>
+<td>2022</td>
+<td>google</td>
+</tr>
+</tbody></table>
+
           <h1 id="reservation-price-calculation">Reservation price calculation</h1>
 
 <h2 id="calculate-reservation-price">Calculate reservation price</h2>
@@ -9033,7 +9138,7 @@ For getting <code class="prettyprint">reservationCouponId</code> please follow  
 <tr>
 <td><code class="prettyprint">numberOfGuests</code></td>
 <td>yes</td>
-<td>string</td>
+<td>int</td>
 <td>Number of guest</td>
 </tr>
 <tr>
@@ -13492,7 +13597,7 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 <td><code class="prettyprint">channelId</code></td>
 <td>no</td>
 <td>int</td>
-<td>Identifier of reservation object</td>
+<td>Identifier of channel object. <br> Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">messageTemplateGroupId</code></td>
@@ -13620,7 +13725,7 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 <td><code class="prettyprint">channelId</code></td>
 <td>no</td>
 <td>int</td>
-<td>channel id.</td>
+<td>channel id. Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">listingMapId</code></td>
@@ -15700,6 +15805,8 @@ You shouldn&rsquo;t edit a custom field of <code class="prettyprint">dropdown</c
 
           <h2 id="retrieve-stripe-publishable-api-key">Retrieve Stripe publishable API key</h2>
 
+<p>This endpoint provides Connect Stripe publishable API key.</p>
+
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
   https://api.hostaway.com/v1/stripe/publishableKey/123 <span class="se">\</span>
@@ -16062,7 +16169,7 @@ You shouldn&rsquo;t edit a custom field of <code class="prettyprint">dropdown</c
 <td><code class="prettyprint">channelId</code></td>
 <td>yes</td>
 <td>int</td>
-<td></td>
+<td>Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">reservationId</code></td>
@@ -16632,7 +16739,7 @@ You shouldn&rsquo;t edit a custom field of <code class="prettyprint">dropdown</c
 <td><code class="prettyprint">channelId</code></td>
 <td>yes</td>
 <td>int</td>
-<td></td>
+<td>Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">reservationId</code></td>
@@ -16821,7 +16928,7 @@ You shouldn&rsquo;t edit a custom field of <code class="prettyprint">dropdown</c
 <td><code class="prettyprint">channelIds</code></td>
 <td>yes</td>
 <td>int[]</td>
-<td>Array of channel IDs to apply formula to (empty = all channels)</td>
+<td>Array of channel IDs to apply formula to (empty = all channels). <br>Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">formulaName</code></td>
@@ -17050,7 +17157,7 @@ You shouldn&rsquo;t edit a custom field of <code class="prettyprint">dropdown</c
 <td><code class="prettyprint">channelIds[]</code></td>
 <td>no</td>
 <td>int[]</td>
-<td>Array of channel ids</td>
+<td>Array of channel ids<br>Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">statuses[]</code></td>
@@ -17253,7 +17360,7 @@ You shouldn&rsquo;t edit a custom field of <code class="prettyprint">dropdown</c
 <td><code class="prettyprint">channelIds[]</code></td>
 <td>no</td>
 <td>int[]</td>
-<td>Array of channel ids</td>
+<td>Array of channel ids<br>Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">statuses[]</code></td>
@@ -17762,7 +17869,7 @@ Totals,0,0,0,0,0,61923,1354.254,372465.254,61837.6,372366.254,12613.678,309088,4
 <td><code class="prettyprint">channelIds[]</code></td>
 <td>no</td>
 <td>int[]</td>
-<td>Array of channel ids</td>
+<td>Array of channel ids<br>Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">statuses[]</code></td>
@@ -17967,7 +18074,7 @@ Totals,0,0,0,0,0,61923,1354.254,372465.254,61837.6,372366.254,12613.678,309088,4
 <td><code class="prettyprint">channelIds[]</code></td>
 <td>no</td>
 <td>int[]</td>
-<td>Array of channel ids</td>
+<td>Array of channel ids<br>Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">statuses[]</code></td>
@@ -20487,7 +20594,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <td><code class="prettyprint">channelId</code></td>
 <td>yes</td>
 <td>int</td>
-<td></td>
+<td>Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">type</code></td>
@@ -23767,7 +23874,7 @@ parameter</p>
 <td><code class="prettyprint">channelId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">isEnabled</code></td>
@@ -24379,7 +24486,7 @@ parameter</p>
 <td><code class="prettyprint">channelId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">isEnabled</code></td>
@@ -26192,7 +26299,7 @@ Up to 735 check-in dates (with 10 occupancy levels for each) so that you can cal
 <td><code class="prettyprint">channelId</code></td>
 <td>yes</td>
 <td>int</td>
-<td></td>
+<td>Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">closedForCheckin</code></td>
@@ -26416,7 +26523,7 @@ Up to 735 check-in dates (with 10 occupancy levels for each) so that you can cal
 <td><code class="prettyprint">channelId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 </tbody></table>
 
@@ -26560,7 +26667,7 @@ Up to 735 check-in dates (with 10 occupancy levels for each) so that you can cal
 <td><code class="prettyprint">channelId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 </tbody></table>
 
@@ -26671,7 +26778,7 @@ Up to 735 check-in dates (with 10 occupancy levels for each) so that you can cal
 <td><code class="prettyprint">channelId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Identifier of the channel object. Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">reservationId</code></td>
@@ -26985,7 +27092,7 @@ Up to 735 check-in dates (with 10 occupancy levels for each) so that you can cal
 <td><code class="prettyprint">channelId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Please check here for valid channel values: <a href="#reservation-channels">Channels</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">canStartFromEvent</code></td>
@@ -27018,13 +27125,13 @@ Up to 735 check-in dates (with 10 occupancy levels for each) so that you can cal
 <td></td>
 </tr>
 <tr>
-<td><code class="prettyprint">canStartFromFrom</code></td>
+<td><code class="prettyprint">canStartFromStart</code></td>
 <td>no</td>
 <td>date</td>
 <td></td>
 </tr>
 <tr>
-<td><code class="prettyprint">canStartFromTo</code></td>
+<td><code class="prettyprint">canStartFromEnd</code></td>
 <td>no</td>
 <td>date</td>
 <td></td>
