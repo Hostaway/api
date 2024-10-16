@@ -29,6 +29,7 @@
   "guestPerPersonPerNightTax": 10,
   "guestStayTax": 12,
   "guestNightlyTax": 13,
+  "guestBathroomsNumber": 2,
   "refundableDamageDeposit": 15,
   "personCapacity": 6,
   "maxChildrenAllowed": null,
@@ -198,6 +199,7 @@ Only `complete` listing can be activated for synchronization.
 | `guestPerPersonPerNightTax`               | no       | float             |                                                                                                                                                                     |
 | `guestStayTax`                            | no       | float             |                                                                                                                                                                     |
 | `guestNightlyTax`                         | no       | float             |                                                                                                                                                                     |
+| `guestBathroomsNumber`                    | no       | int               |                                                                                                                                                                     |
 | `refundableDamageDeposit`                 | no       | float             |                                                                                                                                                                     |
 | `personCapacity`                          | no       | int               |                                                                                                                                                                     |
 | `maxChildrenAllowed`                      | no       | int               |                                                                                                                                                                     |

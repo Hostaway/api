@@ -1,5 +1,11 @@
 ## Changelog
 
+**2024-10-16**
+- Added fields below into the `listing` object
+  - `airbnbName`
+  - `airbnbSummary`
+  - `guestBathroomsNumber`
+
 **2024-09-04**
 
 - Added predefined channel values: [Channels](#reservation-channels)
