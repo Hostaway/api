@@ -99,6 +99,8 @@
     "remainingBalance": 4563.54,
     "insuranceStatus": "insured",
     "claimStatus": "claim_started",
+    "insurancePolicyId": 6,
+    "cancellationPolicyId": 9,
     "customFieldValues": [
         {
             "customFieldId": 167,
@@ -253,3 +255,4 @@
 | `insuranceStatus`                       | no       | string   | Can be one of the following: `insured`, `pending`, `rejected`, `not_eligible`                                                                                                                                            |
 | `claimStatus`                           | no       | string   | Can be one of the following: `claim_started`, `claim_approved`, `claim_rejected`, `claim_draft`, `claim_paid`, `claim_withdrawn` and `null` when claim status not found.                                                 |
 | `insurancePolicyId`                     | no       | string   | Insurance external policyID                                                                                                                                                                                              |
+| `cancellationPolicyId`                  | no       | int      | Cancellation Policy Id of the reservation. [Cancellation Policies](#cancellation-policies)                                                                                                                               |
