@@ -1,5 +1,8 @@
 ## Changelog
 
+**2024-10-18**
+- Added `hostProxyEmail` into the `reservation` object. It will be accessible by including the `includeResources=1` to the [Retrieve a reservations list](#retrieve-a-reservations-list) endpoint or from [Retrieve a reservation](#retrieve-a-reservation) by default.
+
 **2024-10-17**
 - Added `cancellationPolicyId` into the `reservation` object
 

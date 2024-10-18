@@ -340,14 +340,16 @@ Now you will need to pass an extra query parameter `includeResources=1` to get t
   - customFieldValues
   - reservationFees
   - reservationUnit
+  - hostProxyEmail
 
-Now, if you didn't pass the query parameter `?includeResources=1` the above fields will be always an empty array `[]` as shown in the response snippet on the right
+Now, if you didn't pass the query parameter `?includeResources=1` the above fields will be always an empty as shown in the response snippet on the right
 
 ```json
 {
     "customFieldValues": [],
     "reservationFees": [],
-    "reservationUnit": []
+    "reservationUnit": [],
+    "hostProxyEmail": null
 }
 ```
 
