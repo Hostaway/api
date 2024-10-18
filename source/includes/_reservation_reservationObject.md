@@ -101,6 +101,7 @@
     "claimStatus": "claim_started",
     "insurancePolicyId": 6,
     "cancellationPolicyId": 9,
+    "hostProxyEmail": "c-123124124124@host.hostaway.info",
     "customFieldValues": [
         {
             "customFieldId": 167,
@@ -256,3 +257,4 @@
 | `claimStatus`                           | no       | string   | Can be one of the following: `claim_started`, `claim_approved`, `claim_rejected`, `claim_draft`, `claim_paid`, `claim_withdrawn` and `null` when claim status not found.                                                 |
 | `insurancePolicyId`                     | no       | string   | Insurance external policyID                                                                                                                                                                                              |
 | `cancellationPolicyId`                  | no       | int      | Cancellation Policy Id of the reservation. [Cancellation Policies](#cancellation-policies)                                                                                                                               |
+| `hostProxyEmail`                        | no       | string   | Proxy email of the host of the reservation.                                                                                                                                                                              |

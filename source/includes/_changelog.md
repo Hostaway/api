@@ -1,5 +1,8 @@
 ## Changelog
 
+**2024-10-18**
+- Added `hostProxyEmail` into the `reservation` object
+
 **2024-10-17**
 - Added `cancellationPolicyId` into the `reservation` object
 
