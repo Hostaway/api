@@ -35,6 +35,8 @@ includes:
   - listing_listingAgreement_update
   - listing_listingAgreement_delete
   - listing_listingAgreement_duplicate
+  - listing_listingPricingSettings_get
+  - listing_listingPricingSettings_update
   - listingUnit
   - listingUnit_listingUnitObject
   - listingUnit_retrievelistingUnits
