@@ -113,6 +113,7 @@ print(response.text)
 A conversation message object should be provided in the request body.
 
 * the `body` only parameter can be specified.
+* by default `communicationType` parameter is `email`, possible options: email / channel / sms / whatsapp
 
 ### Response
 
