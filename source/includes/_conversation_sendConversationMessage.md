@@ -110,7 +110,7 @@ print(response.text)
 
 `POST https://api.hostaway.com/v1/conversations/{conversationId}/messages`
 
-A conversation message object should be provided in the request body.
+A conversation message object should be provided in the request body. We do not support sending attachments in the message.
 
 * the `body` only parameter can be specified.
 * by default `communicationType` parameter is `email`, possible options: email / channel / sms / whatsapp
