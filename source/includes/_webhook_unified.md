@@ -16,12 +16,11 @@ the same update. Make sure your system can handle that properly.
  
 If you have the old (reservation/conversation) and the new (unified) webhooks configured we will trigger 
 both of them for the backward compatibility.
- 
- 
+
 We will be adding more events so if you receive a webhook with event that you don't support yet just return 200 response. 
-Otherwise, we will retry to deliver the message up to 3 times. Make sure you don't have high error rate for webhooks. We
-expect to receive response about successful acknowledgement in 10 seconds. If processing takes more than that try to use queue
-technics. You can log the request, return 200 and process it later asynchronously.
+Otherwise, we will retry to deliver the message up to 3 times. Make sure you don't have high error rate for webhooks.
+Because we will be **disabling** webhooks that fail for **5 consecutive days**. We expect to receive response about successful acknowledgement in 30 seconds. 
+If processing takes more than that try to use queue technics. You can log the request, return 200 and process it later asynchronously.
 
 Right now the system supports the following events:
 
