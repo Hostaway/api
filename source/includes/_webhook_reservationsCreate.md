@@ -1,5 +1,7 @@
 ## Create a reservation webhook
 
+**WARNING:** Reservation webhooks will be deprecated soon. Please consider using [Unified webhooks](#unified-webhooks) instead.
+
 ### Request
 
 ```shell

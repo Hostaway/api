@@ -1,5 +1,7 @@
 ## Retrieve a conversation message webhook
 
+**WARNING:** Conversation Message webhooks will be deprecated soon. Please consider using [Unified webhooks](#unified-webhooks) instead.
+
 ### Request
 
 ```shell
