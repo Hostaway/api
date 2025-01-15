@@ -397,6 +397,9 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2025-01-13</strong>
+- Added deprecation notes to the reservation webhook pages. Please consider using <a href="#unified-webhooks">Unified webhooks</a> instead.</p>
+
 <p><strong>2024-10-18</strong>
 - Added <code class="prettyprint">hostProxyEmail</code> into the <code class="prettyprint">reservation</code> object. It will be accessible by including the <code class="prettyprint">includeResources=1</code> to the <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a> endpoint or from <a href="#retrieve-a-reservation">Retrieve a reservation</a> by default.</p>
 
@@ -24034,6 +24037,8 @@ parameter</p>
 
 <p>Get reservation webhooks list</p>
 
+<p><strong>WARNING:</strong> Reservation webhooks will be deprecated soon. Please consider using <a href="#unified-webhooks">Unified webhooks</a> instead.</p>
+
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
   --url https://api.hostaway.com/v1/webhooks/reservations <span class="se">\</span>
@@ -24235,6 +24240,8 @@ parameter</p>
 </span></code></pre>
           <h2 id="retrieve-a-reservation-webhook">Retrieve a reservation webhook</h2>
 
+<p><strong>WARNING:</strong> Reservation webhooks will be deprecated soon. Please consider using <a href="#unified-webhooks">Unified webhooks</a> instead.</p>
+
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
   https://api.hostaway.com/v1/webhooks/reservations/1 <span class="se">\</span>
@@ -24315,6 +24322,8 @@ parameter</p>
 <p>A reservation webhook object.</p>
 
           <h2 id="create-a-reservation-webhook">Create a reservation webhook</h2>
+
+<p><strong>WARNING:</strong> Reservation webhooks will be deprecated soon. Please consider using <a href="#unified-webhooks">Unified webhooks</a> instead.</p>
 
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
@@ -24436,6 +24445,8 @@ parameter</p>
 
           <h2 id="update-a-reservation-webhook">Update a reservation webhook</h2>
 
+<p><strong>WARNING:</strong> Reservation webhooks will be deprecated soon. Please consider using <a href="#unified-webhooks">Unified webhooks</a> instead.</p>
+
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
   https://api.hostaway.com/v1/webhooks/reservations/1 <span class="se">\</span>
@@ -24556,6 +24567,8 @@ parameter</p>
 
           <h2 id="delete-a-reservation-webhook">Delete a reservation webhook</h2>
 
+<p><strong>WARNING:</strong> Reservation webhooks will be deprecated soon. Please consider using <a href="#unified-webhooks">Unified webhooks</a> instead.</p>
+
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
   https://api.hostaway.com/v1/webhooks/reservations/1 <span class="se">\</span>
@@ -24645,6 +24658,8 @@ parameter</p>
           <h2 id="get-conversation-message-webhooks-list">Get conversation message webhooks list</h2>
 
 <p>Get conversation message webhooks list</p>
+
+<p><strong>WARNING:</strong> Conversation Message webhooks will be deprecated soon. Please consider using <a href="#unified-webhooks">Unified webhooks</a> instead.</p>
 
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
@@ -24846,6 +24861,8 @@ parameter</p>
 </span></code></pre>
           <h2 id="retrieve-a-conversation-message-webhook">Retrieve a conversation message webhook</h2>
 
+<p><strong>WARNING:</strong> Conversation Message webhooks will be deprecated soon. Please consider using <a href="#unified-webhooks">Unified webhooks</a> instead.</p>
+
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
   https://api.hostaway.com/v1/webhooks/conversationMessages/1 <span class="se">\</span>
@@ -24926,6 +24943,8 @@ parameter</p>
 <p>A conversation message webhook object.</p>
 
           <h2 id="create-a-conversation-message-webhook">Create a conversation message webhook</h2>
+
+<p><strong>WARNING:</strong> Conversation Message webhooks will be deprecated soon. Please consider using <a href="#unified-webhooks">Unified webhooks</a> instead.</p>
 
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
@@ -25044,6 +25063,8 @@ parameter</p>
 <p>The created conversation message webhook object or error response.</p>
 
           <h2 id="update-a-conversation-message-webhook">Update a conversation message webhook</h2>
+
+<p><strong>WARNING:</strong> Conversation Message webhooks will be deprecated soon. Please consider using <a href="#unified-webhooks">Unified webhooks</a> instead.</p>
 
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
@@ -25164,6 +25185,8 @@ parameter</p>
 <p>The updated conversation message webhook object or error response.</p>
 
           <h2 id="delete-a-conversation-message-webhook">Delete a conversation message webhook</h2>
+
+<p><strong>WARNING:</strong> Conversation Message webhooks will be deprecated soon. Please consider using <a href="#unified-webhooks">Unified webhooks</a> instead.</p>
 
 <h3 id="request">Request</h3>
 <pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
