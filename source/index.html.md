@@ -74,7 +74,6 @@ includes:
   - reservationPaymentCard_retrieveList
   - reservationPaymentCard_addReservationPaymentCard
   - reservationPaymentCard_addReservationPaymentMethodId
-  - reservationPaymentCard_getCardDetails
   - reservationPaymentCard_defaultPaymentCard
   - reservationPaymentMethod
   - reservationPaymentMethod_retrieveList
