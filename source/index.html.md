@@ -71,7 +71,6 @@ includes:
   - finance_field
   - reservationPaymentCard
   - reservationPaymentCard_reservationPaymentCardObject
-  - reservationPaymentCard_retrieveList
   - reservationPaymentCard_addReservationPaymentCard
   - reservationPaymentCard_addReservationPaymentMethodId
   - reservationPaymentCard_defaultPaymentCard
