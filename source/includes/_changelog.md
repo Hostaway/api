@@ -1,5 +1,8 @@
 ## Changelog
 
+**2025-02-05**
+- Removed reservationPaymentCard retrieveList endpoint
+
 **2025-01-13**
 - Added deprecation notes to the reservation webhook pages. Please consider using [Unified webhooks](#unified-webhooks) instead.
 
