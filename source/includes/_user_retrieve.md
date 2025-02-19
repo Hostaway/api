@@ -91,6 +91,10 @@ print(response.text)
 
 `GET https://api.hostaway.com/v1/user/{userId}`
 
+Query Parameter | Required | Type  | Description
+--------- | -------- |-------| -----------
+`includeResources` | no | int   | if includeResources flag is 1 then response object is supplied with supplementary resources, default is 0.
+
 
 ### Response
 
