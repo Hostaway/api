@@ -397,6 +397,10 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2025-02-24</strong>
+- Added <code class="prettyprint">includeResources</code> query parameter to add supplementary resources to User object
+- Added <code class="prettyprint">listingMapIds</code> to User object if <code class="prettyprint">includeResources</code> query parameter is set to <code class="prettyprint">1</code></p>
+
 <p><strong>2025-02-05</strong>
 - Removed reservationPaymentCard retrieveList endpoint</p>
 
@@ -21735,10 +21739,573 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 </code></pre>
 <p><code class="prettyprint">GET https://api.hostaway.com/v1/user/{userId}</code></p>
 
+<table><thead>
+<tr>
+<th>Query Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">includeResources</code></td>
+<td>no</td>
+<td>int</td>
+<td>if includeResources flag is 1 then response object is supplied with supplementary resources, default is 0.</td>
+</tr>
+</tbody></table>
+
 <h3 id="response">Response</h3>
 
 <p>A User object</p>
 
+<h3 id="response">Response</h3>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">id</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">accountId</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">userGroupId</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">userGroupName</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">email</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">verificationCode</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">secondEmail</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">firstName</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">lastName</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">title</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">country</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">city</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">phone</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">emergencyPhone</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">preferredContactMethod</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">noteBeforeContact</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">address</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">postalCode</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">profilePictureUrl</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">timezone</code></td>
+<td>yes</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">createListing</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">readListing</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">updateListing</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">deleteListing</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">createReservation</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">readReservation</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">updateReservation</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">deleteReservation</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">readCalendar</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">updateCalendar</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">readBookingEngine</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">updateBookingEngine</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">readRevenueManagement</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">readChannelManager</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">updateChannelManager</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">createTask</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">readTask</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">updateTask</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">deleteTask</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">createAutomation</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">readAutomation</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">updateAutomation</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">deleteAutomation</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">readMessage</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">updateMessage</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">updateIntegration</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">createGuestInvoicing</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">readGuestInvoicing</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">updateGuestInvoicing</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">deleteGuestInvoicing</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">receiveReservationNotificationEmail</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">isDisabledByHostaway</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">isDisabledByAccount</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">hasAccessToNewListings</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">createReview</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">readReview</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">updateReview</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">deleteReview</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">createOwnerStatement</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">readOwnerStatement</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">updateOwnerStatement</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">deleteOwnerStatement</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">createGuestbook</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">readGuestbook</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">updateGuestbook</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">deleteGuestbook</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">isAdmin</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">accessFinancialData</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">accessContactData</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">accessGuestNotes</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">accessTagManagement</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">readAnalytics</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">readListingsFinancials</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">readOccupancyReport</code></td>
+<td>yes</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">listingMapIds</code></td>
+<td>no</td>
+<td>array\</td>
+<td>null</td>
+</tr>
+</tbody></table>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"userGroupId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"userGroupName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"icalKey"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"passwordUpdatedOn"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"verificationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"secondEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Andrew"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Peterson"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"emergencyPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"preferredContactMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phone"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"noteBeforeContact"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"profilePictureUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTC"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createListing"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"readListing"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updateListing"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"deleteListing"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createReservation"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"readReservation"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updateReservation"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"deleteReservation"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"readCalendar"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updateCalendar"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"readBookingEngine"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updateBookingEngine"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"readRevenueManagement"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"readChannelManager"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updateChannelManager"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createTask"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"readTask"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updateTask"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"deleteTask"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createAutomation"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"readAutomation"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updateAutomation"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"deleteAutomation"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"readMessage"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updateMessage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updateIntegration"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createGuestInvoicing"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"readGuestInvoicing"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updateGuestInvoicing"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"deleteGuestInvoicing"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"receiveReservationNotificationEmail"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isDisabledByHostaway"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isDisabledByAccount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"hasAccessToNewListings"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createReview"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"readReview"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updateReview"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"deleteReview"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createOwnerStatement"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"readOwnerStatement"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updateOwnerStatement"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"deleteOwnerStatement"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"createGuestbook"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"readGuestbook"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updateGuestbook"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"deleteGuestbook"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"isAdmin"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"accessFinancialData"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"accessContactData"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"accessGuestNotes"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"accessTagManagement"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"readAnalytics"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"readListingsFinancials"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"readOccupancyReport"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"lastLoginOn"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"listingMapIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
           <h1 id="group">Group</h1>
 
           <h2 id="get-groups-list">Get Groups list</h2>
