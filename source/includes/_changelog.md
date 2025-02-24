@@ -1,5 +1,9 @@
 ## Changelog
 
+**2025-02-24**
+- Added `includeResources` query parameter to add supplementary resources to User object
+- Added `listingMapIds` to User object if `includeResources` query parameter is set to `1`
+
 **2025-02-05**
 - Removed reservationPaymentCard retrieveList endpoint
 
