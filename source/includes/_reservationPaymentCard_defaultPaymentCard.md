@@ -109,8 +109,7 @@ print(response.text)
     "isVirtual": null,
     "isAddedByGuest": null,
     "paymentProviderMessage": null,
-    "paymentProvider": null,
-    "isCcDecryptable": 0
+    "paymentProvider": null
   }
 }
 ```
