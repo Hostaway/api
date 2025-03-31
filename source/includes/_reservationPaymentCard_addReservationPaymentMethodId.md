@@ -123,8 +123,7 @@ print(response.text)
     "isDefault": 1,
     "isAddedByGuest": null,
     "paymentProviderMessage": null,
-    "paymentProvider": "stripe",
-    "isCcDecryptable": 0
+    "paymentProvider": "stripe"
   }
 }
 ```
