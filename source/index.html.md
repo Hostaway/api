@@ -201,7 +201,7 @@ includes:
   - los
   - los_limitations
   - los_losObject
-  - los_pricing
+ # - los_pricing
   - los_createLos
   - los_importCsv
   - los_retrieveList
