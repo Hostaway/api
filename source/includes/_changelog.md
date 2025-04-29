@@ -1,5 +1,8 @@
 ## Changelog
 
+**2025-04-25**
+- Added hidden [Custom Fields](#custom-field-new), identifiable by `isPublic=0`, to the Listing object in the [Listing List endpoint](#retrieve-a-listings-list), if `includeResources` query parameter is set to `1`.
+
 **2025-02-24**
 - Added `includeResources` query parameter to add supplementary resources to User object
 - Added `listingMapIds` to User object if `includeResources` query parameter is set to `1`
