@@ -1,6 +1,6 @@
-## Update expense by ID
+## Update Expenses&Extras by ID
 
-Update expense by id
+Update expense and extra by id
 
 ### Request
 
@@ -174,6 +174,7 @@ Updated expense object
     "expenseDate": "2021-10-21",
     "concept": "test",
     "amount": 123,
+    "type": "extra",
     "isDeleted": 0,
     "ownerUserId": null,
     "insertedOn": "2022-01-01 00:00:00",

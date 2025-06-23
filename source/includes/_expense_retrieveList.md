@@ -1,6 +1,6 @@
-## Get expenses list
+## Get Expenses&Extras list
 
-Get expenses list
+Get expenses and extras list
 
 ### Query params:
 name | default | options
@@ -116,6 +116,7 @@ List of expense objects
       "expenseDate": "2021-10-22",
       "concept": "test",
       "amount": 123,
+      "type": "extra",
       "isDeleted": 0,
       "ownerUserId": null,
       "insertedOn": "2022-01-01 00:00:00",
@@ -141,7 +142,8 @@ List of expense objects
       "reservationId": 456,
       "expenseDate": "2021-10-21",
       "concept": "test",
-      "amount": 555,
+      "amount": -555,
+      "type": "expense",
       "isDeleted": 0,
       "ownerUserId": 123,
       "insertedOn": "2022-10-19 13:44:00",

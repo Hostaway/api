@@ -1,3 +1,3 @@
-# Expense
+# Expenses&Extras
 
-Expense represents financial expense values
+Expense and extras represents financial expenses and extras values

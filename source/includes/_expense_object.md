@@ -1,4 +1,4 @@
-## Expense Object
+## Expenses&Extras Object
 
 ```json
 {
@@ -9,6 +9,7 @@
   "reservationId": 456,
   "expenseDate": "2021-10-22",
   "concept": "test",
+  "type": "extra",
   "amount": 123,
   "isDeleted": 0,
   "ownerUserId": null,
@@ -39,6 +40,7 @@ Property | Required | Type   | Description
 `expenseDate` | yes      | string | Date of expense
 `concept` | yes      | string | Reason of expense, max 255 characters
 `amount` | yes      | float  | Financial amount of expense
+`type` | no       | string | Type of item. Possible values: `extra` or `expense`. Ignored, will set automatically based on the amount value.
 `isDeleted` | yes      | int    | IF 1 then it is marked as deleted and not considered in owner statements
 `ownerUserId` | no       | int    |
 `insertedOn` | yes      | string |

@@ -1,6 +1,12 @@
-## Create expense
+## Create Expenses&Extras
 
-Create expense
+Create Expenses and Extras
+
+To create an "extra", submit the `amount` as a positive number.
+
+To create an "expense", submit the `amount` as a negative number.
+
+The system will automatically determine the item `type` (expense or extra) based on the sign of the `amount` provided. It is not necessary to explicitly specify the `type`; this is automatically configured based on the sign of the `amount`.
 
 ### Request
 
@@ -160,7 +166,7 @@ print(data.decode("utf-8"))
 
 ### Response
 
-Created expense object
+Created Expenses&Extras object
 
 ```json
 {
@@ -174,6 +180,7 @@ Created expense object
     "expenseDate": "2021-10-21",
     "concept": "test",
     "amount": 123,
+    "type": "extra",
     "isDeleted": 0,
     "ownerUserId": null,
     "insertedOn": "2022-01-01 00:00:00",

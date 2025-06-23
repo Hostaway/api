@@ -1,6 +1,6 @@
-## Delete expense by ID
+## Delete Expenses&Extras by ID
 
-Delete expense by id
+Delete expenses and extras by id
 
 ### Request
 
