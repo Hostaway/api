@@ -19695,11 +19695,11 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-          <h1 id="expense">Expense</h1>
+          <h1 id="expensesextras">Expenses&amp;Extras</h1>
 
-<p>Expense represents financial expense values</p>
+<p>Expense and extras represents financial expenses and extras values</p>
 
-          <h2 id="expense-object">Expense Object</h2>
+          <h2 id="expensesextras-object">Expenses&amp;Extras Object</h2>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
   </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10638</span><span class="p">,</span><span class="w">
@@ -19708,6 +19708,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
   </span><span class="nl">"reservationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
   </span><span class="nl">"expenseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-22"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"concept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extra"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
   </span><span class="nl">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"ownerUserId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -19784,6 +19785,12 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <td>Financial amount of expense</td>
 </tr>
 <tr>
+<td><code class="prettyprint">type</code></td>
+<td>no</td>
+<td>string</td>
+<td>Type of item. Possible values: <code class="prettyprint">extra</code> or <code class="prettyprint">expense</code>. Ignored, will set automatically based on the amount value.</td>
+</tr>
+<tr>
 <td><code class="prettyprint">isDeleted</code></td>
 <td>yes</td>
 <td>int</td>
@@ -19857,9 +19864,9 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 </tr>
 </tbody></table>
 
-          <h2 id="get-expenses-list">Get expenses list</h2>
+          <h2 id="get-expensesextras-list">Get Expenses&amp;Extras list</h2>
 
-<p>Get expenses list</p>
+<p>Get expenses and extras list</p>
 
 <h3 id="query-params">Query params:</h3>
 
@@ -19976,6 +19983,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
       </span><span class="nl">"expenseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-22"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"concept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extra"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ownerUserId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="nl">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01 00:00:00"</span><span class="p">,</span><span class="w">
@@ -20001,7 +20009,8 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
       </span><span class="nl">"reservationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">456</span><span class="p">,</span><span class="w">
       </span><span class="nl">"expenseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-21"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"concept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">555</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">-555</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"expense"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ownerUserId"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
       </span><span class="nl">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-10-19 13:44:00"</span><span class="p">,</span><span class="w">
@@ -20030,9 +20039,9 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-          <h2 id="get-expense-by-id">Get expense by ID</h2>
+          <h2 id="get-expensesextras-by-id">Get Expenses&amp;Extras by ID</h2>
 
-<p>Get expense by id</p>
+<p>Get expense and extra by id</p>
 
 <h3 id="request">Request</h3>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="se">\</span>
@@ -20122,6 +20131,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
     </span><span class="nl">"expenseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-21"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"concept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extra"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ownerUserId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01 00:00:00"</span><span class="p">,</span><span class="w">
@@ -20147,9 +20157,15 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-          <h2 id="create-expense">Create expense</h2>
+          <h2 id="create-expensesextras">Create Expenses&amp;Extras</h2>
 
-<p>Create expense</p>
+<p>Create Expenses and Extras</p>
+
+<p>To create an &ldquo;extra&rdquo;, submit the <code class="prettyprint">amount</code> as a positive number.</p>
+
+<p>To create an &ldquo;expense&rdquo;, submit the <code class="prettyprint">amount</code> as a negative number.</p>
+
+<p>The system will automatically determine the item <code class="prettyprint">type</code> (expense or extra) based on the sign of the <code class="prettyprint">amount</code> provided. It is not necessary to explicitly specify the <code class="prettyprint">type</code>; this is automatically configured based on the sign of the <code class="prettyprint">amount</code>.</p>
 
 <h3 id="request">Request</h3>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://api.hostaway.com/v1/expenses'</span> <span class="se">\</span>
@@ -20294,7 +20310,7 @@ print(data.decode("utf-8"))
 
 <h3 id="response">Response</h3>
 
-<p>Created expense object</p>
+<p>Created Expenses&amp;Extras object</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -20306,6 +20322,7 @@ print(data.decode("utf-8"))
     </span><span class="nl">"expenseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-21"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"concept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extra"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ownerUserId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01 00:00:00"</span><span class="p">,</span><span class="w">
@@ -20331,9 +20348,9 @@ print(data.decode("utf-8"))
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-          <h2 id="delete-expense-by-id">Delete expense by ID</h2>
+          <h2 id="delete-expensesextras-by-id">Delete Expenses&amp;Extras by ID</h2>
 
-<p>Delete expense by id</p>
+<p>Delete expenses and extras by id</p>
 
 <h3 id="request">Request</h3>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> DELETE <span class="se">\</span>
@@ -20415,9 +20432,9 @@ print(data.decode("utf-8"))
   </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-          <h2 id="update-expense-by-id">Update expense by ID</h2>
+          <h2 id="update-expensesextras-by-id">Update Expenses&amp;Extras by ID</h2>
 
-<p>Update expense by id</p>
+<p>Update expense and extra by id</p>
 
 <h3 id="request">Request</h3>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> PUT <span class="s1">'https://api.hostaway.com/v1/expenses/1'</span> <span class="se">\</span>
@@ -20574,6 +20591,7 @@ print(data.decode("utf-8"))
     </span><span class="nl">"expenseDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-10-21"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"concept"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"extra"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"isDeleted"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ownerUserId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01 00:00:00"</span><span class="p">,</span><span class="w">
