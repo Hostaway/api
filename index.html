@@ -408,6 +408,9 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2025-06-18</strong>
+- Added possibility to create expense categories inside <a href="#create-expense">Create expense</a> and <a href="#update-expense-by-id">Update expense</a> endpoints.</p>
+
 <p><strong>2025-04-25</strong>
 - Added hidden <a href="#custom-field-new">Custom Fields</a>, identifiable by <code class="prettyprint">isPublic=0</code>, to the Listing object in the <a href="#retrieve-a-listings-list">Listing List endpoint</a>, if <code class="prettyprint">includeResources</code> query parameter is set to <code class="prettyprint">1</code>.</p>
 
@@ -20187,6 +20190,10 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
         "categories": [
             1
         ],
+        "categoriesNames": [
+            "New category name",
+            "Existing category name"
+        ],
         "attachments": []
     }'</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
@@ -20218,6 +20225,10 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
         "categories": [
             1
         ],
+        "categoriesNames": [
+            "New category name",
+            "Existing category name"
+        ],
         "attachments": []
     }'</span><span class="p">,</span>
   <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
@@ -20247,6 +20258,10 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
     <span class="dl">"</span><span class="s2">categories</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
         <span class="mi">1</span>
     <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">categoriesNames</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">New category name</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">Existing category name</span><span class="dl">"</span>
+    <span class="p">],</span>
     <span class="dl">"</span><span class="s2">attachments</span><span class="dl">"</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">});</span>
 
@@ -20267,7 +20282,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 </code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
   <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 <span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
-<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"ownerStatementId\": null,\n    \"listingMapId\": 123,\n    \"reservationId\": null,\n    \"expenseDate\": \"2021-10-21\",\n    \"concept\": \"test\",\n    \"amount\": 123,\n    \"isDeleted\": 0,\n    \"ownerUserId\": null,\n    \"ownerStatementIds\": [\n        5,\n        6\n    ],\n    \"categories\": [\n        1\n    ],\n    \"attachments\": []\n}"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"ownerStatementId\": null,\n    \"listingMapId\": 123,\n    \"reservationId\": null,\n    \"expenseDate\": \"2021-10-21\",\n    \"concept\": \"test\",\n    \"amount\": 123,\n    \"isDeleted\": 0,\n    \"ownerUserId\": null,\n    \"ownerStatementIds\": [\n        5,\n        6\n    ],\n    \"categories\": [\n        1\n    ],\n    \"categoriesName\": [\n        \"New category name\",\n        \"Existing category name\"\n    ],\n    \"attachments\": []\n}"</span><span class="o">);</span>
 <span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
   <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/expenses"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
@@ -20294,6 +20309,10 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
         <span class="p">],</span>
         <span class="s">"categories"</span><span class="p">:</span> <span class="p">[</span>
             <span class="mi">1</span>
+        <span class="p">],</span>
+        <span class="s">"categoriesNames"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s">"New category name"</span><span class="p">,</span>
+            <span class="s">"Existing category name"</span>
         <span class="p">],</span>
         <span class="s">"attachments"</span><span class="p">:</span> <span class="p">[]</span>
     <span class="p">})</span>
@@ -20332,10 +20351,14 @@ print(data.decode("utf-8"))
       </span><span class="mi">6</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="mi">1</span><span class="w">
+      </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="mi">3</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"categoriesNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"test"</span><span class="w">
+      </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"New category name"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Existing category name"</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="nl">"listingName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -20456,6 +20479,10 @@ print(data.decode("utf-8"))
         "categories": [
             1
         ],
+        "categoriesNames": [
+            "New category name",
+            "Existing category name"
+        ],
         "attachments": []
     }'</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
@@ -20485,7 +20512,11 @@ print(data.decode("utf-8"))
             6
         ],
         "categories": [
-            1
+            1,
+        ],
+        "categoriesNames": [
+            "New category name",
+            "Existing category name"
         ],
         "attachments": []
     }'</span><span class="p">,</span>
@@ -20516,6 +20547,10 @@ print(data.decode("utf-8"))
     <span class="dl">"</span><span class="s2">categories</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
         <span class="mi">1</span>
     <span class="p">],</span>
+    <span class="dl">"</span><span class="s2">categoriesNames</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">New category name</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">Existing category name</span><span class="dl">"</span>
+    <span class="p">],</span>
     <span class="dl">"</span><span class="s2">attachments</span><span class="dl">"</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">});</span>
 
@@ -20536,7 +20571,7 @@ print(data.decode("utf-8"))
 </code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
   <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 <span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
-<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"ownerStatementId\": null,\n    \"listingMapId\": 123,\n    \"reservationId\": null,\n    \"expenseDate\": \"2021-10-21\",\n    \"concept\": \"test\",\n    \"amount\": 123,\n    \"isDeleted\": 0,\n    \"ownerUserId\": null,\n    \"ownerStatementIds\": [\n        5,\n        6\n    ],\n    \"categories\": [\n        1\n    ],\n    \"attachments\": []\n}"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n    \"ownerStatementId\": null,\n    \"listingMapId\": 123,\n    \"reservationId\": null,\n    \"expenseDate\": \"2021-10-21\",\n    \"concept\": \"test\",\n    \"amount\": 123,\n    \"isDeleted\": 0,\n    \"ownerUserId\": null,\n    \"ownerStatementIds\": [\n        5,\n        6\n    ],\n    \"categories\": [\n        1\n    ],\n    \"categoriesName\": [\n        \"New category name\",\n        \"Existing category name\"\n    ],\n    \"attachments\": []\n}"</span><span class="o">);</span>
 <span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
   <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/expenses/1"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"PUT"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
@@ -20563,6 +20598,10 @@ print(data.decode("utf-8"))
         <span class="p">],</span>
         <span class="s">"categories"</span><span class="p">:</span> <span class="p">[</span>
             <span class="mi">1</span>
+        <span class="p">],</span>
+        <span class="s">"categoriesNames"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s">"New category name"</span><span class="p">,</span>
+            <span class="s">"Existing category name"</span>
         <span class="p">],</span>
         <span class="s">"attachments"</span><span class="p">:</span> <span class="p">[]</span>
     <span class="p">})</span>
@@ -20601,10 +20640,14 @@ print(data.decode("utf-8"))
       </span><span class="mi">6</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="mi">1</span><span class="w">
+      </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="mi">3</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"categoriesNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"test"</span><span class="w">
+      </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"New category name"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Existing category name"</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nl">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="nl">"listingName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
