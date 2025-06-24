@@ -30,6 +30,10 @@ curl --location --request POST 'https://api.hostaway.com/v1/expenses' \
         "categories": [
             1
         ],
+        "categoriesNames": [
+            "New category name",
+            "Existing category name"
+        ],
         "attachments": []
     }'
 ```
@@ -64,6 +68,10 @@ curl_setopt_array($curl, array(
         "categories": [
             1
         ],
+        "categoriesNames": [
+            "New category name",
+            "Existing category name"
+        ],
         "attachments": []
     }',
   CURLOPT_HTTPHEADER => array(
@@ -96,6 +104,10 @@ var data = JSON.stringify({
     "categories": [
         1
     ],
+    "categoriesNames": [
+        "New category name",
+        "Existing category name"
+    ],
     "attachments": []
 });
 
@@ -119,7 +131,7 @@ xhr.send(data);
 OkHttpClient client = new OkHttpClient().newBuilder()
   .build();
 MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create(mediaType, "{\n    \"ownerStatementId\": null,\n    \"listingMapId\": 123,\n    \"reservationId\": null,\n    \"expenseDate\": \"2021-10-21\",\n    \"concept\": \"test\",\n    \"amount\": 123,\n    \"isDeleted\": 0,\n    \"ownerUserId\": null,\n    \"ownerStatementIds\": [\n        5,\n        6\n    ],\n    \"categories\": [\n        1\n    ],\n    \"attachments\": []\n}");
+RequestBody body = RequestBody.create(mediaType, "{\n    \"ownerStatementId\": null,\n    \"listingMapId\": 123,\n    \"reservationId\": null,\n    \"expenseDate\": \"2021-10-21\",\n    \"concept\": \"test\",\n    \"amount\": 123,\n    \"isDeleted\": 0,\n    \"ownerUserId\": null,\n    \"ownerStatementIds\": [\n        5,\n        6\n    ],\n    \"categories\": [\n        1\n    ],\n    \"categoriesName\": [\n        \"New category name\",\n        \"Existing category name\"\n    ],\n    \"attachments\": []\n}");
 Request request = new Request.Builder()
   .url("https://api.hostaway.com/v1/expenses")
   .method("POST", body)
@@ -149,6 +161,10 @@ payload = json.dumps({
         ],
         "categories": [
             1
+        ],
+        "categoriesNames": [
+            "New category name",
+            "Existing category name"
         ],
         "attachments": []
     })
@@ -190,10 +206,14 @@ Created Expenses&Extras object
       6
     ],
     "categories": [
-      1
+      1,
+      2,
+      3
     ],
     "categoriesNames": [
-      "test"
+      "test",
+      "New category name",
+      "Existing category name"
     ],
     "attachments": [],
     "listingName": null,
