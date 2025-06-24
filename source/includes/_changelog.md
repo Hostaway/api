@@ -1,7 +1,7 @@
 ## Changelog
 
-**2025-06-18**
-- Added possibility to create expense categories inside [Create expense](#create-expense) and [Update expense](#update-expense-by-id) endpoints.
+**2025-06-24**
+- Added possibility to create expense categories inside [Create expense](#create-expensesextras) and [Update expense](#update-expensesextras-by-id) endpoints.
 
 **2025-04-25**
 - Added hidden [Custom Fields](#custom-field-new), identifiable by `isPublic=0`, to the Listing object in the [Listing List endpoint](#retrieve-a-listings-list), if `includeResources` query parameter is set to `1`.
