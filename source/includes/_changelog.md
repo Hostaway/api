@@ -1,5 +1,9 @@
 ## Changelog
 
+**2025-08-07**
+- Deprecated fields `isGuestIdentityVerified`, `isGuestVerifiedByEmail`, `isGuestVerifiedByWorkEmail`, `isGuestVerifiedByFacebook`, `isGuestVerifiedByGovernmentId`, `isGuestVerifiedByPhone`, `isGuestVerifiedByReviews`, `originalChannel` from the `Reservation` object. 
+  They will be present in the responses for retrocompatibility reasons, but they shall be ignored.
+
 **2025-06-24**
 - Added possibility to create expense categories inside [Create expense](#create-expensesextras) and [Update expense](#update-expensesextras-by-id) endpoints.
 
