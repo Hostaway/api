@@ -1,5 +1,8 @@
 ## Changelog
 
+**2025-09-04**
+- Supporting booking.com `creditCardFee`, `petFee`, `linenPackageFee`, `resortFee` standard fee types in the [listing fee setting](#create-listing-fee-setting) endpoint.
+
 **2025-08-07**
 - Deprecated fields `isGuestIdentityVerified`, `isGuestVerifiedByEmail`, `isGuestVerifiedByWorkEmail`, `isGuestVerifiedByFacebook`, `isGuestVerifiedByGovernmentId`, `isGuestVerifiedByPhone`, `isGuestVerifiedByReviews`, `originalChannel` from the `Reservation` object. 
   They will be present in the responses for retrocompatibility reasons, but they shall be ignored.

@@ -2,6 +2,14 @@
 
 Add listing fee settings by listing map. Then you can use it for calculate total price and create reservation. Please check [calculate reservation price with extras](#calculate-reservation-price-with-extras)
 
+You can add standard fees by passing `isCustom` = 0. if not passed then it will be considered as `1`
+Creating standard fees through this endpoint currently possible for b.com channel (passing `"channelId: 2005"`) and for the following fees types only:
+
+- creditCardFee
+- petFee
+- linenPackageFee
+- resortFee
+
 ### Request
 
 ```shell
@@ -15,7 +23,8 @@ curl --location --request POST 'https://api.hostaway.com/v1/listingFeeSettings/4
     "amount": 1000,
     "amountType": "flat",
     "isMandatory": 0,
-    "isQuantitySelectable": 1
+    "isQuantitySelectable": 1,
+    "isCustom": 1
 }'
 ```
 
@@ -40,7 +49,8 @@ curl_setopt_array($curl, array(
     "amount": 1000,
     "amountType": "flat",
     "isMandatory": 0,
-    "isQuantitySelectable": 1
+    "isQuantitySelectable": 1,
+    "isCustom": 1
 }',
   CURLOPT_HTTPHEADER => array(
     'jwt: ',
@@ -63,7 +73,8 @@ var data = JSON.stringify({
     "amount": 1000,
     "amountType": "flat",
     "isMandatory": 0,
-    "isQuantitySelectable": 1
+    "isQuantitySelectable": 1,
+    "isCustom": 1
 });
 
 var xhr = new XMLHttpRequest();
@@ -109,6 +120,7 @@ payload = json.dumps({
   "amountType": "flat",
   "isMandatory": 0,
   "isQuantitySelectable": 1
+  "isCustom": 1
 })
 headers = {
   'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxMDQ5MCIsImp0aSI6ImNhMmJhMjAyZGMwYzU0ZWZlYmVkNTJmZjhkNjZjNjZhODBjMmVhYmQ0ZDU4ODVmZmRmMGI1YjkzODBjN2I2MzU3ZTE2NDk4YTVmNTQyOWQ4IiwiaWF0IjoxNjkxNjUzNDc2LCJuYmYiOjE2OTE2NTM0NzYsImV4cCI6MTc1NDgxMTg3Niwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXSwic2VjcmV0SWQiOjF9.cr4vNqZ1WuR5IOY-SoVitOv8PBdhMnMrUp2WZx8E6Adet-9rYI3KB3wMzxjTShXp_63TGGKYsdmNQ6DQOuB4PbN8qH1jsacmwn0cY4ynxfLaG5n9bdJ5DxLHe8EGv-MD2HIM1-zrK1bMBYTx6idti0L2IK6S6xxJCHQ5fBfsuyc'',
