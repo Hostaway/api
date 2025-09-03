@@ -2,6 +2,8 @@
 
 Get listing fee settings by listing map
 
+We're introducing standard fees. For backward compatibility you will be only able to get those type of fees by passing this query parameter `?includeStandardFees=1`
+
 ### Request
 
 ```shell
@@ -94,19 +96,20 @@ print(response.text)
 ### Response
 
 Property | Required | Type | Description
--------- | -------- | ---- | ----------- 
-`id` | yes | int | 
-`accountId` | yes | int | 
-`listingMapId` | yes | int |
-`feeType` | yes | string | Can be one of the following: additionalCleaningFee, parkingFee, towelChangeFee, midstayCleaningFee, roomRequestFee, reservationChangeFee, lateCheckoutFee, otherFees, creditCardFee, kitchenLinenFee, linenPackageFee, transferFee, wristbandFee, extraBedsFee, serviceFee, bedLinenFee, bookingFee, petFee, skiPassFee, tourismFee, childrenExtraFee, resortFee
-`feeTitle` | no | string | Fee title
-`feeAppliedPer` | yes | string | Can be one of the following: reservation, person, night, person_per_night
-`amount` | yes | float | 
-`amountType` | yes | string | Can be one of the following: percent, flat
-`isMandatory` | no | int | 1 = fee always included in total price, 0/null = is not included by default
-`isQuantitySelectable` | yes | int | 1 = fee quantity can be selected, it will be multiplied to get value, 0 = quantity is not selectable and is always 1
-`insertedOn` | yes | date time | 
-`updatedOn` | yes | date time | 
+-------- |----------| ---- | ----------- 
+`id` | yes      | int | 
+`accountId` | yes      | int | 
+`listingMapId` | yes      | int |
+`feeType` | yes      | string | Can be one of the following: additionalCleaningFee, parkingFee, towelChangeFee, midstayCleaningFee, roomRequestFee, reservationChangeFee, lateCheckoutFee, otherFees, creditCardFee, kitchenLinenFee, linenPackageFee, transferFee, wristbandFee, extraBedsFee, serviceFee, bedLinenFee, bookingFee, petFee, skiPassFee, tourismFee, childrenExtraFee, resortFee
+`feeTitle` | no       | string | Fee title
+`feeAppliedPer` | yes      | string | Can be one of the following: reservation, person, night, person_per_night
+`amount` | yes      | float | 
+`amountType` | yes      | string | Can be one of the following: percent, flat
+`isMandatory` | no       | int | 1 = fee always included in total price, 0/null = is not included by default
+`isQuantitySelectable` | yes      | int | 1 = fee quantity can be selected, it will be multiplied to get value, 0 = quantity is not selectable and is always 1
+`isCustom` | yes      | int | 1 = custom fee, 0 is standard fee.
+`insertedOn` | yes      | date time | 
+`updatedOn` | yes      | date time | 
 
 ```json
 {
