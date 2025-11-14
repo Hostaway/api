@@ -132,7 +132,7 @@ Possible values for field `paymentMethod`: credit_card,vcc,cash,paypal,venmo,ban
 
 ### Response
 
-Updated charge object
+Updated charge object or error response.
 
 ```json
 {

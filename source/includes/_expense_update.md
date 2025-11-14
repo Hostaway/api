@@ -176,7 +176,7 @@ print(data.decode("utf-8"))
 
 ### Response
 
-Updated expense object
+Updated expense object or error response.
 
 ```json
 {

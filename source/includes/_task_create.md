@@ -106,7 +106,7 @@ A task object should be provided in the request body.
 
 ### Response
 
-Created task object
+Created task object or error response.
 
 ```json
 {

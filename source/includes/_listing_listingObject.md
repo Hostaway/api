@@ -47,6 +47,7 @@
   "marriottCancellationPolicyId": 4013,
   "bookingCancellationPolicyId": 4013,
   "squareMeters": 10,
+  "specialStatus": null,
   "roomType": "entire_home",
   "bathroomType": "shared",
   "bedroomsNumber": 1,
@@ -217,6 +218,7 @@ Only `complete` listing can be activated for synchronization.
 | `marriottCancellationPolicyId`            | no       | int               | The policy that applies to Marriott bookings. [Marriott cancellation policies](#retrieve-marriott-cancellation-policies)                                            |
 | `vrboCancellationPolicyId`                | no       | int               | The policy that applies to VRBO bookings. [Vrbo cancellation policies](#retrieve-airbnb-cancellation-policies)                                                      |
 | `squareMeters`                            | no       | int               |                                                                                                                                                                     |
+| `specialStatus`                           | no       | string            | One of: archived, null                                                                                                                                              |
 | `roomType`                                | no       | string            | One of: entire_home, private_room, shared_room.                                                                                                                     |
 | `bathroomType`                            | no       | string            | One of: private, shared.                                                                                                                                            |
 | `bedroomsNumber`                          | no       | int               |                                                                                                                                                                     |
