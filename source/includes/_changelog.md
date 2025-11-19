@@ -1,32 +1,46 @@
 ## Changelog
 
+**2025-11-15**
+
+- A `specialStatus` field has been added to the Listings object.
+- Any attempts to create or update items linked to a listing with a `specialStatus` of `archived` will now be restricted and will return an error.
+
 **2025-08-07**
+
 - Deprecated fields `isGuestIdentityVerified`, `isGuestVerifiedByEmail`, `isGuestVerifiedByWorkEmail`, `isGuestVerifiedByFacebook`, `isGuestVerifiedByGovernmentId`, `isGuestVerifiedByPhone`, `isGuestVerifiedByReviews`, `originalChannel` from the `Reservation` object. 
   They will be present in the responses for retrocompatibility reasons, but they shall be ignored.
 
 **2025-06-24**
+
 - Added possibility to create expense categories inside [Create expense](#create-expensesextras) and [Update expense](#update-expensesextras-by-id) endpoints.
 
 **2025-04-25**
+
 - Added hidden [Custom Fields](#custom-field-new), identifiable by `isPublic=0`, to the Listing object in the [Listing List endpoint](#retrieve-a-listings-list), if `includeResources` query parameter is set to `1`.
 
 **2025-02-24**
+
 - Added `includeResources` query parameter to add supplementary resources to User object
 - Added `listingMapIds` to User object if `includeResources` query parameter is set to `1`
 
 **2025-02-05**
+
 - Removed reservationPaymentCard retrieveList endpoint
 
 **2025-01-13**
+
 - Added deprecation notes to the reservation webhook pages. Please consider using [Unified webhooks](#unified-webhooks) instead.
 
 **2024-10-18**
+
 - Added `hostProxyEmail` into the `reservation` object. It will be accessible by including the `includeResources=1` to the [Retrieve a reservations list](#retrieve-a-reservations-list) endpoint or from [Retrieve a reservation](#retrieve-a-reservation) by default.
 
 **2024-10-17**
+
 - Added `cancellationPolicyId` into the `reservation` object
 
 **2024-10-16**
+
 - Added fields below into the `listing` object
   - `airbnbName`
   - `airbnbSummary`

@@ -295,6 +295,8 @@ print(data.decode("utf-8"))
 
 ### Response
 
+Updated finance field or error response.
+
 ```json
 {
     "status": "success",

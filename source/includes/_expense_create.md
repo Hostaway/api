@@ -182,7 +182,7 @@ print(data.decode("utf-8"))
 
 ### Response
 
-Created Expenses&Extras object
+Created Expenses&Extras object or error response.
 
 ```json
 {

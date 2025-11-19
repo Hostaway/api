@@ -115,6 +115,8 @@ Please note: for getting `reservationCouponId` please follow  [How to create res
 
 ### Response
 
+Calculation result or error response.
+
 ### Price details object.
 
 Json Parameter | Required | Type  | Description
