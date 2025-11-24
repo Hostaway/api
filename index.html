@@ -408,33 +408,74 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
-<p><strong>2025-06-24</strong>
-- Added possibility to create expense categories inside <a href="#create-expensesextras">Create expense</a> and <a href="#update-expensesextras-by-id">Update expense</a> endpoints.</p>
+<p><strong>2025-11-15</strong></p>
 
-<p><strong>2025-04-25</strong>
-- Added hidden <a href="#custom-field-new">Custom Fields</a>, identifiable by <code class="prettyprint">isPublic=0</code>, to the Listing object in the <a href="#retrieve-a-listings-list">Listing List endpoint</a>, if <code class="prettyprint">includeResources</code> query parameter is set to <code class="prettyprint">1</code>.</p>
+<ul>
+<li>A <code class="prettyprint">specialStatus</code> field has been added to the Listings object.</li>
+<li>Any attempts to create or update items linked to a listing with a <code class="prettyprint">specialStatus</code> of <code class="prettyprint">archived</code> will now be restricted and will return an error.</li>
+</ul>
 
-<p><strong>2025-02-24</strong>
-- Added <code class="prettyprint">includeResources</code> query parameter to add supplementary resources to User object
-- Added <code class="prettyprint">listingMapIds</code> to User object if <code class="prettyprint">includeResources</code> query parameter is set to <code class="prettyprint">1</code></p>
+<p><strong>2025-08-07</strong></p>
 
-<p><strong>2025-02-05</strong>
-- Removed reservationPaymentCard retrieveList endpoint</p>
+<ul>
+<li>Deprecated fields <code class="prettyprint">isGuestIdentityVerified</code>, <code class="prettyprint">isGuestVerifiedByEmail</code>, <code class="prettyprint">isGuestVerifiedByWorkEmail</code>, <code class="prettyprint">isGuestVerifiedByFacebook</code>, <code class="prettyprint">isGuestVerifiedByGovernmentId</code>, <code class="prettyprint">isGuestVerifiedByPhone</code>, <code class="prettyprint">isGuestVerifiedByReviews</code>, <code class="prettyprint">originalChannel</code> from the <code class="prettyprint">Reservation</code> object. 
+They will be present in the responses for retrocompatibility reasons, but they shall be ignored.</li>
+</ul>
 
-<p><strong>2025-01-13</strong>
-- Added deprecation notes to the reservation webhook pages. Please consider using <a href="#unified-webhooks">Unified webhooks</a> instead.</p>
+<p><strong>2025-06-24</strong></p>
 
-<p><strong>2024-10-18</strong>
-- Added <code class="prettyprint">hostProxyEmail</code> into the <code class="prettyprint">reservation</code> object. It will be accessible by including the <code class="prettyprint">includeResources=1</code> to the <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a> endpoint or from <a href="#retrieve-a-reservation">Retrieve a reservation</a> by default.</p>
+<ul>
+<li>Added possibility to create expense categories inside <a href="#create-expensesextras">Create expense</a> and <a href="#update-expensesextras-by-id">Update expense</a> endpoints.</li>
+</ul>
 
-<p><strong>2024-10-17</strong>
-- Added <code class="prettyprint">cancellationPolicyId</code> into the <code class="prettyprint">reservation</code> object</p>
+<p><strong>2025-04-25</strong></p>
 
-<p><strong>2024-10-16</strong>
-- Added fields below into the <code class="prettyprint">listing</code> object
-  - <code class="prettyprint">airbnbName</code>
-  - <code class="prettyprint">airbnbSummary</code>
-  - <code class="prettyprint">guestBathroomsNumber</code></p>
+<ul>
+<li>Added hidden <a href="#custom-field-new">Custom Fields</a>, identifiable by <code class="prettyprint">isPublic=0</code>, to the Listing object in the <a href="#retrieve-a-listings-list">Listing List endpoint</a>, if <code class="prettyprint">includeResources</code> query parameter is set to <code class="prettyprint">1</code>.</li>
+</ul>
+
+<p><strong>2025-02-24</strong></p>
+
+<ul>
+<li>Added <code class="prettyprint">includeResources</code> query parameter to add supplementary resources to User object</li>
+<li>Added <code class="prettyprint">listingMapIds</code> to User object if <code class="prettyprint">includeResources</code> query parameter is set to <code class="prettyprint">1</code></li>
+</ul>
+
+<p><strong>2025-02-05</strong></p>
+
+<ul>
+<li>Removed reservationPaymentCard retrieveList endpoint</li>
+</ul>
+
+<p><strong>2025-01-13</strong></p>
+
+<ul>
+<li>Added deprecation notes to the reservation webhook pages. Please consider using <a href="#unified-webhooks">Unified webhooks</a> instead.</li>
+</ul>
+
+<p><strong>2024-10-18</strong></p>
+
+<ul>
+<li>Added <code class="prettyprint">hostProxyEmail</code> into the <code class="prettyprint">reservation</code> object. It will be accessible by including the <code class="prettyprint">includeResources=1</code> to the <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a> endpoint or from <a href="#retrieve-a-reservation">Retrieve a reservation</a> by default.</li>
+</ul>
+
+<p><strong>2024-10-17</strong></p>
+
+<ul>
+<li>Added <code class="prettyprint">cancellationPolicyId</code> into the <code class="prettyprint">reservation</code> object</li>
+</ul>
+
+<p><strong>2024-10-16</strong></p>
+
+<ul>
+<li>Added fields below into the <code class="prettyprint">listing</code> object
+
+<ul>
+<li><code class="prettyprint">airbnbName</code></li>
+<li><code class="prettyprint">airbnbSummary</code></li>
+<li><code class="prettyprint">guestBathroomsNumber</code></li>
+</ul></li>
+</ul>
 
 <p><strong>2024-09-04</strong></p>
 
@@ -1166,6 +1207,7 @@ Authorization server endpoint:</p>
   </span><span class="nl">"marriottCancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4013</span><span class="p">,</span><span class="w">
   </span><span class="nl">"bookingCancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4013</span><span class="p">,</span><span class="w">
   </span><span class="nl">"squareMeters"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"specialStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nl">"roomType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"entire_home"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"bathroomType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shared"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"bedroomsNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1565,6 +1607,12 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>no</td>
 <td>int</td>
 <td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">specialStatus</code></td>
+<td>no</td>
+<td>string</td>
+<td>One of: archived, null</td>
 </tr>
 <tr>
 <td><code class="prettyprint">roomType</code></td>
@@ -6198,13 +6246,13 @@ print(data.decode("utf-8"))
     </span><span class="nl">"guestRecommendations"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="nl">"guestTrips"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
     </span><span class="nl">"guestWork"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The company name"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"isGuestIdentityVerified"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"isGuestVerifiedByEmail"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"isGuestVerifiedByWorkEmail"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"isGuestVerifiedByFacebook"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"isGuestVerifiedByGovernmentId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"isGuestVerifiedByPhone"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"isGuestVerifiedByReviews"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">    
+    </span><span class="nl">"isGuestIdentityVerified"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">DEPRECATED</span><span class="w">
+    </span><span class="nl">"isGuestVerifiedByEmail"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">DEPRECATED</span><span class="w">
+    </span><span class="nl">"isGuestVerifiedByWorkEmail"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">DEPRECATED</span><span class="w">
+    </span><span class="nl">"isGuestVerifiedByFacebook"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">DEPRECATED</span><span class="w">
+    </span><span class="nl">"isGuestVerifiedByGovernmentId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">DEPRECATED</span><span class="w">
+    </span><span class="nl">"isGuestVerifiedByPhone"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">DEPRECATED</span><span class="w">
+    </span><span class="nl">"isGuestVerifiedByReviews"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">DEPRECATED</span><span class="w">   
     </span><span class="nl">"numberOfGuests"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"adults"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"children"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -6254,7 +6302,7 @@ print(data.decode("utf-8"))
     </span><span class="nl">"isStarred"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"isArchived"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"isPinned"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"originalChannel"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"originalChannel"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">DEPRECATED</span><span class="w">
     </span><span class="nl">"customerUserId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"rentalAgreementFileUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://a0.muscache.com/im/pictures/3c4d82ed-196d-493a-a43b-07fcc70d5ccd.pdf"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"reservationAgreement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"signed"</span><span class="p">,</span><span class="w">
@@ -6520,43 +6568,43 @@ print(data.decode("utf-8"))
 <td><code class="prettyprint">isGuestIdentityVerified</code></td>
 <td>no</td>
 <td>bool</td>
-<td></td>
+<td><strong>DEPRECATED</strong></td>
 </tr>
 <tr>
 <td><code class="prettyprint">isGuestVerifiedByEmail</code></td>
 <td>no</td>
 <td>bool</td>
-<td></td>
+<td><strong>DEPRECATED</strong></td>
 </tr>
 <tr>
 <td><code class="prettyprint">isGuestVerifiedByWorkEmail</code></td>
 <td>no</td>
 <td>bool</td>
-<td></td>
+<td><strong>DEPRECATED</strong></td>
 </tr>
 <tr>
 <td><code class="prettyprint">isGuestVerifiedByFacebook</code></td>
 <td>no</td>
 <td>bool</td>
-<td></td>
+<td><strong>DEPRECATED</strong></td>
 </tr>
 <tr>
 <td><code class="prettyprint">isGuestVerifiedByGovernmentId</code></td>
 <td>no</td>
 <td>bool</td>
-<td></td>
+<td><strong>DEPRECATED</strong></td>
 </tr>
 <tr>
 <td><code class="prettyprint">isGuestVerifiedByPhone</code></td>
 <td>no</td>
 <td>bool</td>
-<td></td>
+<td><strong>DEPRECATED</strong></td>
 </tr>
 <tr>
 <td><code class="prettyprint">isGuestVerifiedByReviews</code></td>
 <td>no</td>
 <td>bool</td>
-<td></td>
+<td><strong>DEPRECATED</strong></td>
 </tr>
 <tr>
 <td><code class="prettyprint">numberOfGuests</code></td>
@@ -6868,7 +6916,7 @@ print(data.decode("utf-8"))
 <td><code class="prettyprint">originalChannel</code></td>
 <td>no</td>
 <td>string</td>
-<td></td>
+<td><strong>DEPRECATED</strong></td>
 </tr>
 <tr>
 <td><code class="prettyprint">latestActivityOn</code></td>
@@ -9479,6 +9527,8 @@ For getting <code class="prettyprint">reservationCouponId</code> please follow  
 
 <h3 id="response">Response</h3>
 
+<p>Calculation result or error response.</p>
+
 <h3 id="price-details-object">Price details object.</h3>
 
 <table><thead>
@@ -11064,6 +11114,8 @@ Please check <a href="#create-a-reservation-with-credit-card-validation">create 
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span>
 </code></pre></div>
 <h3 id="response">Response</h3>
+
+<p>Updated finance field or error response.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -20329,7 +20381,7 @@ print(data.decode("utf-8"))
 
 <h3 id="response">Response</h3>
 
-<p>Created Expenses&amp;Extras object</p>
+<p>Created Expenses&amp;Extras object or error response.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -20618,7 +20670,7 @@ print(data.decode("utf-8"))
 
 <h3 id="response">Response</h3>
 
-<p>Updated expense object</p>
+<p>Updated expense object or error response.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -23514,7 +23566,7 @@ print(data.decode("utf-8"))
 
 <h3 id="response">Response</h3>
 
-<p>Created charge object</p>
+<p>Created charge object or error response.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -23666,7 +23718,7 @@ print(data.decode("utf-8"))
 
 <h3 id="response">Response</h3>
 
-<p>Updated charge object</p>
+<p>Updated charge object or error response.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -27378,7 +27430,7 @@ If processing takes more than that try to use queue technics. You can log the re
 
 <h3 id="response">Response</h3>
 
-<p>Created task object</p>
+<p>Created task object or error response.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -27517,7 +27569,7 @@ If processing takes more than that try to use queue technics. You can log the re
 
 <h3 id="response">Response</h3>
 
-<p>Updated task object</p>
+<p>Updated task object or error response.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
