@@ -1,5 +1,8 @@
 ## Changelog
 
+**2026-01-27**
+- Added endpoint [Add listing images](#add-listing-images) to upload images with **external URLs** to a listing. Check the examples in the linked section.
+
 **2025-11-15**
 
 - A `specialStatus` field has been added to the Listings object.

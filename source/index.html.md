@@ -25,6 +25,7 @@ includes:
   - listing_createListing
   - listing_updateListing
   - listing_deleteListing
+  - listing_addImages
   - listing_exportAirbnb
   - listing_feeSettings_list
   - listing_feeSettings_create
