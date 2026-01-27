@@ -408,6 +408,9 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2026-01-27</strong>
+- Added endpoint <a href="#add-listing-images">Add listing images</a> to upload images with <strong>external URLs</strong> to a listing. Check the examples in the linked section.</p>
+
 <p><strong>2025-11-15</strong></p>
 
 <ul>
@@ -3270,6 +3273,311 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 
 <p>An empty success response or error response.</p>
 
+          <h2 id="add-listing-images">Add listing images</h2>
+
+<p>Add images to a listing. Images are processed asynchronously in the background.</p>
+
+<h3 id="request">Request</h3>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="se">\</span>
+  <span class="nt">--url</span> https://api.hostaway.com/v1/listings/12345/images <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {accessToken}'</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s1">'Content-type: application/json'</span> <span class="se">\</span>
+  <span class="nt">--data</span> <span class="s1">'{
+    "images": [
+        {
+            "url": "https://example.com/images/living-room.jpg",
+            "caption": "Spacious living room",
+            "bookingEngineCaption": "Living room with ocean view",
+            "airbnbCaption": "Bright living area",
+            "vrboCaption": "Main living space",
+            "sortOrder": 1
+        },
+        {
+            "url": "https://example.com/images/bedroom.jpg",
+            "caption": "Master bedroom",
+            "sortOrder": 2
+        }
+    ]
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/listings/12345/images"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
+  <span class="no">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="no">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nb">json_encode</span><span class="p">([</span>
+    <span class="s2">"images"</span> <span class="o">=&gt;</span> <span class="p">[</span>
+      <span class="p">[</span>
+        <span class="s2">"url"</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/images/living-room.jpg"</span><span class="p">,</span>
+        <span class="s2">"caption"</span> <span class="o">=&gt;</span> <span class="s2">"Spacious living room"</span><span class="p">,</span>
+        <span class="s2">"bookingEngineCaption"</span> <span class="o">=&gt;</span> <span class="s2">"Living room with ocean view"</span><span class="p">,</span>
+        <span class="s2">"airbnbCaption"</span> <span class="o">=&gt;</span> <span class="s2">"Bright living area"</span><span class="p">,</span>
+        <span class="s2">"vrboCaption"</span> <span class="o">=&gt;</span> <span class="s2">"Main living space"</span><span class="p">,</span>
+        <span class="s2">"sortOrder"</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+      <span class="p">],</span>
+      <span class="p">[</span>
+        <span class="s2">"url"</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/images/bedroom.jpg"</span><span class="p">,</span>
+        <span class="s2">"caption"</span> <span class="o">=&gt;</span> <span class="s2">"Master bedroom"</span><span class="p">,</span>
+        <span class="s2">"sortOrder"</span> <span class="o">=&gt;</span> <span class="mi">2</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+  <span class="p">]),</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s2">"Authorization: Bearer </span><span class="si">{</span><span class="nv">accessToken</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+    <span class="s2">"Content-type: application/json"</span>
+  <span class="p">),</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="nv">$err</span> <span class="o">=</span> <span class="nb">curl_error</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">"cURL Error #:"</span> <span class="mf">.</span> <span class="nv">$err</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+  <span class="dl">"</span><span class="s2">images</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/images/living-room.jpg</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">caption</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Spacious living room</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">bookingEngineCaption</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Living room with ocean view</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">airbnbCaption</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Bright living area</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">vrboCaption</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Main living space</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">sortOrder</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/images/bedroom.jpg</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">caption</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Master bedroom</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">sortOrder</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">withCredentials</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">readystatechange</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">https://api.hostaway.com/v1/listings/12345/images</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">Authorization</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Bearer {accessToken}</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">Content-type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">application/json</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">();</span>
+
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\"images\":[{\"url\":\"https://example.com/images/living-room.jpg\",\"caption\":\"Spacious living room\",\"bookingEngineCaption\":\"Living room with ocean view\",\"airbnbCaption\":\"Bright living area\",\"vrboCaption\":\"Main living space\",\"sortOrder\":1},{\"url\":\"https://example.com/images/bedroom.jpg\",\"caption\":\"Master bedroom\",\"sortOrder\":2}]}"</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/listings/12345/images"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="n">body</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer {accessToken}"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Content-type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">http.client</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="n">client</span><span class="p">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s">"api.hostaway.com"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"images"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s">"url"</span><span class="p">:</span> <span class="s">"https://example.com/images/living-room.jpg"</span><span class="p">,</span>
+      <span class="s">"caption"</span><span class="p">:</span> <span class="s">"Spacious living room"</span><span class="p">,</span>
+      <span class="s">"bookingEngineCaption"</span><span class="p">:</span> <span class="s">"Living room with ocean view"</span><span class="p">,</span>
+      <span class="s">"airbnbCaption"</span><span class="p">:</span> <span class="s">"Bright living area"</span><span class="p">,</span>
+      <span class="s">"vrboCaption"</span><span class="p">:</span> <span class="s">"Main living space"</span><span class="p">,</span>
+      <span class="s">"sortOrder"</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s">"url"</span><span class="p">:</span> <span class="s">"https://example.com/images/bedroom.jpg"</span><span class="p">,</span>
+      <span class="s">"caption"</span><span class="p">:</span> <span class="s">"Master bedroom"</span><span class="p">,</span>
+      <span class="s">"sortOrder"</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer {accessToken}'</span><span class="p">,</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+<span class="n">conn</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="s">"/v1/listings/12345/images"</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">getresponse</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">res</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span>
+</code></pre></div>
+<p><code class="prettyprint">POST https://api.hostaway.com/v1/listings/{listingId}/images</code></p>
+
+<h3 id="request-body">Request body</h3>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">images</code></td>
+<td>yes</td>
+<td>array</td>
+<td>Array of image objects to add</td>
+</tr>
+</tbody></table>
+
+<h3 id="image-object-properties">Image object properties</h3>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">url</code></td>
+<td>yes</td>
+<td>string</td>
+<td>Public URL of the image to upload. Must be a valid, accessible URL.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">caption</code></td>
+<td>no</td>
+<td>string</td>
+<td>Default caption for the image</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bookingEngineCaption</code></td>
+<td>no</td>
+<td>string</td>
+<td>Caption displayed on the booking engine</td>
+</tr>
+<tr>
+<td><code class="prettyprint">airbnbCaption</code></td>
+<td>no</td>
+<td>string</td>
+<td>Caption displayed on Airbnb</td>
+</tr>
+<tr>
+<td><code class="prettyprint">vrboCaption</code></td>
+<td>no</td>
+<td>string</td>
+<td>Caption displayed on VRBO</td>
+</tr>
+<tr>
+<td><code class="prettyprint">sortOrder</code></td>
+<td>no</td>
+<td>int</td>
+<td>Sort order for the image (default: 0)</td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image upload job scheduled for listing 12345. 2 images will be processed asynchronously."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"imagesCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">message</code></td>
+<td>string</td>
+<td>Confirmation message with details about the scheduled job</td>
+</tr>
+<tr>
+<td><code class="prettyprint">imagesCount</code></td>
+<td>int</td>
+<td>Number of images that will be processed</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Images are processed asynchronously. The endpoint returns immediately after scheduling the job. It may take some time for the images to appear on the listing.
+</aside>
+
+<h4 id="suggested-way-to-use-the-api">Suggested way to use the API</h4>
+
+<p><strong>Case 1: just adding a new set of image to a Listing</strong></p>
+
+<ol>
+<li>Check the existing images present on the listing using the <code class="prettyprint">GET /v1/listings/{listingId}?includeResources=1</code> endpoint.</li>
+<li>Call the new <code class="prettyprint">POST /v1/listings/{listingId}/images</code> to upload the new images</li>
+<li>Wait up to a few minutes for the images to be processed</li>
+<li>Call the <code class="prettyprint">GET /v1/listings/{listingId}?includeResources=1</code> to check the images that have been uploaded successfully.</li>
+</ol>
+
+<p><strong>Case 2: adding and deleting/sorting images for a Listing</strong></p>
+
+<ol>
+<li>Check the existing images present on the listing using the <code class="prettyprint">GET /v1/listings/{listingId}?includeResources=1</code> endpoint.</li>
+<li>Call the <code class="prettyprint">PUT /v1/listings/{listingId}</code> altering the list of <code class="prettyprint">listingImages</code> to remove the images you don&rsquo;t need, and/or changing their <code class="prettyprint">sortOrder</code> according to your needs.</li>
+<li>Call the new <code class="prettyprint">POST /v1/listings/{listingId}/images</code> to upload the new images.</li>
+<li>Wait up to a few minutes for the images to be processed.</li>
+<li>Call the <code class="prettyprint">GET /v1/listings/{listingId}?includeResources=1</code> to check the images that have been uploaded successfully.</li>
+<li>(If needed) adjust the <code class="prettyprint">sortOrder</code> again, by calling the <code class="prettyprint">PUT /v1/listings/{listingId}</code> altering the <code class="prettyprint">sortOrder</code> field in the existing list of <code class="prettyprint">listingImages</code>.</li>
+</ol>
+
+<h3 id="error-responses">Error responses</h3>
+
+<blockquote>
+<p>Missing images parameter</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The </span><span class="se">\"</span><span class="s2">images</span><span class="se">\"</span><span class="s2"> parameter is required and must be a non-empty array."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Invalid image object</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image at index 0 must be an object."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Missing URL field</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image at index 0 is missing the required </span><span class="se">\"</span><span class="s2">url</span><span class="se">\"</span><span class="s2"> field."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Invalid URL</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image at index 0 has an invalid URL: not-a-valid-url"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
           <h2 id="export-listing-to-airbnb">Export listing to airbnb</h2>
 
 <p>Creates listing export job to Airbnb. The export will be completed approximately in the next 5-10 minutes.</p>
