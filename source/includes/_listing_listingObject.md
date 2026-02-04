@@ -43,7 +43,7 @@
   "cancellationPolicy": "strict",
   "cancellationPolicyId": 4010,
   "vrboCancellationPolicyId": 4011,
-  "airBnbCancellationPolicyId": 4012,
+  "airbnbCancellationPolicyId": 4012,
   "marriottCancellationPolicyId": 4013,
   "bookingCancellationPolicyId": 4013,
   "squareMeters": 10,
@@ -213,7 +213,7 @@ Only `complete` listing can be activated for synchronization.
 | `checkOutTime`                            | no       | int               | Accepted values are 0-23                                                                                                                                            |
 | `cancellationPolicy`                      | no       | string            | One of: flexible, moderate, strict.                                                                                                                                 |
 | `cancellationPolicyId`                    | no       | int               | The policy that applies to OTA bookings. For cancellation policies that apply in direct channels please use the Cancellation policies endpoint                      |
-| `airBnbCancellationPolicyId`              | no       | int               | The policy that applies to Airbnb bookings. [Airbnb cancellation policies](#retrieve-airbnb-cancellation-policies)                                                  |
+| `airbnbCancellationPolicyId`              | no       | int               | The policy that applies to Airbnb bookings. [Airbnb cancellation policies](#retrieve-airbnb-cancellation-policies)                                                  |
 | `bookingCancellationPolicyId`             | no       | int               | The policy that applies to Booking.com bookings. [Booking.com cancellation policies](#retrieve-booking-com-cancellation-policies)                                   |
 | `marriottCancellationPolicyId`            | no       | int               | The policy that applies to Marriott bookings. [Marriott cancellation policies](#retrieve-marriott-cancellation-policies)                                            |
 | `vrboCancellationPolicyId`                | no       | int               | The policy that applies to VRBO bookings. [Vrbo cancellation policies](#retrieve-airbnb-cancellation-policies)                                                      |
