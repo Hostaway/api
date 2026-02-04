@@ -1,5 +1,8 @@
 ## Changelog
 
+**2026-02-05**
+- Add `?listingMapId` parameter to [Retrieve Airbnb cancellation policies](#retrieve-airbnb-cancellation-policies) to filter results that applicable to your listing.
+
 **2026-01-27**
 - Added endpoint [Add listing images](#add-listing-images) to upload images with **external URLs** to a listing. Check the examples in the linked section.
 
@@ -157,11 +160,11 @@ Full and actual list of financial fields and types can be found [here](https://s
 
 **2022-11-09**
 
-- [Airbnb cancellation policies](#retrieve-airbnb-cancellation-policies) - new endpoint, list of Airbnb cancellation policies, id can be used as listing.airBnbCancellationPolicyId parameter
+- [Airbnb cancellation policies](#retrieve-airbnb-cancellation-policies) - new endpoint, list of Airbnb cancellation policies, id can be used as listing.airbnbCancellationPolicyId parameter
 - [Booking.com cancellation policies](#retrieve-booking-com-cancellation-policies) - new endpoint, new endpoint, list of Booking.com cancellation policies, id can be used as listing.bookingCancellationPolicyId parameter
 - [Marriott cancellation policies](#retrieve-marriott-cancellation-policies) - new endpoint, new endpoint, list of Marriott cancellation policies, id can be used as listing.marriottCancellationPolicyId parameter
 - [Vrbo cancellation policies](#retrieve-airbnb-cancellation-policies) - new endpoint, new endpoint, list of VRBO cancellation policies, id can be used as listing.vrboCancellationPolicyId parameter
-- Channel specific cancellation policy added to listing object (marriottCancellationPolicyId, vrboCancellationPolicyId, airBnbCancellationPolicyId, bookingCancellationPolicyId, cancellationPolicyId)
+- Channel specific cancellation policy added to listing object (marriottCancellationPolicyId, vrboCancellationPolicyId, airbnbCancellationPolicyId, bookingCancellationPolicyId, cancellationPolicyId)
 
 **2022-11-03**
 
