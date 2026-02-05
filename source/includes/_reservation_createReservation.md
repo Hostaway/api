@@ -308,7 +308,7 @@ data = res.read()
 print(data.decode("utf-8"))
 ```
 
-`POST https://api.hostaway.com/v1/reservations?forceOverbooking=1`
+`POST https://api.hostaway.com/v1/reservations?forceOverbooking=1&provider=testProvider`
 
 A reservation object should be provided in the request body.
 Please check here for a valid `channelId`: [Channels](#reservation-channels).
@@ -322,9 +322,10 @@ with all necessary query params and use total price received from it as `totalPr
 
 ### Query parameters
 
-Query parameter | Required | Type | Description
--------- | -------- | ---- | ----------- 
-`forceOverbooking` | no | int | Ignore overbooking protection
+Query parameter | Required | Type   | Description
+-------- | -------- |--------| ----------- 
+`forceOverbooking` | no | int    | Ignore overbooking protection
+`provider` | no | string | this is updating the `reservation.source` field value. this can be a useful information you can set any value here, also, it's limited to 65 characters and it will be truncated if you set more than 65 characters.
 
 ### Response
 
