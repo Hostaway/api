@@ -6696,7 +6696,7 @@ print(data.decode("utf-8"))
 <td><code class="prettyprint">source</code></td>
 <td>no</td>
 <td>string</td>
-<td></td>
+<td>You can update this field by passing <code class="prettyprint">?provider</code> query param in the <a href="#create-a-reservation">create reservation request</a></td>
 </tr>
 <tr>
 <td><code class="prettyprint">channelName</code></td>
@@ -8199,7 +8199,7 @@ print(data.decode("utf-8"))
 
 <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">))</span>
 </code></pre></div>
-<p><code class="prettyprint">POST https://api.hostaway.com/v1/reservations?forceOverbooking=1</code></p>
+<p><code class="prettyprint">POST https://api.hostaway.com/v1/reservations?forceOverbooking=1&amp;provider=testProvider</code></p>
 
 <p>A reservation object should be provided in the request body.
 Please check here for a valid <code class="prettyprint">channelId</code>: <a href="#reservation-channels">Channels</a>.
@@ -8226,6 +8226,12 @@ with all necessary query params and use total price received from it as <code cl
 <td>no</td>
 <td>int</td>
 <td>Ignore overbooking protection</td>
+</tr>
+<tr>
+<td><code class="prettyprint">provider</code></td>
+<td>no</td>
+<td>string</td>
+<td>Updates the reservation.source field value. This can be useful information, and you may set any value here. The value is limited to 65 characters; longer values will be truncated.</td>
 </tr>
 </tbody></table>
 
