@@ -1,12 +1,14 @@
 ## Retrieve Airbnb cancellation policies
 
-Get Airbnb cancellation policies list, object `id` can be used as `listing.airBnbCancellationPolicyId`
+Get Airbnb cancellation policies list, object `id` can be used as `listing.airbnbCancellationPolicyId`
+
+`?listingMapId=` parameter can be used to get the cancellation policies applicable to a specific listing.
 
 ### Request
 
 ```shell
 curl --request GET \
-  --url https://api.hostaway.com/v1/cancellationPolicies/airbnb \
+  --url https://api.hostaway.com/v1/cancellationPolicies/airbnb?listingMapId=11 \
   --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZjg1M2FkNzU4YjI1M2Y0ZmFhZjk2MjIxODcyMDIzMDYyNjg2MjVhMjU2MTRkOWM1NTllYzM4ODJmZDVmZjYxYzNhNzY1NjI3NzUyZjE4ZTkiLCJpYXQiOjE2MTk1OTQ3MDgsIm5iZiI6MTYxOTU5NDcwOCwiZXhwIjoxNjgyNjY2NzA4LCJzdWIiOiIiLCJzY29wZXMiOlsiZ2VuZXJhbCJdLCJzZWNyZXRJZCI6MX0.pOQxtj9ur2GTBtLHnDyFdNkXGLQKxPR6kA2z6-eVv_GsCmb1-kWh1FPD3SY-ADVYwbsna_QrT0mRU4_wZNwC7WO3s9LUFUDwkGaQOMDvJO4nWZodvNZZuhAY96QzOZ7JBwpW_NlYk5mQ_WVPvbYr9RRpw-nUB8JDXOwbrph4nuw' \
   --header 'Cache-control: no-cache'
 ```

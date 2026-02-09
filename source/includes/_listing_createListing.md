@@ -86,7 +86,7 @@ var data = JSON.stringify({
   "cancellationPolicyId": 6,
   "bookingCancellationPolicyId": 1,
   "vrboCancellationPolicyId": 2,
-  "airBnbCancellationPolicyId": 3,
+  "airbnbCancellationPolicyId": 3,
   "marriottBnbCancellationPolicyId": 4,
   "squareMeters": 10,
   "roomType": "entire_home",
