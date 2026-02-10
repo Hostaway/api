@@ -408,6 +408,9 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2026-02-05</strong>
+- Add <code class="prettyprint">?listingMapId</code> parameter to <a href="#retrieve-airbnb-cancellation-policies">Retrieve Airbnb cancellation policies</a> to filter results that applicable to your listing.</p>
+
 <p><strong>2026-01-27</strong>
 - Added endpoint <a href="#add-listing-images">Add listing images</a> to upload images with <strong>external URLs</strong> to a listing. Check the examples in the linked section.</p>
 
@@ -641,11 +644,11 @@ They will be present in the responses for retrocompatibility reasons, but they s
 <p><strong>2022-11-09</strong></p>
 
 <ul>
-<li><a href="#retrieve-airbnb-cancellation-policies">Airbnb cancellation policies</a> - new endpoint, list of Airbnb cancellation policies, id can be used as listing.airBnbCancellationPolicyId parameter</li>
+<li><a href="#retrieve-airbnb-cancellation-policies">Airbnb cancellation policies</a> - new endpoint, list of Airbnb cancellation policies, id can be used as listing.airbnbCancellationPolicyId parameter</li>
 <li><a href="#retrieve-booking-com-cancellation-policies">Booking.com cancellation policies</a> - new endpoint, new endpoint, list of Booking.com cancellation policies, id can be used as listing.bookingCancellationPolicyId parameter</li>
 <li><a href="#retrieve-marriott-cancellation-policies">Marriott cancellation policies</a> - new endpoint, new endpoint, list of Marriott cancellation policies, id can be used as listing.marriottCancellationPolicyId parameter</li>
 <li><a href="#retrieve-airbnb-cancellation-policies">Vrbo cancellation policies</a> - new endpoint, new endpoint, list of VRBO cancellation policies, id can be used as listing.vrboCancellationPolicyId parameter</li>
-<li>Channel specific cancellation policy added to listing object (marriottCancellationPolicyId, vrboCancellationPolicyId, airBnbCancellationPolicyId, bookingCancellationPolicyId, cancellationPolicyId)</li>
+<li>Channel specific cancellation policy added to listing object (marriottCancellationPolicyId, vrboCancellationPolicyId, airbnbCancellationPolicyId, bookingCancellationPolicyId, cancellationPolicyId)</li>
 </ul>
 
 <p><strong>2022-11-03</strong></p>
@@ -1206,7 +1209,7 @@ Authorization server endpoint:</p>
   </span><span class="nl">"cancellationPolicy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"strict"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"cancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4010</span><span class="p">,</span><span class="w">
   </span><span class="nl">"vrboCancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4011</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"airBnbCancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4012</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"airbnbCancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4012</span><span class="p">,</span><span class="w">
   </span><span class="nl">"marriottCancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4013</span><span class="p">,</span><span class="w">
   </span><span class="nl">"bookingCancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4013</span><span class="p">,</span><span class="w">
   </span><span class="nl">"squareMeters"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -1582,7 +1585,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>The policy that applies to OTA bookings. For cancellation policies that apply in direct channels please use the Cancellation policies endpoint</td>
 </tr>
 <tr>
-<td><code class="prettyprint">airBnbCancellationPolicyId</code></td>
+<td><code class="prettyprint">airbnbCancellationPolicyId</code></td>
 <td>no</td>
 <td>int</td>
 <td>The policy that applies to Airbnb bookings. <a href="#retrieve-airbnb-cancellation-policies">Airbnb cancellation policies</a></td>
@@ -2574,7 +2577,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
   <span class="dl">"</span><span class="s2">cancellationPolicyId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">bookingCancellationPolicyId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">vrboCancellationPolicyId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">airBnbCancellationPolicyId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">airbnbCancellationPolicyId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">marriottBnbCancellationPolicyId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">squareMeters</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">roomType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">entire_home</span><span class="dl">"</span><span class="p">,</span>
@@ -2935,7 +2938,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
   <span class="dl">"</span><span class="s2">cancellationPolicyId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> 
   <span class="dl">"</span><span class="s2">bookingCancellationPolicyId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
   <span class="dl">"</span><span class="s2">vrboCancellationPolicyId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
-  <span class="dl">"</span><span class="s2">airBnbCancellationPolicyId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> 
+  <span class="dl">"</span><span class="s2">airbnbCancellationPolicyId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> 
   <span class="dl">"</span><span class="s2">marriottBnbCancellationPolicyId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">squareMeters</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">roomType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">entire_home</span><span class="dl">"</span><span class="p">,</span>
@@ -5304,11 +5307,13 @@ print(data.decode("utf-8"))
 </span></code></pre></div>
           <h2 id="retrieve-airbnb-cancellation-policies">Retrieve Airbnb cancellation policies</h2>
 
-<p>Get Airbnb cancellation policies list, object <code class="prettyprint">id</code> can be used as <code class="prettyprint">listing.airBnbCancellationPolicyId</code></p>
+<p>Get Airbnb cancellation policies list, object <code class="prettyprint">id</code> can be used as <code class="prettyprint">listing.airbnbCancellationPolicyId</code></p>
+
+<p><code class="prettyprint">?listingMapId=</code> parameter can be used to get the cancellation policies applicable to a specific listing.</p>
 
 <h3 id="request">Request</h3>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="se">\</span>
-  <span class="nt">--url</span> https://api.hostaway.com/v1/cancellationPolicies/airbnb <span class="se">\</span>
+  <span class="nt">--url</span> https://api.hostaway.com/v1/cancellationPolicies/airbnb?listingMapId<span class="o">=</span>11 <span class="se">\</span>
   <span class="nt">--header</span> <span class="s1">'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZjg1M2FkNzU4YjI1M2Y0ZmFhZjk2MjIxODcyMDIzMDYyNjg2MjVhMjU2MTRkOWM1NTllYzM4ODJmZDVmZjYxYzNhNzY1NjI3NzUyZjE4ZTkiLCJpYXQiOjE2MTk1OTQ3MDgsIm5iZiI6MTYxOTU5NDcwOCwiZXhwIjoxNjgyNjY2NzA4LCJzdWIiOiIiLCJzY29wZXMiOlsiZ2VuZXJhbCJdLCJzZWNyZXRJZCI6MX0.pOQxtj9ur2GTBtLHnDyFdNkXGLQKxPR6kA2z6-eVv_GsCmb1-kWh1FPD3SY-ADVYwbsna_QrT0mRU4_wZNwC7WO3s9LUFUDwkGaQOMDvJO4nWZodvNZZuhAY96QzOZ7JBwpW_NlYk5mQ_WVPvbYr9RRpw-nUB8JDXOwbrph4nuw'</span> <span class="se">\</span>
   <span class="nt">--header</span> <span class="s1">'Cache-control: no-cache'</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
