@@ -325,7 +325,8 @@ Once access token is generated you can use it until it expires in 24 months. So 
 2. IF yes -> use token to access public API endpoints
 3. IF no -> get token using `POST https://api.hostaway.com/v1/accessTokens`
 4. Store token somewhere on your side (for instance in the database table)
-5. Once you get access denied 403 HTTP code it means your token is no longer valid and probably expired. You need to refresh it using step 1 and store a new refreshed token to continue using it in your public API calls
+5. Wait at least 1 second
+6. Once you get access denied 403 HTTP code it means your token is no longer valid and probably expired. You need to refresh it using step 1 and store a new refreshed token to continue using it in your public API calls
 
 **Important**: There is **NO need** to generate new access token over and over for each particular API request putting unneeded load both on our and your systems. You should store it on your side instead while it is valid. There are rate limits which restrict amount of allowed requests per ip address and account in a time period.
 

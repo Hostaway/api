@@ -135,6 +135,9 @@ sImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZ
 jIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2J
 kZWM0MDNiMzMwNzhhYTIyN2JmIiwi`
 
+**The token will be valid 1 second after being returned from the API.
+Please wait at least 1 second before making API calls using a newly issued token.**
+
 Time to live for the generated access token is 24 months.
 
 <aside class="warning">
