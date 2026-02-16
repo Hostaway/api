@@ -306,6 +306,8 @@ To create the webhooks, you’ll need to provide us with the following informati
 * Password (optional) → a password that Hostaway should pass on the authentication header of the webhook request sent to your endpoint
 * Recipient email (optional) → an email that Hostaway can use to send notifications when a webhook delivery fails. If not provided, the email with the error details will be sent to the primary email address from the Hostaway account
 
+**Important**: Webhook events may arrive out of order. For example, when a new reservation is created, the conversation message webhook may be delivered before the reservation created webhook. We recommend handling this on the receiver side — if your system receives an event that references an entity it hasn't seen yet, return an error status code so that the delivery is retried after the dependent event has been processed.
+
 The events we support are the moment are the ones below, but keep in mind that we are constantly improving our webhooks and expect your service to handle any future webhook events that are added to this list:
 * reservation created → triggered when a new reservation is created in Hostaway, from any channel
 * reservation updated → triggered when an existing reservation is updated
