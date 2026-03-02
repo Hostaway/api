@@ -65,6 +65,7 @@ includes:
   - reservation_createReservationFinanceFields
   - reservation_updateReservation
   - reservation_cancelReservation
+  - reservation_cancelReservationDueToInvalidCreditCard
   - reservation_deleteReservation
   - reservation_channels
   - calendar_priceDetails
@@ -75,6 +76,7 @@ includes:
   - reservationPaymentCard_addReservationPaymentCard
   - reservationPaymentCard_addReservationPaymentMethodId
   - reservationPaymentCard_defaultPaymentCard
+  - reservationPaymentCard_reportInvalidCard
   - reservationPaymentMethod
   - reservationPaymentMethod_retrieveList
   - reservation_retrieveRentalAgreement
