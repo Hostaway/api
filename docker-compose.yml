@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   hostaways-api:
     container_name: hostaways-api
