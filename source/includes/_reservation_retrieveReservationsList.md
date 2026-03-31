@@ -93,7 +93,8 @@ print(data.decode("utf-8"))
 Query Parameter | Required | Type | Description
 --------- | -------- | ---- | -----------
 `limit` | no | int | Maximum number of items in the list (default limit is 100).
-`offset` | no | int | Number of items to skip from beginning of the list. To retrieve next items set the parameter to 100, 200, etc. accordingly.
+`offset` | no | int | **Deprecated.** Number of items to skip from beginning of the list. To retrieve next items set the parameter to 100, 200, etc. accordingly. Please migrate to cursor-based pagination using `afterId` instead, as offset-based pagination has poor performance for large datasets.
+`afterId` | no | int | Reservation ID to use as cursor for pagination. Returns reservations that come after this ID in the sort order. When provided, `offset` is ignored. Use the `id` of the last reservation from the previous page.
 `sortOrder` | no | string | One of: arrivalDate, arrivalDateDesc, lastConversationMessageSent, lastConversationMessageSentDesc, lastConversationMessageReceived, lastConversationMessageReceivedDesc, latestActivity, latestActivityDesc.
 `channelId` | no | int | Please check here for valid channel values: [Channels](#reservation-channels) 
 `listingId` | no | int |
@@ -117,3 +118,33 @@ Query Parameter | Required | Type | Description
 ### Response
 
 An array of reservations objects.
+
+### Cursor-based pagination (recommended for large datasets)
+
+For accounts with a large number of reservations, we recommend using cursor-based pagination with the `afterId` parameter instead of `offset`. 
+
+**How it works:**
+
+1. Make your first request without `afterId` to get the first page
+2. Take the `id` of the last reservation in the response
+3. Use that `id` as the `afterId` parameter in your next request
+4. Repeat until you receive an empty result set
+
+**Example workflow:**
+
+```
+# First page
+GET /v1/reservations?limit=100
+
+# Second page (using id=12345 from last item of first page)
+GET /v1/reservations?limit=100&afterId=12345
+
+# Third page (using id=12245 from last item of second page)
+GET /v1/reservations?limit=100&afterId=12245
+```
+
+**Important notes:**
+
+- When `afterId` is provided, the `offset` parameter is ignored
+- Results are ordered by `updatedOn DESC, id DESC` by default
+- Since ordering is by `updatedOn`, reservations that are updated during pagination may shift between pages. For full syncs, consider using a date range filter to ensure consistency
