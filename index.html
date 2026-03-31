@@ -411,6 +411,10 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2026-03-31</strong>
+- Added <code class="prettyprint">afterId</code> parameter to <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a> endpoint for cursor-based pagination. This provides significantly better performance for large datasets compared to offset-based pagination.
+- Deprecated <code class="prettyprint">offset</code> parameter in <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a> endpoint. Please migrate to <code class="prettyprint">afterId</code> for better performance.</p>
+
 <p><strong>2026-02-05</strong>
 - Add <code class="prettyprint">?listingMapId</code> parameter to <a href="#retrieve-airbnb-cancellation-policies">Retrieve Airbnb cancellation policies</a> to filter results that applicable to your listing.</p>
 
@@ -7712,7 +7716,13 @@ print(data.decode("utf-8"))
 <td><code class="prettyprint">offset</code></td>
 <td>no</td>
 <td>int</td>
-<td>Number of items to skip from beginning of the list. To retrieve next items set the parameter to 100, 200, etc. accordingly.</td>
+<td><strong>Deprecated.</strong> Number of items to skip from beginning of the list. To retrieve next items set the parameter to 100, 200, etc. accordingly. Please migrate to cursor-based pagination using <code class="prettyprint">afterId</code> instead, as offset-based pagination has poor performance for large datasets.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">afterId</code></td>
+<td>no</td>
+<td>int</td>
+<td>Reservation ID to use as cursor for pagination. Returns reservations that come after this ID in the sort order. When provided, <code class="prettyprint">offset</code> is ignored. Use the <code class="prettyprint">id</code> of the last reservation from the previous page.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">sortOrder</code></td>
@@ -7833,6 +7843,37 @@ print(data.decode("utf-8"))
 <h3 id="response">Response</h3>
 
 <p>An array of reservations objects.</p>
+
+<h3 id="cursor-based-pagination-recommended-for-large-datasets">Cursor-based pagination (recommended for large datasets)</h3>
+
+<p>For accounts with a large number of reservations, we recommend using cursor-based pagination with the <code class="prettyprint">afterId</code> parameter instead of <code class="prettyprint">offset</code>. </p>
+
+<p><strong>How it works:</strong></p>
+
+<ol>
+<li>Make your first request without <code class="prettyprint">afterId</code> to get the first page</li>
+<li>Take the <code class="prettyprint">id</code> of the last reservation in the response</li>
+<li>Use that <code class="prettyprint">id</code> as the <code class="prettyprint">afterId</code> parameter in your next request</li>
+<li>Repeat until you receive an empty result set</li>
+</ol>
+
+<p><strong>Example workflow:</strong></p>
+<div class="highlight"><pre class="highlight plaintext"><code># First page
+GET /v1/reservations?limit=100
+
+# Second page (using id=12345 from last item of first page)
+GET /v1/reservations?limit=100&amp;afterId=12345
+
+# Third page (using id=12245 from last item of second page)
+GET /v1/reservations?limit=100&amp;afterId=12245
+</code></pre></div>
+<p><strong>Important notes:</strong></p>
+
+<ul>
+<li>When <code class="prettyprint">afterId</code> is provided, the <code class="prettyprint">offset</code> parameter is ignored</li>
+<li>Results are ordered by <code class="prettyprint">updatedOn DESC, id DESC</code> by default</li>
+<li>Since ordering is by <code class="prettyprint">updatedOn</code>, reservations that are updated during pagination may shift between pages. For full syncs, consider using a date range filter to ensure consistency</li>
+</ul>
 
           <h2 id="retrieve-a-reservation">Retrieve a reservation</h2>
 
