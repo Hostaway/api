@@ -1,5 +1,9 @@
 ## Changelog
 
+**2026-03-31**
+- Added `afterId` parameter to [Retrieve a reservations list](#retrieve-a-reservations-list) endpoint for cursor-based pagination. This provides significantly better performance for large datasets compared to offset-based pagination.
+- Deprecated `offset` parameter in [Retrieve a reservations list](#retrieve-a-reservations-list) endpoint. Please migrate to `afterId` for better performance.
+
 **2026-02-05**
 - Add `?listingMapId` parameter to [Retrieve Airbnb cancellation policies](#retrieve-airbnb-cancellation-policies) to filter results that applicable to your listing.
 
