@@ -411,6 +411,9 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2026-05-18</strong>
+- Added <code class="prettyprint">updatedOn</code> to the supported <code class="prettyprint">sortOrder</code> values of <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a>. Use it to sort reservations ascending by last modification time (oldest first). The default ordering (no <code class="prettyprint">sortOrder</code>) remains descending by <code class="prettyprint">updatedOn</code>.</p>
+
 <p><strong>2026-03-31</strong>
 - Added <code class="prettyprint">afterId</code> parameter to <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a> endpoint for cursor-based pagination. This provides significantly better performance for large datasets compared to offset-based pagination.
 - Deprecated <code class="prettyprint">offset</code> parameter in <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a> endpoint. Please migrate to <code class="prettyprint">afterId</code> for better performance.</p>
@@ -7728,7 +7731,7 @@ print(data.decode("utf-8"))
 <td><code class="prettyprint">sortOrder</code></td>
 <td>no</td>
 <td>string</td>
-<td>One of: arrivalDate, arrivalDateDesc, lastConversationMessageSent, lastConversationMessageSentDesc, lastConversationMessageReceived, lastConversationMessageReceivedDesc, latestActivity, latestActivityDesc.</td>
+<td>One of: arrivalDate, arrivalDateDesc, lastConversationMessageSent, lastConversationMessageSentDesc, lastConversationMessageReceived, lastConversationMessageReceivedDesc, latestActivity, latestActivityDesc, updatedOn. See <a href="#sorting-by-updatedon">Sorting by <code class="prettyprint">updatedOn</code></a> for a common use case.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">channelId</code></td>
@@ -7843,6 +7846,40 @@ print(data.decode("utf-8"))
 <h3 id="response">Response</h3>
 
 <p>An array of reservations objects.</p>
+
+<h3 id="sorting-by-updatedon">Sorting by <code class="prettyprint">updatedOn</code></h3>
+
+<p><code class="prettyprint">sortOrder=updatedOn</code> returns reservations from oldest to newest, ordered by their last modification time. The default order (no <code class="prettyprint">sortOrder</code>) is newest first.</p>
+
+<p><strong>Useful when</strong> your integration stores one record per <code class="prettyprint">(listing, dates)</code> and later writes overwrite earlier ones.</p>
+
+<p>Example — same dates, one cancelled and one active:</p>
+
+<table><thead>
+<tr>
+<th>id</th>
+<th>status</th>
+<th>updatedOn</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>100</td>
+<td>cancelled</td>
+<td>2026-01-20 23:55:01</td>
+</tr>
+<tr>
+<td>101</td>
+<td>modified</td>
+<td>2026-03-13 18:00:54</td>
+</tr>
+</tbody></table>
+
+<p>Request:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>GET /v1/reservations?listingId=123&amp;sortOrder=updatedOn
+</code></pre></div>
+<p>Response order: <code class="prettyprint">100</code>, then <code class="prettyprint">101</code>. The active record is processed last and overwrites the cancelled one.</p>
+
+<p><strong>Note:</strong> this works when the cancellation has an older <code class="prettyprint">updatedOn</code> than the active record. If a reservation is cancelled after being confirmed, the cancelled record will have a newer <code class="prettyprint">updatedOn</code> and will appear after the active one.</p>
 
 <h3 id="cursor-based-pagination-recommended-for-large-datasets">Cursor-based pagination (recommended for large datasets)</h3>
 
