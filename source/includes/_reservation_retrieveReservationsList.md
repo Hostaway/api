@@ -95,7 +95,7 @@ Query Parameter | Required | Type | Description
 `limit` | no | int | Maximum number of items in the list (default limit is 100).
 `offset` | no | int | **Deprecated.** Number of items to skip from beginning of the list. To retrieve next items set the parameter to 100, 200, etc. accordingly. Please migrate to cursor-based pagination using `afterId` instead, as offset-based pagination has poor performance for large datasets.
 `afterId` | no | int | Reservation ID to use as cursor for pagination. Returns reservations that come after this ID in the sort order. When provided, `offset` is ignored. Use the `id` of the last reservation from the previous page.
-`sortOrder` | no | string | One of: arrivalDate, arrivalDateDesc, lastConversationMessageSent, lastConversationMessageSentDesc, lastConversationMessageReceived, lastConversationMessageReceivedDesc, latestActivity, latestActivityDesc.
+`sortOrder` | no | string | One of: arrivalDate, arrivalDateDesc, lastConversationMessageSent, lastConversationMessageSentDesc, lastConversationMessageReceived, lastConversationMessageReceivedDesc, latestActivity, latestActivityDesc, updatedOn. See [Sorting by `updatedOn`](#sorting-by-updatedon) for a common use case.
 `channelId` | no | int | Please check here for valid channel values: [Channels](#reservation-channels) 
 `listingId` | no | int |
 `assigneeUserId` | no | int |
@@ -118,6 +118,29 @@ Query Parameter | Required | Type | Description
 ### Response
 
 An array of reservations objects.
+
+### Sorting by `updatedOn`
+
+`sortOrder=updatedOn` returns reservations from oldest to newest, ordered by their last modification time. The default order (no `sortOrder`) is newest first.
+
+**Useful when** your integration stores one record per `(listing, dates)` and later writes overwrite earlier ones.
+
+Example — same dates, one cancelled and one active:
+
+id  | status    | updatedOn
+--- | --------- | -------------------
+100 | cancelled | 2026-01-20 23:55:01
+101 | modified  | 2026-03-13 18:00:54
+
+Request:
+
+```
+GET /v1/reservations?listingId=123&sortOrder=updatedOn
+```
+
+Response order: `100`, then `101`. The active record is processed last and overwrites the cancelled one.
+
+**Note:** this works when the cancellation has an older `updatedOn` than the active record. If a reservation is cancelled after being confirmed, the cancelled record will have a newer `updatedOn` and will appear after the active one.
 
 ### Cursor-based pagination (recommended for large datasets)
 
