@@ -1,5 +1,8 @@
 ## Changelog
 
+**2026-05-18**
+- Added `updatedOn` to the supported `sortOrder` values of [Retrieve a reservations list](#retrieve-a-reservations-list). Use it to sort reservations ascending by last modification time (oldest first). The default ordering (no `sortOrder`) remains descending by `updatedOn`.
+
 **2026-03-31**
 - Added `afterId` parameter to [Retrieve a reservations list](#retrieve-a-reservations-list) endpoint for cursor-based pagination. This provides significantly better performance for large datasets compared to offset-based pagination.
 - Deprecated `offset` parameter in [Retrieve a reservations list](#retrieve-a-reservations-list) endpoint. Please migrate to `afterId` for better performance.
