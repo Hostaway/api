@@ -101,7 +101,18 @@
     "claimStatus": "claim_started",
     "insurancePolicyId": 6,
     "cancellationPolicyId": 9,
+    "cancellationPolicy": "moderate",
     "hostProxyEmail": "c-123124124124@host.hostaway.info",
+    "bookingcomSpecialRequests": {
+        "remarks": "Late check-in, please.",
+        "geniusFreebies": [
+            {"code": "GF_8", "text": "Free WiFi"}
+        ]
+    },
+    "bookingcomSmokingPreference": 0,
+    "bookingcomIsGeniusMember": 1,
+    "bookingcomBookerName": "Marco Rossi",
+    "bookingcomBookerCompany": "Acme Travel Agency",
     "customFieldValues": [
         {
             "customFieldId": 167,
@@ -257,4 +268,10 @@
 | `claimStatus`                           | no       | string   | Can be one of the following: `claim_started`, `claim_approved`, `claim_rejected`, `claim_draft`, `claim_paid`, `claim_withdrawn` and `null` when claim status not found.                                                                                |
 | `insurancePolicyId`                     | no       | string   | Insurance external policyID                                                                                                                                                                                                                             |
 | `cancellationPolicyId`                  | no       | int      | Cancellation Policy Id of the reservation. [Cancellation Policies](#cancellation-policies)                                                                                                                                                              |
+| `cancellationPolicy`                    | no       | string   | Cancellation policy name applied to the reservation (e.g. `moderate`, `strict`, `flexible`). Mirrors the channel's policy label when available.                                                                                                         |
 | `hostProxyEmail`                        | no       | string   | Proxy email of the host of the reservation. Will be accessible by including the `includeResources=1` to the [Retrieve a reservations list](#retrieve-a-reservations-list) endpoint or from [Retrieve a reservation](#retrieve-a-reservation) by default |
+| `bookingcomSpecialRequests`             | no       | object   | Booking.com special requests payload (e.g. `remarks`, `geniusFreebies`). See Booking.com's [OTA ResNotif spec](https://developers.booking.com/connectivity/docs/ota-resnotif/) for the upstream `reservation_extra_info` structure. Returned by [Retrieve a reservation](#retrieve-a-reservation) only when `includeResources=1` is passed. `null` for non-Booking.com reservations. |
+| `bookingcomSmokingPreference`           | no       | int      | Booking.com guest smoking preference. `1` = smoking, `0` = non-smoking, `null` if unknown or non-Booking.com. Returned by [Retrieve a reservation](#retrieve-a-reservation) only when `includeResources=1` is passed.                                   |
+| `bookingcomIsGeniusMember`              | no       | int      | `1` if the booker is a Booking.com Genius member, `0` otherwise, `null` for non-Booking.com. Returned by [Retrieve a reservation](#retrieve-a-reservation) only when `includeResources=1` is passed.                                                    |
+| `bookingcomBookerName`                  | no       | string   | Full name of the person who placed the Booking.com reservation. May differ from the guest when booking on behalf of someone else. Returned by [Retrieve a reservation](#retrieve-a-reservation) only when `includeResources=1` is passed.               |
+| `bookingcomBookerCompany`               | no       | string   | Company or travel agency name from the Booking.com booker's affiliations, when the reservation was made on behalf of a business. Returned by [Retrieve a reservation](#retrieve-a-reservation) only when `includeResources=1` is passed.                |
