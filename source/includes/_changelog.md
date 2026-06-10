@@ -1,5 +1,8 @@
 ## Changelog
 
+**2026-06-10**
+- Documented the [attachment object](#attachment-object) fields on conversation messages. Note that for **private** attachments (`isPublic` = 0) the `url` is a temporary link that expires **7 days** after it is generated.
+
 **2026-05-18**
 - Added `updatedOn` to the supported `sortOrder` values of [Retrieve a reservations list](#retrieve-a-reservations-list). Use it to sort reservations ascending by last modification time (oldest first). The default ordering (no `sortOrder`) remains descending by `updatedOn`.
 
