@@ -68,6 +68,30 @@ Property | Required | Type                       | Description
 `communicationAlwaysTrigger` | no | int                        | 1 or 0
 `date` | no | date (YYYY-MM-DD HH:MM:SS) | the message scheduled date
 `sentChannelDate` | no | date (YYYY-MM-DD HH:MM:SS) | the message send to channel date
-`attachments` | no | array                      | attachments of this message
+`attachments` | no | array                      | attachments of this message. Each item is an [attachment object](#attachment-object).
 `insertedOn` | no | date (YYYY-MM-DD HH:MM:SS) | the message inserted on
 `updatedOn` | no | date (YYYY-MM-DD HH:MM:SS) | the message updated on
+
+### Attachment object
+
+Each item in the `attachments` array describes a single file attached to the message.
+
+Property | Type | Description
+-------- | ---- | -----------
+`id` | int | Identifier of the attachment
+`accountId` | int | Identifier of account
+`listingMapId` | int | Identifier of listing object
+`reservationId` | int | Identifier of reservation object
+`taskId` | int | Identifier of task object, if the attachment belongs to a task
+`conversationMessageId` | int | Identifier of the conversation message the attachment belongs to
+`communicationId` | int | Identifier of communication
+`name` | string | Original file name
+`url` | string | Download URL for the file. For private attachments (`isPublic` = 0) this is a temporary link — see the TTL note below.
+`extension` | string | File extension (e.g. `jpeg`)
+`mimeType` | string | MIME type of the file (e.g. `image/jpeg`)
+`isImage` | bool | Whether the attachment is an image
+`isPublic` | bool | Whether the attachment is publicly accessible. `0` means the attachment is private.
+
+<aside class="warning">
+For <strong>private</strong> attachments (<code>isPublic</code> = 0), the <code>url</code> field is a temporary link that expires <strong>7 days</strong> after it is generated. Do not store the URL itself for long-term use — once it expires you must re-fetch the message (or its conversation) to obtain a freshly generated URL. If you need to keep the file, download it from the URL and store the file on your side before it expires.
+</aside>
