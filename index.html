@@ -411,6 +411,9 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2026-06-10</strong>
+- Documented the <a href="#attachment-object">attachment object</a> fields on conversation messages. Note that for <strong>private</strong> attachments (<code class="prettyprint">isPublic</code> = 0) the <code class="prettyprint">url</code> is a temporary link that expires <strong>7 days</strong> after it is generated.</p>
+
 <p><strong>2026-05-18</strong>
 - Added <code class="prettyprint">updatedOn</code> to the supported <code class="prettyprint">sortOrder</code> values of <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a>. Use it to sort reservations ascending by last modification time (oldest first). The default ordering (no <code class="prettyprint">sortOrder</code>) remains descending by <code class="prettyprint">updatedOn</code>.</p>
 
@@ -13492,7 +13495,7 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 <td><code class="prettyprint">attachments</code></td>
 <td>no</td>
 <td>array</td>
-<td>attachments of this message</td>
+<td>attachments of this message. Each item is an <a href="#attachment-object">attachment object</a>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">insertedOn</code></td>
@@ -13507,6 +13510,88 @@ Number of intervals to send in one request can&rsquo;t be more than 200.</p>
 <td>the message updated on</td>
 </tr>
 </tbody></table>
+
+<h3 id="attachment-object">Attachment object</h3>
+
+<p>Each item in the <code class="prettyprint">attachments</code> array describes a single file attached to the message.</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">id</code></td>
+<td>int</td>
+<td>Identifier of the attachment</td>
+</tr>
+<tr>
+<td><code class="prettyprint">accountId</code></td>
+<td>int</td>
+<td>Identifier of account</td>
+</tr>
+<tr>
+<td><code class="prettyprint">listingMapId</code></td>
+<td>int</td>
+<td>Identifier of listing object</td>
+</tr>
+<tr>
+<td><code class="prettyprint">reservationId</code></td>
+<td>int</td>
+<td>Identifier of reservation object</td>
+</tr>
+<tr>
+<td><code class="prettyprint">taskId</code></td>
+<td>int</td>
+<td>Identifier of task object, if the attachment belongs to a task</td>
+</tr>
+<tr>
+<td><code class="prettyprint">conversationMessageId</code></td>
+<td>int</td>
+<td>Identifier of the conversation message the attachment belongs to</td>
+</tr>
+<tr>
+<td><code class="prettyprint">communicationId</code></td>
+<td>int</td>
+<td>Identifier of communication</td>
+</tr>
+<tr>
+<td><code class="prettyprint">name</code></td>
+<td>string</td>
+<td>Original file name</td>
+</tr>
+<tr>
+<td><code class="prettyprint">url</code></td>
+<td>string</td>
+<td>Download URL for the file. For private attachments (<code class="prettyprint">isPublic</code> = 0) this is a temporary link — see the TTL note below.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">extension</code></td>
+<td>string</td>
+<td>File extension (e.g. <code class="prettyprint">jpeg</code>)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">mimeType</code></td>
+<td>string</td>
+<td>MIME type of the file (e.g. <code class="prettyprint">image/jpeg</code>)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">isImage</code></td>
+<td>bool</td>
+<td>Whether the attachment is an image</td>
+</tr>
+<tr>
+<td><code class="prettyprint">isPublic</code></td>
+<td>bool</td>
+<td>Whether the attachment is publicly accessible. <code class="prettyprint">0</code> means the attachment is private.</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+For <strong>private</strong> attachments (<code>isPublic</code> = 0), the <code>url</code> field is a temporary link that expires <strong>7 days</strong> after it is generated. Do not store the URL itself for long-term use — once it expires you must re-fetch the message (or its conversation) to obtain a freshly generated URL. If you need to keep the file, download it from the URL and store the file on your side before it expires.
+</aside>
 
           <h2 id="conversation-object">Conversation object</h2>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
