@@ -102,6 +102,28 @@
     "insurancePolicyId": 6,
     "cancellationPolicyId": 9,
     "cancellationPolicy": "moderate",
+    "bookingCancellationPolicy": null,
+    "vrboCancellationPolicy": null,
+    "marriottCancellationPolicy": null,
+    "cancellationPolicyDetails": {
+        "id": 2,
+        "accountId": 1,
+        "name": "Moderate",
+        "channelId": 2001,
+        "channelSpecificCode": "moderate",
+        "longTerm": false,
+        "cancellationPolicyItem": [
+            {
+                "id": "1",
+                "cancellationPolicyId": "2",
+                "refundAmount": "100",
+                "refundType": "percentage",
+                "refundField": "totalPrice",
+                "timeDelta": "-1209600",
+                "event": "arrival"
+            }
+        ]
+    },
     "hostProxyEmail": "c-123124124124@host.hostaway.info",
     "bookingcomSpecialRequests": {
         "remarks": "Late check-in, please.",
@@ -267,8 +289,12 @@
 | `insuranceStatus`                       | no       | string   | Can be one of the following: `insured`, `pending`, `rejected`, `not_eligible`                                                                                                                                                                           |
 | `claimStatus`                           | no       | string   | Can be one of the following: `claim_started`, `claim_approved`, `claim_rejected`, `claim_draft`, `claim_paid`, `claim_withdrawn` and `null` when claim status not found.                                                                                |
 | `insurancePolicyId`                     | no       | string   | Insurance external policyID                                                                                                                                                                                                                             |
-| `cancellationPolicyId`                  | no       | int      | Cancellation Policy Id of the reservation. [Cancellation Policies](#cancellation-policies)                                                                                                                                                              |
+| `cancellationPolicyId`                  | no       | int      | Cancellation Policy Id of the reservation. [Cancellation Policies](#cancellation-policies). **Note:** this is a foreign key to a policy row that can be edited after the booking, so it may no longer reflect the terms the guest booked under. For the authoritative policy, use `cancellationPolicyDetails`. |
 | `cancellationPolicy`                    | no       | string   | Cancellation policy name applied to the reservation (e.g. `moderate`, `strict`, `flexible`). Mirrors the channel's policy label when available.                                                                                                         |
+| `bookingCancellationPolicy`             | no       | string   | Booking.com channel-specific cancellation policy code (e.g. `"13"`), stored as the raw code returned by Booking.com. Populated only for Booking.com reservations; `null` otherwise. Returned only when `includeCancellationPolicy=1` is passed.          |
+| `vrboCancellationPolicy`                | no       | string   | Vrbo channel-specific cancellation policy code. Populated only for Vrbo reservations; `null` otherwise. Returned only when `includeCancellationPolicy=1` is passed.                                                                                      |
+| `marriottCancellationPolicy`            | no       | string   | Marriott channel-specific cancellation policy code. Populated only for Marriott reservations; `null` otherwise. Returned only when `includeCancellationPolicy=1` is passed.                                                                              |
+| `cancellationPolicyDetails`             | no       | object   | The authoritative, immutable cancellation policy captured at booking time — the terms the guest actually booked under, unaffected by later edits to the listing's policy. Same shape as the [Cancellation policy object](#cancellation-policy-object) (`id`, `accountId`, `name`, `cancellationPolicyItem[]`) plus `channelId`, `channelSpecificCode` and `longTerm`. `null` for reservations with no snapshot (e.g. legacy bookings, or channels where the policy was not synced at booking time). Returned only when `includeCancellationPolicy=1` is passed; always included on [Retrieve a reservation](#retrieve-a-reservation) and on create/update/cancel responses. |
 | `hostProxyEmail`                        | no       | string   | Proxy email of the host of the reservation. Will be accessible by including the `includeResources=1` to the [Retrieve a reservations list](#retrieve-a-reservations-list) endpoint or from [Retrieve a reservation](#retrieve-a-reservation) by default |
 | `bookingcomSpecialRequests`             | no       | object   | Booking.com special requests payload (e.g. `remarks`, `geniusFreebies`). See Booking.com's [OTA ResNotif spec](https://developers.booking.com/connectivity/docs/ota-resnotif/) for the upstream `reservation_extra_info` structure. Returned by [Retrieve a reservation](#retrieve-a-reservation) only when `includeResources=1` is passed. `null` for non-Booking.com reservations. |
 | `bookingcomSmokingPreference`           | no       | int      | Booking.com guest smoking preference. `1` = smoking, `0` = non-smoking, `null` if unknown or non-Booking.com. Returned by [Retrieve a reservation](#retrieve-a-reservation) only when `includeResources=1` is passed.                                   |
