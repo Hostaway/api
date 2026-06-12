@@ -110,6 +110,7 @@ Query Parameter | Required | Type | Description
 `isPinned` | no | bool
 `customerUserId` | no | string
 `includeResources` | no | int | if includeResources flag is 1 then response object is supplied with supplementary resources, default is 0.
+`includeCancellationPolicy` | no | int | If set to `1`, each reservation is supplied with `cancellationPolicyDetails` (the immutable policy snapshot) and the channel-specific cancellation policy code fields (`bookingCancellationPolicy`, `vrboCancellationPolicy`, `marriottCancellationPolicy`). Default is `0`; opt-in here to avoid bloating large paginated responses. These fields are always included on the [Retrieve a reservation](#retrieve-a-reservation) endpoint regardless of this parameter.
 `latestActivityStart` | no | date |
 `latestActivityEnd` | no | date |
 `reservationAgreement` | no | string |
