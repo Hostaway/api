@@ -66,6 +66,7 @@ includes:
   - reservation_updateReservation
   - reservation_cancelReservation
   - reservation_cancelReservationDueToInvalidCreditCard
+  - reservation_reportNoShow
   - reservation_deleteReservation
   - reservation_channels
   - calendar_priceDetails
