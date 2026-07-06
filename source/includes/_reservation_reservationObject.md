@@ -135,6 +135,8 @@
     "bookingcomIsGeniusMember": 1,
     "bookingcomBookerName": "Marco Rossi",
     "bookingcomBookerCompany": "Acme Travel Agency",
+    "bookingcomNoShowReportedAt": "2026-07-03 14:22:07",
+    "bookingcomNoShowFeeWaived": false,
     "customFieldValues": [
         {
             "customFieldId": 167,
@@ -301,3 +303,5 @@
 | `bookingcomIsGeniusMember`              | no       | int      | `1` if the booker is a Booking.com Genius member, `0` otherwise, `null` for non-Booking.com. Returned by [Retrieve a reservation](#retrieve-a-reservation) only when `includeResources=1` is passed.                                                    |
 | `bookingcomBookerName`                  | no       | string   | Full name of the person who placed the Booking.com reservation. May differ from the guest when booking on behalf of someone else. Returned by [Retrieve a reservation](#retrieve-a-reservation) only when `includeResources=1` is passed.               |
 | `bookingcomBookerCompany`               | no       | string   | Company or travel agency name from the Booking.com booker's affiliations, when the reservation was made on behalf of a business. Returned by [Retrieve a reservation](#retrieve-a-reservation) only when `includeResources=1` is passed.                |
+| `bookingcomNoShowReportedAt`            | no       | datetime | Timestamp a Booking.com no-show was reported for this reservation, format `Y-m-d H:i:s` in the account timezone. `null` when no no-show has been reported. Returned by [Retrieve a reservation](#retrieve-a-reservation) only when `includeResources=1` is passed. |
+| `bookingcomNoShowFeeWaived`             | no       | bool     | Whether the reported Booking.com no-show fee was waived (`true`) or charged (`false`). `null` when no no-show has been reported. Returned by [Retrieve a reservation](#retrieve-a-reservation) only when `includeResources=1` is passed. |
