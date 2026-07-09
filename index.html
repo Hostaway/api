@@ -6641,6 +6641,28 @@ print(data.decode("utf-8"))
     </span><span class="nl">"insurancePolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
     </span><span class="nl">"cancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
     </span><span class="nl">"cancellationPolicy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moderate"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bookingCancellationPolicy"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vrboCancellationPolicy"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"marriottCancellationPolicy"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cancellationPolicyDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moderate"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"channelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2001</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"channelSpecificCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moderate"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"longTerm"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cancellationPolicyItem"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"cancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"refundAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"refundType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percentage"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"refundField"</span><span class="p">:</span><span class="w"> </span><span class="s2">"totalPrice"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"timeDelta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1209600"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arrival"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="nl">"hostProxyEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c-123124124124@host.hostaway.info"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"bookingcomSpecialRequests"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"remarks"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Late check-in, please."</span><span class="p">,</span><span class="w">
@@ -6652,6 +6674,8 @@ print(data.decode("utf-8"))
     </span><span class="nl">"bookingcomIsGeniusMember"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"bookingcomBookerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marco Rossi"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"bookingcomBookerCompany"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acme Travel Agency"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bookingcomNoShowReportedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-07-03 14:22:07"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bookingcomNoShowFeeWaived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"customFieldValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"customFieldId"</span><span class="p">:</span><span class="w"> </span><span class="mi">167</span><span class="p">,</span><span class="w">
@@ -7220,7 +7244,7 @@ print(data.decode("utf-8"))
 <td><code class="prettyprint">airbnbCancellationPolicy</code></td>
 <td>no</td>
 <td>string</td>
-<td></td>
+<td>Airbnb channel-specific cancellation policy label (e.g. <code class="prettyprint">moderate</code>, <code class="prettyprint">strict</code>, <code class="prettyprint">flexible</code>), populated from the Airbnb inbound payload. Unlike the other channel-specific cancellation fields, this is a stored reservation column and is <strong>always returned, regardless of <code class="prettyprint">includeCancellationPolicy</code></strong>. <code class="prettyprint">null</code> for non-Airbnb reservations.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">isStarred</code></td>
@@ -7340,13 +7364,37 @@ print(data.decode("utf-8"))
 <td><code class="prettyprint">cancellationPolicyId</code></td>
 <td>no</td>
 <td>int</td>
-<td>Cancellation Policy Id of the reservation. <a href="#cancellation-policies">Cancellation Policies</a></td>
+<td>Cancellation Policy Id of the reservation. <a href="#cancellation-policies">Cancellation Policies</a>. <strong>Note:</strong> this is a foreign key to a policy row that can be edited after the booking, so it may no longer reflect the terms the guest booked under. For the authoritative policy, use <code class="prettyprint">cancellationPolicyDetails</code>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">cancellationPolicy</code></td>
 <td>no</td>
 <td>string</td>
 <td>Cancellation policy name applied to the reservation (e.g. <code class="prettyprint">moderate</code>, <code class="prettyprint">strict</code>, <code class="prettyprint">flexible</code>). Mirrors the channel&rsquo;s policy label when available.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bookingCancellationPolicy</code></td>
+<td>no</td>
+<td>string</td>
+<td>Booking.com channel-specific cancellation policy code (e.g. <code class="prettyprint">&quot;13&quot;</code>), stored as the raw code returned by Booking.com. Populated only for Booking.com reservations; <code class="prettyprint">null</code> otherwise. Returned only when <code class="prettyprint">includeCancellationPolicy=1</code> is passed; always included on <a href="#retrieve-a-reservation">Retrieve a reservation</a> and on create/update/cancel responses.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">vrboCancellationPolicy</code></td>
+<td>no</td>
+<td>string</td>
+<td>Vrbo channel-specific cancellation policy code. Populated only for Vrbo reservations; <code class="prettyprint">null</code> otherwise. Returned only when <code class="prettyprint">includeCancellationPolicy=1</code> is passed; always included on <a href="#retrieve-a-reservation">Retrieve a reservation</a> and on create/update/cancel responses.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">marriottCancellationPolicy</code></td>
+<td>no</td>
+<td>string</td>
+<td>Marriott channel-specific cancellation policy code. Populated only for Marriott reservations; <code class="prettyprint">null</code> otherwise. Returned only when <code class="prettyprint">includeCancellationPolicy=1</code> is passed; always included on <a href="#retrieve-a-reservation">Retrieve a reservation</a> and on create/update/cancel responses.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">cancellationPolicyDetails</code></td>
+<td>no</td>
+<td>object</td>
+<td>The authoritative, immutable cancellation policy captured at booking time — the terms the guest actually booked under, unaffected by later edits to the listing&rsquo;s policy. Same shape as the <a href="#cancellation-policy-object">Cancellation policy object</a> (<code class="prettyprint">id</code>, <code class="prettyprint">accountId</code>, <code class="prettyprint">name</code>, <code class="prettyprint">cancellationPolicyItem[]</code>) plus <code class="prettyprint">channelId</code>, <code class="prettyprint">channelSpecificCode</code> and <code class="prettyprint">longTerm</code>. <code class="prettyprint">null</code> for reservations with no snapshot (e.g. legacy bookings, or channels where the policy was not synced at booking time). Returned only when <code class="prettyprint">includeCancellationPolicy=1</code> is passed; always included on <a href="#retrieve-a-reservation">Retrieve a reservation</a> and on create/update/cancel responses.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">hostProxyEmail</code></td>
@@ -7383,6 +7431,18 @@ print(data.decode("utf-8"))
 <td>no</td>
 <td>string</td>
 <td>Company or travel agency name from the Booking.com booker&rsquo;s affiliations, when the reservation was made on behalf of a business. Returned by <a href="#retrieve-a-reservation">Retrieve a reservation</a> only when <code class="prettyprint">includeResources=1</code> is passed.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bookingcomNoShowReportedAt</code></td>
+<td>no</td>
+<td>datetime</td>
+<td>Timestamp a Booking.com no-show was reported for this reservation, format <code class="prettyprint">Y-m-d H:i:s</code> in the account timezone. <code class="prettyprint">null</code> when no no-show has been reported. Returned by <a href="#retrieve-a-reservation">Retrieve a reservation</a> only when <code class="prettyprint">includeResources=1</code> is passed.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">bookingcomNoShowFeeWaived</code></td>
+<td>no</td>
+<td>bool</td>
+<td>Whether the reported Booking.com no-show fee was waived (<code class="prettyprint">true</code>) or charged (<code class="prettyprint">false</code>). <code class="prettyprint">null</code> when no no-show has been reported. Returned by <a href="#retrieve-a-reservation">Retrieve a reservation</a> only when <code class="prettyprint">includeResources=1</code> is passed.</td>
 </tr>
 </tbody></table>
 
@@ -7868,6 +7928,12 @@ print(data.decode("utf-8"))
 <td>if includeResources flag is 1 then response object is supplied with supplementary resources, default is 0.</td>
 </tr>
 <tr>
+<td><code class="prettyprint">includeCancellationPolicy</code></td>
+<td>no</td>
+<td>int</td>
+<td>If set to <code class="prettyprint">1</code>, each reservation is supplied with <code class="prettyprint">cancellationPolicyDetails</code> (the immutable policy snapshot) and the channel-specific cancellation policy code fields (<code class="prettyprint">bookingCancellationPolicy</code>, <code class="prettyprint">vrboCancellationPolicy</code>, <code class="prettyprint">marriottCancellationPolicy</code>). Default is <code class="prettyprint">0</code>; opt-in here to avoid bloating large paginated responses. These fields are always included on the <a href="#retrieve-a-reservation">Retrieve a reservation</a> endpoint regardless of this parameter.</td>
+</tr>
+<tr>
 <td><code class="prettyprint">latestActivityStart</code></td>
 <td>no</td>
 <td>date</td>
@@ -8042,6 +8108,8 @@ GET /v1/reservations?limit=100&amp;afterId=12245
 <h3 id="response">Response</h3>
 
 <p>A reservation object.</p>
+
+<p>This endpoint always includes the cancellation policy fields — <code class="prettyprint">cancellationPolicyDetails</code> (the immutable policy snapshot captured at booking time) and the channel-specific cancellation policy codes (<code class="prettyprint">bookingCancellationPolicy</code>, <code class="prettyprint">vrboCancellationPolicy</code>, <code class="prettyprint">marriottCancellationPolicy</code>) — without requiring the <code class="prettyprint">includeCancellationPolicy</code> parameter. The same applies to the create, update and cancel reservation responses. On the <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a> endpoint these fields are opt-in via <code class="prettyprint">?includeCancellationPolicy=1</code>.</p>
 
           <h2 id="create-a-reservation">Create a reservation</h2>
 
