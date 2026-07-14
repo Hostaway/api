@@ -6645,20 +6645,16 @@ print(data.decode("utf-8"))
     </span><span class="nl">"vrboCancellationPolicy"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"marriottCancellationPolicy"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="nl">"cancellationPolicyDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Moderate"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"channelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2001</span><span class="p">,</span><span class="w">
         </span><span class="nl">"channelSpecificCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moderate"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"longTerm"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="nl">"cancellationPolicyItem"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"cancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"refundAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"refundAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"refundType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percentage"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"refundField"</span><span class="p">:</span><span class="w"> </span><span class="s2">"totalPrice"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"timeDelta"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1209600"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"timeDelta"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1209600</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arrival"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
@@ -7394,7 +7390,7 @@ print(data.decode("utf-8"))
 <td><code class="prettyprint">cancellationPolicyDetails</code></td>
 <td>no</td>
 <td>object</td>
-<td>The authoritative, immutable cancellation policy captured at booking time — the terms the guest actually booked under, unaffected by later edits to the listing&rsquo;s policy. Same shape as the <a href="#cancellation-policy-object">Cancellation policy object</a> (<code class="prettyprint">id</code>, <code class="prettyprint">accountId</code>, <code class="prettyprint">name</code>, <code class="prettyprint">cancellationPolicyItem[]</code>) plus <code class="prettyprint">channelId</code>, <code class="prettyprint">channelSpecificCode</code> and <code class="prettyprint">longTerm</code>. <code class="prettyprint">null</code> for reservations with no snapshot (e.g. legacy bookings, or channels where the policy was not synced at booking time). Returned only when <code class="prettyprint">includeCancellationPolicy=1</code> is passed; always included on <a href="#retrieve-a-reservation">Retrieve a reservation</a> and on create/update/cancel responses.</td>
+<td>The authoritative, immutable cancellation policy captured at booking time — the terms the guest actually booked under, unaffected by later edits to the listing&rsquo;s policy. An object with <code class="prettyprint">name</code>, <code class="prettyprint">channelId</code>, <code class="prettyprint">channelSpecificCode</code>, <code class="prettyprint">longTerm</code> and <code class="prettyprint">cancellationPolicyItem[]</code> (each item: <code class="prettyprint">refundAmount</code>, <code class="prettyprint">refundType</code>, <code class="prettyprint">refundField</code>, <code class="prettyprint">timeDelta</code>, <code class="prettyprint">event</code>). <code class="prettyprint">null</code> for reservations with no snapshot (e.g. legacy bookings, or channels where the policy was not synced at booking time). Returned only when <code class="prettyprint">includeCancellationPolicy=1</code> is passed; always included on <a href="#retrieve-a-reservation">Retrieve a reservation</a> and on create/update/cancel responses.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">hostProxyEmail</code></td>
