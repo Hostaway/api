@@ -23,7 +23,7 @@ Any non-2xx response is treated as a failed delivery. When a delivery fails beca
 
 Other **client errors** (4xx responses other than 429, such as 400, 401, 403 or 404) are treated as permanent failures: we will **not** retry them, since a retry is unlikely to succeed. Make sure your endpoint returns a 2xx status once it has accepted the webhook.
 
-Make sure you don't have a high error rate for webhooks, because we will be **disabling** webhooks that fail for **5 consecutive days**. We expect to receive a response acknowledging successful receipt within 30 seconds. If processing takes longer than that, try queueing techniques: you can log the request, return 200, and process it later asynchronously.
+Make sure you don't have a high error rate for webhooks, because we will be **disabling** webhooks that fail for **5 consecutive days**. We expect to receive a response acknowledging successful receipt within 20 seconds. If processing takes longer than that, try queueing techniques: you can log the request, return 200, and process it later asynchronously.
 
 Right now the system supports the following events:
 

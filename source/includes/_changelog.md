@@ -1,7 +1,7 @@
 ## Changelog
 
 **2026-07-22**
-- Clarified the delivery retry behaviour for [Unified webhooks](#unified-webhooks). Deliveries that fail because of a transient problem (connection/network errors, 5xx responses, or 429) are retried up to 3 times within roughly one hour — a fast first retry followed by exponential backoff. Other client errors (4xx other than 429) are now treated as permanent failures and are no longer retried.
+- Clarified the delivery retry behaviour for [Unified webhooks](#unified-webhooks). Deliveries that fail because of a transient problem (connection/network errors, 5xx responses, or 429) are retried up to 3 times within roughly one hour — a fast first retry followed by exponential backoff. Other client errors (4xx other than 429) are now treated as permanent failures and are no longer retried. The acknowledgement timeout is **20 seconds** (previously documented as 30 seconds).
 
 **2026-06-10**
 - Documented the [attachment object](#attachment-object) fields on conversation messages. Note that for **private** attachments (`isPublic` = 0) the `url` is a temporary link that expires **7 days** after it is generated.
