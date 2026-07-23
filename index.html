@@ -411,6 +411,9 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2026-07-22</strong>
+- Clarified the delivery retry behaviour for <a href="#unified-webhooks">Unified webhooks</a>. Deliveries that fail because of a transient problem (connection/network errors, 5xx responses, or 429) are retried up to 3 times within roughly one hour — a fast first retry followed by exponential backoff. Other client errors (4xx other than 429) are now treated as permanent failures and are no longer retried. The acknowledgement timeout is <strong>20 seconds</strong> (previously documented as 30 seconds).</p>
+
 <p><strong>2026-06-10</strong>
 - Documented the <a href="#attachment-object">attachment object</a> fields on conversation messages. Note that for <strong>private</strong> attachments (<code class="prettyprint">isPublic</code> = 0) the <code class="prettyprint">url</code> is a temporary link that expires <strong>7 days</strong> after it is generated.</p>
 
@@ -26633,10 +26636,13 @@ the same update. Make sure your system can handle that properly.</p>
 <p>If you have the old (reservation/conversation) and the new (unified) webhooks configured we will trigger 
 both of them for the backward compatibility.</p>
 
-<p>We will be adding more events so if you receive a webhook with event that you don&rsquo;t support yet just return 200 response. 
-Otherwise, we will retry to deliver the message up to 3 times. Make sure you don&rsquo;t have high error rate for webhooks.
-Because we will be <strong>disabling</strong> webhooks that fail for <strong>5 consecutive days</strong>. We expect to receive response about successful acknowledgement in 30 seconds. 
-If processing takes more than that try to use queue technics. You can log the request, return 200 and process it later asynchronously.</p>
+<p>We will be adding more events, so if you receive a webhook with an event that you don&rsquo;t support yet, just return a 200 response.</p>
+
+<p>Any non-2xx response is treated as a failed delivery. When a delivery fails because of a <strong>transient problem</strong> — a connection or network error, a server error (5xx), or a &ldquo;too many requests&rdquo; (429) response — we will retry delivery up to <strong>3 times</strong>. The first retry happens quickly (about a minute later) to recover from brief network blips, and the remaining retries use exponential backoff, so all retries occur within roughly one hour of the original event.</p>
+
+<p>Other <strong>client errors</strong> (4xx responses other than 429, such as 400, 401, 403 or 404) are treated as permanent failures: we will <strong>not</strong> retry them, since a retry is unlikely to succeed. Make sure your endpoint returns a 2xx status once it has accepted the webhook.</p>
+
+<p>Make sure you don&rsquo;t have a high error rate for webhooks, because we will be <strong>disabling</strong> webhooks that fail for <strong>5 consecutive days</strong>. We expect to receive a response acknowledging successful receipt within 20 seconds. If processing takes longer than that, try queueing techniques: you can log the request, return 200, and process it later asynchronously.</p>
 
 <p>Right now the system supports the following events:</p>
 
