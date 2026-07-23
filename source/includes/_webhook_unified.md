@@ -17,10 +17,13 @@ the same update. Make sure your system can handle that properly.
 If you have the old (reservation/conversation) and the new (unified) webhooks configured we will trigger 
 both of them for the backward compatibility.
 
-We will be adding more events so if you receive a webhook with event that you don't support yet just return 200 response. 
-Otherwise, we will retry to deliver the message up to 3 times. Make sure you don't have high error rate for webhooks.
-Because we will be **disabling** webhooks that fail for **5 consecutive days**. We expect to receive response about successful acknowledgement in 30 seconds. 
-If processing takes more than that try to use queue technics. You can log the request, return 200 and process it later asynchronously.
+We will be adding more events, so if you receive a webhook with an event that you don't support yet, just return a 200 response.
+
+Any non-2xx response is treated as a failed delivery. When a delivery fails because of a **transient problem** — a connection or network error, a server error (5xx), or a "too many requests" (429) response — we will retry delivery up to **3 times**. The first retry happens quickly (about a minute later) to recover from brief network blips, and the remaining retries use exponential backoff, so all retries occur within roughly one hour of the original event.
+
+Other **client errors** (4xx responses other than 429, such as 400, 401, 403 or 404) are treated as permanent failures: we will **not** retry them, since a retry is unlikely to succeed. Make sure your endpoint returns a 2xx status once it has accepted the webhook.
+
+Make sure you don't have a high error rate for webhooks, because we will be **disabling** webhooks that fail for **5 consecutive days**. We expect to receive a response acknowledging successful receipt within 20 seconds. If processing takes longer than that, try queueing techniques: you can log the request, return 200, and process it later asynchronously.
 
 Right now the system supports the following events:
 
