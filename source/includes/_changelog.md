@@ -1,5 +1,8 @@
 ## Changelog
 
+**2026-08-04**
+- Documented the `specialStatus[]` query parameter on [Retrieve a listings list](#retrieve-a-listings-list). Use `?specialStatus[]=active` to exclude archived listings from the response.
+
 **2026-07-22**
 - Clarified the delivery retry behaviour for [Unified webhooks](#unified-webhooks). Deliveries that fail because of a transient problem (connection/network errors, 5xx responses, or 429) are retried up to 3 times within roughly one hour — a fast first retry followed by exponential backoff. Other client errors (4xx other than 429) are now treated as permanent failures and are no longer retried. The acknowledgement timeout is **20 seconds** (previously documented as 30 seconds).
 
