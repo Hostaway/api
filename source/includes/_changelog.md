@@ -1,5 +1,8 @@
 ## Changelog
 
+**2026-08-04**
+- Added endpoint [Retrieve reservation logs](#retrieve-reservation-logs) returning the field-level audit trail for a reservation. This is the same change history shown on the dashboard reservation details page — useful for headless integrations that need to react to specific field changes without polling the full reservation.
+
 **2026-07-22**
 - Clarified the delivery retry behaviour for [Unified webhooks](#unified-webhooks). Deliveries that fail because of a transient problem (connection/network errors, 5xx responses, or 429) are retried up to 3 times within roughly one hour — a fast first retry followed by exponential backoff. Other client errors (4xx other than 429) are now treated as permanent failures and are no longer retried. The acknowledgement timeout is **20 seconds** (previously documented as 30 seconds).
 
