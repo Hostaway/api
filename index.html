@@ -411,6 +411,9 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2026-08-04</strong>
+- Documented the <code class="prettyprint">specialStatus[]</code> query parameter on <a href="#retrieve-a-listings-list">Retrieve a listings list</a>. Use <code class="prettyprint">?specialStatus[]=active</code> to exclude archived listings from the response.</p>
+
 <p><strong>2026-07-22</strong>
 - Clarified the delivery retry behaviour for <a href="#unified-webhooks">Unified webhooks</a>. Deliveries that fail because of a transient problem (connection/network errors, 5xx responses, or 429) are retried up to 3 times within roughly one hour — a fast first retry followed by exponential backoff. Other client errors (4xx other than 429) are now treated as permanent failures and are no longer retried. The acknowledgement timeout is <strong>20 seconds</strong> (previously documented as 30 seconds).</p>
 
@@ -2407,6 +2410,12 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td>no</td>
 <td>bool</td>
 <td>Listing is active on website (Booking Engine)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">specialStatus[]</code></td>
+<td>no</td>
+<td>array</td>
+<td>Filter listings by status. Accepts <code class="prettyprint">active</code> and <code class="prettyprint">archived</code>. For example, <code class="prettyprint">?specialStatus[]=active</code> returns only active (non-archived) listings. When omitted, both active and archived listings are returned.</td>
 </tr>
 </tbody></table>
 
