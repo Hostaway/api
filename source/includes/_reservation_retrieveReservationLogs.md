@@ -93,10 +93,10 @@ print(response.text)
 
 | Name | Type | Description |
 |------|------|-------------|
-| `limit` | integer, optional | Maximum number of entries to return. Passing `limit` or `offset` switches the response envelope to include `count` and `offset` fields. |
-| `offset` | integer, optional | Number of entries to skip. Combine with `limit` for paging. |
+| `limit` | integer, optional | Maximum number of entries to return. Defaults to `100` when omitted, capped at `500`. |
+| `offset` | integer, optional | Number of entries to skip. Defaults to `0` when omitted. Negative values are clamped to `0`. |
 
-If neither `limit` nor `offset` is provided, the full audit trail is returned without `count`/`offset` in the envelope.
+The response envelope always includes `count` (total matching entries before pagination) and `offset`. Paginate by combining `limit` and `offset` — reservations with a long history can carry more than a thousand log entries, so callers that want everything need to page explicitly.
 
 ### Response
 
