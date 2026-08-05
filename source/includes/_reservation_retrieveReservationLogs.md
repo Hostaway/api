@@ -100,20 +100,24 @@ If neither `limit` nor `offset` is provided, the full audit trail is returned wi
 
 ### Response
 
-Array of reservation log entries, sorted by `insertedOn` **descending** (most recent change first).
+Array of reservation log entries, sorted by `insertedOn` **descending** (most recent change first). Every entry exposes the same fixed field set regardless of which internal source produced it — use the `source` discriminator to tell them apart.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | integer | Log entry identifier |
-| `accountId` | integer | Account owning the reservation |
+| `id` | integer | Log entry identifier (unique within the entry's `source`) |
 | `reservationId` | integer | Reservation the entry belongs to |
-| `listingMapId` | integer | Listing at the moment of the change |
-| `channelId` | integer | Channel that produced the change, if any |
+| `listingMapId` | integer | Listing associated with the reservation at change time |
+| `channelId` | integer | Channel associated with the reservation, if any |
+| `source` | string | Origin of the entry: `reservation`, `financeStandardField`, or `financeCustomFormula` |
 | `updatedField` | string | Field that changed (camel-cased, e.g. `guestFirstName`, `paymentStatus`) |
 | `updatedFieldLabel` | string or null | Human-readable field label, or `null` for internal-only fields |
 | `previousValue` | string | Value before the change (stringified; empty string if the field was previously unset) |
 | `newValue` | string | Value after the change (stringified) |
-| `updatedByUserId` | integer or null | User who made the change; `null` for channel-driven, system, or CLI updates |
+| `updatedByUserId` | integer or null | User who made the change; `null` for channel-driven, system, or CLI updates. Always `null` for `financeCustomFormula` entries (no user attribution) |
 | `updatedByUserName` | string or null | Email of the user identified by `updatedByUserId`, or `null` |
 | `insertedOn` | datetime | When the change was recorded |
 | `updatedOn` | datetime | Last modification of the log entry |
+
+<aside class="notice">
+The <code>source</code> discriminator identifies which subsystem produced the entry: <code>reservation</code> for changes to reservation fields, <code>financeStandardField</code> for changes to the standard finance fields on the reservation (base rate, cleaning fee, taxes, etc.), and <code>financeCustomFormula</code> for changes to custom finance formula values. Filter client-side on <code>source</code> if you only care about a subset.
+</aside>
