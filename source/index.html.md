@@ -60,6 +60,7 @@ includes:
   - reservation_reservationStatuses
   - reservation_retrieveReservationsList
   - reservation_retrieveReservation
+  - reservation_retrieveReservationLogs
   - reservation_createReservation
   - reservation_createReservationCreditCard
   - reservation_createReservationFinanceFields
