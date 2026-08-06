@@ -412,6 +412,7 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
           <h2 id="changelog">Changelog</h2>
 
 <p><strong>2026-08-04</strong>
+- Added endpoint <a href="#retrieve-reservation-logs">Retrieve reservation logs</a> returning the field-level audit trail for a reservation. This is the same change history shown on the dashboard reservation details page — useful for headless integrations that need to react to specific field changes without polling the full reservation.
 - Documented the <code class="prettyprint">specialStatus[]</code> query parameter on <a href="#retrieve-a-listings-list">Retrieve a listings list</a>. Use <code class="prettyprint">?specialStatus[]=active</code> to exclude archived listings from the response.</p>
 
 <p><strong>2026-07-22</strong>
@@ -8118,6 +8119,187 @@ GET /v1/reservations?limit=100&amp;afterId=12245
 <p>A reservation object.</p>
 
 <p>This endpoint always includes the cancellation policy fields — <code class="prettyprint">cancellationPolicyDetails</code> (the immutable policy snapshot captured at booking time) and the channel-specific cancellation policy codes (<code class="prettyprint">bookingCancellationPolicy</code>, <code class="prettyprint">vrboCancellationPolicy</code>, <code class="prettyprint">marriottCancellationPolicy</code>) — without requiring the <code class="prettyprint">includeCancellationPolicy</code> parameter. The same applies to the create, update and cancel reservation responses. On the <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a> endpoint these fields are opt-in via <code class="prettyprint">?includeCancellationPolicy=1</code>.</p>
+
+          <h2 id="retrieve-reservation-logs">Retrieve reservation logs</h2>
+
+<p>Returns the audit trail for a reservation — the same field-level change history that is shown on the reservation details page in the dashboard. Each entry records a single field change, its previous and new values, when it happened, and (when available) the user who made the change.</p>
+
+<h3 id="request">Request</h3>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="se">\</span>
+  <span class="s1">'https://api.hostaway.com/v1/reservations/13/logs?limit=&amp;offset='</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Cache-control: no-cache'</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span><span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://api.hostaway.com/v1/reservations/13/logs?limit=&amp;offset="</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_ENCODING</span> <span class="o">=&gt;</span> <span class="s2">""</span><span class="p">,</span>
+  <span class="no">CURLOPT_MAXREDIRS</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTP_VERSION</span> <span class="o">=&gt;</span> <span class="no">CURL_HTTP_VERSION_1_1</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s2">"Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw"</span><span class="p">,</span>
+    <span class="s2">"Cache-control: no-cache"</span>
+  <span class="p">),</span>
+<span class="p">));</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+<span class="nv">$err</span> <span class="o">=</span> <span class="nb">curl_error</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$err</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="s2">"cURL Error #:"</span> <span class="mf">.</span> <span class="nv">$err</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">withCredentials</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">readystatechange</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">===</span> <span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">https://api.hostaway.com/v1/reservations/13/logs?limit=&amp;offset=</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">Authorization</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">Cache-control</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">no-cache</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">();</span>
+
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.hostaway.com/v1/reservations/13/logs?limit=&amp;offset="</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">get</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Authorization"</span><span class="o">,</span> <span class="s">"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"Cache-control"</span><span class="o">,</span> <span class="s">"no-cache"</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.hostaway.com/v1/reservations/13/logs?limit=&amp;offset="</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIn0.eyJhdWQiOiIxMDQ1MCIsImp0aSI6ImQzMzBjODU4ZDUwMWY5ZTk2ZmNhMzY4NGFjODQ5MTMzODIxZjIyZWZhZDk2YmYxZjNjMDY0OGJjNjVlMDJkZWM0MDNiMzMwNzhhYTIyN2JmIiwiaWF0IjoxNDk4NTc5NzQ0LCJuYmYiOjE0OTg1Nzk3NDQsImV4cCI6MTUxNDM5MDk0NCwic3ViIjoiIiwic2NvcGVzIjpbImdlbmVyYWwiXX0.TsbJaDOZ0VlEF4vBg7mqLX8DxEuu5rjtsmqix1IbsEcR7F9cdx8F3dDq2zOc6mw8FNAfXT8xp1r5qKu2AYoxv4ublZhxxW0Y6uPSFs0jv5Fh5lliNBJAeQqFOChOVEbYzdbfH_6uu4HHSL31si1RvpVccAjA1Ap9vXlSg3DcPgw"</span><span class="p">,</span>
+    <span class="s">'Cache-control'</span><span class="p">:</span> <span class="s">"no-cache"</span>
+    <span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<p><code class="prettyprint">GET https://api.hostaway.com/v1/reservations/{reservationId}/logs</code></p>
+
+<h3 id="query-parameters">Query parameters</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">limit</code></td>
+<td>integer, optional</td>
+<td>Maximum number of entries to return. Defaults to <code class="prettyprint">100</code> when omitted, capped at <code class="prettyprint">500</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">offset</code></td>
+<td>integer, optional</td>
+<td>Number of entries to skip. Defaults to <code class="prettyprint">0</code> when omitted. Negative values are clamped to <code class="prettyprint">0</code>.</td>
+</tr>
+</tbody></table>
+
+<p>The response envelope always includes <code class="prettyprint">count</code> (total matching entries before pagination) and <code class="prettyprint">offset</code>. Paginate by combining <code class="prettyprint">limit</code> and <code class="prettyprint">offset</code> — reservations with a long history can carry more than a thousand log entries, so callers that want everything need to page explicitly.</p>
+
+<h3 id="response">Response</h3>
+
+<p>Array of reservation log entries, sorted by <code class="prettyprint">insertedOn</code> <strong>descending</strong> (most recent change first). Every entry exposes the same fixed field set regardless of which internal source produced it — use the <code class="prettyprint">source</code> discriminator to tell them apart.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">id</code></td>
+<td>integer</td>
+<td>Log entry identifier (unique within the entry&rsquo;s <code class="prettyprint">source</code>)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">reservationId</code></td>
+<td>integer</td>
+<td>Reservation the entry belongs to</td>
+</tr>
+<tr>
+<td><code class="prettyprint">listingMapId</code></td>
+<td>integer</td>
+<td>Listing associated with the reservation at change time</td>
+</tr>
+<tr>
+<td><code class="prettyprint">channelId</code></td>
+<td>integer</td>
+<td>Channel associated with the reservation, if any</td>
+</tr>
+<tr>
+<td><code class="prettyprint">source</code></td>
+<td>string</td>
+<td>Origin of the entry: <code class="prettyprint">reservation</code>, <code class="prettyprint">financeStandardField</code>, or <code class="prettyprint">financeCustomFormula</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">updatedField</code></td>
+<td>string</td>
+<td>Field that changed (camel-cased, e.g. <code class="prettyprint">guestFirstName</code>, <code class="prettyprint">paymentStatus</code>)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">updatedFieldLabel</code></td>
+<td>string or null</td>
+<td>Human-readable field label, or <code class="prettyprint">null</code> for internal-only fields</td>
+</tr>
+<tr>
+<td><code class="prettyprint">previousValue</code></td>
+<td>string</td>
+<td>Value before the change (stringified; empty string if the field was previously unset)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">newValue</code></td>
+<td>string</td>
+<td>Value after the change (stringified)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">updatedByUserId</code></td>
+<td>integer or null</td>
+<td>User who made the change; <code class="prettyprint">null</code> for channel-driven, system, or CLI updates. Always <code class="prettyprint">null</code> for <code class="prettyprint">financeCustomFormula</code> entries (no user attribution)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">updatedByUserName</code></td>
+<td>string or null</td>
+<td>Email of the user identified by <code class="prettyprint">updatedByUserId</code>, or <code class="prettyprint">null</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">insertedOn</code></td>
+<td>datetime</td>
+<td>When the change was recorded</td>
+</tr>
+<tr>
+<td><code class="prettyprint">updatedOn</code></td>
+<td>datetime</td>
+<td>Last modification of the log entry</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+The <code>source</code> discriminator identifies which subsystem produced the entry: <code>reservation</code> for changes to reservation fields, <code>financeStandardField</code> for changes to the standard finance fields on the reservation (base rate, cleaning fee, taxes, etc.), and <code>financeCustomFormula</code> for changes to custom finance formula values. Filter client-side on <code>source</code> if you only care about a subset.
+</aside>
 
           <h2 id="create-a-reservation">Create a reservation</h2>
 
