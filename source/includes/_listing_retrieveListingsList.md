@@ -108,6 +108,7 @@ Query Parameter | Required | Type | Description
 `latestActivityStart` | no | date |
 `latestActivityEnd` | no | date |
 `isBookingEngineActive` | no | bool | Listing is active on website (Booking Engine)
+`specialStatus[]` | no | array | Filter listings by status. Accepts `active` and `archived`. For example, `?specialStatus[]=active` returns only active (non-archived) listings. When omitted, both active and archived listings are returned.
 ### Response
 
 An array of listing objects.
