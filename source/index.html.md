@@ -186,6 +186,7 @@ includes:
   - coupon_reservationCouponObject
   - coupon_retrieveReservationCouponsList
   - webhook
+  - webhook_sourceIps
   - webhook_reservationsList
   - webhook_reservationsRead
   - webhook_reservationsCreate
