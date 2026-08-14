@@ -102,8 +102,27 @@ Property | Required | Type | Description
 `amount` | yes | float | 
 `amountType` | yes | string | Can be one of the following: percent, flat
 `applyTo` | yes | string | Json list of following strings: baseRate, cleaningFee
+`ageCondition` | yes | object | Age condition applied to the tax setting, `null` if no age condition is configured. See [Age condition object](#age-condition-object)
 `insertedOn` | yes | date time | 
 `updatedOn` | yes | date time | 
+
+### Age condition object
+
+Property | Type | Description
+-------- | ---- | ----------- 
+`id` | int | Age condition id
+`accountId` | int | Account the condition belongs to
+`accountTaxSettingsId` | int or null | Set when the condition belongs to an account tax setting
+`listingTaxSettingsId` | int or null | Set when the condition belongs to a listing tax setting (exactly one of the two ids is set)
+`infantTo` | int or null | Infant bracket: ages 0 up to and including this value
+`infantValue` | float or null | Tax value applied to infants
+`childFrom` | int or null | Child bracket lower bound (inclusive)
+`childTo` | int or null | Child bracket upper bound (inclusive)
+`childValue` | float or null | Tax value applied to children
+`adultFrom` | int or null | Age from which a guest counts as an adult (adults pay the full tax)
+`valueType` | string | Can be one of the following: flat, percent. Defines how `infantValue` and `childValue` are interpreted
+`insertedOn` | date time | 
+`updatedOn` | date time | 
 
 ```json
 {
@@ -117,6 +136,21 @@ Property | Required | Type | Description
             "amount": 1234,
             "amountType": "percent",
             "applyTo": "[\"baseRate\",\"cleaningFee\"]",
+            "ageCondition": {
+                "id": 15,
+                "accountId": 10638,
+                "accountTaxSettingsId": 1,
+                "listingTaxSettingsId": null,
+                "infantTo": 3,
+                "infantValue": 0,
+                "childFrom": 4,
+                "childTo": 12,
+                "childValue": 7.5,
+                "adultFrom": 13,
+                "valueType": "percent",
+                "insertedOn": "2026-08-01 09:12:33",
+                "updatedOn": "2026-08-01 09:12:33"
+            },
             "insertedOn": "2020-05-27 13:57:58",
             "updatedOn": "2020-05-27 13:58:50"
         },
@@ -128,6 +162,7 @@ Property | Required | Type | Description
             "amount": 1234,
             "amountType": "percent",
             "applyTo": "[\"baseRate\",\"cleaningFee\"]",
+            "ageCondition": null,
             "insertedOn": "2020-05-27 13:57:58",
             "updatedOn": "2020-05-27 13:58:50"
         }

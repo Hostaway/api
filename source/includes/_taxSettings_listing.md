@@ -103,6 +103,7 @@ Property | Required | Type | Description
 `amount` | yes | float | 
 `amountType` | yes | string | Can be one of the following: percent, flat
 `applyTo` | yes | string | Json list of following strings: baseRate, cleaningFee
+`ageCondition` | yes | object | Age condition applied to the tax setting, `null` if no age condition is configured. Has the same structure as the [Age condition object](#age-condition-object) of account tax settings, with `listingTaxSettingsId` set instead of `accountTaxSettingsId`
 `insertedOn` | yes | date time | 
 `updatedOn` | yes | date time | 
 
@@ -119,6 +120,21 @@ Property | Required | Type | Description
             "amount": 1234,
             "amountType": "percent",
             "applyTo": "[\"baseRate\",\"cleaningFee\"]",
+            "ageCondition": {
+                "id": 27,
+                "accountId": 10638,
+                "accountTaxSettingsId": null,
+                "listingTaxSettingsId": 1,
+                "infantTo": 3,
+                "infantValue": 0,
+                "childFrom": 4,
+                "childTo": 12,
+                "childValue": 7.5,
+                "adultFrom": 13,
+                "valueType": "percent",
+                "insertedOn": "2026-08-01 09:12:33",
+                "updatedOn": "2026-08-01 09:12:33"
+            },
             "insertedOn": "2020-05-27 13:57:58",
             "updatedOn": "2020-05-27 13:58:50"
         },
@@ -131,6 +147,7 @@ Property | Required | Type | Description
             "amount": 1234,
             "amountType": "percent",
             "applyTo": "[\"baseRate\",\"cleaningFee\"]",
+            "ageCondition": null,
             "insertedOn": "2020-05-27 13:57:58",
             "updatedOn": "2020-05-27 13:58:50"
         }
