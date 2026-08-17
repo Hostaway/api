@@ -1,5 +1,8 @@
 ## Changelog
 
+**2026-08-17**
+- Added an `ageCondition` object to every tax setting returned by [Account Tax Settings](#account-tax-settings) and [Listing Tax Settings](#listing-tax-settings). It is `null` when no age condition is configured; otherwise it describes the infant and child age brackets, the tax values applied to them (flat or percent), and the age from which a guest counts as an adult. See the [Age condition object](#age-condition-object) for the full field list.
+
 **2026-08-04**
 - Added endpoint [Retrieve reservation logs](#retrieve-reservation-logs) returning the field-level audit trail for a reservation. This is the same change history shown on the dashboard reservation details page — useful for headless integrations that need to react to specific field changes without polling the full reservation.
 - Documented the `specialStatus[]` query parameter on [Retrieve a listings list](#retrieve-a-listings-list). Use `?specialStatus[]=active` to exclude archived listings from the response.
