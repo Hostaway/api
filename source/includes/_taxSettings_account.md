@@ -119,7 +119,6 @@ Property | Type | Description
 `childFrom` | int or null | Child bracket lower bound (inclusive)
 `childTo` | int or null | Child bracket upper bound (inclusive)
 `childValue` | float or null | Tax value applied to children
-`adultFrom` | int or null | Age from which a guest counts as an adult (adults pay the full tax)
 `valueType` | string | Can be one of the following: flat, percent. Defines how `infantValue` and `childValue` are interpreted
 `insertedOn` | date time | 
 `updatedOn` | date time | 
@@ -146,7 +145,6 @@ Property | Type | Description
                 "childFrom": 4,
                 "childTo": 12,
                 "childValue": 7.5,
-                "adultFrom": 13,
                 "valueType": "percent",
                 "insertedOn": "2026-08-01 09:12:33",
                 "updatedOn": "2026-08-01 09:12:33"

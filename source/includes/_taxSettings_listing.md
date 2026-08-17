@@ -130,7 +130,6 @@ Property | Required | Type | Description
                 "childFrom": 4,
                 "childTo": 12,
                 "childValue": 7.5,
-                "adultFrom": 13,
                 "valueType": "percent",
                 "insertedOn": "2026-08-01 09:12:33",
                 "updatedOn": "2026-08-01 09:12:33"
