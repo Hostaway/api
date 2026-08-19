@@ -1,5 +1,9 @@
 ## Send conversation message
 
+<aside class="notice">
+This endpoint has its own rate limit of 30 requests per minute, per account. See [Rate limits](#rate-limits).
+</aside>
+
 ### Request
 
 ```shell
