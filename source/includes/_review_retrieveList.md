@@ -94,15 +94,29 @@ print(response.text)
 Query Parameter | Required | Type   | Description
 --------- | -------- |--------| -----------
 `listingMapIds` | no | int[]  | Array of Listing IDs
-`limit` | no | int    | Maximum number of items in the list.
+`limit` | no | int    | Maximum number of items in the list. Defaults to `100`, capped at `500`.
 `offset` | no | int    | Number of items to skip from beginning of the list.
-`sortBy` | no | string | One of: id, guestName, arrivalDate, departureDate.
-`sortOrder` | no | string | Asc or desc
-`reservationId` | no | int    | 
+`sortBy` | no | string | One of: id, listingMapId, reservationId, autoReviewId, autoReviewTemplateId, scheduledDateTime, timeDelta, channelId, type, status, rating, submittedAt, guestName, arrivalDate, departureDate, channelReservationId, listingInternalName, listingExternalName. Unrecognised values are ignored.
+`sortOrder` | no | string | Asc or desc. Defaults to desc.
+`reservationId` | no | int    | Hostaway reservation ID.
+`channelReservationIds` | no | int[]  | Array of reservation IDs as assigned by the channel.
+`channelIds` | no | int[]  | Array of channel IDs. Please check here for valid channel values: [Channels](#reservation-channels). Channels that are not enabled on the account are ignored.
 `type` | no | string | One of: guest-to-host, host-to-guest
 `statuses` | no | array  | awaiting, pending, scheduled, submitted, published, expired
-`departureDateStart` | no | date   |
-`departureDateEnd` | no | date   |
+`guestName` | no | string | Partial, case-insensitive match against the reservation guest name, first name or last name.
+`listingInternalNames` | no | string[] | Array of listing internal names. Exact match.
+`listingExternalNames` | no | string[] | Array of listing external (channel) names. Exact match.
+`tags` | no | int[]  | Array of listing tag IDs. Returns reviews of listings carrying any of the given tags.
+`ratingMin` | no | float  | Lower bound on `rating` (0-10).
+`ratingMax` | no | float  | Upper bound on `rating` (0-10).
+`submittedAtStart` | no | datetime | Lower bound on `submittedAt`.
+`submittedAtEnd` | no | datetime | Upper bound on `submittedAt`. Rolls to the end of the day when no time is given.
+`departureDateStart` | no | date   | Lower bound on the reservation departure date.
+`departureDateEnd` | no | date   | Upper bound on the reservation departure date.
+`stayDateStart` | no | date   | Keeps reviews whose reservation departs on or after this date.
+`stayDateEnd` | no | date   | Keeps reviews whose reservation arrives on or before this date.
+`hasHostReply` | no | bool   | `true` returns only reviews with a non-empty `revieweeResponse`, `false` only reviews without one.
+`preview` | no | bool   | When `true`, template variables in `publicReview` and `privateFeedback` are replaced with their actual values.
 
 ### Response
 
