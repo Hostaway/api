@@ -1,5 +1,9 @@
 ## Create a reservation
 
+<aside class="notice">
+This endpoint has its own rate limit of 200 requests per 10 seconds, per account. See [Rate limits](#rate-limits).
+</aside>
+
 ### Request
 
 ```shell

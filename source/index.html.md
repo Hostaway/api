@@ -276,17 +276,26 @@ Pagination data — met in retrieve `list` responses.
 
 ## Rate limits
 
-To ensure a good performance of Hostaway’s Public API across the entire platform and protect it from external threats,
-we limit the number of calls an application can make at once by enforcing rate limits as follows:
-Maximum number of requests
+To keep the Public API fast for every user, and to protect it from external threats, we limit
+how many requests an application can send. Each limit below has its own counter.
 
-| Maximum number of requests | Time frame | Key            |
-|----------------------------|------------|----------------|
-| 15                         | 10 seconds | Per IP address |
-| 20                         | 10 seconds | Per account ID |
+| Maximum number of requests | Time frame | Applies to                                      | Key            |
+|----------------------------|------------|-------------------------------------------------|----------------|
+| 30                         | 1 minute   | `POST /v1/conversations/{id}/messages`          | Per account ID |
+| 400                        | 10 seconds | `POST /v1/listings/{id}/calendar/priceDetails`  | Per account ID |
+| 200                        | 10 seconds | `POST /v1/reservations`                         | Per account ID |
+| 200                        | 10 seconds | All other endpoints                             | Per account ID |
+| 200                        | 10 seconds | All other endpoints                             | Per IP address |
 
-To ensure your service is not interrupted, make sure to spread API calls throughout the day instead of concentrating
-them, and implement queuing mechanisms that process a few requests and responses at a time
+An endpoint that has its own limit does not use the general limit. A call to
+[Send conversation message](#send-conversation-message) counts against the 30 per minute
+counter only. A call to any other endpoint counts against both the account counter and the IP
+counter.
+
+We measure each limit over a sliding window. The counter does not reset on a fixed clock boundary.
+It always covers the last 10 seconds, or the last minute.
+
+### When you exceed a limit
 
 When you go over the rate limits specified above, the API will return HTTP code 429 and response
 
@@ -296,6 +305,39 @@ When you go over the rate limits specified above, the API will return HTTP code 
   "message": "This error occurs because a server detects that your application has exceeded the rate limits or has made too many requests in a given period of time."
 }
 ```
+
+The 429 response also carries these headers:
+
+| Header                    | Value                                                              |
+|---------------------------|--------------------------------------------------------------------|
+| `X-RateLimit-Limit`       | The limit you reached.                                              |
+| `X-RateLimit-Remaining`   | Requests left in the current window.                                |
+| `X-RateLimit-Retry-After` | Unix timestamp. Send your next request after this time.             |
+| `X-RateLimit-Applied`     | Which limit you reached: `endpoint`, `account`, `ip` or `provider`. |
+
+**Important**: `X-RateLimit-Retry-After` holds a Unix timestamp in seconds, not a delay in seconds.
+These headers appear on 429 responses only.
+
+### How to stay under the limits
+
+* Queue your requests. Send a few requests and responses at a time.
+* Spread scheduled jobs. Do not start every job at 00:00:00.
+* On 429, wait until the time in `X-RateLimit-Retry-After`, then retry.
+* If you get a second 429, double the wait each time and add a random delay.
+* Use [unified webhooks](#unified-webhooks) instead of polling. See [Recommendations around polling](#recommendations-around-polling).
+
+### Higher limits for Enterprise customers
+
+Enterprise customers can request an increase to any limit above. Reservation endpoints have their
+own increase path.
+
+Send the request to [support@hostaway.com](mailto:support@hostaway.com) with:
+
+* Your account ID, or the list of account IDs.
+* The name of your integration.
+* The endpoint and the limit you need raised.
+* Your peak request rate today, and the rate you need.
+* Why your integration needs the higher rate.
 
 ## Webhook events
 

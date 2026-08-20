@@ -2,6 +2,10 @@
 
 ## Calculate reservation price
 
+<aside class="notice">
+This endpoint has its own rate limit of 400 requests per 10 seconds, per account. See [Rate limits](#rate-limits).
+</aside>
+
 This API was updated on 2022-11-01. If you use API version 1 (GET request) we recommend to migrate to API version 2 because previous version is deprecated. It is quite similar with previous version but allow you to create reservation with flexible price breakdown. 
 
 If you need to use reservation coupon discount you should create reservation coupon object before price calculation and then calculate price by passing reservationCouponId.
