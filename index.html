@@ -411,6 +411,13 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2026-08-20</strong>
+- Documented the query parameters supported by <a href="#get-reviews-list">Get reviews list</a> that were missing from the reference: <code class="prettyprint">channelIds</code>, <code class="prettyprint">channelReservationIds</code>, <code class="prettyprint">guestName</code>, <code class="prettyprint">listingInternalNames</code>, <code class="prettyprint">listingExternalNames</code>, <code class="prettyprint">tags</code>, <code class="prettyprint">ratingMin</code>, <code class="prettyprint">ratingMax</code>, <code class="prettyprint">submittedAtStart</code>, <code class="prettyprint">submittedAtEnd</code>, <code class="prettyprint">stayDateStart</code>, <code class="prettyprint">stayDateEnd</code>, <code class="prettyprint">hasHostReply</code> and <code class="prettyprint">preview</code>. The <code class="prettyprint">sortBy</code> list has been corrected to the full set of supported fields, and the <code class="prettyprint">limit</code> default (<code class="prettyprint">100</code>) and maximum (<code class="prettyprint">500</code>) are now stated.
+- Documented the <code class="prettyprint">preview</code> query parameter on <a href="#get-review">Get review</a>.</p>
+
+<p><strong>2026-08-17</strong>
+- Added an <code class="prettyprint">ageCondition</code> object to every tax setting returned by <a href="#account-tax-settings">Account Tax Settings</a> and <a href="#listing-tax-settings">Listing Tax Settings</a>. It is <code class="prettyprint">null</code> when no age condition is configured; otherwise it describes the infant and child age brackets, the tax values applied to them (flat or percent), and the age from which a guest counts as an adult. See the <a href="#age-condition-object">Age condition object</a> for the full field list.</p>
+
 <p><strong>2026-08-04</strong>
 - Added endpoint <a href="#retrieve-reservation-logs">Retrieve reservation logs</a> returning the field-level audit trail for a reservation. This is the same change history shown on the dashboard reservation details page — useful for headless integrations that need to react to specific field changes without polling the full reservation.
 - Documented the <code class="prettyprint">specialStatus[]</code> query parameter on <a href="#retrieve-a-listings-list">Retrieve a listings list</a>. Use <code class="prettyprint">?specialStatus[]=active</code> to exclude archived listings from the response.</p>
@@ -19720,6 +19727,12 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <td>Json list of following strings: baseRate, cleaningFee</td>
 </tr>
 <tr>
+<td><code class="prettyprint">ageCondition</code></td>
+<td>yes</td>
+<td>object</td>
+<td>Age condition applied to the tax setting, <code class="prettyprint">null</code> if no age condition is configured. See <a href="#age-condition-object">Age condition object</a></td>
+</tr>
+<tr>
 <td><code class="prettyprint">insertedOn</code></td>
 <td>yes</td>
 <td>date time</td>
@@ -19728,6 +19741,77 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <tr>
 <td><code class="prettyprint">updatedOn</code></td>
 <td>yes</td>
+<td>date time</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="age-condition-object">Age condition object</h3>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">id</code></td>
+<td>int</td>
+<td>Age condition id</td>
+</tr>
+<tr>
+<td><code class="prettyprint">accountId</code></td>
+<td>int</td>
+<td>Account the condition belongs to</td>
+</tr>
+<tr>
+<td><code class="prettyprint">accountTaxSettingsId</code></td>
+<td>int or null</td>
+<td>Set when the condition belongs to an account tax setting</td>
+</tr>
+<tr>
+<td><code class="prettyprint">listingTaxSettingsId</code></td>
+<td>int or null</td>
+<td>Set when the condition belongs to a listing tax setting (exactly one of the two ids is set)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">infantTo</code></td>
+<td>int or null</td>
+<td>Infant bracket: ages 0 up to and including this value</td>
+</tr>
+<tr>
+<td><code class="prettyprint">infantValue</code></td>
+<td>float or null</td>
+<td>Tax value applied to infants</td>
+</tr>
+<tr>
+<td><code class="prettyprint">childFrom</code></td>
+<td>int or null</td>
+<td>Child bracket lower bound (inclusive)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">childTo</code></td>
+<td>int or null</td>
+<td>Child bracket upper bound (inclusive)</td>
+</tr>
+<tr>
+<td><code class="prettyprint">childValue</code></td>
+<td>float or null</td>
+<td>Tax value applied to children</td>
+</tr>
+<tr>
+<td><code class="prettyprint">valueType</code></td>
+<td>string</td>
+<td>Can be one of the following: flat, percent. Defines how <code class="prettyprint">infantValue</code> and <code class="prettyprint">childValue</code> are interpreted</td>
+</tr>
+<tr>
+<td><code class="prettyprint">insertedOn</code></td>
+<td>date time</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">updatedOn</code></td>
 <td>date time</td>
 <td></td>
 </tr>
@@ -19743,6 +19827,20 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
             </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
             </span><span class="nl">"amountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percent"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"applyTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[</span><span class="se">\"</span><span class="s2">baseRate</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">cleaningFee</span><span class="se">\"</span><span class="s2">]"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ageCondition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10638</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"accountTaxSettingsId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"listingTaxSettingsId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"infantTo"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"infantValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"childFrom"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"childTo"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"childValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.5</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percent"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-08-01 09:12:33"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-08-01 09:12:33"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
             </span><span class="nl">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-27 13:57:58"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-27 13:58:50"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -19754,6 +19852,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
             </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
             </span><span class="nl">"amountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percent"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"applyTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[</span><span class="se">\"</span><span class="s2">baseRate</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">cleaningFee</span><span class="se">\"</span><span class="s2">]"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ageCondition"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-27 13:57:58"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-27 13:58:50"</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -19897,6 +19996,12 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
 <td>Json list of following strings: baseRate, cleaningFee</td>
 </tr>
 <tr>
+<td><code class="prettyprint">ageCondition</code></td>
+<td>yes</td>
+<td>object</td>
+<td>Age condition applied to the tax setting, <code class="prettyprint">null</code> if no age condition is configured. Has the same structure as the <a href="#age-condition-object">Age condition object</a> of account tax settings, with <code class="prettyprint">listingTaxSettingsId</code> set instead of <code class="prettyprint">accountTaxSettingsId</code></td>
+</tr>
+<tr>
 <td><code class="prettyprint">insertedOn</code></td>
 <td>yes</td>
 <td>date time</td>
@@ -19921,6 +20026,20 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
             </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
             </span><span class="nl">"amountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percent"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"applyTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[</span><span class="se">\"</span><span class="s2">baseRate</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">cleaningFee</span><span class="se">\"</span><span class="s2">]"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ageCondition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10638</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"accountTaxSettingsId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"listingTaxSettingsId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"infantTo"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"infantValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"childFrom"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"childTo"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"childValue"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.5</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"valueType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percent"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-08-01 09:12:33"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-08-01 09:12:33"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
             </span><span class="nl">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-27 13:57:58"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-27 13:58:50"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -19933,6 +20052,7 @@ Totals,400,0,1417,203.4,1417,86,1017,0,400,0,0,0,0,0,0,0,0,75,10,10,10,0,0,0,0,7
             </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
             </span><span class="nl">"amountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percent"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"applyTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[</span><span class="se">\"</span><span class="s2">baseRate</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">cleaningFee</span><span class="se">\"</span><span class="s2">]"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ageCondition"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="nl">"insertedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-27 13:57:58"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"updatedOn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-27 13:58:50"</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -22046,7 +22166,7 @@ print(data.decode("utf-8"))
 <td><code class="prettyprint">limit</code></td>
 <td>no</td>
 <td>int</td>
-<td>Maximum number of items in the list.</td>
+<td>Maximum number of items in the list. Defaults to <code class="prettyprint">100</code>, capped at <code class="prettyprint">500</code>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">offset</code></td>
@@ -22058,19 +22178,31 @@ print(data.decode("utf-8"))
 <td><code class="prettyprint">sortBy</code></td>
 <td>no</td>
 <td>string</td>
-<td>One of: id, guestName, arrivalDate, departureDate.</td>
+<td>One of: id, listingMapId, reservationId, autoReviewId, autoReviewTemplateId, scheduledDateTime, timeDelta, channelId, type, status, rating, submittedAt, guestName, arrivalDate, departureDate, channelReservationId, listingInternalName, listingExternalName. Unrecognised values are ignored.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">sortOrder</code></td>
 <td>no</td>
 <td>string</td>
-<td>Asc or desc</td>
+<td>Asc or desc. Defaults to desc.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">reservationId</code></td>
 <td>no</td>
 <td>int</td>
-<td></td>
+<td>Hostaway reservation ID.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">channelReservationIds</code></td>
+<td>no</td>
+<td>int[]</td>
+<td>Array of reservation IDs as assigned by the channel.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">channelIds</code></td>
+<td>no</td>
+<td>int[]</td>
+<td>Array of channel IDs. Please check here for valid channel values: <a href="#reservation-channels">Channels</a>. Channels that are not enabled on the account are ignored.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">type</code></td>
@@ -22085,16 +22217,88 @@ print(data.decode("utf-8"))
 <td>awaiting, pending, scheduled, submitted, published, expired</td>
 </tr>
 <tr>
+<td><code class="prettyprint">guestName</code></td>
+<td>no</td>
+<td>string</td>
+<td>Partial, case-insensitive match against the reservation guest name, first name or last name.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">listingInternalNames</code></td>
+<td>no</td>
+<td>string[]</td>
+<td>Array of listing internal names. Exact match.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">listingExternalNames</code></td>
+<td>no</td>
+<td>string[]</td>
+<td>Array of listing external (channel) names. Exact match.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">tags</code></td>
+<td>no</td>
+<td>int[]</td>
+<td>Array of listing tag IDs. Returns reviews of listings carrying any of the given tags.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ratingMin</code></td>
+<td>no</td>
+<td>float</td>
+<td>Lower bound on <code class="prettyprint">rating</code> (0-10).</td>
+</tr>
+<tr>
+<td><code class="prettyprint">ratingMax</code></td>
+<td>no</td>
+<td>float</td>
+<td>Upper bound on <code class="prettyprint">rating</code> (0-10).</td>
+</tr>
+<tr>
+<td><code class="prettyprint">submittedAtStart</code></td>
+<td>no</td>
+<td>datetime</td>
+<td>Lower bound on <code class="prettyprint">submittedAt</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">submittedAtEnd</code></td>
+<td>no</td>
+<td>datetime</td>
+<td>Upper bound on <code class="prettyprint">submittedAt</code>. Rolls to the end of the day when no time is given.</td>
+</tr>
+<tr>
 <td><code class="prettyprint">departureDateStart</code></td>
 <td>no</td>
 <td>date</td>
-<td></td>
+<td>Lower bound on the reservation departure date.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">departureDateEnd</code></td>
 <td>no</td>
 <td>date</td>
-<td></td>
+<td>Upper bound on the reservation departure date.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">stayDateStart</code></td>
+<td>no</td>
+<td>date</td>
+<td>Keeps reviews whose reservation departs on or after this date.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">stayDateEnd</code></td>
+<td>no</td>
+<td>date</td>
+<td>Keeps reviews whose reservation arrives on or before this date.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">hasHostReply</code></td>
+<td>no</td>
+<td>bool</td>
+<td><code class="prettyprint">true</code> returns only reviews with a non-empty <code class="prettyprint">revieweeResponse</code>, <code class="prettyprint">false</code> only reviews without one.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">preview</code></td>
+<td>no</td>
+<td>bool</td>
+<td>When <code class="prettyprint">true</code>, template variables in <code class="prettyprint">publicReview</code> and <code class="prettyprint">privateFeedback</code> are replaced with their actual values.</td>
 </tr>
 </tbody></table>
 
@@ -22212,6 +22416,22 @@ print(data.decode("utf-8"))
 <span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
 <p><code class="prettyprint">GET https://api.hostaway.com/v1/reviews/{reviewId}</code></p>
+
+<table><thead>
+<tr>
+<th>Query Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">preview</code></td>
+<td>no</td>
+<td>bool</td>
+<td>When <code class="prettyprint">true</code>, template variables in <code class="prettyprint">publicReview</code> and <code class="prettyprint">privateFeedback</code> are replaced with their actual values.</td>
+</tr>
+</tbody></table>
 
 <h3 id="response">Response</h3>
 
@@ -25566,6 +25786,18 @@ parameter</p>
 <p>An array of reservation coupon objects.</p>
 
           <h1 id="webhooks">Webhooks</h1>
+
+          <h2 id="source-ip-addresses">Source IP addresses</h2>
+
+<p>All webhook requests from Hostaway originate from a fixed set of IP addresses. If your webhook endpoint is behind a firewall, add these addresses to your allowlist so our deliveries are not blocked:</p>
+
+<ul>
+<li><code class="prettyprint">52.37.159.97</code></li>
+<li><code class="prettyprint">52.32.104.6</code></li>
+<li><code class="prettyprint">54.212.209.218</code></li>
+</ul>
+
+<p>These addresses apply to every webhook (unified webhooks for all events, and the <strong>deprecated</strong> reservation and conversation webhooks). We will announce any change to this list in advance, so make sure you keep it up to date.</p>
 
           <h2 id="get-reservation-webhooks-list">Get reservation webhooks list</h2>
 
