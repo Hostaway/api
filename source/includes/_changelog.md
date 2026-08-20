@@ -1,5 +1,9 @@
 ## Changelog
 
+**2026-08-20**
+- Documented the query parameters supported by [Get reviews list](#get-reviews-list) that were missing from the reference: `channelIds`, `channelReservationIds`, `guestName`, `listingInternalNames`, `listingExternalNames`, `tags`, `ratingMin`, `ratingMax`, `submittedAtStart`, `submittedAtEnd`, `stayDateStart`, `stayDateEnd`, `hasHostReply` and `preview`. The `sortBy` list has been corrected to the full set of supported fields, and the `limit` default (`100`) and maximum (`500`) are now stated.
+- Documented the `preview` query parameter on [Get review](#get-review).
+
 **2026-08-17**
 - Added an `ageCondition` object to every tax setting returned by [Account Tax Settings](#account-tax-settings) and [Listing Tax Settings](#listing-tax-settings). It is `null` when no age condition is configured; otherwise it describes the infant and child age brackets, the tax values applied to them (flat or percent), and the age from which a guest counts as an adult. See the [Age condition object](#age-condition-object) for the full field list.
 

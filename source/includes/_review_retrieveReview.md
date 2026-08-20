@@ -91,6 +91,9 @@ print(response.text)
 
 `GET https://api.hostaway.com/v1/reviews/{reviewId}`
 
+Query Parameter | Required | Type | Description
+--------- | -------- | ---- | -----------
+`preview` | no | bool | When `true`, template variables in `publicReview` and `privateFeedback` are replaced with their actual values.
 
 ### Response
 
