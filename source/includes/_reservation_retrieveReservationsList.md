@@ -104,6 +104,9 @@ Query Parameter | Required | Type | Description
 `arrivalEndDate` | no | date |
 `departureStartDate` | no | date |
 `departureEndDate` | no | date |
+`dateType` | no | string | Selects which reservation date `startDate` and `endDate` apply to. One of: `arrival`, `departure`, `creation`, `cancellation`. See [Filtering by date](#filtering-by-date).
+`startDate` | no | date | Lower bound (inclusive) for the date selected by `dateType`. Can be sent without `endDate`. Ignored when `dateType` is not set.
+`endDate` | no | date | Upper bound (inclusive) for the date selected by `dateType`. Can be sent without `startDate`. Ignored when `dateType` is not set.
 `hasUnreadConversationMessages` | no | bool
 `isStarred` | no | bool
 `isArchived` | no | bool
@@ -119,6 +122,33 @@ Query Parameter | Required | Type | Description
 ### Response
 
 An array of reservations objects.
+
+### Filtering by date
+
+`arrivalStartDate` / `arrivalEndDate`, `departureStartDate` / `departureEndDate` and `latestActivityStart` / `latestActivityEnd` each filter on one fixed date. `dateType` instead selects the date to filter on, and `startDate` / `endDate` bound it:
+
+`dateType` | Filters on
+---------- | ----------
+`arrival` | Arrival date
+`departure` | Departure date
+`creation` | The date the reservation was created
+`cancellation` | Cancellation date. Also restricts the result to cancelled reservations.
+
+**Each bound is applied on its own.** Send only `startDate` for an open-ended "from this date onward" filter, or only `endDate` for "up to this date"; both bounds are inclusive. Date filters combine, so `dateType` can be used together with the `arrival*` / `departure*` parameters and a reservation has to match all of them.
+
+```
+# Arrivals from 1 January 2026 onward
+GET /v1/reservations?dateType=arrival&startDate=2026-01-01
+
+# Reservations cancelled up to and including 30 June 2026
+GET /v1/reservations?dateType=cancellation&endDate=2026-06-30
+```
+
+`startDate` and `endDate` are ignored when `dateType` is not set, and a `dateType` outside the list above applies no date filter — neither case returns an error, so check the parameter names if a response is wider than you expect.
+
+`arrival_or_departure` is also accepted, but it bounds the arrival and the departure date together rather than a single date and its exact comparison differs between accounts. Filter on `arrival` or `departure` explicitly instead.
+
+**Availability:** `dateType`, `startDate` and `endDate` are served by the new reservations list query, which is enabled per account. On accounts still using the previous query they are ignored; use `arrivalStartDate` / `arrivalEndDate` / `departureStartDate` / `departureEndDate` there. Contact support if you are not sure which applies to your account.
 
 ### Sorting by `updatedOn`
 
