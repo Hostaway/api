@@ -292,31 +292,58 @@ Current API version is v1
 
 <h2 id="rate-limits">Rate limits</h2>
 
-<p>To ensure a good performance of Hostaway’s Public API across the entire platform and protect it from external threats,
-we limit the number of calls an application can make at once by enforcing rate limits as follows:
-Maximum number of requests</p>
+<p>To keep the Public API fast for every user, and to protect it from external threats, we limit
+how many requests an application can send. Each limit below has its own counter.</p>
 
 <table><thead>
 <tr>
 <th>Maximum number of requests</th>
 <th>Time frame</th>
+<th>Applies to</th>
 <th>Key</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>15</td>
-<td>10 seconds</td>
-<td>Per IP address</td>
+<td>30</td>
+<td>1 minute</td>
+<td><code class="prettyprint">POST /v1/conversations/{id}/messages</code></td>
+<td>Per account ID</td>
 </tr>
 <tr>
-<td>20</td>
+<td>400</td>
 <td>10 seconds</td>
+<td><code class="prettyprint">POST /v1/listings/{id}/calendar/priceDetails</code></td>
 <td>Per account ID</td>
+</tr>
+<tr>
+<td>200</td>
+<td>10 seconds</td>
+<td><code class="prettyprint">POST /v1/reservations</code></td>
+<td>Per account ID</td>
+</tr>
+<tr>
+<td>200</td>
+<td>10 seconds</td>
+<td>All other endpoints</td>
+<td>Per account ID</td>
+</tr>
+<tr>
+<td>200</td>
+<td>10 seconds</td>
+<td>All other endpoints</td>
+<td>Per IP address</td>
 </tr>
 </tbody></table>
 
-<p>To ensure your service is not interrupted, make sure to spread API calls throughout the day instead of concentrating
-them, and implement queuing mechanisms that process a few requests and responses at a time</p>
+<p>An endpoint that has its own limit does not use the general limit. A call to
+<a href="#send-conversation-message">Send conversation message</a> counts against the 30 per minute
+counter only. A call to any other endpoint counts against both the account counter and the IP
+counter.</p>
+
+<p>We measure each limit over a sliding window. The counter does not reset on a fixed clock boundary.
+It always covers the last 10 seconds, or the last minute.</p>
+
+<h3 id="when-you-exceed-a-limit">When you exceed a limit</h3>
 
 <p>When you go over the rate limits specified above, the API will return HTTP code 429 and response</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -324,6 +351,60 @@ them, and implement queuing mechanisms that process a few requests and responses
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This error occurs because a server detects that your application has exceeded the rate limits or has made too many requests in a given period of time."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
+<p>The 429 response also carries these headers:</p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">X-RateLimit-Limit</code></td>
+<td>The limit you reached.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">X-RateLimit-Remaining</code></td>
+<td>Requests left in the current window.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">X-RateLimit-Retry-After</code></td>
+<td>Unix timestamp. Send your next request after this time.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">X-RateLimit-Applied</code></td>
+<td>Which limit you reached: <code class="prettyprint">endpoint</code>, <code class="prettyprint">account</code>, <code class="prettyprint">ip</code> or <code class="prettyprint">provider</code>.</td>
+</tr>
+</tbody></table>
+
+<p><strong>Important</strong>: <code class="prettyprint">X-RateLimit-Retry-After</code> holds a Unix timestamp in seconds, not a delay in seconds.
+These headers appear on 429 responses only.</p>
+
+<h3 id="how-to-stay-under-the-limits">How to stay under the limits</h3>
+
+<ul>
+<li>Queue your requests. Send a few requests and responses at a time.</li>
+<li>Spread scheduled jobs. Do not start every job at 00:00:00.</li>
+<li>On 429, wait until the time in <code class="prettyprint">X-RateLimit-Retry-After</code>, then retry.</li>
+<li>If you get a second 429, double the wait each time and add a random delay.</li>
+<li>Use <a href="#unified-webhooks">unified webhooks</a> instead of polling. See <a href="#recommendations-around-polling">Recommendations around polling</a>.</li>
+</ul>
+
+<h3 id="higher-limits-for-enterprise-customers">Higher limits for Enterprise customers</h3>
+
+<p>Enterprise customers can request an increase to any limit above. Reservation endpoints have their
+own increase path.</p>
+
+<p>Send the request to <a href="mailto:support@hostaway.com">support@hostaway.com</a> with:</p>
+
+<ul>
+<li>Your account ID, or the list of account IDs.</li>
+<li>The name of your integration.</li>
+<li>The endpoint and the limit you need raised.</li>
+<li>Your peak request rate today, and the rate you need.</li>
+<li>Why your integration needs the higher rate.</li>
+</ul>
+
 <h2 id="webhook-events">Webhook events</h2>
 
 <p>Hostaway allows you to create and manage webhooks so you get notified when something changes on our platform. That way, you don’t need to poll the API and can update your system in real-time.</p>
@@ -411,9 +492,15 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2026-08-21</strong>
+- Fixed the handling of one-sided date ranges on <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a>. The <code class="prettyprint">dateType</code>, <code class="prettyprint">startDate</code> and <code class="prettyprint">endDate</code> filters were only applied when all three were supplied: a request such as <code class="prettyprint">?dateType=arrival&amp;startDate=2026-01-01</code> with no <code class="prettyprint">endDate</code> silently dropped the whole date filter and returned the account&rsquo;s unfiltered reservation history instead of reporting an error. Each bound is now applied on its own, so <code class="prettyprint">startDate</code> alone means &ldquo;on or after&rdquo; and <code class="prettyprint">endDate</code> alone means &ldquo;on or before&rdquo;. If your integration sends a one-sided range, expect fewer items and a smaller <code class="prettyprint">count</code> than before — the response now contains only the reservations you asked for. Requests that send both bounds, or no date filter at all, are unaffected.
+- <code class="prettyprint">dateType=cancellation</code> also restricts the result to cancelled reservations. That condition used to be dropped together with the dates on a one-sided range; it is now applied whenever the date filter is.
+- Documented <code class="prettyprint">dateType</code>, <code class="prettyprint">startDate</code> and <code class="prettyprint">endDate</code> on <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a> — the supported <code class="prettyprint">dateType</code> values, the fact that each bound stands alone, and that these three parameters are served by the new reservations list query, which is enabled per account.</p>
+
 <p><strong>2026-08-20</strong>
 - Documented the query parameters supported by <a href="#get-reviews-list">Get reviews list</a> that were missing from the reference: <code class="prettyprint">channelIds</code>, <code class="prettyprint">channelReservationIds</code>, <code class="prettyprint">guestName</code>, <code class="prettyprint">listingInternalNames</code>, <code class="prettyprint">listingExternalNames</code>, <code class="prettyprint">tags</code>, <code class="prettyprint">ratingMin</code>, <code class="prettyprint">ratingMax</code>, <code class="prettyprint">submittedAtStart</code>, <code class="prettyprint">submittedAtEnd</code>, <code class="prettyprint">stayDateStart</code>, <code class="prettyprint">stayDateEnd</code>, <code class="prettyprint">hasHostReply</code> and <code class="prettyprint">preview</code>. The <code class="prettyprint">sortBy</code> list has been corrected to the full set of supported fields, and the <code class="prettyprint">limit</code> default (<code class="prettyprint">100</code>) and maximum (<code class="prettyprint">500</code>) are now stated.
-- Documented the <code class="prettyprint">preview</code> query parameter on <a href="#get-review">Get review</a>.</p>
+- Documented the <code class="prettyprint">preview</code> query parameter on <a href="#get-review">Get review</a>.
+- Updated the <a href="#rate-limits">Rate limits</a> section. Corrected the published limits, added the per-endpoint limits for <a href="#send-conversation-message">Send conversation message</a>, <a href="#calculate-reservation-price">Calculate reservation price</a> and <a href="#create-a-reservation">Create a reservation</a>, documented the <code class="prettyprint">X-RateLimit-*</code> headers returned on 429, and added the process for Enterprise customers to request an increase.</p>
 
 <p><strong>2026-08-17</strong>
 - Added an <code class="prettyprint">ageCondition</code> object to every tax setting returned by <a href="#account-tax-settings">Account Tax Settings</a> and <a href="#listing-tax-settings">Listing Tax Settings</a>. It is <code class="prettyprint">null</code> when no age condition is configured; otherwise it describes the infant and child age brackets, the tax values applied to them (flat or percent), and the age from which a guest counts as an adult. See the <a href="#age-condition-object">Age condition object</a> for the full field list.</p>
@@ -7908,6 +7995,24 @@ print(data.decode("utf-8"))
 <td></td>
 </tr>
 <tr>
+<td><code class="prettyprint">dateType</code></td>
+<td>no</td>
+<td>string</td>
+<td>Selects which reservation date <code class="prettyprint">startDate</code> and <code class="prettyprint">endDate</code> apply to. One of: <code class="prettyprint">arrival</code>, <code class="prettyprint">departure</code>, <code class="prettyprint">creation</code>, <code class="prettyprint">cancellation</code>. See <a href="#filtering-by-date">Filtering by date</a>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">startDate</code></td>
+<td>no</td>
+<td>date</td>
+<td>Lower bound (inclusive) for the date selected by <code class="prettyprint">dateType</code>. Can be sent without <code class="prettyprint">endDate</code>. Ignored when <code class="prettyprint">dateType</code> is not set.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">endDate</code></td>
+<td>no</td>
+<td>date</td>
+<td>Upper bound (inclusive) for the date selected by <code class="prettyprint">dateType</code>. Can be sent without <code class="prettyprint">startDate</code>. Ignored when <code class="prettyprint">dateType</code> is not set.</td>
+</tr>
+<tr>
 <td><code class="prettyprint">hasUnreadConversationMessages</code></td>
 <td>no</td>
 <td>bool</td>
@@ -7978,6 +8083,47 @@ print(data.decode("utf-8"))
 <h3 id="response">Response</h3>
 
 <p>An array of reservations objects.</p>
+
+<h3 id="filtering-by-date">Filtering by date</h3>
+
+<p><code class="prettyprint">arrivalStartDate</code> / <code class="prettyprint">arrivalEndDate</code>, <code class="prettyprint">departureStartDate</code> / <code class="prettyprint">departureEndDate</code> and <code class="prettyprint">latestActivityStart</code> / <code class="prettyprint">latestActivityEnd</code> each filter on one fixed date. <code class="prettyprint">dateType</code> instead selects the date to filter on, and <code class="prettyprint">startDate</code> / <code class="prettyprint">endDate</code> bound it:</p>
+
+<table><thead>
+<tr>
+<th><code class="prettyprint">dateType</code></th>
+<th>Filters on</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">arrival</code></td>
+<td>Arrival date</td>
+</tr>
+<tr>
+<td><code class="prettyprint">departure</code></td>
+<td>Departure date</td>
+</tr>
+<tr>
+<td><code class="prettyprint">creation</code></td>
+<td>The date the reservation was created</td>
+</tr>
+<tr>
+<td><code class="prettyprint">cancellation</code></td>
+<td>Cancellation date. Also restricts the result to cancelled reservations.</td>
+</tr>
+</tbody></table>
+
+<p><strong>Each bound is applied on its own.</strong> Send only <code class="prettyprint">startDate</code> for an open-ended &ldquo;from this date onward&rdquo; filter, or only <code class="prettyprint">endDate</code> for &ldquo;up to this date&rdquo;; both bounds are inclusive. Date filters combine, so <code class="prettyprint">dateType</code> can be used together with the <code class="prettyprint">arrival*</code> / <code class="prettyprint">departure*</code> parameters and a reservation has to match all of them.</p>
+<div class="highlight"><pre class="highlight plaintext"><code># Arrivals from 1 January 2026 onward
+GET /v1/reservations?dateType=arrival&amp;startDate=2026-01-01
+
+# Reservations cancelled up to and including 30 June 2026
+GET /v1/reservations?dateType=cancellation&amp;endDate=2026-06-30
+</code></pre></div>
+<p><code class="prettyprint">startDate</code> and <code class="prettyprint">endDate</code> are ignored when <code class="prettyprint">dateType</code> is not set, and a <code class="prettyprint">dateType</code> outside the list above applies no date filter — neither case returns an error, so check the parameter names if a response is wider than you expect.</p>
+
+<p><code class="prettyprint">arrival_or_departure</code> is also accepted, but it bounds the arrival and the departure date together rather than a single date and its exact comparison differs between accounts. Filter on <code class="prettyprint">arrival</code> or <code class="prettyprint">departure</code> explicitly instead.</p>
+
+<p><strong>Availability:</strong> <code class="prettyprint">dateType</code>, <code class="prettyprint">startDate</code> and <code class="prettyprint">endDate</code> are served by the new reservations list query, which is enabled per account. On accounts still using the previous query they are ignored; use <code class="prettyprint">arrivalStartDate</code> / <code class="prettyprint">arrivalEndDate</code> / <code class="prettyprint">departureStartDate</code> / <code class="prettyprint">departureEndDate</code> there. Contact support if you are not sure which applies to your account.</p>
 
 <h3 id="sorting-by-updatedon">Sorting by <code class="prettyprint">updatedOn</code></h3>
 
@@ -8309,6 +8455,10 @@ The <code>source</code> discriminator identifies which subsystem produced the en
 </aside>
 
           <h2 id="create-a-reservation">Create a reservation</h2>
+
+<aside class="notice">
+This endpoint has its own rate limit of 200 requests per 10 seconds, per account. See [Rate limits](#rate-limits).
+</aside>
 
 <h3 id="request">Request</h3>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
@@ -10295,6 +10445,10 @@ It’s not possible to update the listingMapId of a reservation with this reques
           <h1 id="reservation-price-calculation">Reservation price calculation</h1>
 
 <h2 id="calculate-reservation-price">Calculate reservation price</h2>
+
+<aside class="notice">
+This endpoint has its own rate limit of 400 requests per 10 seconds, per account. See [Rate limits](#rate-limits).
+</aside>
 
 <p>This API was updated on 2022-11-01. If you use API version 1 (GET request) we recommend to migrate to API version 2 because previous version is deprecated. It is quite similar with previous version but allow you to create reservation with flexible price breakdown. </p>
 
@@ -14656,6 +14810,10 @@ For <strong>private</strong> attachments (<code>isPublic</code> = 0), the <code>
 <p>A conversation message object.</p>
 
           <h2 id="send-conversation-message">Send conversation message</h2>
+
+<aside class="notice">
+This endpoint has its own rate limit of 30 requests per minute, per account. See [Rate limits](#rate-limits).
+</aside>
 
 <h3 id="request">Request</h3>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
