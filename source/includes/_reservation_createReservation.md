@@ -315,7 +315,13 @@ print(data.decode("utf-8"))
 `POST https://api.hostaway.com/v1/reservations?forceOverbooking=1&provider=testProvider`
 
 A reservation object should be provided in the request body.
-Please check here for a valid `channelId`: [Channels](#reservation-channels).
+
+<aside class="warning">
+Only <code>2000</code> (direct) and <code>2020</code> (partner) are supported as <code>channelId</code> when creating a
+reservation. Any other value is rejected, including the deprecated <code>2017</code> (wordpress). See
+<a href="#reservation-channels">Channels</a> for the full list of channel IDs.
+</aside>
+
 Also `couponName` string field can be provided inside reservation object, it will cause the corresponding coupon to 
 be applied to the specified reservation, however, keep in mind that it won't affect price, it will only decrement 
 coupon usages.
