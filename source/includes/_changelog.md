@@ -1,5 +1,10 @@
 ## Changelog
 
+**2026-08-21**
+- Fixed the handling of one-sided date ranges on [Retrieve a reservations list](#retrieve-a-reservations-list). The `dateType`, `startDate` and `endDate` filters were only applied when all three were supplied: a request such as `?dateType=arrival&startDate=2026-01-01` with no `endDate` silently dropped the whole date filter and returned the account's unfiltered reservation history instead of reporting an error. Each bound is now applied on its own, so `startDate` alone means "on or after" and `endDate` alone means "on or before". If your integration sends a one-sided range, expect fewer items and a smaller `count` than before — the response now contains only the reservations you asked for. Requests that send both bounds, or no date filter at all, are unaffected.
+- `dateType=cancellation` also restricts the result to cancelled reservations. That condition used to be dropped together with the dates on a one-sided range; it is now applied whenever the date filter is.
+- Documented `dateType`, `startDate` and `endDate` on [Retrieve a reservations list](#retrieve-a-reservations-list) — the supported `dateType` values, the fact that each bound stands alone, and that these three parameters are served by the new reservations list query, which is enabled per account.
+
 **2026-08-20**
 - Documented the query parameters supported by [Get reviews list](#get-reviews-list) that were missing from the reference: `channelIds`, `channelReservationIds`, `guestName`, `listingInternalNames`, `listingExternalNames`, `tags`, `ratingMin`, `ratingMax`, `submittedAtStart`, `submittedAtEnd`, `stayDateStart`, `stayDateEnd`, `hasHostReply` and `preview`. The `sortBy` list has been corrected to the full set of supported fields, and the `limit` default (`100`) and maximum (`500`) are now stated.
 - Documented the `preview` query parameter on [Get review](#get-review).
