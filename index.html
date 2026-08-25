@@ -492,6 +492,9 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2026-08-24</strong>
+- <a href="#create-a-reservation">Create a reservation</a> now rejects the deprecated <code class="prettyprint">2017</code> (wordpress) <code class="prettyprint">channelId</code>. Only <code class="prettyprint">2000</code> (direct), <code class="prettyprint">2002</code> (homeaway) and <code class="prettyprint">2020</code> (partner) are supported when creating a reservation. Reservations created on the WordPress channel are invisible to message automations, which cannot target that channel, so automations silently never fired for them. If your integration sends <code class="prettyprint">2017</code>, switch it to <code class="prettyprint">2000</code> or <code class="prettyprint">2020</code>. Existing reservations on that channel are unaffected and can still be retrieved, updated and cancelled.</p>
+
 <p><strong>2026-08-21</strong>
 - Fixed the handling of one-sided date ranges on <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a>. The <code class="prettyprint">dateType</code>, <code class="prettyprint">startDate</code> and <code class="prettyprint">endDate</code> filters were only applied when all three were supplied: a request such as <code class="prettyprint">?dateType=arrival&amp;startDate=2026-01-01</code> with no <code class="prettyprint">endDate</code> silently dropped the whole date filter and returned the account&rsquo;s unfiltered reservation history instead of reporting an error. Each bound is now applied on its own, so <code class="prettyprint">startDate</code> alone means &ldquo;on or after&rdquo; and <code class="prettyprint">endDate</code> alone means &ldquo;on or before&rdquo;. If your integration sends a one-sided range, expect fewer items and a smaller <code class="prettyprint">count</code> than before — the response now contains only the reservations you asked for. Requests that send both bounds, or no date filter at all, are unaffected.
 - <code class="prettyprint">dateType=cancellation</code> also restricts the result to cancelled reservations. That condition used to be dropped together with the dates on a one-sided range; it is now applied whenever the date filter is.
@@ -8755,9 +8758,15 @@ This endpoint has its own rate limit of 200 requests per 10 seconds, per account
 </code></pre></div>
 <p><code class="prettyprint">POST https://api.hostaway.com/v1/reservations?forceOverbooking=1&amp;provider=testProvider</code></p>
 
-<p>A reservation object should be provided in the request body.
-Please check here for a valid <code class="prettyprint">channelId</code>: <a href="#reservation-channels">Channels</a>.
-Also <code class="prettyprint">couponName</code> string field can be provided inside reservation object, it will cause the corresponding coupon to 
+<p>A reservation object should be provided in the request body.</p>
+
+<aside class="warning">
+Only <code>2000</code> (direct), <code>2002</code> (homeaway) and <code>2020</code> (partner) are supported as
+<code>channelId</code> when creating a reservation. Any other value is rejected, including the deprecated
+<code>2017</code> (wordpress). See <a href="#reservation-channels">Channels</a> for the full list of channel IDs.
+</aside>
+
+<p>Also <code class="prettyprint">couponName</code> string field can be provided inside reservation object, it will cause the corresponding coupon to 
 be applied to the specified reservation, however, keep in mind that it won&rsquo;t affect price, it will only decrement 
 coupon usages.</p>
 
