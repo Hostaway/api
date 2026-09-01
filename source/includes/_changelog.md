@@ -1,5 +1,8 @@
 ## Changelog
 
+**2026-09-01**
+- Documented that `source` on the [Reservation object](#reservation-object) is limited to 50 characters. Corrected the `provider` query parameter on [Create a reservation](#create-a-reservation), which previously stated the limit as 65 characters with silent truncation; the actual limit is 50 characters and a value over that length is rejected rather than truncated.
+
 **2026-08-24**
 - [Create a reservation](#create-a-reservation) now rejects the deprecated `2017` (wordpress) `channelId`. Only `2000` (direct), `2002` (homeaway) and `2020` (partner) are supported when creating a reservation. Reservations created on the WordPress channel are invisible to message automations, which cannot target that channel, so automations silently never fired for them. If your integration sends `2017`, switch it to `2000` or `2020`. Existing reservations on that channel are unaffected and can still be retrieved, updated and cancelled.
 

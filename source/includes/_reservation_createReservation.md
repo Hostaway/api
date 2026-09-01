@@ -335,7 +335,7 @@ with all necessary query params and use total price received from it as `totalPr
 Query parameter | Required | Type   | Description
 -------- | -------- |--------| ----------- 
 `forceOverbooking` | no | int    | Ignore overbooking protection
-`provider` | no | string | Updates the reservation.source field value. This can be useful information, and you may set any value here. The value is limited to 65 characters; longer values will be truncated.
+`provider` | no | string | Updates the reservation.source field value. This can be useful information, and you may set any value here. The value is limited to 50 characters; longer values are rejected.
 
 ### Response
 
