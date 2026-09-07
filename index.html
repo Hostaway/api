@@ -492,6 +492,9 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2026-09-01</strong>
+- Documented that <code class="prettyprint">source</code> on the <a href="#reservation-object">Reservation object</a> is limited to 50 characters. Corrected the <code class="prettyprint">provider</code> query parameter on <a href="#create-a-reservation">Create a reservation</a>, which previously stated the limit as 65 characters with silent truncation; the actual limit is 50 characters and a value over that length is rejected rather than truncated.</p>
+
 <p><strong>2026-08-24</strong>
 - <a href="#create-a-reservation">Create a reservation</a> now rejects the deprecated <code class="prettyprint">2017</code> (wordpress) <code class="prettyprint">channelId</code>. Only <code class="prettyprint">2000</code> (direct), <code class="prettyprint">2002</code> (homeaway) and <code class="prettyprint">2020</code> (partner) are supported when creating a reservation. Reservations created on the WordPress channel are invisible to message automations, which cannot target that channel, so automations silently never fired for them. If your integration sends <code class="prettyprint">2017</code>, switch it to <code class="prettyprint">2000</code> or <code class="prettyprint">2020</code>. Existing reservations on that channel are unaffected and can still be retrieved, updated and cancelled.</p>
 
@@ -6858,7 +6861,7 @@ print(data.decode("utf-8"))
 <td><code class="prettyprint">source</code></td>
 <td>no</td>
 <td>string</td>
-<td>You can update this field by passing <code class="prettyprint">?provider</code> query param in the <a href="#create-a-reservation">create reservation request</a></td>
+<td>You can update this field by passing <code class="prettyprint">?provider</code> query param in the <a href="#create-a-reservation">create reservation request</a>. Limited to 50 characters.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">channelName</code></td>
@@ -8794,7 +8797,7 @@ with all necessary query params and use total price received from it as <code cl
 <td><code class="prettyprint">provider</code></td>
 <td>no</td>
 <td>string</td>
-<td>Updates the reservation.source field value. This can be useful information, and you may set any value here. The value is limited to 65 characters; longer values will be truncated.</td>
+<td>Updates the reservation.source field value. This can be useful information, and you may set any value here. The value is limited to 50 characters; longer values are rejected.</td>
 </tr>
 </tbody></table>
 
