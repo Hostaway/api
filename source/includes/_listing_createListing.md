@@ -375,7 +375,7 @@ A listing object should be provided in the request body.
 The created listing object or error response.
 
 <aside class="warning">
-<code>cancellationPolicy</code> accepts only <code>flexible</code>, <code>moderate</code>, <code>firm</code>, <code>strict</code> and <code>no_refund</code>. Any other value is rejected and nothing is saved.
+<code>cancellationPolicy</code> accepts only <code>flexible</code>, <code>moderate</code>, <code>firm</code>, <code>strict</code> and <code>no_refund</code>. Any other value is rejected and the listing is not created.
 </aside>
 
 > Invalid cancellation policy

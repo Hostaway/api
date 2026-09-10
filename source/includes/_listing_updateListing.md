@@ -343,7 +343,7 @@ A listing object should be provided in the request body.
 The updated listing object or error response.
 
 <aside class="warning">
-<code>cancellationPolicy</code> accepts only <code>flexible</code>, <code>moderate</code>, <code>firm</code>, <code>strict</code> and <code>no_refund</code>. Any other value is rejected and nothing is saved.
+<code>cancellationPolicy</code> accepts only <code>flexible</code>, <code>moderate</code>, <code>firm</code>, <code>strict</code> and <code>no_refund</code>. Any other value is rejected and the listing is not updated. An empty <code>listingAmenities</code>, <code>listingBedTypes</code> or <code>listingImages</code> array in the same request is applied before the value is checked, so those rows are deleted even though the update is rejected.
 </aside>
 
 > Invalid cancellation policy
