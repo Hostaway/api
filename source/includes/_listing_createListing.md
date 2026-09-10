@@ -373,3 +373,16 @@ A listing object should be provided in the request body.
 ### Response
 
 The created listing object or error response.
+
+<aside class="warning">
+<code>cancellationPolicy</code> accepts only <code>flexible</code>, <code>moderate</code>, <code>firm</code>, <code>strict</code> and <code>no_refund</code>. Any other value is rejected and nothing is saved.
+</aside>
+
+> Invalid cancellation policy
+
+```json
+{
+    "status": "fail",
+    "message": "Listing error: cancellationPolicy: Value 'nonRefundable' for field 'Cancellation policy' is invalid, allowed values: flexible, moderate, firm, strict, no_refund"
+}
+```

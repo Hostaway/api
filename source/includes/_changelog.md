@@ -1,5 +1,8 @@
 ## Changelog
 
+**2026-09-10**
+- `cancellationPolicy` on the [Listing object](#listing-object) now accepts only `flexible`, `moderate`, `firm`, `strict` and `no_refund`. [Create a listing](#create-a-listing) and [Update a listing](#update-a-listing) reject any other value and leave the stored value unchanged. Until now the API stored whatever string it received, and every reservation that inherited the bad value then failed to update. The documented list was also short of two valid values: `firm` and `no_refund` have always been accepted.
+
 **2026-09-01**
 - Documented that `source` on the [Reservation object](#reservation-object) is limited to 50 characters. Corrected the `provider` query parameter on [Create a reservation](#create-a-reservation), which previously stated the limit as 65 characters with silent truncation; the actual limit is 50 characters and a value over that length is rejected rather than truncated.
 
