@@ -492,6 +492,9 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2026-09-10</strong>
+- <code class="prettyprint">cancellationPolicy</code> on the <a href="#listing-object">Listing object</a> now accepts only <code class="prettyprint">flexible</code>, <code class="prettyprint">moderate</code>, <code class="prettyprint">firm</code>, <code class="prettyprint">strict</code> and <code class="prettyprint">no_refund</code>. <a href="#create-a-listing">Create a listing</a> and <a href="#update-a-listing">Update a listing</a> reject any other value and leave the stored value unchanged. Until now the API stored whatever string it received, and every reservation that inherited the bad value then failed to update. The documented list was also short of two valid values: <code class="prettyprint">firm</code> and <code class="prettyprint">no_refund</code> have always been accepted.</p>
+
 <p><strong>2026-09-01</strong>
 - Documented that <code class="prettyprint">source</code> on the <a href="#reservation-object">Reservation object</a> is limited to 50 characters. Corrected the <code class="prettyprint">provider</code> query parameter on <a href="#create-a-reservation">Create a reservation</a>, which previously stated the limit as 65 characters with silent truncation; the actual limit is 50 characters and a value over that length is rejected rather than truncated.</p>
 
@@ -1699,7 +1702,7 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 <td><code class="prettyprint">cancellationPolicy</code></td>
 <td>no</td>
 <td>string</td>
-<td>One of: flexible, moderate, strict.</td>
+<td>One of: flexible, moderate, firm, strict, no_refund. Create and update reject any other value.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">cancellationPolicyId</code></td>
@@ -2987,6 +2990,18 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 
 <p>The created listing object or error response.</p>
 
+<aside class="warning">
+<code>cancellationPolicy</code> accepts only <code>flexible</code>, <code>moderate</code>, <code>firm</code>, <code>strict</code> and <code>no_refund</code>. Any other value is rejected and the listing is not created.
+</aside>
+
+<blockquote>
+<p>Invalid cancellation policy</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listing error: cancellationPolicy: Value 'nonRefundable' for field 'Cancellation policy' is invalid, allowed values: flexible, moderate, firm, strict, no_refund"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
           <h2 id="update-a-listing">Update a listing</h2>
 
 <h3 id="request">Request</h3>
@@ -3317,6 +3332,18 @@ Only <code class="prettyprint">complete</code> listing can be activated for sync
 
 <p>The updated listing object or error response.</p>
 
+<aside class="warning">
+<code>cancellationPolicy</code> accepts only <code>flexible</code>, <code>moderate</code>, <code>firm</code>, <code>strict</code> and <code>no_refund</code>. Any other value is rejected and the listing is not updated. An empty <code>listingAmenities</code>, <code>listingBedTypes</code> or <code>listingImages</code> array in the same request is applied before the value is checked, so those rows are deleted even though the update is rejected.
+</aside>
+
+<blockquote>
+<p>Invalid cancellation policy</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Listing error: cancellationPolicy: Value 'nonRefundable' for field 'Cancellation policy' is invalid, allowed values: flexible, moderate, firm, strict, no_refund"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
           <h2 id="delete-a-listing">Delete a listing</h2>
 
 <h3 id="request">Request</h3>
