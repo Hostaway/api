@@ -37,7 +37,7 @@ Property | Required | Type     | Description
 `listingMapId` | yes | int      | ListingMap ID
 `reservationId` | yes | int      | Reservation ID
 `autopaymentId` | yes | int      | Auto payment ID
-`type` | yes | string   | Type of charge (charge or preAuth)
+`type` | yes | string   | Type of charge (`charge`, `preAuth` or `refund`)
 `title` | yes | string   | Charge title
 `description` | yes | string   | Charge description
 `currency` | yes | string   | Currency (USD, EUR etc.)
