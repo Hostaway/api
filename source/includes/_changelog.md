@@ -1,5 +1,8 @@
 ## Changelog
 
+**2026-09-23**
+- Added endpoint [Refund offline charge](#refund-offline-charge). It registers a refund against a charge the guest already paid, the mirror of [Create offline charge](#create-offline-charge): use it to record money you returned to the guest yourself so the reservation's paid and refunded totals stay correct. The refund is stored as a separate charge of type `refund` holding the negative amount, and a charge can be refunded in several steps until its full amount is reached. Charges paid with `credit_card_online` or `payment_link` are not supported, since refunding those means returning money through the payment provider.
+
 **2026-09-10**
 - `cancellationPolicy` on the [Listing object](#listing-object) now accepts only `flexible`, `moderate`, `firm`, `strict` and `no_refund`. [Create a listing](#create-a-listing) and [Update a listing](#update-a-listing) reject any other value and leave the stored value unchanged. Until now the API stored whatever string it received, and every reservation that inherited the bad value then failed to update. The documented list was also short of two valid values: `firm` and `no_refund` have always been accepted.
 
