@@ -141,7 +141,7 @@ GET /v1/guestPayments/charges?reservationIds=41288001,41288002
 GET /v1/guestPayments/charges?reservationIds=41288001
 ```
 
-There is no limit on how many ids a list may carry; `limit` still bounds the rows returned. Every entry has to be a plain positive integer: a non-numeric, negative, zero, leading-zero or out-of-range entry fails the request with **400** and names the parameter, rather than being dropped. Blank entries are ignored, so a cleared filter (`?listingMapIds[]=`) and a trailing comma are accepted. A list that ends up empty applies no restriction, exactly like omitting the parameter.
+Each parameter accepts at most **500** ids and a longer list fails the request with **400**; `limit` still bounds the rows returned. The limit applies per parameter, so one request may carry 500 `reservationIds` and 500 `listingMapIds`, and entries are counted before duplicates are removed — a list of 501 entries is rejected even when they resolve to fewer distinct ids. Every entry has to be a plain positive integer: a non-numeric, negative, zero, leading-zero or out-of-range entry fails the request with **400** and names the parameter, rather than being dropped. Blank entries are ignored and do not count toward the limit, so a cleared filter (`?listingMapIds[]=`) and a trailing comma are accepted. A list that ends up empty applies no restriction, exactly like omitting the parameter.
 
 The singular `reservationId` / `listingMapId` and their plural forms combine as AND, so sending both a single id and a list that does not contain it returns nothing.
 
