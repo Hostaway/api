@@ -106,19 +106,21 @@ Query Parameter | Required | Type   | Description
 `cardProviders` | no | string[] | Restrict by the payment method type of the card the charge was taken on, as reported by the payment provider; `card` is the default. That card must still be the reservation default, so a charge taken on a card the guest has since replaced is not matched.
 `cardBrand` | no | string[] | Restrict by the brand of the card the charge was taken on: `american_express`, `carte_blanche`, `cartes_bancaires`, `diners_club`, `discover`, `eftpos`, `elo`, `girocard`, `jcb`, `laser`, `maestro`, `mastercard`, `solo`, `switch`, `unionpay`, `visa`, `unknown`. That card must still be the reservation default, so a charge taken on a card the guest has since replaced is not matched.
 `startDate` | no | date | Lower bound (inclusive) for the scheduled charge date. Time of day is ignored.
-`endDate` | no | date | Upper bound (inclusive) for the scheduled charge date. Time of day is ignored.
+`endDate` | no | date | Upper bound (inclusive) for the scheduled charge date. Time of day is ignored. At most 60 days after `startDate` when both are sent.
 `chargeDateStart` | no | datetime | Lower bound (inclusive) for the scheduled charge date, keeping time of day.
-`chargeDateEnd` | no | datetime | Upper bound (inclusive) for the scheduled charge date, keeping time of day.
+`chargeDateEnd` | no | datetime | Upper bound (inclusive) for the scheduled charge date, keeping time of day. At most 60 days after `chargeDateStart` when both are sent.
 `refundDateStart` | no | date | Lower bound (inclusive) for the refund date. Also restricts the result to refunds.
-`refundDateEnd` | no | date | Upper bound (inclusive) for the refund date. Also restricts the result to refunds.
+`refundDateEnd` | no | date | Upper bound (inclusive) for the refund date. Also restricts the result to refunds. At most 60 days after `refundDateStart` when both are sent.
 `arrivalDateFrom` | no | date | Lower bound (inclusive) for the reservation arrival date.
-`arrivalDateTo` | no | date | Upper bound (inclusive) for the reservation arrival date.
+`arrivalDateTo` | no | date | Upper bound (inclusive) for the reservation arrival date. At most 60 days after `arrivalDateFrom` when both are sent.
 `departureDateFrom` | no | date | Lower bound (inclusive) for the reservation departure date.
-`departureDateTo` | no | date | Upper bound (inclusive) for the reservation departure date.
+`departureDateTo` | no | date | Upper bound (inclusive) for the reservation departure date. At most 60 days after `departureDateFrom` when both are sent.
 `limit` | no | int | Maximum number of items in the list. Defaults to 100 and is capped at 500.
 `sortBy` | no | string | Column to order by. Overrides the default ordering described below.
 `sortOrder` | no | string | `asc` or `desc`, applied to `sortBy`.
 `offset` | no | int | Number of items to skip from beginning of the list.
+
+Each pair of date bounds (`startDate`/`endDate`, `chargeDateStart`/`chargeDateEnd`, `refundDateStart`/`refundDateEnd`, `arrivalDateFrom`/`arrivalDateTo`, `departureDateFrom`/`departureDateTo`) can be at most 60 days apart. A wider range fails the request with **400** naming the parameter; split a longer period across requests.
 
 All filters combine as AND, so every additional parameter can only narrow the result. `count` is the total number of matching charges, ignoring `limit` and `offset`.
 
@@ -141,7 +143,7 @@ GET /v1/guestPayments/charges?reservationIds=41288001,41288002
 GET /v1/guestPayments/charges?reservationIds=41288001
 ```
 
-Each parameter accepts at most **500** ids and a longer list fails the request with **400**; `limit` still bounds the rows returned. The limit applies per parameter, so one request may carry 500 `reservationIds` and 500 `listingMapIds`, and entries are counted before duplicates are removed — a list of 501 entries is rejected even when they resolve to fewer distinct ids. Every entry has to be a plain positive integer: a non-numeric, negative, zero, leading-zero or out-of-range entry fails the request with **400** and names the parameter, rather than being dropped. Blank entries are ignored and do not count toward the limit, so a cleared filter (`?listingMapIds[]=`) and a trailing comma are accepted. A list that ends up empty applies no restriction, exactly like omitting the parameter.
+Each parameter accepts at most **200** ids and a longer list fails the request with **400**; `limit` still bounds the rows returned. The limit applies per parameter, so one request may carry 200 `reservationIds` and 200 `listingMapIds`, and entries are counted before duplicates are removed — a list of 201 entries is rejected even when they resolve to fewer distinct ids. Every entry has to be a plain positive integer: a non-numeric, negative, zero, leading-zero or out-of-range entry fails the request with **400** and names the parameter, rather than being dropped. Blank entries are ignored and do not count toward the limit, so a cleared filter (`?listingMapIds[]=`) and a trailing comma are accepted. A list that ends up empty applies no restriction, exactly like omitting the parameter.
 
 The singular `reservationId` / `listingMapId` and their plural forms combine as AND, so sending both a single id and a list that does not contain it returns nothing.
 
