@@ -93,7 +93,7 @@ print(response.text)
 
 Query Parameter | Required | Type   | Description
 --------- | -------- |--------| -----------
-`listingMapIds` | no | int[]  | Array of Listing IDs
+`listingMapIds` | no | int[]  | Array of listing IDs, sent as `listingMapIds[]=40160&listingMapIds[]=40161`. A plain `listingMapIds=40160`, `listingMapId` or `listingId` is not recognised, and the response then contains reviews of all listings.
 `limit` | no | int    | Maximum number of items in the list. Defaults to `100`, capped at `500`.
 `offset` | no | int    | Number of items to skip from beginning of the list.
 `sortBy` | no | string | One of: id, listingMapId, reservationId, autoReviewId, autoReviewTemplateId, scheduledDateTime, timeDelta, channelId, type, status, rating, submittedAt, guestName, arrivalDate, departureDate, channelReservationId, listingInternalName, listingExternalName. Unrecognised values are ignored.

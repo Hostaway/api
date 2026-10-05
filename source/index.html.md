@@ -166,6 +166,7 @@ includes:
   - review_reviewObject
   - review_retrieveList
   - review_retrieveReview
+  - review_respond
   - user
   - user_retrieveList
   - user_retrieve
