@@ -112,7 +112,7 @@ The review must be a `guest-to-host` review with status `published` from Airbnb,
 
 ### Response
 
-The updated [review object](#review-object), with the response in `revieweeResponse`, or an error response.
+The updated [review object](#review-object), with the response in `revieweeResponse`. A request that cannot be fulfilled returns HTTP **403** with `status` set to `fail` and the reason in `message`, including when the review does not exist.
 
 > Review already responded to
 
