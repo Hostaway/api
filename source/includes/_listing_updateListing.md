@@ -329,7 +329,7 @@ print(data.decode("utf-8"))
 
 A listing object should be provided in the request body.
 
-Only fields that can be set are applied. Fields marked **Read-only** in the [Listing object](#listing-object) are ignored without an error, and the response still reports `success`. Check the returned listing object to confirm what was saved.
+Only fields that can be set are applied. Fields marked **Read-only** in the [Listing object](#listing-object) are ignored without an error, and the response still reports `success`. Check the returned listing object to confirm what was saved, except for the fields marked **Write-only**.
 
 Sending `null` for a field, or leaving it out, keeps its current value, so a field cannot be cleared by setting it to `null`. To delete the rental agreement, send `listingAgreementText` as an empty string. The `listingAmenities`, `listingBedTypes` and `listingImages` arrays work differently, see the warning below.
 ### Response

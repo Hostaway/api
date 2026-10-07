@@ -101,8 +101,7 @@
   "bookingEngineMarkup": null,
   "homeawayApiMarkup": null,
   "marriottListingMarkup": null,
-  "isRentalAgreementActive": true,
-  "listingAgreementText": "Rental agreement text for listing",
+  "isRentalAgreementActive": null,
   "bookingcomPropertyRegisteredInVcs": false,
   "bookingcomPropertyHasVat": false,
   "bookingcomPropertyDeclaresRevenue": false,
@@ -173,7 +172,7 @@ Only `complete` listing can be activated for synchronization.
 Fields marked **Read-only** are returned by the API but cannot be set with [Create a listing](#create-a-listing) or [Update a listing](#update-a-listing). If you send them, they are ignored without an error and the response still reports `success`. Fields marked **Write-only** can be set on create and update but are not returned, or always come back `null`. Every other field in the table below can be set on create and update.
 
 <aside class="notice">
-The response also contains these fields, which are not in the table and are read-only as well: <code>checkinFee</code>, <code>isDepositStayCollected</code>, <code>bookingEngineLeadTime</code>, <code>averageNightlyPrice</code>, <code>insertedOn</code>, <code>attachment</code>, <code>listingSettings</code>, <code>listingUnits</code>, <code>listingFeeSetting</code>, <code>listingTags</code>, <code>expediaListingUrl</code> and the <code>*ExportStatus</code> fields.
+The response also contains these fields, which are not in the table and are read-only as well: <code>checkinFee</code>, <code>isDepositStayCollected</code>, <code>bookingEngineLeadTime</code>, <code>averageNightlyPrice</code>, <code>insertedOn</code>, <code>attachment</code>, <code>listingUnits</code>, <code>listingFeeSetting</code>, <code>listingTags</code>, <code>expediaListingUrl</code> and the <code>*ExportStatus</code> fields.
 </aside>
 
 | Property                                  | Required | Type              | Description                                                                                                                                                         |
@@ -223,7 +222,7 @@ The response also contains these fields, which are not in the table and are read
 | `airbnbCancellationPolicyId`              | no       | int               | The policy that applies to Airbnb bookings. [Airbnb cancellation policies](#retrieve-airbnb-cancellation-policies)                                                  |
 | `bookingCancellationPolicyId`             | no       | int               | Read-only. The policy that applies to Booking.com bookings. [Booking.com cancellation policies](#retrieve-booking-com-cancellation-policies)                        |
 | `marriottCancellationPolicyId`            | no       | int               | Read-only. The policy that applies to Marriott bookings. [Marriott cancellation policies](#retrieve-marriott-cancellation-policies)                                 |
-| `vrboCancellationPolicyId`                | no       | int               | Read-only. The policy that applies to VRBO bookings. [Vrbo cancellation policies](#retrieve-airbnb-cancellation-policies)                                           |
+| `vrboCancellationPolicyId`                | no       | int               | Read-only. The policy that applies to VRBO bookings. [Vrbo cancellation policies](#retrieve-vrbo-cancellation-policies)                                           |
 | `squareMeters`                            | no       | int               |                                                                                                                                                                     |
 | `specialStatus`                           | no       | string            | Read-only. One of: archived, null                                                                                                                                   |
 | `roomType`                                | no       | string            | One of: entire_home, private_room, shared_room.                                                                                                                     |
@@ -287,6 +286,7 @@ The response also contains these fields, which are not in the table and are read
 | `listingAmenities`                        | no       | array             | Array of listingAmenity objects.                                                                                                                                    |
 | `listingBedTypes`                         | no       | array             | Array of listingBedType objects.                                                                                                                                    |
 | `listingImages`                           | no       | array             | Array of listingImage objects.                                                                                                                                      |
+| `listingSettings`                         | no       | object            | Returned by Get a listing only with `includeResources=1`.                                                                                                           |
 | `latestActivityOn`                        | no       | date              | Read-only.                                                                                                                                                          |
 | `customFieldValues`                       | no       | array             | You should create Custom fields at the dashboard beforehand                                                                                                         |
 | `bookingcomPropertyRegisteredInVcs`       | no       | bool              | Answer on the question: Am I registered as a professional at the trade commercial register (Registre du Commerce et des Sociétés)?                                  |
