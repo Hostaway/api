@@ -112,7 +112,7 @@ The review must be a `guest-to-host` review with status `published` from Airbnb,
 
 ### Response
 
-The updated [review object](#review-object), with the response in `revieweeResponse`. A request that cannot be fulfilled returns HTTP **403** with `status` set to `fail` and the reason in `message`, including when the review does not exist.
+The updated [review object](#review-object), with the response in `revieweeResponse`. A request that cannot be fulfilled returns HTTP **403** with `status` set to `fail` and the reason in `message`, including when the review does not exist. An error returned by the channel while sending the response is passed through in `message` the same way.
 
 > Review already responded to
 
@@ -126,9 +126,13 @@ The updated [review object](#review-object), with the response in `revieweeRespo
 Message | Reason
 --------- | -----------
 `Review not found.` | No review with this id on the account.
+`You don't have access to this review.` | The API user lacks the permission to update reviews.
 `Invalid review. You cant respond to this review` | The review is not from Airbnb, Booking.com or Vrbo.
 `The review contains no words to reply to.` | Booking.com review without a public review text.
 `Invalid review.` | The review is not a published `guest-to-host` review, or it is not linked to a review on the channel.
 `Response must not be empty.` | `revieweeResponse` is missing or empty.
 `You already responded to this review.` | The review already has a response.
 `The time to send the review/rating has expired on Vrbo.` | The Vrbo response window has closed.
+`No listingMap for review` | Airbnb or Booking.com review that is not linked to a listing.
+`ListingMap {id} is not mapped to booking.com` | Booking.com review whose listing is not connected to Booking.com.
+`There is no reservation with ID {id} for review with ID {id}` | Vrbo review whose reservation cannot be found.
