@@ -91,7 +91,7 @@ print(response.text)
 
 Query Parameter | Required | Type  | Description
 --------- | -------- |-------| -----------
-`includeResources` | no | int   | if includeResources flag is 1 then response object is supplied with supplementary resources, default is 0. 
+`includeResources` | no | int   | if includeResources flag is 1 then response object is supplied with supplementary resources, default is 0. Without it, `listingAmenities`, `listingBedTypes` and `listingImages` are empty arrays and `listingSettings` is `null`, whatever the listing has.
 `attachObjects[]`  | no | array | if `?attachObjects[]=bookingEngineUrls` is provided, the actual value of bookingEngineUrls will be returned instead of the empty array default value
 
 

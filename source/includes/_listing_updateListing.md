@@ -337,6 +337,10 @@ Sending `null` for a field, or leaving it out, keeps its current value, so a fie
 The updated listing object or error response.
 
 <aside class="warning">
+[Retrieve a listing](#retrieve-a-listing) without <code>includeResources=1</code> returns <code>listingAmenities</code>, <code>listingBedTypes</code> and <code>listingImages</code> as empty arrays even when the listing has them. Sending that response back as an update deletes all of them. Read the listing with <code>includeResources=1</code>, or leave the three arrays out of the update.
+</aside>
+
+<aside class="warning">
 <code>cancellationPolicy</code> accepts only <code>flexible</code>, <code>moderate</code>, <code>firm</code>, <code>strict</code> and <code>no_refund</code>. Any other value is rejected and the listing is not updated. An empty <code>listingAmenities</code>, <code>listingBedTypes</code> or <code>listingImages</code> array in the same request is applied before the value is checked, so those rows are deleted even though the update is rejected.
 </aside>
 
