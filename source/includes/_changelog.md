@@ -1,5 +1,8 @@
 ## Changelog
 
+**2026-10-15**
+- [Create a listing](#create-a-listing) and [Update a listing](#update-a-listing) now set the five channel markups on the [Listing object](#listing-object): `partnersListingMarkup`, `airbnbOfficialListingMarkup`, `bookingEngineMarkup`, `homeawayApiMarkup` and `marriottListingMarkup`. They were read-only and ignored. A value out of range fails the request with **403** naming the field, before anything on the listing is changed. `null` or leaving a markup out keeps its current value. Changing a markup on update recalculates the listing's prices for the next two years, so the new price reaches the channels without further action.
+
 **2026-10-05**
 - Marked the fields of the [Listing object](#listing-object) that [Create a listing](#create-a-listing) and [Update a listing](#update-a-listing) do not set. They were documented like the writable fields, and sending them has been ignored without an error: the request returns `success` and the stored value stays as it was. The ones most likely to be sent are `bookingCancellationPolicyId`, `marriottCancellationPolicyId`, `vrboCancellationPolicyId` and the five channel markups (`partnersListingMarkup`, `airbnbOfficialListingMarkup`, `bookingEngineMarkup`, `homeawayApiMarkup`, `marriottListingMarkup`). Nothing about the API changed; only the reference was wrong.
 - Removed `country`, `bedType` and the three channel cancellation policy ids from the [Create a listing](#create-a-listing) and [Update a listing](#update-a-listing) examples, which sent them although they are ignored, and documented that `null` keeps a field's current value.
