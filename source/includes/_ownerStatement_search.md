@@ -151,10 +151,10 @@ print(response.text)
 
 Send the parameters as a JSON object in the request body. All of them are optional. Other keys are ignored.
 
-Body Parameter | Required | Type | Description
+Parameter | Required | Type | Description
 --------- | -------- | ---- | -----------
 `statuses` | no | array | List of statuses, as strings. A statement matches if it has any of them. Statuses are `new`, `archived` and `draft`.
-`listingMapIds` | no | array | List of listing ids, as integers. Returns statements that include all of these listings, and statements that are not limited to specific listings.
+`listingMapIds` | no | array | List of listing ids, as integers. Returns statements that cover every listing in the list, and statements that cover all listings of the account. A statement limited only by units is not returned.
 `dateToFrom` | no | date | Returns statements whose period ends on or after this day. Use the `Y-m-d` format.
 `dateToTo` | no | date | Returns statements whose period ends on or before this day. Use the `Y-m-d` format.
 `limit` | no | int | Maximum number of statements to return. Default is `100` and the maximum is `500`. A value below `1` gives the default, and a value above `500` gives `500`.
@@ -178,7 +178,7 @@ Property | Type | Description
 `count` | int | Number of statements that match the filters, before `limit` and `offset`.
 `limit` | int | The limit used.
 `offset` | int | The offset used.
-`defaultReportingCurrency` | string | Default reporting currency of the account. `null` when the account has none. The amounts of the statements use this currency.
+`defaultReportingCurrency` | string | Default reporting currency of the account. `null` when the account has none.
 `grandTotalAmountSum` | float | Sum of the grand total of all statements that match the filters, not only the ones in this page.
 
 Each statement has these main fields. The contact fields (`propertyManager*`, `propertyOwner*`), `notes` and `logoUrl` are the same as in [Get Owner Statement by id](#get-owner-statement-by-id).
@@ -186,6 +186,7 @@ Each statement has these main fields. The contact fields (`propertyManager*`, `p
 Property | Type | Description
 -------- | ---- | -----------
 `id` | int |
+`invoiceName` | string | Name of the invoice
 `accountId` | int | Account ID
 `statementName` | string | Name of the owner statement
 `status` | string | One of `new`, `archived`, `draft`.
@@ -197,11 +198,13 @@ Property | Type | Description
 `lastEmailedOn` | string | `null` when the statement was never emailed
 `statusChangedOn` | string |
 `creationSource` | string |
-`createdBy` | object | Has an `id` and a `name`.
+`createdBy` | object | Has a `userId` and a `name`. `null` when an automation created the statement.
 `insertedOn` | string |
 `updatedOn` | string |
 
 `financeDataJson`, `summaryDataJson` and `expenses` are always `null` in this list. Read one statement to get them.
+
+Statements are sorted by `id`, descending, so the newest come first.
 
 ```json
 {
@@ -237,7 +240,7 @@ Property | Type | Description
       "statusChangedOn": "2026-09-01 10:00:00",
       "creationSource": "manual",
       "createdBy": {
-        "id": 7,
+        "userId": 7,
         "name": "Jane Doe"
       },
       "insertedOn": "2026-09-01 10:00:00",

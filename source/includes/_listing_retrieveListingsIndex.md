@@ -102,7 +102,7 @@ Query Parameter | Required | Type | Description
 `isMultiUnit` | no | int | `1` returns only multi unit listings. `0` returns only single unit listings.
 `tags[]` | no | array | Tag ids. A listing matches if it has any of them. Each returned listing still shows all of its tags.
 
-The response has no paging, so it holds every listing that matches. Child units of a multi unit listing are not returned. Rows are sorted by `id`, and the `tags` of a row by name.
+The response has no paging, so it holds every listing that matches. Child units of a multi unit listing are not returned. Rows are sorted by `id` ascending, and the `tags` of a row by name ascending.
 
 ### Response
 

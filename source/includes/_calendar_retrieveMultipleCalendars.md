@@ -96,7 +96,7 @@ Query Parameter | Required | Type | Description
 `listingMapIds[]` | yes | array | Listing ids, in the bracket form: `listingMapIds[]=40160&listingMapIds[]=40161`. Send from 1 to 50 ids. Duplicates count once. An id that is not a listing of your account is skipped, and the response has no entry for it.
 `startDate` | no | date | First day to return, in `Y-m-d` format. Without it the calendar starts six months in the past.
 `endDate` | no | date | Last day to return, in `Y-m-d` format. Without it the calendar ends two years in the future.
-`includeResources` | no | int | `1` adds the reservations of each day to its `reservations` array. Default is `0`.
+`includeResources` | no | int | `1` adds the reservations of each day to its `reservations` array. `0` leaves them out. Send it to be sure, because the default depends on your account.
 `includeInquiry` | no | int | `1` adds the reservations of each day, and includes inquiries. Default is `0`.
 `reservationStatuses[]` | no | array | Extra reservation statuses to add to `reservations`, for example `reservationStatuses[]=cancelled`. Used only when `includeInquiry` is `1`. Reservations that block the calendar are always included.
 
@@ -109,7 +109,7 @@ A request that breaks a limit fails with HTTP **400** and a message that names t
 - `startDate` must not be earlier than the first day of the month two years ago.
 - `startDate` and `endDate` must not be more than three years in the future.
 - The number of listings times the number of days must not be more than **18,300**. This is 50 listings for 366 days. The first and last day both count.
-- `reservationStatuses[]` must be a list of strings.
+- `reservationStatuses[]` must be a list of strings, when `includeInquiry` is `1`.
 
 The 18,300 limit also applies when you send no dates. The default range is about 915 days, so a request without dates fits about 20 listings. Send `startDate` and `endDate` to read more listings.
 
