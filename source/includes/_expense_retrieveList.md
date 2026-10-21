@@ -101,7 +101,12 @@ print(response.text)
 
 ### Response
 
-List of expense objects
+List of expense objects, and these fields next to it.
+
+Property | Type | Description
+-------- | ---- | -----------
+`count` | int | Number of expenses that match the filters, before `limit` and `offset`.
+`defaultReportingCurrency` | string | Default reporting currency of the account. `null` when the account has none.
 
 ```json
 {
@@ -169,6 +174,8 @@ List of expense objects
       ],
       "ownerStatementExpenseId": 3
     }
-  ]
+  ],
+  "count": 2,
+  "defaultReportingCurrency": "USD"
 }
 ```

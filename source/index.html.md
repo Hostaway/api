@@ -21,6 +21,7 @@ includes:
   - listing_listingBedTypeObject
   - listing_listingImageObject
   - listing_retrieveListingsList
+  - listing_retrieveListingsIndex
   - listing_retrieveListing
   - listing_createListing
   - listing_updateListing
@@ -88,6 +89,7 @@ includes:
   - calendar_calendarDayObject
   - calendar_calendarDayStatuses
   - calendar_retrieveCalendar
+  - calendar_retrieveMultipleCalendars
   - calendar_updateCalendar
   - calendar_updateMultUnitCalendar
   - calendar_batchCalendarUpdate
@@ -154,6 +156,7 @@ includes:
   - taxSettings_listing
   - ownerStatement
   - ownerStatement_retrieveList
+  - ownerStatement_search
   - ownerStatement_retrieve
   - expense
   - expense_object
