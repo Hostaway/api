@@ -114,7 +114,7 @@ Property | Type | Description
 `name` | string | Internal listing name.
 `city` | string | `null` when the listing has no city.
 `tags` | array | Tags of the listing. Each item has an `id` and a `name`. Empty when the listing has no tags.
-`isMultiUnit` | int | `1` for a multi unit listing, `0` otherwise.
+`isMultiUnit` | boolean | `true` for a multi unit listing, `false` otherwise.
 `parentUnitId` | int | Always `null`, because child units are not returned.
 `bedroomsNumber` | int | `null` when not set.
 `personCapacity` | int | `null` when not set.
@@ -127,7 +127,7 @@ Property | Type | Description
       "id": 40160,
       "name": "Property #3",
       "city": "Bremerhaven",
-      "isMultiUnit": 0,
+      "isMultiUnit": false,
       "parentUnitId": null,
       "bedroomsNumber": 1,
       "personCapacity": 6,
