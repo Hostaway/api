@@ -8,6 +8,7 @@
     "isProcessed": 1,
     "status": "reserved",
     "price": 225,
+    "currency": "USD",
     "minimumStay": 1,
     "maximumStay": 1125,
     "closedOnArrival": null,
@@ -86,6 +87,7 @@ Property | Required | Type | Description
 `isProcessed` | no | bool | It’s an internal informational field to show if the calendar was successfully pushed to all connected channels. 
 `status` | no | string | List of acceptable statuses can be found here: https://api.hostaway.com/dictionary/calendarDay
 `price` | no | float | 
+`currency` | no | string | Currency code of `price`, for example `USD`. It is the listing currency when the day has none of its own.
 `minimumStay` | no | int | Must be positive integer
 `maximumStay` | no | int | Must be positive integer 
 `closedOnArrival` | no | bool | 

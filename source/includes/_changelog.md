@@ -1,5 +1,14 @@
 ## Changelog
 
+**2026-10-21**
+- Added endpoint [Retrieve a listings index](#retrieve-a-listings-index). It returns a short row for each listing, with its name, city, tags, bedrooms and capacity, and filters by property type, amenities, tags, active status and multi unit. Each id list takes at most 50 positive integer ids. It has no paging and does not return child units.
+- Added endpoint [Retrieve calendars for many listings](#retrieve-calendars-for-many-listings). It reads the calendar of up to 50 listings in one request. A request can cover at most 18,300 listing-days (for example 50 listings for 366 days), and a request without dates covers about 915 days for each listing. `endDate` must not be later than two years from today. The `reservations` of a day hold short references with `id`, `status`, `arrivalDate` and `departureDate`, so read a full reservation with [Retrieve a reservation](#retrieve-a-reservation). Days with no stored calendar row are left out. A request over one of these limits fails with **400**. The endpoint allows 20 requests per 10 seconds, per account.
+- Added endpoint [Search owner statements](#search-owner-statements). It filters by `statuses`, `listingMapIds` (at most 50), `dateToFrom` and `dateToTo`, and returns `count`, `limit`, `offset`, `defaultReportingCurrency` and `grandTotalAmountSum` next to the statements. `limit` is at most 500. A value that is not allowed fails with **400**.
+- Added `currency` to the [Calendar day object](#calendar-day-object).
+- Added `isMultiUnit` and `houseManual` to the [Listing object](#listing-object), and `category` and `isPresent` to the [Listing amenity object](#listing-amenity-object). All four are read-only: create and update ignore them.
+- Added `category` to the [Amenity object](#amenity-object).
+- The Get Expenses&Extras list endpoint now returns `count` and `defaultReportingCurrency` next to the expenses.
+
 **2026-10-05**
 - Marked the fields of the [Listing object](#listing-object) that [Create a listing](#create-a-listing) and [Update a listing](#update-a-listing) do not set. They were documented like the writable fields, and sending them has been ignored without an error: the request returns `success` and the stored value stays as it was. The ones most likely to be sent are `bookingCancellationPolicyId`, `marriottCancellationPolicyId`, `vrboCancellationPolicyId` and the five channel markups (`partnersListingMarkup`, `airbnbOfficialListingMarkup`, `bookingEngineMarkup`, `homeawayApiMarkup`, `marriottListingMarkup`). Nothing about the API changed; only the reference was wrong.
 - Removed `country`, `bedType` and the three channel cancellation policy ids from the [Create a listing](#create-a-listing) and [Update a listing](#update-a-listing) examples, which sent them although they are ignored, and documented that `null` keeps a field's current value.

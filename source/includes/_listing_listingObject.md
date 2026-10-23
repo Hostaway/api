@@ -4,11 +4,13 @@
 {
   "id": 40160,
   "propertyTypeId": 1,
+  "isMultiUnit": 0,
   "name": "Beautiful and cozy apartment close to city center",
   "externalListingName": "Beautiful and cozy apartment close to city center",
   "internalListingName": "Property #3",
   "description": "In a classic Bremerhaven house we rent out our apartment which has a living room, bed room and is close to all the restaurants and nightlife.",
   "houseRules": "Additional rules",
+  "houseManual": "Wi-Fi password is on the fridge.",
   "keyPickup": "Key pickup",
   "specialInstruction": "Any special instruction",
   "doorSecurityCode": "ddff8",
@@ -120,11 +122,15 @@
   "listingAmenities": [
     {
       "id": 3449,
-      "amenityId": 2
+      "amenityId": 2,
+      "category": null,
+      "isPresent": 1
     },
     {
       "id": 3444,
-      "amenityId": 3
+      "amenityId": 3,
+      "category": null,
+      "isPresent": 1
     }
   ],
   "listingBedTypes": [
@@ -179,12 +185,14 @@ The response also contains these fields, which are not in the table and are read
 |-------------------------------------------|----------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                                      | yes      | int               | Read-only.                                                                                                                                                          |
 | `propertyTypeId`                          | no       | int               | Identifier of propertyType object.                                                                                                                                  |
+| `isMultiUnit`                             | no       | int               | Read-only. `1` for a multi unit listing, `0` otherwise. Create and update ignore it.                                                                                |
 | `name`                                    | yes      | string            |                                                                                                                                                                     |
 | `externalListingName`                     | yes      | string            | The same as `name`.                                                                                                                                                 |
 | `internalListingName`                     | no       | string            |                                                                                                                                                                     |
 | `description`                             | no       | string            |                                                                                                                                                                     |
 | `thumbnailUrl`                            | no       | string            | URL of the listing thumbnail.                                                                                                                                       |
 | `houseRules`                              | no       | string            |                                                                                                                                                                     |
+| `houseManual`                             | no       | string            | Read-only. House manual of the listing. `null` when the listing has none. Create and update ignore it.                                                              |
 | `keyPickup`                               | no       | string            |                                                                                                                                                                     |
 | `specialInstruction`                      | no       | string            |                                                                                                                                                                     |
 | `doorSecurityCode`                        | no       | string            |                                                                                                                                                                     |
