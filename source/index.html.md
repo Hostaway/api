@@ -288,6 +288,7 @@ how many requests an application can send. Each limit below has its own counter.
 |----------------------------|------------|-------------------------------------------------|----------------|
 | 30                         | 1 minute   | `POST /v1/conversations/{id}/messages`          | Per account ID |
 | 400                        | 10 seconds | `POST /v1/listings/{id}/calendar/priceDetails`  | Per account ID |
+| 20                         | 10 seconds | `GET /v1/listings/calendar`                     | Per account ID |
 | 200                        | 10 seconds | `POST /v1/reservations`                         | Per account ID |
 | 200                        | 10 seconds | All other endpoints                             | Per account ID |
 | 200                        | 10 seconds | All other endpoints                             | Per IP address |

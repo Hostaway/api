@@ -91,16 +91,16 @@ print(response.text)
 
 `GET https://api.hostaway.com/v1/listings/index`
 
-All parameters are optional. Send a list in the bracket form, for example `propertyTypeIds[]=1&propertyTypeIds[]=2`. A parameter with an empty or invalid value is ignored, so it does not filter.
+All parameters are optional. Send a list in the bracket form, for example `propertyTypeIds[]=1&propertyTypeIds[]=2`. An empty value does not filter, and neither does an `isActive` or `isMultiUnit` value other than `1`, `0`, `true` or `false`. Each list takes at most 50 ids, and each id must be a positive integer. Otherwise the request fails with HTTP **400** and a message that names the field.
 
 Query Parameter | Required | Type | Description
 --------- | -------- | ---- | -----------
-`propertyTypeIds[]` | no | array | Property type ids. A listing matches if it has any of them. See [Retrieve a property types list](#retrieve-a-property-types-list).
-`amenityIds[]` | no | array | Amenity ids. A listing matches only if it has all of them.
-`excludeAmenityIds[]` | no | array | Amenity ids. A listing is left out if it has any of them.
+`propertyTypeIds[]` | no | array | Property type ids. At most 50. A listing matches if it has any of them. See [Retrieve a property types list](#retrieve-a-property-types-list).
+`amenityIds[]` | no | array | Amenity ids. At most 50. A listing matches only if it has all of them.
+`excludeAmenityIds[]` | no | array | Amenity ids. At most 50. A listing is left out if it has any of them.
 `isActive` | no | int | `1` returns only active listings. `0` returns only inactive listings.
 `isMultiUnit` | no | int | `1` returns only multi unit listings. `0` returns only single unit listings.
-`tags[]` | no | array | Tag ids. A listing matches if it has any of them. Each returned listing still shows all of its tags.
+`tags[]` | no | array | Tag ids. At most 50. A listing matches if it has any of them. Each returned listing still shows all of its tags.
 
 The response has no paging, so it holds every listing that matches. Child units of a multi unit listing are not returned. Rows are sorted by `id` ascending, and the `tags` of a row by name ascending.
 

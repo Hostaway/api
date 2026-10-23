@@ -153,19 +153,19 @@ Send the parameters as a JSON object in the request body. All of them are option
 
 Parameter | Required | Type | Description
 --------- | -------- | ---- | -----------
-`statuses` | no | array | List of statuses, as strings. A statement matches if it has any of them. Statuses are `new`, `archived` and `draft`.
-`listingMapIds` | no | array | List of listing ids, as integers. Returns statements that cover every listing in the list, and statements that cover all listings of the account. A statement limited only by units is not returned.
-`dateToFrom` | no | date | Returns statements whose period ends on or after this day. Use the `Y-m-d` format.
-`dateToTo` | no | date | Returns statements whose period ends on or before this day. Use the `Y-m-d` format.
-`limit` | no | int | Maximum number of statements to return. Default is `100` and the maximum is `500`. A value below `1` gives the default, and a value above `500` gives `500`.
-`offset` | no | int | Number of statements to skip. Default is `0`.
+`statuses` | no | array | List of statuses, as strings. A statement matches if it has any of them. Each status must be `new`, `archived` or `draft`, and the list holds at most three.
+`listingMapIds` | no | array | List of at most 50 listing ids, as positive integers. Returns statements that cover every listing in the list, and statements that cover all listings of the account. A statement limited only by units is not returned.
+`dateToFrom` | no | date | Returns statements whose period ends on or after this day. Use the strict `YYYY-MM-DD` format.
+`dateToTo` | no | date | Returns statements whose period ends on or before this day. Use the strict `YYYY-MM-DD` format.
+`limit` | no | int | Maximum number of statements to return. Default is `100` and the maximum is `500`. A value below `1` gives the default, and a value above `500` gives `500`. It must be an integer.
+`offset` | no | int | Number of statements to skip. Default is `0`. It must be an integer.
 
-A request fails with HTTP **400** when the body is not valid JSON, when `statuses` or `listingMapIds` is not a list of the right type, or when `dateToFrom` or `dateToTo` is not a valid date.
+A request fails with HTTP **400** when the body is not valid JSON, when `statuses` holds a value that is not allowed, when `listingMapIds` is not a list of at most 50 positive integers, when `dateToFrom` or `dateToTo` is not a date in the `YYYY-MM-DD` format, or when `limit` or `offset` is not an integer.
 
 ```json
 {
   "status": "fail",
-  "message": "statuses must be a list of strings"
+  "message": "statuses must be a list of at most 3 of: new, archived, draft"
 }
 ```
 
