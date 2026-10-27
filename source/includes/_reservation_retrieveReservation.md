@@ -97,3 +97,5 @@ print(data.decode("utf-8"))
 A reservation object.
 
 This endpoint always includes the cancellation policy fields — `cancellationPolicyDetails` (the immutable policy snapshot captured at booking time) and the channel-specific cancellation policy codes (`bookingCancellationPolicy`, `vrboCancellationPolicy`, `marriottCancellationPolicy`) — without requiring the `includeCancellationPolicy` parameter. The same applies to the create, update and cancel reservation responses. On the [Retrieve a reservations list](#retrieve-a-reservations-list) endpoint these fields are opt-in via `?includeCancellationPolicy=1`.
+
+On an account whose damage protection is provided by Truvi, the reservation also carries a `damageProtection` object with its screening: the status, the stored pricing basis, the flagged reason, the error of a failed send, or why it was not sent. Other accounts, including Safely ones, get the response they had. See the [Reservation object](#reservation-object).

@@ -202,3 +202,5 @@ GET /v1/reservations?limit=100&afterId=12245
 - When `afterId` is provided, the `offset` parameter is ignored
 - Results are ordered by `updatedOn DESC, id DESC` by default
 - Since ordering is by `updatedOn`, reservations that are updated during pagination may shift between pages. For full syncs, consider using a date range filter to ensure consistency
+
+On an account whose damage protection is provided by Truvi, each reservation also carries a `damageProtection` object with its screening. Other accounts, including Safely ones, get the response they had. See the [Reservation object](#reservation-object).
