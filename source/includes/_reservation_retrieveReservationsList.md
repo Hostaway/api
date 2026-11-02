@@ -203,4 +203,4 @@ GET /v1/reservations?limit=100&afterId=12245
 - Results are ordered by `updatedOn DESC, id DESC` by default
 - Since ordering is by `updatedOn`, reservations that are updated during pagination may shift between pages. For full syncs, consider using a date range filter to ensure consistency
 
-On an account whose damage protection is provided by Truvi, each reservation also carries a `damageProtection` object with its screening. Other accounts, including Safely ones, get the response they had. See the [Reservation object](#reservation-object).
+Each reservation also carries `protectionProviders`, an array with one object per damage-protection provider that covers it, empty for an account without insurance. See the [Reservation object](#reservation-object).
