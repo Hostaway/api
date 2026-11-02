@@ -341,11 +341,11 @@ The entry of `protectionProviders` whose `provider` is `safely`, built from the 
 | Property         | Type   | Description |
 |------------------|--------|-------------|
 | `provider`       | string | `safely`. |
-| `status`         | string | Safely's status as stored: `pending`, `accepted`, `rejected`, `flagged`, `cancelled` or `not_eligible`. The flat `insuranceStatus` maps `accepted` to `insured`; this field does not. |
+| `status`         | string | Safely's status as stored: `pending`, `accepted`, `rejected`, `flagged`, `cancelled` or `not_eligible`. A reservation that is no longer active (cancelled, declined, expired) is `not_eligible` whatever Safely last reported, with every other field `null`, as the flat `insuranceStatus` does. The flat field maps `accepted` to `insured`; this field does not. |
 | `claimStatus`    | string | `claim_started`, `claim_approved`, `claim_rejected`, `claim_draft`, `claim_paid`, `claim_withdrawn`, or `null` without a claim. |
 | `policyId`       | string | The external id of the Safely policy, the value of `insurancePolicyId`. `null` without a policy. |
-| `screeningDate`  | string | When the reservation was first sent to Safely, UTC, format `Y-m-d H:i:s`. Safely answers later by webhook, so unlike Truvi's this date is set while `status` is still `pending`. |
-| `reportDamageBy` | string | The claim deadline Safely reported, format `Y-m-d`. `null` when it reported none. |
+| `screeningDate`  | string | When Hostaway started tracking the reservation with Safely, UTC, format `Y-m-d H:i:s`: usually when it was sent, later when Safely reported a reservation Hostaway did not track yet. The value of the flat `insuranceStatusUpdatedOn`. Safely answers later by webhook, so unlike Truvi's this date is set while `status` is still `pending`. |
+| `reportDamageBy` | string | The claim deadline Safely reported, format `Y-m-d`. `null` unless the stay is covered (`status` is `accepted` or `flagged`), or when Safely reported none. |
 | `coverageStart`  | string | The covered check-in, format `Y-m-d`, the value of `insuranceCoverageStart`. |
 | `coverageEnd`    | string | The covered check-out, format `Y-m-d`, the value of `insuranceCoverageEnd`. |
 | `policy`         | object | The account policy the reservation is covered under: `policyId` (the internal id), `isActive`, `policyStartDate` and `policyEndDate` (format `Y-m-d`). `null` without a policy. |
