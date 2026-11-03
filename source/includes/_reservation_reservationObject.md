@@ -100,14 +100,20 @@
     "insuranceStatus": "insured",
     "claimStatus": "claim_started",
     "insurancePolicyId": 6,
-    "damageProtection": {
-        "provider": "truvi",
-        "status": "flagged",
-        "pricingBasis": "per_night",
-        "flaggedReason": "Invalid phone",
-        "errorCode": null,
-        "notSentReason": null
-    },
+    "protectionProviders": [
+        {
+            "provider": "truvi",
+            "status": "flagged",
+            "pricingBasis": "per_night",
+            "flaggedReason": "Invalid phone",
+            "errorCode": null,
+            "notSentReason": null,
+            "screeningDate": "2026-10-20 14:03:11",
+            "reportDamageBy": "2026-12-05",
+            "coverageStart": "2026-10-30",
+            "coverageEnd": "2026-11-05"
+        }
+    ],
     "cancellationPolicyId": 9,
     "cancellationPolicy": "moderate",
     "bookingCancellationPolicy": null,
@@ -295,7 +301,7 @@
 | `insuranceStatus`                       | no       | string   | Can be one of the following: `insured`, `pending`, `rejected`, `not_eligible`                                                                                                                                                                           |
 | `claimStatus`                           | no       | string   | Can be one of the following: `claim_started`, `claim_approved`, `claim_rejected`, `claim_draft`, `claim_paid`, `claim_withdrawn` and `null` when claim status not found.                                                                                |
 | `insurancePolicyId`                     | no       | string   | Insurance external policyID                                                                                                                                                                                                                             |
-| `damageProtection`                      | no       | object   | Read-only. The reservation's damage-protection screening by Truvi. Returned for an account whose damage protection is provided by Truvi, once its Truvi onboarding is complete, wherever the Reservation object is sent: the reservation endpoints, the calendar with `includeResources=1`, and the reservation and unified webhooks. Absent otherwise, including for Safely accounts. A webhook carries the screening as it was when the webhook was sent; a new screening result does not send a webhook on its own. `insuranceStatus` is unaffected. See [Damage protection object](#damage-protection-object). Ignored when sent to create or update. |
+| `protectionProviders`                   | no       | array    | Read-only. The reservation's damage protection, one object per provider that covers the reservation: a [Truvi object](#truvi-protection-object) for an account whose damage protection is provided by Truvi, once its Truvi onboarding is complete; a [Safely object](#safely-protection-object) for a reservation Safely has a status for. Returned wherever the Reservation object is sent: the reservation endpoints, the calendar with `includeResources=1`, and the reservation and unified webhooks. An empty array for an account without insurance, or when the API key may not read insurance. A webhook carries the screening as it was when the webhook was sent; a new screening result does not send a webhook on its own. The flat `insuranceStatus`, `claimStatus`, `insurancePolicyId`, `insuranceCoverageStart` and `insuranceCoverageEnd` fields are unaffected. Ignored when sent to create or update. |
 | `cancellationPolicyId`                  | no       | int      | Cancellation Policy Id of the reservation. [Cancellation Policies](#cancellation-policies). **Note:** this is a foreign key to a policy row that can be edited after the booking, so it may no longer reflect the terms the guest booked under. For the authoritative policy, use `cancellationPolicyDetails`. |
 | `cancellationPolicy`                    | no       | string   | Cancellation policy name applied to the reservation (e.g. `moderate`, `strict`, `flexible`). Mirrors the channel's policy label when available.                                                                                                         |
 | `bookingCancellationPolicy`             | no       | string   | Booking.com channel-specific cancellation policy code (e.g. `"13"`), stored as the raw code returned by Booking.com. Populated only for Booking.com reservations; `null` otherwise. Returned only when `includeCancellationPolicy=1` is passed; always included on [Retrieve a reservation](#retrieve-a-reservation) and on create/update/cancel responses. |
@@ -311,13 +317,37 @@
 | `bookingcomNoShowReportedAt`            | no       | datetime | Timestamp a Booking.com no-show was reported for this reservation, format `Y-m-d H:i:s` in the account timezone. `null` when no no-show has been reported. Returned by [Retrieve a reservation](#retrieve-a-reservation) only when `includeResources=1` is passed. |
 | `bookingcomNoShowFeeWaived`             | no       | bool     | Whether the reported Booking.com no-show fee was waived (`true`) or charged (`false`). `null` when no no-show has been reported. Returned by [Retrieve a reservation](#retrieve-a-reservation) only when `includeResources=1` is passed. |
 
-### Damage protection object
+### Truvi protection object
 
-| Property        | Type   | Description |
-|-----------------|--------|-------------|
-| `provider`      | string | The damage-protection provider: `truvi`. |
-| `status`        | string | `pending` (sent to Truvi, waiting for the result; when a send failed, `errorCode` says why), `accepted` (Truvi approved the guest, the stay is covered), `flagged` (approved with a warning given in `flaggedReason`, the stay is covered), `rejected` (Truvi rejected the guest, the stay is not covered), `cancelled` (Hostaway cancelled the screening at Truvi before check-in, for example because damage protection was turned off for the account or the Hostaway subscription ended; the stay is not covered), or `null` when the reservation has not been sent for screening, with `notSentReason` saying why. |
-| `pricingBasis`  | string | The pricing basis stored for this reservation when it was sent: `per_booking` (one price per stay) or `per_night` (a price per night). It does not change when the account's basis changes later. `null` while the reservation has not been sent. |
-| `flaggedReason` | string | Truvi's reason for flagging the guest, for example `Invalid phone, Invalid email`. Only when `status` is `flagged`, otherwise `null`. |
+The entry of `protectionProviders` whose `provider` is `truvi`.
+
+| Property         | Type   | Description |
+|------------------|--------|-------------|
+| `provider`       | string | `truvi`. |
+| `status`         | string | `pending` (sent to Truvi, waiting for the result; when a send failed, `errorCode` says why), `accepted` (Truvi approved the guest, the stay is covered), `flagged` (approved with a warning given in `flaggedReason`, the stay is covered), `rejected` (Truvi rejected the guest, the stay is not covered), `cancelled` (Hostaway cancelled the screening at Truvi before check-in, for example because damage protection was turned off for the account or the Hostaway subscription ended; the stay is not covered), or `null` when the reservation has not been sent for screening, with `notSentReason` saying why. |
+| `pricingBasis`   | string | The pricing basis stored for this reservation when it was sent: `per_booking` (one price per stay) or `per_night` (a price per night). It does not change when the account's basis changes later. `null` while the reservation has not been sent. |
+| `flaggedReason`  | string | Truvi's reason for flagging the guest, for example `Invalid phone, Invalid email`. Only when `status` is `flagged`, otherwise `null`. |
+| `screeningDate`  | string | When the screening result arrived, UTC, format `Y-m-d H:i:s`. `null` while the reservation has not been screened. |
+| `reportDamageBy` | string | The last day to report a damage, 30 days after `coverageEnd`, format `Y-m-d`. `null` unless the stay is covered (`status` is `accepted` or `flagged`). |
+| `coverageStart`  | string | The check-in sent to Truvi, format `Y-m-d`. It can differ from the reservation's own dates: a check-in in the past is sent as today. `null` while the reservation has not been sent. |
+| `coverageEnd`    | string | The check-out sent to Truvi, format `Y-m-d`: a check-out moved after the stay ended is sent as today, and a change after the original check-out does not reach Truvi at all. `null` while the reservation has not been sent. |
 | `errorCode`     | string | Why the latest send failed, otherwise `null`: `unavailable` (Truvi could not be reached or did not answer in time; retried automatically), `rate_limited` (Truvi asked to slow down; retried automatically), `invalid_phone` (Truvi rejected the guest's phone number), `rejected_request` (Truvi rejected the request as invalid, for example missing or malformed reservation data), `already_verified` (Truvi already holds a screening for this reservation; Hostaway checks it), `not_found` (Truvi does not know the screening Hostaway asked about; sent again on the next change to the reservation), `not_configured` (Hostaway's connection to Truvi is not set up correctly; Hostaway handles it), `unexpected_response` (Truvi's answer could not be read; Hostaway handles it). |
 | `notSentReason` | string | Why the reservation has not been sent, only when `status` is `null`: `not_confirmed` (an inquiry, a booking request, a booking awaiting payment, or a cancelled, declined or expired one; sent once it becomes `new`, `modified` or `confirmed`), `owner_stay` (owner stays are not screened), `channel_not_selected` (Truvi does not screen the channel, or the account did not select it), `listing_not_covered` (the listing is not eligible for Truvi, or the account did not select it), `booked_before_activation` (booked before damage protection started for the account), `check_out_not_after_check_in`, `guest_contact_missing` (the contact the channel requires is missing: an email for Airbnb and Booking.com, a phone for Vrbo, Expedia, Marriott and Google, an email or a phone for direct bookings; sent once it is added), `account_not_active` (damage protection is turned off for the account), `no_pricing_basis` (the account has no pricing basis set), `currency_not_supported` (the account's billing currency is not USD, EUR, GBP, CAD or AUD), `check_in_passed` (a reservation can be sent until 12:00 UTC on the day after check-in). `null` together with a `null` `status` means the reservation qualifies and is waiting to be sent: usually for a few seconds, longer when it was not changed since it started to qualify, until its next change. |
+
+### Safely protection object
+
+The entry of `protectionProviders` whose `provider` is `safely`, built from the same data as the flat `insuranceStatus`, `claimStatus`, `insurancePolicyId`, `insuranceCoverageStart` and `insuranceCoverageEnd` fields. Present when Safely has a status for the reservation.
+
+| Property         | Type   | Description |
+|------------------|--------|-------------|
+| `provider`       | string | `safely`. |
+| `status`         | string | Safely's status as stored: `pending`, `accepted`, `rejected`, `flagged`, `cancelled` or `not_eligible`. A reservation that is no longer active (cancelled, declined, expired) is `not_eligible` whatever Safely last reported, with every other field `null`, as the flat `insuranceStatus` does. The flat field maps `accepted` to `insured`; this field does not. |
+| `claimStatus`    | string | `claim_started`, `claim_approved`, `claim_rejected`, `claim_draft`, `claim_paid`, `claim_withdrawn`, or `null` without a claim. |
+| `policyId`       | string | The external id of the Safely policy, the value of `insurancePolicyId`. `null` without a policy. |
+| `screeningDate`  | string | When Hostaway started tracking the reservation with Safely, UTC, format `Y-m-d H:i:s`: usually when it was sent, later when Safely reported a reservation Hostaway did not track yet. The value of the flat `insuranceStatusUpdatedOn`. Safely answers later by webhook, so unlike Truvi's this date is set while `status` is still `pending`. |
+| `reportDamageBy` | string | The claim deadline Safely reported, format `Y-m-d`. `null` unless the stay is covered (`status` is `accepted` or `flagged`), or when Safely reported none. |
+| `coverageStart`  | string | The covered check-in, format `Y-m-d`, the value of `insuranceCoverageStart`. |
+| `coverageEnd`    | string | The covered check-out, format `Y-m-d`, the value of `insuranceCoverageEnd`. |
+| `policy`         | object | The account policy the reservation is covered under: `policyId` (the internal id), `isActive`, `policyStartDate` and `policyEndDate` (format `Y-m-d`). `null` without a policy. |
+| `requestedAmount` | string | The claim amount requested, as Safely reported it. `null` without a claim. |
+| `paidAmount`     | string | The claim amount paid, as Safely reported it. `null` while nothing was paid. |
