@@ -5,5 +5,8 @@ All webhook requests from Hostaway originate from a fixed set of IP addresses. I
 - `52.37.159.97`
 - `52.32.104.6`
 - `54.212.209.218`
+- `3.135.58.122`
+- `3.129.134.139`
+- `3.128.69.16`
 
 These addresses apply to every webhook (unified webhooks for all events, and the **deprecated** reservation and conversation webhooks). We will announce any change to this list in advance, so make sure you keep it up to date.

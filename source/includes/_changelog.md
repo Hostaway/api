@@ -1,5 +1,8 @@
 ## Changelog
 
+**2026-11-03**
+- Added three [source IP addresses](#source-ip-addresses) that webhooks are sent from: `3.135.58.122`, `3.129.134.139` and `3.128.69.16`. If your webhook endpoint is behind a firewall, add them to your allowlist, or deliveries from them are blocked.
+
 **2026-10-27**
 - Added `damageProtection` to the [Reservation object](#reservation-object), for accounts whose damage protection is provided by Truvi (once onboarding is complete). Every response and webhook that sends the Reservation object carries it: [Retrieve a reservation](#retrieve-a-reservation), [Retrieve a reservations list](#retrieve-a-reservations-list), the create, update and cancel responses, the calendar with `includeResources=1`, and the reservation and unified webhooks. It is an object with the screening `status` (`pending`, `accepted`, `flagged`, `rejected`, `cancelled`, or `null` while not sent), the `pricingBasis` stored for the reservation (`per_booking` or `per_night`), `flaggedReason`, the `errorCode` of a failed send, and the `notSentReason` of a reservation that was not sent; see [Damage protection object](#damage-protection-object) for every value. Accounts without Truvi, including Safely ones, get the response they had: the key is absent. `insuranceStatus` is unaffected. It is ignored when sent to create or update.
 
