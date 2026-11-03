@@ -492,8 +492,11 @@ Now you will need to pass an extra query parameter <code class="prettyprint">inc
 
           <h2 id="changelog">Changelog</h2>
 
+<p><strong>2026-11-03</strong>
+- Replaced <code class="prettyprint">damageProtection</code> on the <a href="#reservation-object">Reservation object</a> with <code class="prettyprint">protectionProviders</code>, an array with one object per damage-protection provider that covers the reservation. The <a href="#truvi-protection-object">Truvi object</a> carries what <code class="prettyprint">damageProtection</code> carried (<code class="prettyprint">provider</code>, <code class="prettyprint">status</code>, <code class="prettyprint">pricingBasis</code>, <code class="prettyprint">flaggedReason</code>, <code class="prettyprint">errorCode</code>, <code class="prettyprint">notSentReason</code>) and four new fields: <code class="prettyprint">screeningDate</code> (when the screening result arrived), <code class="prettyprint">reportDamageBy</code> (the last day to report a damage, 30 days after the covered check-out, only while the stay is covered), <code class="prettyprint">coverageStart</code> and <code class="prettyprint">coverageEnd</code> (the stay as sent to Truvi, which can differ from the reservation&rsquo;s dates after a late change). A Safely reservation now gets a <a href="#safely-protection-object">Safely object</a> too, with its status, claim status, policy id and account policy, the date it was first sent to Safely, the covered dates, the claim deadline and the claim amounts Safely reported; the flat <code class="prettyprint">insuranceStatus</code>, <code class="prettyprint">claimStatus</code>, <code class="prettyprint">insurancePolicyId</code>, <code class="prettyprint">insuranceCoverageStart</code> and <code class="prettyprint">insuranceCoverageEnd</code> fields are unchanged. <code class="prettyprint">protectionProviders</code> is returned wherever <code class="prettyprint">damageProtection</code> was, and is an empty array for an account without insurance. <code class="prettyprint">damageProtection</code> is no longer returned: no account had received it yet, since Truvi damage protection had not gone live.</p>
+
 <p><strong>2026-10-27</strong>
-- Added <code class="prettyprint">damageProtection</code> to the <a href="#reservation-object">Reservation object</a>, for accounts whose damage protection is provided by Truvi (once onboarding is complete). Every response and webhook that sends the Reservation object carries it: <a href="#retrieve-a-reservation">Retrieve a reservation</a>, <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a>, the create, update and cancel responses, the calendar with <code class="prettyprint">includeResources=1</code>, and the reservation and unified webhooks. It is an object with the screening <code class="prettyprint">status</code> (<code class="prettyprint">pending</code>, <code class="prettyprint">accepted</code>, <code class="prettyprint">flagged</code>, <code class="prettyprint">rejected</code>, <code class="prettyprint">cancelled</code>, or <code class="prettyprint">null</code> while not sent), the <code class="prettyprint">pricingBasis</code> stored for the reservation (<code class="prettyprint">per_booking</code> or <code class="prettyprint">per_night</code>), <code class="prettyprint">flaggedReason</code>, the <code class="prettyprint">errorCode</code> of a failed send, and the <code class="prettyprint">notSentReason</code> of a reservation that was not sent; see <a href="#damage-protection-object">Damage protection object</a> for every value. Accounts without Truvi, including Safely ones, get the response they had: the key is absent. <code class="prettyprint">insuranceStatus</code> is unaffected. It is ignored when sent to create or update.</p>
+- Added <code class="prettyprint">damageProtection</code> to the <a href="#reservation-object">Reservation object</a>, for accounts whose damage protection is provided by Truvi (once onboarding is complete). Every response and webhook that sends the Reservation object carries it: <a href="#retrieve-a-reservation">Retrieve a reservation</a>, <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a>, the create, update and cancel responses, the calendar with <code class="prettyprint">includeResources=1</code>, and the reservation and unified webhooks. It is an object with the screening <code class="prettyprint">status</code> (<code class="prettyprint">pending</code>, <code class="prettyprint">accepted</code>, <code class="prettyprint">flagged</code>, <code class="prettyprint">rejected</code>, <code class="prettyprint">cancelled</code>, or <code class="prettyprint">null</code> while not sent), the <code class="prettyprint">pricingBasis</code> stored for the reservation (<code class="prettyprint">per_booking</code> or <code class="prettyprint">per_night</code>), <code class="prettyprint">flaggedReason</code>, the <code class="prettyprint">errorCode</code> of a failed send, and the <code class="prettyprint">notSentReason</code> of a reservation that was not sent; see <a href="#truvi-protection-object">Truvi protection object</a> for every value. Accounts without Truvi, including Safely ones, get the response they had: the key is absent. <code class="prettyprint">insuranceStatus</code> is unaffected. It is ignored when sent to create or update.</p>
 
 <p><strong>2026-10-05</strong>
 - Marked the fields of the <a href="#listing-object">Listing object</a> that <a href="#create-a-listing">Create a listing</a> and <a href="#update-a-listing">Update a listing</a> do not set. They were documented like the writable fields, and sending them has been ignored without an error: the request returns <code class="prettyprint">success</code> and the stored value stays as it was. The ones most likely to be sent are <code class="prettyprint">bookingCancellationPolicyId</code>, <code class="prettyprint">marriottCancellationPolicyId</code>, <code class="prettyprint">vrboCancellationPolicyId</code> and the five channel markups (<code class="prettyprint">partnersListingMarkup</code>, <code class="prettyprint">airbnbOfficialListingMarkup</code>, <code class="prettyprint">bookingEngineMarkup</code>, <code class="prettyprint">homeawayApiMarkup</code>, <code class="prettyprint">marriottListingMarkup</code>). Nothing about the API changed; only the reference was wrong.
@@ -6842,14 +6845,20 @@ print(data.decode("utf-8"))
     </span><span class="nl">"insuranceStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"insured"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"claimStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"claim_started"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"insurancePolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"damageProtection"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"truvi"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flagged"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"pricingBasis"</span><span class="p">:</span><span class="w"> </span><span class="s2">"per_night"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"flaggedReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid phone"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"notSentReason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"protectionProviders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"truvi"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flagged"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"pricingBasis"</span><span class="p">:</span><span class="w"> </span><span class="s2">"per_night"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"flaggedReason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid phone"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"notSentReason"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"screeningDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-20 14:03:11"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"reportDamageBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-12-05"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"coverageStart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-30"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"coverageEnd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-11-05"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="nl">"cancellationPolicyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
     </span><span class="nl">"cancellationPolicy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moderate"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"bookingCancellationPolicy"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -7568,10 +7577,10 @@ print(data.decode("utf-8"))
 <td>Insurance external policyID</td>
 </tr>
 <tr>
-<td><code class="prettyprint">damageProtection</code></td>
+<td><code class="prettyprint">protectionProviders</code></td>
 <td>no</td>
-<td>object</td>
-<td>Read-only. The reservation&rsquo;s damage-protection screening by Truvi. Returned for an account whose damage protection is provided by Truvi, once its Truvi onboarding is complete, wherever the Reservation object is sent: the reservation endpoints, the calendar with <code class="prettyprint">includeResources=1</code>, and the reservation and unified webhooks. Absent otherwise, including for Safely accounts. A webhook carries the screening as it was when the webhook was sent; a new screening result does not send a webhook on its own. <code class="prettyprint">insuranceStatus</code> is unaffected. See <a href="#damage-protection-object">Damage protection object</a>. Ignored when sent to create or update.</td>
+<td>array</td>
+<td>Read-only. The reservation&rsquo;s damage protection, one object per provider that covers the reservation: a <a href="#truvi-protection-object">Truvi object</a> for an account whose damage protection is provided by Truvi, once its Truvi onboarding is complete; a <a href="#safely-protection-object">Safely object</a> for a reservation Safely has a status for. Returned wherever the Reservation object is sent: the reservation endpoints, the calendar with <code class="prettyprint">includeResources=1</code>, and the reservation and unified webhooks. An empty array for an account without insurance, or when the API key may not read insurance. A webhook carries the screening as it was when the webhook was sent; a new screening result does not send a webhook on its own. The flat <code class="prettyprint">insuranceStatus</code>, <code class="prettyprint">claimStatus</code>, <code class="prettyprint">insurancePolicyId</code>, <code class="prettyprint">insuranceCoverageStart</code> and <code class="prettyprint">insuranceCoverageEnd</code> fields are unaffected. Ignored when sent to create or update.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">cancellationPolicyId</code></td>
@@ -7659,7 +7668,9 @@ print(data.decode("utf-8"))
 </tr>
 </tbody></table>
 
-<h3 id="damage-protection-object">Damage protection object</h3>
+<h3 id="truvi-protection-object">Truvi protection object</h3>
+
+<p>The entry of <code class="prettyprint">protectionProviders</code> whose <code class="prettyprint">provider</code> is <code class="prettyprint">truvi</code>.</p>
 
 <table><thead>
 <tr>
@@ -7671,7 +7682,7 @@ print(data.decode("utf-8"))
 <tr>
 <td><code class="prettyprint">provider</code></td>
 <td>string</td>
-<td>The damage-protection provider: <code class="prettyprint">truvi</code>.</td>
+<td><code class="prettyprint">truvi</code>.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">status</code></td>
@@ -7689,6 +7700,26 @@ print(data.decode("utf-8"))
 <td>Truvi&rsquo;s reason for flagging the guest, for example <code class="prettyprint">Invalid phone, Invalid email</code>. Only when <code class="prettyprint">status</code> is <code class="prettyprint">flagged</code>, otherwise <code class="prettyprint">null</code>.</td>
 </tr>
 <tr>
+<td><code class="prettyprint">screeningDate</code></td>
+<td>string</td>
+<td>When the screening result arrived, UTC, format <code class="prettyprint">Y-m-d H:i:s</code>. <code class="prettyprint">null</code> while the reservation has not been screened.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">reportDamageBy</code></td>
+<td>string</td>
+<td>The last day to report a damage, 30 days after <code class="prettyprint">coverageEnd</code>, format <code class="prettyprint">Y-m-d</code>. <code class="prettyprint">null</code> unless the stay is covered (<code class="prettyprint">status</code> is <code class="prettyprint">accepted</code> or <code class="prettyprint">flagged</code>).</td>
+</tr>
+<tr>
+<td><code class="prettyprint">coverageStart</code></td>
+<td>string</td>
+<td>The check-in sent to Truvi, format <code class="prettyprint">Y-m-d</code>. It can differ from the reservation&rsquo;s own dates: a check-in in the past is sent as today. <code class="prettyprint">null</code> while the reservation has not been sent.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">coverageEnd</code></td>
+<td>string</td>
+<td>The check-out sent to Truvi, format <code class="prettyprint">Y-m-d</code>: a check-out moved after the stay ended is sent as today, and a change after the original check-out does not reach Truvi at all. <code class="prettyprint">null</code> while the reservation has not been sent.</td>
+</tr>
+<tr>
 <td><code class="prettyprint">errorCode</code></td>
 <td>string</td>
 <td>Why the latest send failed, otherwise <code class="prettyprint">null</code>: <code class="prettyprint">unavailable</code> (Truvi could not be reached or did not answer in time; retried automatically), <code class="prettyprint">rate_limited</code> (Truvi asked to slow down; retried automatically), <code class="prettyprint">invalid_phone</code> (Truvi rejected the guest&rsquo;s phone number), <code class="prettyprint">rejected_request</code> (Truvi rejected the request as invalid, for example missing or malformed reservation data), <code class="prettyprint">already_verified</code> (Truvi already holds a screening for this reservation; Hostaway checks it), <code class="prettyprint">not_found</code> (Truvi does not know the screening Hostaway asked about; sent again on the next change to the reservation), <code class="prettyprint">not_configured</code> (Hostaway&rsquo;s connection to Truvi is not set up correctly; Hostaway handles it), <code class="prettyprint">unexpected_response</code> (Truvi&rsquo;s answer could not be read; Hostaway handles it).</td>
@@ -7697,6 +7728,74 @@ print(data.decode("utf-8"))
 <td><code class="prettyprint">notSentReason</code></td>
 <td>string</td>
 <td>Why the reservation has not been sent, only when <code class="prettyprint">status</code> is <code class="prettyprint">null</code>: <code class="prettyprint">not_confirmed</code> (an inquiry, a booking request, a booking awaiting payment, or a cancelled, declined or expired one; sent once it becomes <code class="prettyprint">new</code>, <code class="prettyprint">modified</code> or <code class="prettyprint">confirmed</code>), <code class="prettyprint">owner_stay</code> (owner stays are not screened), <code class="prettyprint">channel_not_selected</code> (Truvi does not screen the channel, or the account did not select it), <code class="prettyprint">listing_not_covered</code> (the listing is not eligible for Truvi, or the account did not select it), <code class="prettyprint">booked_before_activation</code> (booked before damage protection started for the account), <code class="prettyprint">check_out_not_after_check_in</code>, <code class="prettyprint">guest_contact_missing</code> (the contact the channel requires is missing: an email for Airbnb and Booking.com, a phone for Vrbo, Expedia, Marriott and Google, an email or a phone for direct bookings; sent once it is added), <code class="prettyprint">account_not_active</code> (damage protection is turned off for the account), <code class="prettyprint">no_pricing_basis</code> (the account has no pricing basis set), <code class="prettyprint">currency_not_supported</code> (the account&rsquo;s billing currency is not USD, EUR, GBP, CAD or AUD), <code class="prettyprint">check_in_passed</code> (a reservation can be sent until 12:00 UTC on the day after check-in). <code class="prettyprint">null</code> together with a <code class="prettyprint">null</code> <code class="prettyprint">status</code> means the reservation qualifies and is waiting to be sent: usually for a few seconds, longer when it was not changed since it started to qualify, until its next change.</td>
+</tr>
+</tbody></table>
+
+<h3 id="safely-protection-object">Safely protection object</h3>
+
+<p>The entry of <code class="prettyprint">protectionProviders</code> whose <code class="prettyprint">provider</code> is <code class="prettyprint">safely</code>, built from the same data as the flat <code class="prettyprint">insuranceStatus</code>, <code class="prettyprint">claimStatus</code>, <code class="prettyprint">insurancePolicyId</code>, <code class="prettyprint">insuranceCoverageStart</code> and <code class="prettyprint">insuranceCoverageEnd</code> fields. Present when Safely has a status for the reservation.</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">provider</code></td>
+<td>string</td>
+<td><code class="prettyprint">safely</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">status</code></td>
+<td>string</td>
+<td>Safely&rsquo;s status as stored: <code class="prettyprint">pending</code>, <code class="prettyprint">accepted</code>, <code class="prettyprint">rejected</code>, <code class="prettyprint">flagged</code>, <code class="prettyprint">cancelled</code> or <code class="prettyprint">not_eligible</code>. A reservation that is no longer active (cancelled, declined, expired) is <code class="prettyprint">not_eligible</code> whatever Safely last reported, with every other field <code class="prettyprint">null</code>, as the flat <code class="prettyprint">insuranceStatus</code> does. The flat field maps <code class="prettyprint">accepted</code> to <code class="prettyprint">insured</code>; this field does not.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">claimStatus</code></td>
+<td>string</td>
+<td><code class="prettyprint">claim_started</code>, <code class="prettyprint">claim_approved</code>, <code class="prettyprint">claim_rejected</code>, <code class="prettyprint">claim_draft</code>, <code class="prettyprint">claim_paid</code>, <code class="prettyprint">claim_withdrawn</code>, or <code class="prettyprint">null</code> without a claim.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">policyId</code></td>
+<td>string</td>
+<td>The external id of the Safely policy, the value of <code class="prettyprint">insurancePolicyId</code>. <code class="prettyprint">null</code> without a policy.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">screeningDate</code></td>
+<td>string</td>
+<td>When Hostaway started tracking the reservation with Safely, UTC, format <code class="prettyprint">Y-m-d H:i:s</code>: usually when it was sent, later when Safely reported a reservation Hostaway did not track yet. The value of the flat <code class="prettyprint">insuranceStatusUpdatedOn</code>. Safely answers later by webhook, so unlike Truvi&rsquo;s this date is set while <code class="prettyprint">status</code> is still <code class="prettyprint">pending</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">reportDamageBy</code></td>
+<td>string</td>
+<td>The claim deadline Safely reported, format <code class="prettyprint">Y-m-d</code>. <code class="prettyprint">null</code> unless the stay is covered (<code class="prettyprint">status</code> is <code class="prettyprint">accepted</code> or <code class="prettyprint">flagged</code>), or when Safely reported none.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">coverageStart</code></td>
+<td>string</td>
+<td>The covered check-in, format <code class="prettyprint">Y-m-d</code>, the value of <code class="prettyprint">insuranceCoverageStart</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">coverageEnd</code></td>
+<td>string</td>
+<td>The covered check-out, format <code class="prettyprint">Y-m-d</code>, the value of <code class="prettyprint">insuranceCoverageEnd</code>.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">policy</code></td>
+<td>object</td>
+<td>The account policy the reservation is covered under: <code class="prettyprint">policyId</code> (the internal id), <code class="prettyprint">isActive</code>, <code class="prettyprint">policyStartDate</code> and <code class="prettyprint">policyEndDate</code> (format <code class="prettyprint">Y-m-d</code>). <code class="prettyprint">null</code> without a policy.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">requestedAmount</code></td>
+<td>string</td>
+<td>The claim amount requested, as Safely reported it. <code class="prettyprint">null</code> without a claim.</td>
+</tr>
+<tr>
+<td><code class="prettyprint">paidAmount</code></td>
+<td>string</td>
+<td>The claim amount paid, as Safely reported it. <code class="prettyprint">null</code> while nothing was paid.</td>
 </tr>
 </tbody></table>
 
@@ -8341,7 +8440,7 @@ GET /v1/reservations?limit=100&amp;afterId=12245
 <li>Since ordering is by <code class="prettyprint">updatedOn</code>, reservations that are updated during pagination may shift between pages. For full syncs, consider using a date range filter to ensure consistency</li>
 </ul>
 
-<p>On an account whose damage protection is provided by Truvi, each reservation also carries a <code class="prettyprint">damageProtection</code> object with its screening. Other accounts, including Safely ones, get the response they had. See the <a href="#reservation-object">Reservation object</a>.</p>
+<p>Each reservation also carries <code class="prettyprint">protectionProviders</code>, an array with one object per damage-protection provider that covers it, empty for an account without insurance. See the <a href="#reservation-object">Reservation object</a>.</p>
 
           <h2 id="retrieve-a-reservation">Retrieve a reservation</h2>
 
@@ -8426,7 +8525,7 @@ GET /v1/reservations?limit=100&amp;afterId=12245
 
 <p>This endpoint always includes the cancellation policy fields — <code class="prettyprint">cancellationPolicyDetails</code> (the immutable policy snapshot captured at booking time) and the channel-specific cancellation policy codes (<code class="prettyprint">bookingCancellationPolicy</code>, <code class="prettyprint">vrboCancellationPolicy</code>, <code class="prettyprint">marriottCancellationPolicy</code>) — without requiring the <code class="prettyprint">includeCancellationPolicy</code> parameter. The same applies to the create, update and cancel reservation responses. On the <a href="#retrieve-a-reservations-list">Retrieve a reservations list</a> endpoint these fields are opt-in via <code class="prettyprint">?includeCancellationPolicy=1</code>.</p>
 
-<p>On an account whose damage protection is provided by Truvi, the reservation also carries a <code class="prettyprint">damageProtection</code> object with its screening: the status, the stored pricing basis, the flagged reason, the error of a failed send, or why it was not sent. Other accounts, including Safely ones, get the response they had. See the <a href="#reservation-object">Reservation object</a>.</p>
+<p>The reservation also carries <code class="prettyprint">protectionProviders</code>, an array with one object per damage-protection provider that covers it: the status, the screening date, the covered dates, the last day to report a damage, and for Truvi the stored pricing basis, the flagged reason, the error of a failed send, or why it was not sent. The array is empty for an account without insurance. See the <a href="#reservation-object">Reservation object</a>.</p>
 
           <h2 id="retrieve-reservation-logs">Retrieve reservation logs</h2>
 
