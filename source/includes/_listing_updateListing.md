@@ -333,7 +333,7 @@ Only fields that can be set are applied. Fields marked **Read-only** in the [Lis
 
 Sending `null` for a field, or leaving it out, keeps its current value, so a field cannot be cleared by setting it to `null`. To delete the rental agreement, send `listingAgreementText` as an empty string. `listingSettings` is replaced as a whole, so keys left out of it are reset to their defaults. The `listingAmenities`, `listingBedTypes` and `listingImages` arrays work differently, see the warning below.
 
-`isReviewActive`, `reviewChannelIds`, `isBillingDetailsActive` and `billingDetailsChannelIds` are applied only when you send them. Sending `reviewChannelIds` or `billingDetailsChannelIds` replaces the whole stored list, and an empty array means every channel. A value that is not accepted fails the request with **400** and nothing is saved. See [Per-channel guest portal settings](#per-channel-guest-portal-settings).
+`rentalAgreementChannelIds`, `isReviewActive`, `reviewChannelIds`, `isBillingDetailsActive` and `billingDetailsChannelIds` are applied only when you send them. Sending `rentalAgreementChannelIds`, `reviewChannelIds` or `billingDetailsChannelIds` replaces the whole stored list, and an empty array means every channel. A value that is not accepted fails the request with **400** and nothing is saved. See [Per-channel guest portal settings](#per-channel-guest-portal-settings).
 ### Response
 
 The updated listing object or error response.
