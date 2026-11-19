@@ -363,6 +363,8 @@ print(data.decode("utf-8"))
 
 A listing object should be provided in the request body.
 
+A new listing gets `isReviewActive` and `isBillingDetailsActive` set to `1` and empty `reviewChannelIds` and `billingDetailsChannelIds` lists, which means every channel, unless you send them. The rules for these four fields are in [Per-channel guest portal settings](#per-channel-guest-portal-settings).
+
 ### Response
 
 The created listing object or error response.
