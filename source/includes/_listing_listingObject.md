@@ -102,6 +102,11 @@
   "homeawayApiMarkup": null,
   "marriottListingMarkup": null,
   "isRentalAgreementActive": null,
+  "rentalAgreementChannelIds": [],
+  "isReviewActive": 1,
+  "reviewChannelIds": [],
+  "isBillingDetailsActive": 1,
+  "billingDetailsChannelIds": [],
   "bookingcomPropertyRegisteredInVcs": false,
   "bookingcomPropertyHasVat": false,
   "bookingcomPropertyDeclaresRevenue": false,
@@ -281,8 +286,13 @@ The response also contains these fields, which are not in the table and are read
 | `bookingEngineMarkup`                     | no       | float             | Read-only.                                                                                                                                                          |
 | `homeawayApiMarkup`                       | no       | float             | Read-only.                                                                                                                                                          |
 | `marriottListingMarkup`                   | no       | float             | Read-only.                                                                                                                                                          |
-| `isRentalAgreementActive`                 | no       | bool              | Write-only.                                                                                                                                                         |
+| `isRentalAgreementActive`                 | no       | bool              | Write-only. Turns the rental agreement on or off. Always returned as `null`.                                                                                          |
 | `listingAgreementText`                    | no       | string            | Write-only. Text of the rental agreement. An empty string deletes the agreement, `null` keeps it.                                                                   |
+| `rentalAgreementChannelIds`               | no       | array of int      | Channels the rental agreement applies to. An empty array, the default, means every channel. See [Per-channel guest portal settings](#per-channel-guest-portal-settings). |
+| `isReviewActive`                          | no       | int (0 or 1)      | `1` asks guests for a review, `0` does not. Default `1`.                                                                                                              |
+| `reviewChannelIds`                        | no       | array of int      | Channels where guests are asked for a review. An empty array, the default, means every channel. See [Per-channel guest portal settings](#per-channel-guest-portal-settings). |
+| `isBillingDetailsActive`                  | no       | int (0 or 1)      | `1` asks guests for billing details, `0` does not. Default `1`.                                                                                                       |
+| `billingDetailsChannelIds`                | no       | array of int      | Channels where guests are asked for billing details. An empty array, the default, means every channel. See [Per-channel guest portal settings](#per-channel-guest-portal-settings). |
 | `listingAmenities`                        | no       | array             | Array of listingAmenity objects.                                                                                                                                    |
 | `listingBedTypes`                         | no       | array             | Array of listingBedType objects.                                                                                                                                    |
 | `listingImages`                           | no       | array             | Array of listingImage objects.                                                                                                                                      |
@@ -307,3 +317,36 @@ The response also contains these fields, which are not in the table and are read
 | `marriottListingName`                     | no       | string            | Listing name on Marriott                                                                                                                                            |
 | `bookingEngineUrls`                       | no       | array             | Read-only. Empty array by default, pass the query parameter `?attachObjects[]=bookingEngineUrls` to get the actual value when Retrieving the listings list or a single listing |
 | `insuranceEligibilityStatus`              | no       | bool              | Read-only. Insurance eligibility status                                                                                                                             |
+
+### Per-channel guest portal settings
+
+The guest portal asks guests to sign the rental agreement, for a review and for billing details on the channels in `rentalAgreementChannelIds`, `reviewChannelIds` and `billingDetailsChannelIds`, when the matching switch is on.
+
+- An empty list means every channel, not none. To stop asking, turn the switch off.
+- To exclude Airbnb, send the other eleven IDs.
+
+| Channel         | ID     |
+| --------------- | ------ |
+| Hostaway Direct | `2000` |
+| Vrbo            | `2002` |
+| Booking.com     | `2005` |
+| Expedia         | `2007` |
+| Homeaway iCal   | `2009` |
+| Vrbo iCal       | `2010` |
+| Booking Website | `2013` |
+| Custom iCal     | `2015` |
+| Airbnb          | `2018` |
+| Marriott        | `2019` |
+| Partners        | `2020` |
+| Google          | `2022` |
+
+On [Create a listing](#create-a-listing) and [Update a listing](#update-a-listing):
+
+- A key left out, or `null`, keeps the stored value.
+- A list replaces the stored list. `[]` clears it. A repeated ID is stored once.
+- `isReviewActive` and `isBillingDetailsActive` accept `0`, `1`, `"0"`, `"1"`, `true` and `false`. Any other value fails with **400** `isReviewActive must be 0 or 1` (or `isBillingDetailsActive must be 0 or 1`).
+- A list that is not an array of whole numbers, or that has an ID not in the table, fails with **400** `rentalAgreementChannelIds must be a list of selectable channel IDs` (or the same message with `reviewChannelIds` or `billingDetailsChannelIds`).
+- `isRentalAgreementActive` accepts `true`, `false`, `1` and `0`. Without a channel list, the agreement applies on every channel.
+- A request that fails with **400** saves nothing.
+
+The settings take effect only for accounts where Hostaway has enabled the per-channel setting for that feature. For other accounts: the rental agreement follows `isRentalAgreementActive` alone, reviews are always asked, and billing details follow the account's guest portal billing details setting. The same settings are in the dashboard, under the listing's Guest Portal tab.

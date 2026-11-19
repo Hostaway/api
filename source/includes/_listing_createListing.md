@@ -136,6 +136,7 @@ var data = JSON.stringify({
   "propertyLicenseIssueDate": null,
   "propertyLicenseExpirationDate": null, 
   "isRentalAgreementActive": true,
+  "rentalAgreementChannelIds": [2000, 2005],
   "bookingcomPropertyHasVat": true,
   "listingAgreementText": "Rental agreement text for listing",
   "listingAmenities": [
