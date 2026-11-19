@@ -132,6 +132,7 @@ var data = JSON.stringify({
   "invoicingContactZipcode": "110011",
   "invoicingContactCountry": "UK", 
   "isRentalAgreementActive": true,
+  "rentalAgreementChannelIds": [2000, 2005],
   "bookingcomPropertyHasVat": true,
   "listingAgreementText": "Rental agreement text for listing",
   "propertyLicenseNumber": null,
